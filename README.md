@@ -10,3 +10,15 @@
     brew install asdf
     brew install watchman
     brew install git-flow-avh
+
+## Npm
+
+**install**
+
+    npm install
+
+## Expo
+
+**update**
+
+    npx expo start
