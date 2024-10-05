@@ -22,3 +22,4 @@
 **update**
 
     npx expo start
+    npx expo start -c
