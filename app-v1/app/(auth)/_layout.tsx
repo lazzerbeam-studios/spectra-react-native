@@ -5,7 +5,7 @@ const AuthLayout = () => {
     <View>
       <Text>_layout</Text>
     </View>
-  )
-}
+  );
+};
 
-export default AuthLayout
+export default AuthLayout;

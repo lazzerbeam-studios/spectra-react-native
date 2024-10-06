@@ -12,6 +12,6 @@ const Index = () => {
       <Text>Edit app/index.tsx to edit this screen.</Text>
     </View>
   );
-}
+};
 
-export default Index
+export default Index;

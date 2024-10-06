@@ -5,9 +5,9 @@ const SignIn = () => {
     <View>
       <Text>SignIn</Text>
     </View>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;
 
 const styles = StyleSheet.create({});

@@ -6,6 +6,6 @@ const RootLayout = () => {
       <Stack.Screen name='index' />
     </Stack>
   );
-}
+};
 
-export default RootLayout
+export default RootLayout;
