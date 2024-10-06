@@ -5,8 +5,8 @@ const SignUp = () => {
     <View>
       <Text>SignUp</Text>
     </View>
-  )
-}
+  );
+};
 
 export default SignUp
 
