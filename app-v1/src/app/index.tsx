@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 
-import { useSlice } from '../stores/profile.store';
+import { useStore } from '../stores/profile.store';
 
 const Index = () => {
-  const { salmon, tuna, addSalmon, addTuna } = useSlice();
+  const { salmon, tuna, addSalmon, addTuna } = useStore();
 
   return (
     <View style={styles.page}>
