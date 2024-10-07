@@ -3,7 +3,9 @@ import { Text, View, StyleSheet } from 'react-native';
 const SignIn = () => {
   return (
     <View>
-      <Text>SignIn</Text>
+      <View className="flex-1 justify-center items-center">
+        <Text className="text-lg text-bubble-gum">SignIn</Text>
+      </View>
     </View>
   );
 };
