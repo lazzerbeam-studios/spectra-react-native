@@ -9,7 +9,9 @@ const Index = () => {
         justifyContent: 'center',
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text className="flex-1 items-center justify-center bg-white">
+        Edit app/index.tsx to edit this screen.
+      </Text>
     </View>
   );
 };
