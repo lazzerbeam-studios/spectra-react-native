@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { useSlice } from '../stores/profile.store';
 
 const Index = () => {
+  const { addSalmon, addTuna } = useSlice();
+
   return (
     <View style={styles.page}>
       <Text className='text-lg text-bubble-gum'>

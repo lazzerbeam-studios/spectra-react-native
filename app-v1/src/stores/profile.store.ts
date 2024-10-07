@@ -16,7 +16,7 @@ const initialState: State = {
   tuna: 0,
 }
 
-const useSlice = create<State & Actions>()((set, get) => ({
+export const useSlice = create<State & Actions>()((set, get) => ({
   ...initialState,
   addSalmon: (qty: number) => {
     set({ salmon: get().salmon + qty })
