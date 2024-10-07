@@ -10,7 +10,7 @@ const Index = () => {
     <View style={styles.page}>
 
       <Text className='text-lg text-bubble-gum'>
-        Edit app/index.tsx to edit this screen. {salmon}{tuna}
+        Edit app/index.tsx to edit this screen. {salmon} {tuna}
       </Text>
 
       <TouchableOpacity onPressIn={() => addSalmon(1)}>
