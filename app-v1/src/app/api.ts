@@ -6,6 +6,6 @@ const axiosInstance = axios.create({
   headers: { Authorization: 'YOUR_TOKEN' },
 });
 
-const authApi = new AuthApi(config, 'example.com', axiosInstance);
+const authApi = new AuthApi(config, 'http://localhost:8080', axiosInstance);
 
 export { authApi };

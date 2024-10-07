@@ -11,9 +11,12 @@ const SignIn = () => {
   const getThePet = async (id: number) => {
     try {
       const fetchedPet = await authApi.signIn({
-        email: 'ad',
-        password: '',
+        email: 'yoda@yahoo.com',
+        password: 'admin123',
       });
+
+      console.log(fetchedPet.data);
+
       setPet(fetchedPet.data);
     } catch (error) {
       console.warn(error)
