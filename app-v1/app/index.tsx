@@ -2,13 +2,7 @@ import { Text, View, StyleSheet } from 'react-native';
 
 const Index = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
+    <View style={styles.page}>
       <Text className="text-lg text-bubble-gum">
         Edit app/index.tsx to edit this screen.
       </Text>
@@ -18,4 +12,10 @@ const Index = () => {
 
 export default Index;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
