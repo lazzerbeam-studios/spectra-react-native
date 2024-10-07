@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import { useStore } from '../stores/profile.store';
 
