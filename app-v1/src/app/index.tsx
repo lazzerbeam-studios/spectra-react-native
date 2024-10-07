@@ -8,6 +8,7 @@ const Index = () => {
 
   return (
     <View style={styles.page}>
+
       <Text className='text-lg text-bubble-gum'>
         Edit app/index.tsx to edit this screen. {salmon}{tuna}
       </Text>
