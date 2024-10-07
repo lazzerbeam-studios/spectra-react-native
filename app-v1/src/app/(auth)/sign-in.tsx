@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 
-
 import { petApi } from '../api';
 
 const SignIn = () => {
@@ -27,11 +26,9 @@ const SignIn = () => {
         <Text className='text-lg text-bubble-gum'>SignIn</Text>
       </View>
 
-
-
-    <TouchableOpacity onPress={() => getThePet(1)} className='mt-4 p-2 bg-blue-500 rounded border border-black'>
-      <Text className='text-black'>Get The Pet</Text>
-    </TouchableOpacity>
+      <TouchableOpacity onPress={() => getThePet(1)} className='mt-4 p-2 bg-blue-500 rounded border border-black'>
+        <Text className='text-black'>Get The Pet</Text>
+      </TouchableOpacity>
 
     </View>
   );
