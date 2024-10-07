@@ -9,7 +9,7 @@ const Index = () => {
         justifyContent: 'center',
       }}
     >
-      <Text className="text-sm">
+      <Text className="text-lg text-bubble-gum">
         Edit app/index.tsx to edit this screen.
       </Text>
     </View>
