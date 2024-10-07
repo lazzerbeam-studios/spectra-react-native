@@ -5,7 +5,7 @@ echo $content > openapi-schema.json
 
 # rm -rf openapi
 
-# docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate -g typescript-angular -i /local/openapi-schema.json -o /local/openapi
+docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate -g typescript-axios -i /local/openapi-schema.json -o /local/openapi
 
 # rm -rf src/app/openapi
 # mkdir -p src/app/openapi
