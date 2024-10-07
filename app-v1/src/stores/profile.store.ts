@@ -1,14 +1,14 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 type State = {
-  salmon: number
-  tuna: number
+  salmon: number;
+  tuna: number;
 }
 
 type Actions = {
-  addSalmon: (qty: number) => void
-  addTuna: (qty: number) => void
-  reset: () => void
+  addSalmon: (qty: number) => void;
+  addTuna: (qty: number) => void;
+  reset: () => void;
 }
 
 const initialState: State = {
@@ -27,4 +27,4 @@ const useSlice = create<State & Actions>()((set, get) => ({
   reset: () => {
     set(initialState)
   },
-}))
+}));
