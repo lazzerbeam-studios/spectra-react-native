@@ -1,14 +1,25 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
+
 import { useSlice } from '../stores/profile.store';
 
 const Index = () => {
-  const { addSalmon, addTuna } = useSlice();
+  const { salmon, tuna, addSalmon, addTuna } = useSlice();
 
   return (
     <View style={styles.page}>
       <Text className='text-lg text-bubble-gum'>
-        Edit app/index.tsx to edit this screen.
+        Edit app/index.tsx to edit this screen. {salmon}{tuna}
       </Text>
+
+      <TouchableOpacity onPressIn={() => addSalmon(1)}>
+        <Text>Add Salmon</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPressIn={() => addTuna(1)}>
+        <Text>Add Tuna</Text>
+      </TouchableOpacity>
+
     </View>
   );
 };
