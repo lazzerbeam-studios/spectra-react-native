@@ -19,12 +19,12 @@ const initialState: State = {
 export const useStore = create<State & Actions>()((set, get) => ({
   ...initialState,
   addSalmon: (qty: number) => {
-    set({ salmon: get().salmon + qty })
+    set({ salmon: get().salmon + qty });
   },
   addTuna: (qty: number) => {
-    set({ tuna: get().tuna + qty })
+    set({ tuna: get().tuna + qty });
   },
   reset: () => {
-    set(initialState)
+    set(initialState);
   },
 }));
