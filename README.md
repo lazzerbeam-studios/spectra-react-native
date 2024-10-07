@@ -23,3 +23,5 @@
 
     npx expo start
     npx expo start -c
+
+    npx expo prebuild

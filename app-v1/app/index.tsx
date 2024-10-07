@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View } from 'react-native';
 
 const Index = () => {
   return (
@@ -9,7 +9,7 @@ const Index = () => {
         justifyContent: 'center',
       }}
     >
-      <Text className="flex-1 items-center justify-center bg-white">
+      <Text className="text-sm">
         Edit app/index.tsx to edit this screen.
       </Text>
     </View>
@@ -18,4 +18,3 @@ const Index = () => {
 
 export default Index;
 
-const styles = StyleSheet.create({});
