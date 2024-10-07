@@ -1,6 +1,7 @@
 .expo/
 
 dist/
+openapi/
 node_modules/
 
 expo-env.d.ts
