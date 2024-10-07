@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 
-import { petApi } from '../api';
+import { authApi } from '../api';
 
 const SignIn = () => {
 
@@ -10,7 +10,7 @@ const SignIn = () => {
 
   const getThePet = async (id: number) => {
     try {
-      const fetchedPet = await petApi.signUp({
+      const fetchedPet = await authApi.signIn({
         email: 'ad',
         password: '',
       });

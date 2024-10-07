@@ -8,4 +8,4 @@ const axiosInstance = axios.create({
 
 const authApi = new AuthApi(config, 'example.com', axiosInstance);
 
-export { authApi as petApi };
+export { authApi };
