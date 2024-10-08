@@ -5,7 +5,7 @@ const home = () => {
     <View>
       <Text>home</Text>
     </View>
-  )
+  );
 };
 
 export default home;
