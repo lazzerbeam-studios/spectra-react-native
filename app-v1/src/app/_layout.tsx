@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
 
-import './_global.css';
+import '../_global.css';
 
 const RootLayout = () => {
   return (
