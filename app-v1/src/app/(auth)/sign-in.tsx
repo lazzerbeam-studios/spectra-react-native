@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-import { authApi } from '../api';
+import { authApi } from '../../api';
 
 const SignIn = () => {
 
