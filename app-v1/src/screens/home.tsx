@@ -15,9 +15,9 @@ const HomeScreen = () => {
 
     // </View>
     <View className="flex flex-1 flex-row bg-purple">
-      <Text className="text-bubble-gum" style={{ backgroundColor: 'red' }}>Yeah</Text>
-      <Text className="text-bubble-gum" style={{ backgroundColor: 'darkorange' }}>Yeah</Text>
-      <Text className="text-bubble-gum" style={{ backgroundColor: 'green' }}>Yeah</Text>
+      <Text className="text-primary" style={{ backgroundColor: 'red' }}>Yeah</Text>
+      <Text className="text-secondary" style={{ backgroundColor: 'darkorange' }}>Yeah</Text>
+      <Text className="text-typography" style={{ backgroundColor: 'green' }}>Yeah</Text>
     </View>
 
   );
