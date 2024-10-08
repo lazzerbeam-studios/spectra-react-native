@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
   },
 });
 
-const apiUrl = process.env.EXPO_PUBLIC_API_URL;
+const apiUrl = process.env.EXPO_API_URL;
 
 const authApi = new AuthApi(config, apiUrl, axiosInstance);
 
