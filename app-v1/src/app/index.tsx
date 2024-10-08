@@ -6,6 +6,10 @@ import { useStore } from '../stores/profile.store';
 const Index = () => {
   const { salmon, tuna, addSalmon, addTuna } = useStore();
 
+  const apiUrl = process.env.EXPO_PUBLIC_API_URL;
+
+  console.log(apiUrl);
+
   return (
     <View style={styles.page}>
 
