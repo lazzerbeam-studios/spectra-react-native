@@ -4,7 +4,7 @@ import { authApi } from '../api';
 
 const SignIn = () => {
 
-  const getThePet = async (id: number) => {
+  const signIn = async (id: number) => {
     try {
       const fetchedPet = await authApi.signIn({
         email: 'yoda@yahoo.com',
@@ -23,7 +23,7 @@ const SignIn = () => {
         <Text className='text-lg text-bubble-gum'>SignIn</Text>
       </View>
 
-      <TouchableOpacity onPress={() => getThePet(1)} className='mt-4 p-2 bg-blue-500 rounded border border-black'>
+      <TouchableOpacity onPress={() => signIn(1)} className='mt-4 p-2 bg-blue-500 rounded border border-black'>
         <Text className='text-black'>Get The Pet</Text>
       </TouchableOpacity>
 
