@@ -4,9 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start:dev": "expo start",
-    "web": "expo start --web",
-    "ios": "expo start --ios",
-    "android": "expo start --android"
+    "start:stag": "NODE_ENV=stag expo start"
   },
   "jest": {
     "preset": "jest-expo"
