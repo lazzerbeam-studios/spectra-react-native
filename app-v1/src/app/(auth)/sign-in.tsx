@@ -1,12 +1,8 @@
-import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 import { authApi } from '../api';
 
 const SignIn = () => {
-
-  const [pet, setPet] = useState({});
 
   const getThePet = async (id: number) => {
     try {
@@ -14,17 +10,15 @@ const SignIn = () => {
         email: 'yoda@yahoo.com',
         password: 'admin123',
       });
-
       console.log(fetchedPet.data);
-
-      setPet(fetchedPet.data);
     } catch (error) {
-      console.warn(error)
+      console.log(error);
     }
   };
 
   return (
     <View>
+
       <View className='flex-1 justify-center items-center'>
         <Text className='text-lg text-bubble-gum'>SignIn</Text>
       </View>
