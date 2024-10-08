@@ -10,5 +10,10 @@
     --color-typography: #ea4335;
   }
 
-  /* @import 'dark.css'; */
+  html[data-theme="dark"] {
+    --color-primary: #0a0a0b;
+    --color-secondary: #0f1a1c;
+    --color-buttons: #201729;
+    --color-typography: #05c2ec;
+  }
 }

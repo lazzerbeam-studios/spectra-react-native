@@ -3,6 +3,9 @@ import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import '../global.css';
 
 const HomeScreen = () => {
+
+  document.querySelector("html")?.setAttribute("data-theme", 'dark');
+
   return (
     // <View className="flex-1 justify-center items-center">
 
