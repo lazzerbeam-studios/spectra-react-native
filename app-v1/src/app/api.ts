@@ -8,6 +8,8 @@ const axiosInstance = axios.create({
   },
 });
 
-const authApi = new AuthApi(config, 'http://localhost:8080', axiosInstance);
+const apiUrl = process.env.EXPO_PUBLIC_API_URL;
+
+const authApi = new AuthApi(config, apiUrl, axiosInstance);
 
 export { authApi };
