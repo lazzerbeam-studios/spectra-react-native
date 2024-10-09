@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
 
@@ -12,11 +13,11 @@ const HomeScreen = () => {
     //   <Text className='text-lg'>Welcome to Home Screen</Text>
     // </View>
 
-    <View className='flex flex-1 flex-row bg-purple'>
-      <Text className='text-primary' style={{ backgroundColor: 'red' }}>Yeah</Text>
-      <Text className='text-secondary' style={{ backgroundColor: 'darkorange' }}>Yeah</Text>
-      <Text className='text-typography' style={{ backgroundColor: 'green' }}>Yeah</Text>
-    </View>
+    <SafeAreaView className='flex flex-1 flex-row bg-primary'>
+      <Text className='text-primary' style={{ backgroundColor: 'red' }}>Yeah 1</Text>
+      <Text className='text-secondary' style={{ backgroundColor: 'darkorange' }}>Yeah 2</Text>
+      <Text className='text-typography' style={{ backgroundColor: 'green' }}>Yeah 3</Text>
+    </SafeAreaView>
 
   );
 };

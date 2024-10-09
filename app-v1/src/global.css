@@ -3,13 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  :root {
     --color-primary: #4285f4;
     --color-secondary: #34a853;
-  }
-
-  html[data-theme="dark"] {
-    --color-primary: #000000;
-    --color-secondary: #555555;
   }
 }
