@@ -20,7 +20,7 @@ const SignIn = () => {
     <View>
 
       <View className='flex-1 justify-center items-center'>
-        <Text className='text-lg text-bubble-gum'>SignIn</Text>
+        <Text className='text-lg'>Sign In</Text>
       </View>
 
       <TouchableOpacity onPress={() => signIn(1)} className='mt-4 p-2 bg-blue-500 rounded border border-black'>
