@@ -6,14 +6,10 @@
   html {
     --color-primary: #4285f4;
     --color-secondary: #34a853;
-    --color-buttons: #fbbc05;
-    --color-typography: #ea4335;
   }
 
   html[data-theme="dark"] {
-    --color-primary: #0a0a0b;
-    --color-secondary: #0f1a1c;
-    --color-buttons: #201729;
-    --color-typography: #05c2ec;
+    --color-primary: #000000;
+    --color-secondary: #555555;
   }
 }
