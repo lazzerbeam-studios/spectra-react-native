@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { useStore } from '../../stores/profile.store';
 
-const Index = () => {
+const Profile = () => {
   const { salmon, tuna, addSalmon, addTuna } = useStore();
 
   return (
@@ -33,7 +33,7 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Profile;
 
 const styles = StyleSheet.create({
   page: {
