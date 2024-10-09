@@ -9,15 +9,15 @@ const Index = () => {
   return (
     <View style={styles.page}>
 
-      <Text className='text-lg text-bubble-gum'>
+      <Text className='text-lg'>
         Profile
       </Text>
 
-      <Text className='text-lg text-bubble-gum'>
+      <Text className='text-lg'>
         {salmon}
       </Text>
 
-      <Text className='text-lg text-bubble-gum'>
+      <Text className='text-lg'>
         {tuna}
       </Text>
 
