@@ -4,14 +4,8 @@ import { Appearance } from 'react-native';
 import '../global.css';
 
 const RootLayout = () => {
-
   const colorScheme = Appearance.getColorScheme();
-  if (colorScheme === 'dark') {
-    document.querySelector('html')?.setAttribute('data-theme', 'dark');
-  } else {
-    document.querySelector('html')?.setAttribute('data-theme', '');
-  }
-
+  document.querySelector('html')?.setAttribute('data-theme', colorScheme === 'dark' ? 'dark' : '');
   return (
     <Stack>
       <Stack.Screen name='index' options={{ headerShown: false }} />
