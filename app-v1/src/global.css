@@ -8,7 +8,7 @@
     --color-secondary: #34a853;
   }
 
-  @media (prefers-color-scheme: dark) {
+  @media(prefers-color-scheme:dark) {
     :root {
       --color-primary: red;
       --color-secondary: blue;
