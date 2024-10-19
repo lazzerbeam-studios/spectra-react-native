@@ -13,10 +13,8 @@ const HomeScreen = () => {
     //   <Text className='text-lg'>Welcome to Home Screen</Text>
     // </View>
 
-    <SafeAreaView className='flex flex-1 flex-row bg-background'>
-      <Text className='text-primary' style={{ backgroundColor: 'red' }}>Yeah 1</Text>
-      <Text className='text-secondary' style={{ backgroundColor: 'darkorange' }}>Yeah 2</Text>
-      <Text className='text-typography' style={{ backgroundColor: 'green' }}>Yeah 3</Text>
+    <SafeAreaView className="bg-background justify-center items-center flex-1 flex-col">
+      <Text className='text-text'>Spectra</Text>
     </SafeAreaView>
 
   );
