@@ -4,11 +4,13 @@
 
 @layer base {
   :root {
+    --color-text: #000000;
     --color-background: #ffffff;
   }
 
   @media(prefers-color-scheme:dark) {
     :root {
+      --color-text: #ffffff;
       --color-background: #000000;
     }
   }
