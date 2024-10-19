@@ -5,13 +5,13 @@
 @layer base {
   :root {
     --color-primary: #4285f4;
-    --color-secondary: #34a853;
+    --color-background: #ffffff;
   }
 
   @media(prefers-color-scheme:dark) {
     :root {
       --color-primary: red;
-      --color-secondary: blue;
+      --color-background: #000000;
     }
   }
 }
