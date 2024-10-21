@@ -1,5 +1,6 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { Link } from 'expo-router';
 
 const HomeScreen = () => {
 
@@ -10,14 +11,15 @@ const HomeScreen = () => {
         Spectra
       </Text>
 
-      <TouchableOpacity
-        className='rounded-full border-2 border-text bg-primary p-4'
-        onPress={() => alert('Button Pressed!')}
-      >
-        <Text className='w-60 text-center text-3xl font-semibold text-primarytext'>
-          Sign Up
-        </Text>
-      </TouchableOpacity>
+      <Link href="/logged-in/profile" push asChild>
+        <TouchableOpacity
+          className='rounded-full border-2 border-text bg-primary p-4'
+        >
+          <Text className='w-60 text-center text-3xl font-semibold text-primarytext'>
+            Sign Up
+          </Text>
+        </TouchableOpacity>
+      </Link>
 
     </SafeAreaView>
   );
