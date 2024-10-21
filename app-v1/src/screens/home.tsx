@@ -21,16 +21,6 @@ const HomeScreen = () => {
         </TouchableOpacity>
       </Link>
 
-      {/* <Link href="/sign-in" push asChild>
-        <TouchableOpacity
-          className='rounded-full border-2 border-text bg-primary p-4'
-        >
-          <Text className='w-60 text-center text-3xl font-semibold text-primarytext'>
-            Sign In
-          </Text>
-        </TouchableOpacity>
-      </Link> */}
-
     </SafeAreaView>
   );
 };
