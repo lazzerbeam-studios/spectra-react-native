@@ -16,7 +16,7 @@
 **install**
 
     asdf install nodejs 22.10.0
-    asdf reshim nodejs
+    asdf reshim nodejs 22.10.0
 
     corepack enable
     yarn set version stable
