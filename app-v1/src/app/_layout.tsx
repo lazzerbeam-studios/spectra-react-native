@@ -1,4 +1,4 @@
-import '../tamagui-web.css'
+import '../../tamagui-web.css'
 
 import { useEffect } from 'react'
 import { StatusBar, useColorScheme } from 'react-native'
