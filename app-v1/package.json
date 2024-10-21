@@ -1,5 +1,5 @@
 {
-  "name": "app-v1",
+  "name": "spectra",
   "main": "expo-router/entry",
   "version": "1.0.0",
   "packageManager": "yarn@4.5.0",
