@@ -11,7 +11,7 @@ const HomeScreen = () => {
       </Text>
 
       <Link href='/sign-up' push asChild>
-        <TouchableOpacity className={`w-60 rounded-full border-2 border-text bg-primary mb-6  ${Platform.OS === 'web' ? 'hover:bg-background' : ''}`}>
+        <TouchableOpacity className={`mb-6 w-60 rounded-full border-2 border-text bg-primary ${Platform.OS === 'web' ? 'hover:bg-background' : ''}`}>
           <Text className={`p-4 text-center text-3xl font-semibold text-primarytext ${Platform.OS === 'web' ? 'hover:text-text' : ''}`}>
             Sign Up
           </Text>
