@@ -1,13 +1,13 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
+import { Text, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
 
   return (
     <SafeAreaView className='flex flex-1 flex-col items-center justify-center bg-background'>
 
-      <Text className='mb-12 text-7xl font-bold text-text'>
+      <Text className='mb-32 text-8xl font-bold text-text'>
         Spectra
       </Text>
 
@@ -36,5 +36,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({});
