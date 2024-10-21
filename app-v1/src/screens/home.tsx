@@ -10,8 +10,11 @@ const HomeScreen = () => {
         Spectra
       </Text>
 
-      <TouchableOpacity onPress={() => alert('Button Pressed!')}>
-        <Text className='text-4xl font-bold text-text'>Click Me</Text>
+      <TouchableOpacity
+        className='rounded-full border-2 border-text p-4'
+        onPress={() => alert('Button Pressed!')}
+      >
+        <Text className='text-4xl font-bold text-text'>Sign Up</Text>
       </TouchableOpacity>
 
     </SafeAreaView>
