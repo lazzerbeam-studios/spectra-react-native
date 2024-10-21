@@ -1,27 +1,33 @@
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { Link } from 'expo-router';
+import { Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
-
   return (
+    <SafeAreaView className='flex flex-1 flex-col items-center justify-center bg-background'>
 
-    // <View className='flex-1 justify-center items-center'>
-    //   <Image
-    //     className='w-32 h-32 mt-4'
-    //     source={require('../assets/images/react-logo.png')}
-    //   />
-    //   <Text className='text-lg'>Welcome to Home Screen</Text>
-    // </View>
+      <Text className='mb-32 text-8xl font-bold text-text'>
+        Spectra
+      </Text>
 
-    <SafeAreaView className='flex flex-1 flex-row bg-primary'>
-      <Text className='text-primary' style={{ backgroundColor: 'red' }}>Yeah 1</Text>
-      <Text className='text-secondary' style={{ backgroundColor: 'darkorange' }}>Yeah 2</Text>
-      <Text className='text-typography' style={{ backgroundColor: 'green' }}>Yeah 3</Text>
+      <Link href='/sign-up' push asChild>
+        <TouchableOpacity className='mb-6 w-60 rounded-full border-2 border-text bg-primary hover:bg-background'>
+          <Text className='p-4 text-center text-3xl font-semibold text-primarytext hover:text-text'>
+            Sign Up
+          </Text>
+        </TouchableOpacity>
+      </Link>
+
+      <Link href='/sign-in' push asChild>
+        <TouchableOpacity className='w-60 rounded-full border-2 border-text bg-primary hover:bg-background'>
+          <Text className='p-4 text-center text-3xl font-semibold text-primarytext hover:text-text'>
+            Sign In
+          </Text>
+        </TouchableOpacity>
+      </Link>
+
     </SafeAreaView>
-
   );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({});

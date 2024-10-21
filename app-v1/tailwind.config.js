@@ -10,8 +10,10 @@ module.exports = {
   ],
   theme: {
     colors: {
+      text: 'var(--color-text)',
+      background: 'var(--color-background)',
       primary: 'var(--color-primary)',
-      secondary: 'var(--color-secondary)',
+      primarytext: 'var(--color-primary-text)',
     },
     extend: {},
   },
