@@ -14,5 +14,4 @@ module.exports = withTamagui(config, {
 })
 
 config.resolver.sourceExts.push('mjs')
-
 module.exports = config
