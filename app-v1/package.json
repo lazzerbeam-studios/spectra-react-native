@@ -5,13 +5,11 @@
   "packageManager": "yarn@4.5.0",
   "private": true,
   "scripts": {
-    "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest",
-    "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary",
-    "check:tamagui": "tamagui check",
-    "start": "expo start -c",
-    "android": "expo run:android",
+    "start": "expo start",
     "ios": "expo run:ios",
-    "web": "expo start --web",
+    "android": "expo run:android",
+    "check:tamagui": "tamagui check",
+    "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest",
     "test": "jest --watchAll"
   },
   "jest": {
