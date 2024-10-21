@@ -11,7 +11,7 @@
     brew install watchman
     brew install git-flow-avh
 
-## asdf
+## ASDF
 
 **install**
 
@@ -19,7 +19,7 @@
     corepack enable
     asdf reshim nodejs 22.10.0
 
-## yarn
+## Yarn
 
 **install**
 
