@@ -1,6 +1,5 @@
-/**
- * @type {import('expo/metro-config').MetroConfig}
- */
+/** @type {import('expo/metro-config').MetroConfig} */
+
 const { getDefaultConfig } = require('expo/metro-config')
 
 const config = getDefaultConfig(__dirname, {
@@ -8,6 +7,7 @@ const config = getDefaultConfig(__dirname, {
 })
 
 const { withTamagui } = require('@tamagui/metro-plugin')
+
 module.exports = withTamagui(config, {
   components: ['tamagui'],
   config: './tamagui.config.ts',
