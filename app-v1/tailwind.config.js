@@ -12,6 +12,8 @@ module.exports = {
     colors: {
       text: 'var(--color-text)',
       background: 'var(--color-background)',
+      primary: 'var(--color-primary)',
+      primarytext: 'var(--color-primary-text)',
     },
     extend: {},
   },
