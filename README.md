@@ -11,15 +11,13 @@
     brew install watchman
     brew install git-flow-avh
 
-## Set Up
+## asdf
 
 **install**
 
     asdf install nodejs 22.10.0
-    asdf reshim nodejs 22.10.0
-
     corepack enable
-    yarn set version stable
+    asdf reshim nodejs 22.10.0
 
 ## Expo
 
