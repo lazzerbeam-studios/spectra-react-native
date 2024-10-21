@@ -11,7 +11,7 @@ const HomeScreen = () => {
         Spectra
       </Text>
 
-      <Link href="/logged-in/profile" push asChild>
+      <Link href="/sign-up" push asChild>
         <TouchableOpacity
           className='rounded-full border-2 border-text bg-primary p-4'
         >
