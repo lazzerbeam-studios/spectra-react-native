@@ -14,7 +14,9 @@ const HomeScreen = () => {
         className='rounded-full border-2 border-text bg-primary p-4'
         onPress={() => alert('Button Pressed!')}
       >
-        <Text className='text-4xl font-bold text-primarytext'>Sign Up</Text>
+        <Text className='w-60 text-center text-3xl font-bold text-primarytext'>
+          Sign Up
+        </Text>
       </TouchableOpacity>
 
     </SafeAreaView>
