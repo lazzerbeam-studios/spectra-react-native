@@ -13,13 +13,23 @@ const HomeScreen = () => {
 
       <Link href="/sign-up" push asChild>
         <TouchableOpacity
-          className='rounded-full border-2 border-text bg-primary hover:bg-background'
+          className='w-60 rounded-full border-2 border-text bg-primary hover:bg-background'
         >
-          <Text className='text-center text-3xl font-semibold text-primarytext hover:text-text'>
+          <Text className='p-4 text-center text-3xl font-semibold text-primarytext hover:text-text'>
             Sign Up
           </Text>
         </TouchableOpacity>
       </Link>
+
+      {/* <Link href="/sign-in" push asChild>
+        <TouchableOpacity
+          className='rounded-full border-2 border-text bg-primary p-4'
+        >
+          <Text className='w-60 text-center text-3xl font-semibold text-primarytext'>
+            Sign In
+          </Text>
+        </TouchableOpacity>
+      </Link> */}
 
     </SafeAreaView>
   );
