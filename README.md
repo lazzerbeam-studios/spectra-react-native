@@ -19,11 +19,11 @@
     corepack enable
     asdf reshim nodejs 22.10.0
 
-## Yarn
+## Npm
 
 **install**
 
-    yarn install
+    npm install
 
 ## Expo
 
