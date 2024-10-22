@@ -5,5 +5,5 @@ export default function Index() {
     <View>
       <Text>index.tsx</Text>
     </View>
-  );
+  )
 }
