@@ -1,0 +1,12 @@
+.expo/
+.tamagui/
+
+dist/
+node_modules/
+
+expo-env.d.ts
+
+*.log
+*.iml
+*.idea
+*.DS_Store
