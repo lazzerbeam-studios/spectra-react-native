@@ -1,5 +1,5 @@
 module.exports = function (api) {
-  api.cache(true);
+  api.cache(true)
   return {
     presets: [
       'babel-preset-expo',
@@ -8,9 +8,9 @@ module.exports = function (api) {
       [
         '@tamagui/babel-plugin',
         {
+          logTimings: true,
           components: ['tamagui'],
           config: './tamagui.config.ts',
-          logTimings: true,
           disableExtraction: process.env.NODE_ENV === 'development',
         },
       ],
