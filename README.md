@@ -2,7 +2,7 @@
 
 ## Brew
 
-**commands**
+**install**
 
     brew update
     brew upgrade
@@ -25,7 +25,7 @@
 
 ## Expo
 
-**update**
+**commands**
 
     npx expo start
     npx expo start -c
