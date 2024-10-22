@@ -1,7 +1,6 @@
 module.exports = (api) => {
   api.cache(true);
   const plugins = [];
-
   plugins.push([
     '@tamagui/babel-plugin',
     {
@@ -9,10 +8,8 @@ module.exports = (api) => {
       config: './tamagui.config.ts',
     },
   ]);
-
   return {
     presets: ['babel-preset-expo'],
-
     plugins,
   };
 };
