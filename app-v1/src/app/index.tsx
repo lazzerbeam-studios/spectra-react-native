@@ -1,8 +1,8 @@
 import { Stack, Link } from 'expo-router';
 
-import { Button } from '~/components/Button';
-import { Container } from '~/components/Container';
-import { ScreenContent } from '~/components/ScreenContent';
+import { Button } from '~/src/components/Button';
+import { Container } from '~/src/components/Container';
+import { ScreenContent } from '~/src/components/ScreenContent';
 
 export default function Home() {
   return (
