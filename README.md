@@ -16,8 +16,6 @@
 **install**
 
     asdf install nodejs 22.10.0
-    corepack enable
-    asdf reshim nodejs 22.10.0
 
 ## Npm
 
