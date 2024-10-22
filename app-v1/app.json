@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "app-v1",
-    "slug": "app-v1",
+    "name": "spectra",
+    "slug": "spectra",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

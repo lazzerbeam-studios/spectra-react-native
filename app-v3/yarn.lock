@@ -5728,9 +5728,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"app-v1@workspace:.":
+"spectra@workspace:.":
   version: 0.0.0-use.local
-  resolution: "app-v1@workspace:."
+  resolution: "spectra@workspace:."
   dependencies:
     "@babel/core": "npm:^7.24.6"
     "@expo/metro-config": "npm:~0.18.4"
