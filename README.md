@@ -33,3 +33,6 @@
     npx expo prebuild
     npx expo prebuild --platform ios
     npx expo prebuild --platform android
+
+    npx expo run:android
+    npx expo run:ios
