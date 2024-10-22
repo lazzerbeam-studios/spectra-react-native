@@ -15,7 +15,7 @@
 
 **install**
 
-    asdf install nodejs 22.10.0
+    asdf install nodejs 18.20.4
 
 ## Npm
 
