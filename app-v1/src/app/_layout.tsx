@@ -1,7 +1,7 @@
-import { useFonts } from 'expo-font';
-import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
+import { useFonts } from 'expo-font';
 import { TamaguiProvider } from 'tamagui';
+import { SplashScreen, Stack } from 'expo-router';
 
 import config from '../../tamagui.config';
 
