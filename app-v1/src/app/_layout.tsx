@@ -5,19 +5,23 @@ import { SplashScreen, Stack } from 'expo-router';
 
 import config from '../../tamagui.config';
 
+SplashScreen.preventAutoHideAsync()
+
 export default function Layout() {
-  const [loaded] = useFonts({
+  const [loaded, error] = useFonts({
     Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
     InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
-  });
+  })
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
+    if (loaded || error) {
+      SplashScreen.hideAsync()
     }
-  }, [loaded]);
+  }, [loaded, error])
 
-  if (!loaded) return null;
+  if (!loaded && !error) {
+    return null
+  }
 
   return (
     <TamaguiProvider config={config}>
