@@ -12,7 +12,7 @@ export default function Layout() {
   const colorScheme = useColorScheme()
 
   const [loaded, error] = useFonts({
-    Poppins: require('../assets/fonts/poppins/Poppins-Regular.ttf'),
+    PoppinsRegular: require('../assets/fonts/poppins/Poppins-Regular.ttf'),
     PoppinsBold: require('../assets/fonts/poppins/Poppins-Bold.ttf'),
   })
 
