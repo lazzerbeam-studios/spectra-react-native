@@ -3,9 +3,8 @@ import { shorthands } from '@tamagui/shorthands';
 import { themes, tokens } from '@tamagui/themes';
 import { createInterFont } from '@tamagui/font-inter';
 import { createMedia } from '@tamagui/react-native-media-driver';
-import { createAnimations } from '@tamagui/animations-react-native';
 
-const headingFont = createInterFont({
+const interFont = createInterFont({
   family: 'PoppinsRegular',
   size: {
     1: 16,
@@ -36,8 +35,8 @@ const config = createTamagui({
   themeClassNameOnRoot: true,
   shorthands,
   fonts: {
-    body: headingFont,
-    heading: headingFont,
+    body: interFont,
+    heading: interFont,
   },
   themes,
   tokens,
