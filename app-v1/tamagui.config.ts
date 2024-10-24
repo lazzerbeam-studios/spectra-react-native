@@ -24,22 +24,13 @@ const interFont = createInterFont({
 });
 
 const config = createTamagui({
-  light: {
-    color: {
-      background: 'gray',
-      text: 'black',
-    },
-  },
-  defaultFont: 'body',
-  shouldAddPrefersColorThemes: true,
-  themeClassNameOnRoot: true,
+  themes,
+  tokens,
   shorthands,
   fonts: {
     body: interFont,
     heading: interFont,
   },
-  themes,
-  tokens,
   media: createMedia({
     xs: { maxWidth: 660 },
     sm: { maxWidth: 800 },
