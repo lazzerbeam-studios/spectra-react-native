@@ -12,9 +12,8 @@ export default function Layout() {
   const colorScheme = useColorScheme()
 
   const [loaded, error] = useFonts({
-    Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
-    InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
-    Kablammo: require('../assets/Kablammo.ttf'),
+    Poppins: require('../assets/fonts/poppins/Poppins-Regular.ttf'),
+    PoppinsBold: require('../assets/fonts/poppins/Poppins-Bold.ttf'),
   })
 
   useEffect(() => {

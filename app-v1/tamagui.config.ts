@@ -26,7 +26,7 @@ const animations = createAnimations({
 });
 
 const headingFont = createInterFont({
-  family: 'Kablammo',
+  family: 'Poppins',
   size: {
     1: 12,
     2: 14,
@@ -49,8 +49,7 @@ const headingFont = createInterFont({
   },
   // (native only) swaps out fonts by face/style
   face: {
-    300: { normal: 'InterLight', italic: 'InterItalic' },
-    600: { normal: 'InterBold' },
+    600: { normal: 'PoppinsBold' },
   },
 });
 
