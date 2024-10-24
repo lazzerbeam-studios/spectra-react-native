@@ -27,7 +27,7 @@ export default function Layout() {
   }
 
   return (
-    <TamaguiProvider config={config} defaultTheme={colorScheme === 'dark' ? 'dark' : 'light'}>
+    <TamaguiProvider config={config} defaultTheme={colorScheme === 'dark' ? 'light' : 'light'}>
       <Stack>
         <Stack.Screen name='index' options={{ headerShown: false }} />
         <Stack.Screen name='(auth)' options={{ headerShown: false }} />
