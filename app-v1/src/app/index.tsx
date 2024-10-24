@@ -18,8 +18,8 @@ export default function Home() {
 
   return (
 
-    <View>
-      <SizableText color={"$red10"} fontSize={24} fontWeight={300}>Yeah</SizableText>
+    <View backgroundColor={"$red10"}>
+      <SizableText color={"$blue10"} fontSize={24} fontWeight={300}>Yeah</SizableText>
 
       {/* <Button>Yeah</Button> */}
 
