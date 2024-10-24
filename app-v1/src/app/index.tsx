@@ -1,4 +1,6 @@
 import { Stack, Link } from 'expo-router';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
+import { Button, SizableText, View } from 'tamagui';
 
 // import { Button } from '~/src/components/Button';
 // import { Container } from '~/src/components/Container';
@@ -6,14 +8,13 @@ import { Stack, Link } from 'expo-router';
 
 export default function Home() {
   return (
-    <>
-      <Stack.Screen options={{ title: 'Home' }} />
-      {/* <Container>
-        <ScreenContent path="app/index.tsx" title="Home" />
-        <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
-          <Button title="Show Details" />
-        </Link>
-      </Container> */}
-    </>
+
+    <View>
+      <SizableText color="$blue11" fontFamily="$body" fontSize={62} fontWeight={300}>Yeah</SizableText>
+
+      <Button>Yeah</Button>
+
+    </View>
+
   );
 }

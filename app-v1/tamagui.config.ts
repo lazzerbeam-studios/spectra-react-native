@@ -1,9 +1,9 @@
-import { createAnimations } from '@tamagui/animations-react-native';
-import { createInterFont } from '@tamagui/font-inter';
-import { createMedia } from '@tamagui/react-native-media-driver';
+import { createTamagui } from 'tamagui';
 import { shorthands } from '@tamagui/shorthands';
 import { themes, tokens } from '@tamagui/themes';
-import { createTamagui, styled, SizableText, H1, YStack, Button as ButtonTamagui } from 'tamagui';
+import { createInterFont } from '@tamagui/font-inter';
+import { createMedia } from '@tamagui/react-native-media-driver';
+import { createAnimations } from '@tamagui/animations-react-native';
 
 const animations = createAnimations({
   bouncy: {
@@ -25,9 +25,34 @@ const animations = createAnimations({
   },
 });
 
-const headingFont = createInterFont();
-
-const bodyFont = createInterFont();
+const headingFont = createInterFont({
+  family: 'Kablammo',
+  size: {
+    1: 12,
+    2: 14,
+    3: 15,
+    small: 99
+  },
+  lineHeight: {
+    // 1 will be 22
+    2: 22,
+  },
+  weight: {
+    1: '300',
+    2: '200',
+    3: '600',
+  },
+  letterSpacing: {
+    1: 0,
+    2: -1,
+    // 3 will be -1
+  },
+  // (native only) swaps out fonts by face/style
+  face: {
+    300: { normal: 'InterLight', italic: 'InterItalic' },
+    600: { normal: 'InterBold' },
+  },
+});
 
 const config = createTamagui({
   light: {
@@ -42,7 +67,7 @@ const config = createTamagui({
   themeClassNameOnRoot: true,
   shorthands,
   fonts: {
-    body: bodyFont,
+    body: headingFont,
     heading: headingFont,
   },
   themes,
