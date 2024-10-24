@@ -1,35 +1,17 @@
 import { createTamagui } from 'tamagui';
 import { shorthands } from '@tamagui/shorthands';
 import { themes, tokens } from '@tamagui/themes';
-import { createInterFont } from '@tamagui/font-inter';
 import { createMedia } from '@tamagui/react-native-media-driver';
 
-const interFont = createInterFont({
-  family: 'PoppinsRegular',
-  size: {
-    1: 16,
-  },
-  lineHeight: {
-    1: 22,
-  },
-  weight: {
-    1: '300',
-  },
-  letterSpacing: {
-    1: 0,
-  },
-  face: {
-    600: { normal: 'PoppinsRegular' },
-  },
-});
+import mainFont from './tamagui.fonts';
 
 const config = createTamagui({
   themes,
   tokens,
   shorthands,
   fonts: {
-    body: interFont,
-    heading: interFont,
+    body: mainFont,
+    heading: mainFont,
   },
   media: createMedia({
     xs: { maxWidth: 660 },
