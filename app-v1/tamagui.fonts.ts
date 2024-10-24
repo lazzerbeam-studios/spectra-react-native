@@ -1,6 +1,6 @@
 import { createInterFont } from '@tamagui/font-inter';
 
-const mainFont = createInterFont({
+const poppinsFont = createInterFont({
   family: 'PoppinsRegular',
   size: {
     1: 16,
@@ -19,4 +19,4 @@ const mainFont = createInterFont({
   },
 });
 
-export default mainFont;
+export default poppinsFont;

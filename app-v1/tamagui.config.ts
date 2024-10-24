@@ -3,15 +3,15 @@ import { shorthands } from '@tamagui/shorthands';
 import { themes, tokens } from '@tamagui/themes';
 import { createMedia } from '@tamagui/react-native-media-driver';
 
-import mainFont from './tamagui.fonts';
+import poppinsFont from './tamagui.fonts';
 
 const config = createTamagui({
   themes,
   tokens,
   shorthands,
   fonts: {
-    body: mainFont,
-    heading: mainFont,
+    body: poppinsFont,
+    heading: poppinsFont,
   },
   media: createMedia({
     xs: { maxWidth: 660 },
