@@ -1,7 +1,7 @@
 import { Link } from 'expo-router';
 import { StyleSheet } from 'react-native';
+import { YStack, Text, useTheme, styled } from 'tamagui';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { YStack, XStack, Text, useTheme, styled } from 'tamagui';
 
 const HomeScreen = () => {
   const theme = useTheme();
