@@ -2,6 +2,9 @@ import { Stack, Link } from 'expo-router';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
 import { Button, SizableText, View } from 'tamagui';
 
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+
 import { useTheme } from 'tamagui';
 
 // import { Button } from '~/src/components/Button';
@@ -18,12 +21,16 @@ export default function Home() {
 
   return (
 
+
+    <SafeAreaView >
+
     <View backgroundColor={"$background"}>
       <SizableText color={"$blue10"} fontSize={24} fontWeight={300}>Yeah</SizableText>
 
       {/* <Button>Yeah</Button> */}
 
     </View>
+    </SafeAreaView>
 
   );
 }
