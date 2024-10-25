@@ -6,7 +6,7 @@ import { SplashScreen, Stack } from 'expo-router';
 
 import config from '../../tamagui.config';
 
-SplashScreen.preventAutoHideAsync()
+SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
   const colorScheme = useColorScheme()
