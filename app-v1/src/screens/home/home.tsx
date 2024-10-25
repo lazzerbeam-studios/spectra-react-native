@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import { StyleSheet } from 'react-native';
-import { YStack, Text, useTheme, styled } from 'tamagui';
+import { YStack, Text, Button, useTheme, styled } from 'tamagui';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
@@ -18,13 +18,28 @@ const HomeScreen = () => {
     fontSize: 55,
     color: '$color',
     fontFamily: '$body',
+    fontWeight: 600,
+  });
+
+  const ButtonAuth = styled(Button, {
+    size: "$6",
+    borderRadius: 50,
+    width: 215,
+    marginTop: 60,
+    themeInverse: true,
   });
 
   return (
     <SafeAreaView style={styles.container}>
 
       <YStack flex={1} alignItems='center' justifyContent='center'>
+
         <Heading>Spectra</Heading>
+
+        <ButtonAuth>
+          Active
+        </ButtonAuth>
+
       </YStack>
 
       {/* <Link href='/sign-up' push asChild>
