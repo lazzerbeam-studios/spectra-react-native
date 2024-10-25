@@ -3,14 +3,14 @@ import { Link } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const HomeScreen = () => {
-
   const theme = useTheme();
+
   const background = theme.background.get();
 
   const Heading = styled(Text, {
     fontSize: 50,
     color: '$blue10',
-    fontFamily: "$body",
+    fontFamily: '$body',
   })
 
   return (
@@ -20,10 +20,10 @@ const HomeScreen = () => {
       backgroundColor: background,
     }}>
 
-      <View flex={1} backgroundColor={"$background"}>
+      <View flex={1} backgroundColor={'$background'}>
 
         <YStack flex={1} alignItems='center' justifyContent='center'>
-          <XStack backgroundColor="green">
+          <XStack backgroundColor='green'>
 
             <Heading>Heading</Heading>
 
@@ -34,19 +34,19 @@ const HomeScreen = () => {
 
       {/* <YStack flex={1}>
 
-        <YStack alignItems="center" justifyContent="center">
+        <YStack alignItems='center' justifyContent='center'>
 
         </YStack>
       </YStack> */}
 
       {/* <Link href='/sign-up' push asChild>
-        <H1 color={"$blue10"}>
+        <H1 color={'$blue10'}>
           Sign Up
         </H1>
       </Link> */}
 
       {/* <Link href='/sign-in' push asChild>
-        <H1 color={"$blue10"}>
+        <H1 color={'$blue10'}>
           Sign In
         </H1>
       </Link> */}
