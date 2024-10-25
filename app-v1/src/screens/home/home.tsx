@@ -10,9 +10,8 @@ const HomeScreen = () => {
       <Text>
         Spectra
       </Text>
-      <HomeScreen></HomeScreen>
 
-      <SizableText color={"$blue10"} fontSize={24} fontWeight={300}>Yeah</SizableText>
+      <SizableText color={"$blue10"} fontSize={24} fontWeight={300}>Yeahh</SizableText>
 
     </SafeAreaView>
 
