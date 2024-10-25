@@ -11,7 +11,7 @@ const HomeScreen = () => {
     container: {
       flex: 1,
       backgroundColor: background,
-    }
+    },
   });
 
   const Heading = styled(Text, {
