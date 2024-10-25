@@ -18,7 +18,7 @@ const HomeScreen = () => {
     fontSize: 55,
     color: '$color',
     fontFamily: '$body',
-    fontWeight: 600,
+    fontWeight: 800,
   });
 
   const ButtonAuth = styled(Button, {

@@ -14,6 +14,7 @@ export default function Layout() {
   const [loaded, error] = useFonts({
     PoppinsRegular: require('../assets/fonts/poppins/Poppins-Regular.ttf'),
     PoppinsBold: require('../assets/fonts/poppins/Poppins-Bold.ttf'),
+    PoppinsExtraBold: require('../assets/fonts/poppins/Poppins-ExtraBold.ttf'),
   });
 
   useEffect(() => {

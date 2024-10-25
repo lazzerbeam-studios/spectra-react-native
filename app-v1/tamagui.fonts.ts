@@ -16,6 +16,7 @@ const poppinsFont = createInterFont({
   },
   face: {
     600: { normal: 'PoppinsRegular' },
+    800: { normal: 'PoppinsExtraBold' },
   },
 });
 
