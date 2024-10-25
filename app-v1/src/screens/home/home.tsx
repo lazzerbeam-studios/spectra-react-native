@@ -5,7 +5,6 @@ import { YStack, XStack, Text, useTheme, styled } from 'tamagui';
 
 const HomeScreen = () => {
   const theme = useTheme();
-
   const background = theme.background.get();
 
   const styles = StyleSheet.create({
@@ -13,16 +12,15 @@ const HomeScreen = () => {
       flex: 1,
       backgroundColor: background,
     }
-  })
+  });
 
   const Heading = styled(Text, {
     fontSize: 55,
     color: '$color',
     fontFamily: '$body',
-  })
+  });
 
   return (
-
     <SafeAreaView style={styles.container}>
 
       <YStack flex={1} alignItems='center' justifyContent='center'>
