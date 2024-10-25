@@ -1,16 +1,28 @@
+import { Link } from 'expo-router';
+
 import { Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { SizableText } from 'tamagui';
 
 const HomeScreen = () => {
   return (
 
-    <SafeAreaView >
+    <SafeAreaView>
+
       <Text>
         Spectra
       </Text>
 
-      <SizableText color={"$blue10"} fontSize={24} fontWeight={300}>Yeahh</SizableText>
+      <Link href='/sign-up' push asChild>
+        <Text>
+          Sign Up
+        </Text>
+      </Link>
+
+      <Link href='/sign-in' push asChild>
+        <Text>
+          Sign In
+        </Text>
+      </Link>
 
     </SafeAreaView>
 
