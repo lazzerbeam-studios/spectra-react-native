@@ -19,6 +19,8 @@ const SignInScreen = () => {
   return (
     <View>
 
+      <Text>Yeah</Text>
+
       {/* <View className='flex-1 items-center justify-center'>
         <Text className='text-lg'>Yeah broooooooo</Text>
       </View>
