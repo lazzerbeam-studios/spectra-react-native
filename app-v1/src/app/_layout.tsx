@@ -18,12 +18,12 @@ export default function Layout() {
 
   useEffect(() => {
     if (loaded || error) {
-      SplashScreen.hideAsync()
+      SplashScreen.hideAsync();
     }
-  }, [loaded, error])
+  }, [loaded, error]);
 
   if (!loaded && !error) {
-    return null
+    return null;
   }
 
   return (
