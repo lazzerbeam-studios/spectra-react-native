@@ -9,12 +9,12 @@ import config from '../../tamagui.config';
 SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
-  const colorScheme = useColorScheme()
+  const colorScheme = useColorScheme();
 
   const [loaded, error] = useFonts({
     PoppinsRegular: require('../assets/fonts/poppins/Poppins-Regular.ttf'),
     PoppinsBold: require('../assets/fonts/poppins/Poppins-Bold.ttf'),
-  })
+  });
 
   useEffect(() => {
     if (loaded || error) {
