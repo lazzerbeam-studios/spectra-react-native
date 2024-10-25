@@ -16,7 +16,7 @@ const HomeScreen = () => {
   })
 
   const Heading = styled(Text, {
-    fontSize: 50,
+    fontSize: 55,
     color: '$color',
     fontFamily: '$body',
   })
@@ -26,7 +26,7 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.container}>
 
       <YStack flex={1} alignItems='center' justifyContent='center'>
-        <Heading>Heading</Heading>
+        <Heading>Spectra</Heading>
       </YStack>
 
       {/* <Link href='/sign-up' push asChild>
