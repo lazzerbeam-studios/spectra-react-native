@@ -1,6 +1,6 @@
-import { Stack, YStack, SizableText, View, styled, Text, XStack, useTheme } from 'tamagui';
 import { Link } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { YStack, XStack, Text, useTheme, styled } from 'tamagui';
 
 const HomeScreen = () => {
   const theme = useTheme();
@@ -20,17 +20,13 @@ const HomeScreen = () => {
       backgroundColor: background,
     }}>
 
-      <View flex={1} backgroundColor={'$background'}>
+      <YStack flex={1} alignItems='center' justifyContent='center'>
+        <XStack backgroundColor='green'>
 
-        <YStack flex={1} alignItems='center' justifyContent='center'>
-          <XStack backgroundColor='green'>
+          <Heading>Heading</Heading>
 
-            <Heading>Heading</Heading>
-
-          </XStack>
-        </YStack>
-
-      </View>
+        </XStack>
+      </YStack>
 
       {/* <YStack flex={1}>
 
