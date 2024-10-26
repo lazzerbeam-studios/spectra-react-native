@@ -1,6 +1,9 @@
-import { Link } from 'expo-router';
+// import { Link } from 'expo-router';
 import { Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+
+import {Button} from '~/src/components/ui/button';
 
 const HomeScreen = () => {
   return (
@@ -10,7 +13,12 @@ const HomeScreen = () => {
         Spectra
       </Text>
 
-      <Link href='/sign-up' push asChild>
+
+      <Button size='lg' variant='secondary' onPress={() => alert('yeah')}>
+        <Text>Default</Text>
+      </Button>
+
+      {/* <Link href='/sign-up' push asChild>
         <TouchableOpacity className='mb-6 w-60 rounded-full border-2 border-text bg-primary'>
           <Text className='p-4 text-center text-3xl font-semibold text-primarytext'>
             Sign Up
@@ -24,7 +32,7 @@ const HomeScreen = () => {
             Sign In
           </Text>
         </TouchableOpacity>
-      </Link>
+      </Link> */}
 
     </SafeAreaView>
   );
