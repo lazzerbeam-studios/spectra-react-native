@@ -1,21 +1,26 @@
 import { createInterFont } from '@tamagui/font-inter';
 
 const poppinsFont = createInterFont({
-  family: 'PoppinsRegular',
+  family: 'PoppinsExtraBold',
   size: {
-    1: 16,
+    1: 12,
   },
   lineHeight: {
-    1: 22,
+    1: 17,
   },
   weight: {
-    1: '300',
+    3: '300',
+    4: '400',
+    5: '500',
+    6: '600',
+    7: '700',
+    8: '800',
   },
   letterSpacing: {
     1: 0,
   },
   face: {
-    600: { normal: 'PoppinsRegular' },
+    400: { normal: 'PoppinsRegular' },
     800: { normal: 'PoppinsExtraBold' },
   },
 });

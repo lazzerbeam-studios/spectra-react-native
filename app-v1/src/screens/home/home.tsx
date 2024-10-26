@@ -15,10 +15,10 @@ const HomeScreen = () => {
   });
 
   const Heading = styled(Text, {
-    fontSize: 55,
+    fontSize: "$16",
     color: '$color',
     fontFamily: '$body',
-    fontWeight: 800,
+    fontWeight: 400,
   });
 
   const ButtonAuth = styled(Button, {
