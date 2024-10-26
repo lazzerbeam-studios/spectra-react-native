@@ -7,6 +7,9 @@ module.exports = {
   presets: [
     require('nativewind/preset'),
   ],
+  plugins: [
+    require('tailwindcss-animate'),
+  ],
   content: [
     './src/app/**/*.{ts,tsx}',
     './src/components/**/*.{ts,tsx}',
@@ -67,5 +70,4 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
 };
