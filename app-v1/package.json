@@ -1,16 +1,12 @@
 {
-  "name": "@rnr/starter-base",
-  "main": "src/index.js",
+  "name": "spectra",
   "version": "1.0.0",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "expo start -c --ios",
-    "dev:web": "expo start -c --web",
-    "dev:android": "expo start -c --android",
-    "android": "expo start -c --android",
-    "ios": "expo start -c --ios",
-    "web": "expo start -c --web",
-    "clean": "rm -rf .expo node_modules",
-    "postinstall": "npx tailwindcss -i ./global.css -o ./node_modules/.cache/nativewind/global.css"
+    "start": "expo start -c",
+    "start:ios": "expo start -c --ios",
+    "start:web": "expo start -c --web",
+    "start:android": "expo start -c --android"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.23.1",
