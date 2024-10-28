@@ -6,7 +6,7 @@ import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { Platform } from 'react-native';
-import { NAV_THEME } from '~/src/lib/constants';
+import { NAV_THEME } from '~/src/lib/themeConstants';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { PortalHost } from '@rn-primitives/portal';
 import { ThemeToggle } from '~/src/components/ThemeToggle';
