@@ -23,8 +23,6 @@
 
     npm install
 
-    npx npm-check-updates -u
-
 ## Expo
 
 **commands**
