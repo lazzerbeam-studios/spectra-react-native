@@ -11,7 +11,9 @@ const NotFoundScreen = () => {
       <Text className='text-5xl'>404 Not Found</Text>
 
       <Link href='/' asChild>
-        <Button>Yeah</Button>
+        <Button className='mt-6 h-16 rounded-full px-12'>
+          <Text className='text-3xl'>Update</Text>
+        </Button>
       </Link>
 
     </View>
