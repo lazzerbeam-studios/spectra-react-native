@@ -6,21 +6,21 @@ const HomeScreen = () => {
   return (
     <SafeAreaView className='flex flex-1 flex-col items-center justify-center bg-background'>
 
-      <Text className='mb-32 text-8xl font-bold text-text'>
+      <Text className='text-text mb-32 text-8xl font-bold'>
         Spectra
       </Text>
 
       <Link href='/sign-up' push asChild>
-        <TouchableOpacity className='mb-6 w-60 rounded-full border-2 border-text bg-primary'>
-          <Text className='p-4 text-center text-3xl font-semibold text-primarytext'>
+        <TouchableOpacity className='border-text mb-6 w-60 rounded-full border-2 bg-primary'>
+          <Text className='text-primarytext p-4 text-center text-3xl font-semibold'>
             Sign Up
           </Text>
         </TouchableOpacity>
       </Link>
 
       <Link href='/sign-in' push asChild>
-        <TouchableOpacity className='w-60 rounded-full border-2 border-text bg-primary'>
-          <Text className='p-4 text-center text-3xl font-semibold text-primarytext'>
+        <TouchableOpacity className='border-text w-60 rounded-full border-2 bg-primary'>
+          <Text className='text-primarytext p-4 text-center text-3xl font-semibold'>
             Sign In
           </Text>
         </TouchableOpacity>
