@@ -9,10 +9,10 @@ import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 
 export function ThemeToggle() {
   const { isDarkColorScheme, setColorScheme } = useColorScheme();
-  const newTheme = isDarkColorScheme ? 'light' : 'dark';
   return (
     <Pressable
       onPress={() => {
+        const newTheme = isDarkColorScheme ? 'light' : 'dark';
         setColorScheme(newTheme);
         setAndroidNavigationBar(newTheme);
         AsyncStorage.setItem('theme', newTheme);
