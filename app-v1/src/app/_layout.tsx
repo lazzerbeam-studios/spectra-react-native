@@ -25,7 +25,7 @@ SplashScreen.preventAutoHideAsync();
 
 export { ErrorBoundary } from 'expo-router';
 
-export default function RootLayout() {
+const RootLayout = () => {
   const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme();
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
 
@@ -66,3 +66,5 @@ export default function RootLayout() {
     </ThemeProvider>
   );
 }
+
+export default RootLayout;
