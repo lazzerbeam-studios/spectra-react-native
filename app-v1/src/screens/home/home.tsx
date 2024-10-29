@@ -6,14 +6,14 @@ import { Button } from '~/src/components/ui/button';
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView className='flex flex-1 flex-col items-center justify-center bg-background'>
+    <SafeAreaView className='flex flex-1 flex-col items-center justify-center'>
 
       <Text className='mb-32 text-8xl font-bold'>
         Spectra
       </Text>
 
       <Link href='/sign-up' push asChild>
-        <Button className='mb-6 rounded-full'>
+        <Button className='rounded-full'>
           <Text>
             Sign Up
           </Text>
