@@ -8,11 +8,15 @@ const NotFoundScreen = () => {
   return (
     <View className='flex-1 items-center justify-center'>
 
-      <Text className='text-5xl'>404 Not Found</Text>
+      <Text className='text-5xl'>
+        404 Not Found
+      </Text>
 
       <Link href='/' asChild>
         <Button className='mt-6 h-16 rounded-full px-12'>
-          <Text className='text-3xl'>Update</Text>
+          <Text className='text-3xl'>
+            Update
+          </Text>
         </Button>
       </Link>
 
