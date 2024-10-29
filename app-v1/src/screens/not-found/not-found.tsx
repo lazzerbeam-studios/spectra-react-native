@@ -1,14 +1,18 @@
 import { Link } from 'expo-router';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+
+import { Text } from '~/src/components/ui/text';
 
 const NotFoundScreen = () => {
   return (
-    <View>
-      <Text className='text-foreground'>NotFoundScreen</Text>
-      <Text>This screen doesn't exist.</Text>
+    <View className='flex-1 items-center justify-center'>
+
+      <Text className='text-5xl'>404 Not Found</Text>
+
       <Link href='/'>
         <Text>Go to home screen!</Text>
       </Link>
+
     </View>
   );
 }
