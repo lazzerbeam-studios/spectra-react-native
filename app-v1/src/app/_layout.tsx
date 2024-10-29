@@ -33,14 +33,14 @@ export default function RootLayout() {
     (async () => {
       const theme = await AsyncStorage.getItem('theme');
 
-      if (Platform.OS === 'web') {
-        document.documentElement.classList.add('bg-background');
-      }
-
       if (!theme) {
         AsyncStorage.setItem('theme', colorScheme);
         setIsColorSchemeLoaded(true);
         return;
+      }
+
+      if (Platform.OS === 'web') {
+        document.documentElement.classList.add('bg-background');
       }
 
       const colorTheme = theme === 'dark' ? 'dark' : 'light';
