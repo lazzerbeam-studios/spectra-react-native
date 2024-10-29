@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Platform } from 'react-native';
-export { ErrorBoundary } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SplashScreen, Stack } from 'expo-router';
 import { PortalHost } from '@rn-primitives/portal';
@@ -23,6 +22,8 @@ const DARK_THEME: Theme = {
 };
 
 SplashScreen.preventAutoHideAsync();
+
+export { ErrorBoundary } from 'expo-router';
 
 export default function RootLayout() {
   const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme();
