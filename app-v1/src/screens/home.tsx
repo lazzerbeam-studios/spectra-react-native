@@ -6,7 +6,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView className='flex flex-1 flex-col items-center justify-center bg-background'>
 
-      <Text className='text-text mb-32 text-8xl font-bold'>
+      <Text className='mb-32 text-8xl font-bold text-foreground'>
         Spectra
       </Text>
 
