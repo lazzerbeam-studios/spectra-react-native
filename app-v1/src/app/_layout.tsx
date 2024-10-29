@@ -32,17 +32,14 @@ export default function RootLayout() {
   React.useEffect(() => {
     (async () => {
       const theme = await AsyncStorage.getItem('theme');
-
       if (!theme) {
         AsyncStorage.setItem('theme', colorScheme);
         setIsColorSchemeLoaded(true);
         return;
       }
-
       if (Platform.OS === 'web') {
         document.documentElement.classList.add('bg-background');
       }
-
       const colorTheme = theme === 'dark' ? 'dark' : 'light';
       if (colorTheme !== colorScheme) {
         setColorScheme(colorTheme);
@@ -50,10 +47,8 @@ export default function RootLayout() {
         setIsColorSchemeLoaded(true);
         return;
       }
-
       setAndroidNavigationBar(colorTheme);
       setIsColorSchemeLoaded(true);
-
     })().finally(() => {
       SplashScreen.hideAsync();
     });
