@@ -44,20 +44,25 @@ function Indicator({ value, className }: { value: number | undefined | null; cla
         )}
         style={{ transform: `translateX(-${100 - (value ?? 0)}%)` }}
       >
-        <ProgressPrimitive.Indicator className={cn(
-          'h-full w-full',
-          className,
-        )} />
+        <ProgressPrimitive.Indicator
+          className={cn(
+            'h-full w-full',
+            className,
+          )}
+        />
       </View>
     );
   }
 
   return (
     <ProgressPrimitive.Indicator asChild>
-      <Animated.View style={indicator} className={cn(
-        'h-full bg-foreground',
-        className,
-      )} />
+      <Animated.View
+        style={indicator}
+        className={cn(
+          'h-full bg-foreground',
+          className,
+        )}
+      />
     </ProgressPrimitive.Indicator>
   );
 }

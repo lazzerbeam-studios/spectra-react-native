@@ -13,11 +13,11 @@ const Text = React.forwardRef<TextRef, SlottableTextProps>(
     const Component = asChild ? Slot.Text : RNText;
     return (
       <Component
+        ref={ref}
         className={cn(
           'text-base text-foreground web:select-text',
           textClass, className,
         )}
-        ref={ref}
         {...props}
       />
     );
