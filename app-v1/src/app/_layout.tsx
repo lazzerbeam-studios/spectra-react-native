@@ -1,16 +1,17 @@
-import '~/src/global.css';
-
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Theme, ThemeProvider } from '@react-navigation/native';
-import { SplashScreen, Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { Platform } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { SplashScreen, Stack } from 'expo-router';
+import { PortalHost } from '@rn-primitives/portal';
+import { Theme, ThemeProvider } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { NAV_THEME } from '~/src/lib/themeConstants';
 import { useColorScheme } from '~/src/lib/useColorScheme';
-import { PortalHost } from '@rn-primitives/portal';
 import { ThemeToggle } from '~/src/components/ThemeToggle';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
+
+import '~/src/global.css';
 
 const LIGHT_THEME: Theme = {
   dark: false,
