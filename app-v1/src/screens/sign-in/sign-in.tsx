@@ -20,7 +20,7 @@ const SignInScreen = () => {
     <View>
 
       <View className='flex-1 items-center justify-center'>
-        <Text className='text-lg'>Yeah broooooooo</Text>
+        <Text className='text-lg text-foreground'>Yeah broooooooo</Text>
       </View>
 
       {/* <TouchableOpacity onPress={() => signIn(1)} className='mt-4 rounded border border-black bg-blue-500 p-2'>
