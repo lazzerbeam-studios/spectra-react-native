@@ -23,7 +23,7 @@ export function ThemeToggle() {
         <View
           className={cn(
             'flex-1 aspect-square pt-0.5 justify-center items-start web:px-5',
-            pressed && 'opacity-70'
+            pressed && 'opacity-70',
           )}
         >
           {isDarkColorScheme ? (
