@@ -15,7 +15,7 @@ const NotFoundScreen = () => {
       <Link href='/' asChild>
         <Button className='mt-6 h-16 rounded-full px-12'>
           <Text className='text-3xl'>
-            Update
+            Go Home
           </Text>
         </Button>
       </Link>
