@@ -62,17 +62,9 @@ export default function RootLayout() {
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? 'light' : 'dark'}></StatusBar>
       <Stack>
-        <Stack.Screen
-          name='index'
-          options={{
-            title: 'Starter Base',
-            headerRight: () => <ThemeToggle></ThemeToggle>,
-          }}
-        />
-
-        {/* <Stack.Screen name='index' options={{ headerShown: false }} /> */}
+        <Stack.Screen name='index' options={{ headerShown: false }} />
         <Stack.Screen name='(auth)' options={{ headerShown: false }} />
-        <Stack.Screen name='logged-in/profile' options={{ headerShown: false }} />
+        <Stack.Screen name='logged-in/profile' options={{ title: 'Starter Base', headerRight: () => <ThemeToggle></ThemeToggle> }}></Stack.Screen>
       </Stack>
       <PortalHost />
     </ThemeProvider>
