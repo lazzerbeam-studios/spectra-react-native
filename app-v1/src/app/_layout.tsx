@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Platform } from 'react-native';
+export { ErrorBoundary } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { SplashScreen, Stack } from 'expo-router';
 import { PortalHost } from '@rn-primitives/portal';
@@ -22,12 +23,6 @@ const DARK_THEME: Theme = {
   colors: NAV_THEME.dark,
 };
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from 'expo-router';
-
-// Prevent the splash screen from auto-hiding before getting the color scheme.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
