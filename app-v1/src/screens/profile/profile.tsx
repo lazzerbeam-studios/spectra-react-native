@@ -15,6 +15,9 @@ import {
 import { Progress } from '~/src/components/ui/progress';
 import { Text } from '~/src/components/ui/text';
 import { Tooltip, TooltipContent, TooltipTrigger } from '~/src/components/ui/tooltip';
+import { Link, Stack } from 'expo-router';
+
+import { ThemeToggle } from '~/src/components/ThemeToggle';
 
 const GITHUB_AVATAR_URI =
   'https://i.pinimg.com/originals/ef/a2/8d/efa28d18a04e7fa40ed49eeb0ab660db.jpg';
@@ -28,6 +31,7 @@ const ProfileScreen = () => {
 
   return (
     <>
+      <Stack.Screen options={{ title: 'Starter Base', headerRight: () => <ThemeToggle></ThemeToggle> }} />
       <View className='flex-1 items-center justify-center gap-5 bg-secondary/30 p-6'>
         <Card className='w-full max-w-sm rounded-2xl p-6'>
           <CardHeader className='items-center'>

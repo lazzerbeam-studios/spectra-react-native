@@ -9,7 +9,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { NAV_THEME } from '~/src/lib/themeConstants';
 import { useColorScheme } from '~/src/lib/useColorScheme';
-import { ThemeToggle } from '~/src/components/ThemeToggle';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 
 import '~/src/global.css';
@@ -64,7 +63,7 @@ export default function RootLayout() {
       <Stack>
         <Stack.Screen name='index' options={{ headerShown: false }} />
         <Stack.Screen name='(auth)' options={{ headerShown: false }} />
-        <Stack.Screen name='logged-in/profile' options={{ title: 'Starter Base', headerRight: () => <ThemeToggle></ThemeToggle> }}></Stack.Screen>
+        <Stack.Screen name='logged-in/profile'></Stack.Screen>
       </Stack>
       <PortalHost />
     </ThemeProvider>
