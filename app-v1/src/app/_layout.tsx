@@ -32,15 +32,17 @@ export default function RootLayout() {
   React.useEffect(() => {
     (async () => {
       const theme = await AsyncStorage.getItem('theme');
+
       if (Platform.OS === 'web') {
-        // Adds the background color to the html element to prevent white background on overscroll.
         document.documentElement.classList.add('bg-background');
       }
+
       if (!theme) {
         AsyncStorage.setItem('theme', colorScheme);
         setIsColorSchemeLoaded(true);
         return;
       }
+
       const colorTheme = theme === 'dark' ? 'dark' : 'light';
       if (colorTheme !== colorScheme) {
         setColorScheme(colorTheme);
@@ -48,8 +50,10 @@ export default function RootLayout() {
         setIsColorSchemeLoaded(true);
         return;
       }
+
       setAndroidNavigationBar(colorTheme);
       setIsColorSchemeLoaded(true);
+
     })().finally(() => {
       SplashScreen.hideAsync();
     });
