@@ -23,6 +23,12 @@ const SignUpScreen = () => {
             className='w-96 rounded-full border-2 border-foreground p-8 text-2xl'
           />
 
+          <Input
+            placeholder='Password'
+            secureTextEntry={true}
+            className='w-96 rounded-full border-2 border-foreground p-8 text-2xl'
+          />
+
         </View>
         <View className='native:hidden flex-[0.2]'></View>
       </View>
