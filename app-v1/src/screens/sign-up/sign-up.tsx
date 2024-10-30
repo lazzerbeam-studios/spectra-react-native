@@ -56,10 +56,20 @@ const SignUpScreen = () => {
             )}
           />
 
-          <Input
-            placeholder='Password'
-            secureTextEntry={true}
-            className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl'
+          <Controller
+            name="password"
+            defaultValue=""
+            control={control}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <Input
+                value={value}
+                onBlur={onBlur}
+                onChangeText={onChange}
+                placeholder='Password'
+                secureTextEntry={true}
+                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl'
+              />
+            )}
           />
 
           <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(onSubmit)}>
