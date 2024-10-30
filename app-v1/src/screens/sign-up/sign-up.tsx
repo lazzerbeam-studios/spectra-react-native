@@ -51,7 +51,7 @@ const SignUpScreen = () => {
                 onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
-                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground p-6 text-2xl'
+                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl'
               />
             )}
           />
@@ -59,7 +59,7 @@ const SignUpScreen = () => {
           <Input
             placeholder='Password'
             secureTextEntry={true}
-            className='native:h-18 h-16 w-96 rounded-full border-2 border-foreground p-6 text-2xl'
+            className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl'
           />
 
           <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(onSubmit)}>
