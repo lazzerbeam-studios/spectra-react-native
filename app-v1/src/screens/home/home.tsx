@@ -20,7 +20,7 @@ const HomeScreen = () => {
         </Button>
       </Link>
 
-      <Link href='/sign-in' push asChild>
+      <Link href='/sign-in'>
         <Button className='rounded-full'>
           <Text>
             Sign In
