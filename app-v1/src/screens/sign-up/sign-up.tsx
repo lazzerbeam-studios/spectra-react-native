@@ -12,6 +12,8 @@ const SignUpScreen = () => {
         Sign Up
       </Text>
 
+      <Input placeholder='Email' keyboardType='email-address' className='mb-4 w-80'></Input>
+
     </SafeAreaView>
   )
 }
