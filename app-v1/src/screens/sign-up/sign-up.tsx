@@ -15,7 +15,7 @@ const SignUpScreen = () => {
       <View className='ms-2 mt-2'>
         <Link href='/' push asChild>
           <Button variant={'link'} size={'icon'}>
-            <ChevronLeft className='color-foreground'></ChevronLeft>
+            <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
           </Button>
         </Link>
       </View>
