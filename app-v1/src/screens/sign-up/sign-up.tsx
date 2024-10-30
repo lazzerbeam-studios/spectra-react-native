@@ -20,7 +20,7 @@ const SignUpScreen = () => {
           <Input
             placeholder='Email'
             keyboardType='email-address'
-            className='rounded-full border-2 border-foreground p-6 text-4xl'
+            className='rounded-full border-2 border-foreground p-8 text-2xl'
           />
 
         </View>
