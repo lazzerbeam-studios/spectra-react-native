@@ -13,7 +13,7 @@ const HomeScreen = () => {
       </Text>
 
       <Link href='/sign-up' push asChild>
-        <Button className='mb-6 h-16 w-72 rounded-full'>
+        <Button className='mb-6 h-20 w-96 rounded-full'>
           <Text className='text-4xl'>
             Sign Up
           </Text>
@@ -21,7 +21,7 @@ const HomeScreen = () => {
       </Link>
 
       <Link href='/sign-in' push asChild>
-        <Button className='h-16 w-72 rounded-full'>
+        <Button className='h-20 w-96 rounded-full'>
           <Text className='text-4xl'>
             Sign In
           </Text>
