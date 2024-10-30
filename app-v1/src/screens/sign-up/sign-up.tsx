@@ -38,7 +38,7 @@ const SignUpScreen = () => {
         <View className='native:hidden flex-[0.2]'></View>
       </View>
     </SafeAreaView>
-  )
+  );
 }
 
-export default SignUpScreen
+export default SignUpScreen;
