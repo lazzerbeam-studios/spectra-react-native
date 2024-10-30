@@ -13,11 +13,15 @@ const SignUpScreen = () => {
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
-          <Text className='mb-24 text-4xl font-bold'>
+          <Text className='mb-8 text-4xl font-bold'>
             Sign Up
           </Text>
 
-          <Input placeholder='Email' keyboardType='email-address' className='mb-4 w-80'></Input>
+          <Input
+            placeholder='Email'
+            keyboardType='email-address'
+            className='mb-4 w-80 border-4 border-foreground'
+          />
 
         </View>
         <View className='native:hidden flex-[0.2]'></View>
