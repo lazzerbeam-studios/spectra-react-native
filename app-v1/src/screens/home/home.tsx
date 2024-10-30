@@ -13,16 +13,16 @@ const HomeScreen = () => {
       </Text>
 
       <Link href='/sign-up' push asChild>
-        <Button className='h-16 w-64 rounded-full'>
-          <Text className='text-3xl'>
+        <Button className='mb-6 h-16 w-72 rounded-full'>
+          <Text className='text-4xl'>
             Sign Up
           </Text>
         </Button>
       </Link>
 
       <Link href='/sign-in' push asChild>
-        <Button className='h-16 w-64 rounded-full'>
-          <Text className='text-3xl'>
+        <Button className='h-16 w-72 rounded-full'>
+          <Text className='text-4xl'>
             Sign In
           </Text>
         </Button>
