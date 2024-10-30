@@ -6,7 +6,7 @@ import { Button } from '~/src/components/ui/button';
 
 const HomeScreen = () => {
   return (
-    <SafeAreaView className='flex flex-1 flex-col items-center justify-center'>
+    <SafeAreaView className='mb-36 flex flex-1 flex-col items-center justify-center'>
 
       <Text className='mb-24 text-8xl font-bold'>
         Spectra
