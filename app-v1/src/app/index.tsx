@@ -1,8 +1,12 @@
+import { Stack } from 'expo-router';
 import HomeScreen from '~/src/screens/home/home';
 
 const Home = () => {
   return (
-    <HomeScreen></HomeScreen>
+    <>
+      <Stack.Screen></Stack.Screen>
+      <HomeScreen></HomeScreen>
+    </>
   );
 }
 
