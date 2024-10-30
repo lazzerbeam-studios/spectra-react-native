@@ -26,8 +26,14 @@ const SignUpScreen = () => {
           <Input
             placeholder='Password'
             secureTextEntry={true}
-            className='w-96 rounded-full border-2 border-foreground p-8 text-2xl'
+            className='mb-6 w-96 rounded-full border-2 border-foreground p-8 text-2xl'
           />
+
+          <Button className='native:h-20 mb-6 h-16 w-96 rounded-full'>
+            <Text className='native:text-3xl text-3xl'>
+              Sign Up
+            </Text>
+          </Button>
 
         </View>
         <View className='native:hidden flex-[0.2]'></View>
