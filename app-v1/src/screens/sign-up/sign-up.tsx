@@ -7,13 +7,13 @@ import { Button } from '~/src/components/ui/button';
 
 const SignUpScreen = () => {
   return (
-    <SafeAreaView className='flex flex-1 flex-col items-center justify-center'>
+    <SafeAreaView className='flex h-full'>
 
-      <View className='flex w-full flex-row'>
+      <View>
         <Text>Yeah</Text>
       </View>
 
-      <View className='flex w-full flex-row'>
+      <View className='flex w-full flex-1 flex-row'>
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
