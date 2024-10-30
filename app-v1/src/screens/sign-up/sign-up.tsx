@@ -40,24 +40,6 @@ const SignUpScreen = () => {
             Sign Up
           </Text>
 
-          <Input
-            placeholder='Email'
-            keyboardType='email-address'
-            className='mb-6 w-96 rounded-full border-2 border-foreground p-8 text-2xl'
-          />
-
-          <Input
-            placeholder='Password'
-            secureTextEntry={true}
-            className='mb-6 w-96 rounded-full border-2 border-foreground p-8 text-2xl'
-          />
-
-          <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(onSubmit)}>
-            <Text className='native:text-3xl text-3xl'>
-              Sign Up
-            </Text>
-          </Button>
-
           <Controller
             name="email"
             defaultValue=""
@@ -69,10 +51,22 @@ const SignUpScreen = () => {
                 onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
-                className='mb-6 w-96 rounded-full border-2 border-foreground p-8 text-2xl text-blue-700 focus:text-blue-700'
+                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground p-6 text-2xl'
               />
             )}
           />
+
+          <Input
+            placeholder='Password'
+            secureTextEntry={true}
+            className='native:h-18 h-16 w-96 rounded-full border-2 border-foreground p-6 text-2xl'
+          />
+
+          <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(onSubmit)}>
+            <Text className='native:text-3xl text-3xl'>
+              Sign Up
+            </Text>
+          </Button>
 
         </View>
         <View className='native:hidden flex-[0.2]'></View>
