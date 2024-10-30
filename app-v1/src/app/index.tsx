@@ -4,7 +4,7 @@ import HomeScreen from '~/src/screens/home/home';
 const Home = () => {
   return (
     <>
-      <Stack.Screen></Stack.Screen>
+      <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
       <HomeScreen></HomeScreen>
     </>
   );
