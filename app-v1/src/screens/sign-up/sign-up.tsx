@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import { View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -5,12 +6,18 @@ import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 
+import { ChevronLeft } from '~/src/lib/icons/Chevron';
+
 const SignUpScreen = () => {
   return (
     <SafeAreaView className='flex h-full'>
 
-      <View>
-        <Text>Yeah</Text>
+      <View className='ms-2 mt-2'>
+        <Link href='/' push asChild>
+          <Button variant={'link'} size={'icon'}>
+            <ChevronLeft className='color-foreground'></ChevronLeft>
+          </Button>
+        </Link>
       </View>
 
       <View className='flex w-full flex-1 flex-row'>
