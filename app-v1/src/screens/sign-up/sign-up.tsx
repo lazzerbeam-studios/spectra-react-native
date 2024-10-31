@@ -11,14 +11,9 @@ import { ChevronLeft } from '~/src/lib/icons/Chevron';
 
 const SignUpScreen = () => {
 
-  const {
-    control,
-    handleSubmit,
-  } = useForm();
+  const { control, handleSubmit } = useForm();
 
-  const { isValid, errors, touchedFields } = useFormState({
-    control
-  });
+  const { errors } = useFormState({ control });
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -54,9 +49,13 @@ const SignUpScreen = () => {
                 onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
-                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl'
+                className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${(errors.email) ? 'border-red-500' : 'border-foreground'}`}
               />
             )}
+            rules={{
+              required: true,
+              pattern: /^\S+@\S+$/i,
+            }}
           />
 
           <Controller
@@ -70,18 +69,13 @@ const SignUpScreen = () => {
                 onChangeText={onChange}
                 placeholder='Password'
                 secureTextEntry={true}
-                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl'
+                className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${errors.password ? 'border-red-500' : 'border-foreground'}`}
               />
             )}
             rules={{
-              required: {
-                value: true,
-                message: 'Field is required!'
-              }
+              required: true,
             }}
           />
-
-          <Text>{JSON.stringify(!errors['password'])} {JSON.stringify(touchedFields['password'])}</Text>
 
           <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(onSubmit)} >
             <Text className='native:text-3xl text-3xl'>
