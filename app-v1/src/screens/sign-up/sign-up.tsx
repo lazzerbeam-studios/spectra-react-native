@@ -8,6 +8,8 @@ import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
 
+import { authApi } from '~/src/api';
+
 const SignUpScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
