@@ -1,8 +1,12 @@
-import SignUpScreen from '../../screens/sign-up';
+import { Stack } from 'expo-router';
+import SignUpScreen from '~/src/screens/sign-up/sign-up';
 
 const SignUp = () => {
   return (
-    <SignUpScreen></SignUpScreen>
+    <>
+      <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
+      <SignUpScreen></SignUpScreen>
+    </>
   );
 };
 

@@ -1,10 +1,8 @@
-# openapi
-openapi:
-	sh openapi-generator.sh
+start-web:
+	npx expo start -c --web
 
-# expo
-expo-start-dev:
-	npx expo start
+start-ios:
+	npx expo start -c --ios
 
-expo-start-stag:
-	NODE_ENV=stag npx expo start
+start-android:
+	npx expo start -c --android

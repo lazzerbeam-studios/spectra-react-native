@@ -1,9 +1,13 @@
-import HomeScreen from '../screens/home';
+import { Stack } from 'expo-router';
+import HomeScreen from '~/src/screens/home/home';
 
-const Index = () => {
+const Home = () => {
   return (
-    <HomeScreen></HomeScreen>
+    <>
+      <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
+      <HomeScreen></HomeScreen>
+    </>
   );
-};
+}
 
-export default Index;
+export default Home;
