@@ -1,10 +1,10 @@
 import React from 'react';
 import { Platform } from 'react-native';
+import { MMKV } from 'react-native-mmkv';
 import { StatusBar } from 'expo-status-bar';
 import { SplashScreen, Stack } from 'expo-router';
 import { PortalHost } from '@rn-primitives/portal';
 import { Theme, ThemeProvider } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { NAV_THEME } from '~/src/lib/themeConstants';
 import { useColorScheme } from '~/src/lib/useColorScheme';
@@ -23,6 +23,7 @@ const DARK_THEME: Theme = {
 
 SplashScreen.preventAutoHideAsync();
 
+export const storage = new MMKV();
 export { ErrorBoundary } from 'expo-router';
 
 const RootLayout = () => {
@@ -31,9 +32,9 @@ const RootLayout = () => {
 
   React.useEffect(() => {
     (async () => {
-      const theme = await AsyncStorage.getItem('theme');
+      const theme = storage.getString('theme');
       if (!theme) {
-        AsyncStorage.setItem('theme', colorScheme);
+        storage.set('theme', colorScheme);
         setIsColorSchemeLoaded(true);
         return;
       }
