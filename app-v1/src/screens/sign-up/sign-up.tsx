@@ -66,7 +66,7 @@ const SignUpScreen = () => {
             rules={{
               required: true,
             }}
-          />
+          ></Controller>
 
           <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(submit)}>
             <Text className='native:text-3xl text-3xl'>
