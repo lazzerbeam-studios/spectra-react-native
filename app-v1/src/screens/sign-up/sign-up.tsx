@@ -1,18 +1,15 @@
 import { Link } from 'expo-router';
 import { View } from 'react-native';
-import { useForm, Controller, useFormState } from 'react-hook-form';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useForm, Controller, useFormState } from 'react-hook-form';
 
 import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
-
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
 
 const SignUpScreen = () => {
-
   const { control, handleSubmit } = useForm();
-
   const { errors } = useFormState({ control });
 
   const onSubmit = (data: any) => {
