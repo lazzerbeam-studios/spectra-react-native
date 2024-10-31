@@ -37,7 +37,6 @@ const SignUpScreen = () => {
 
           <Controller
             name="email"
-            defaultValue=""
             control={control}
             render={({ field }) => (
               <Input
@@ -55,7 +54,6 @@ const SignUpScreen = () => {
 
           <Controller
             name="password"
-            defaultValue=""
             control={control}
             render={({ field }) => (
               <Input
