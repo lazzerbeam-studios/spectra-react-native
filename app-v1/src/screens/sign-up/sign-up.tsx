@@ -50,7 +50,7 @@ const SignUpScreen = () => {
               required: true,
               pattern: /^\S+@\S+$/i,
             }}
-          />
+          ></Controller>
 
           <Controller
             name="password"
