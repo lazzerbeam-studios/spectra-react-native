@@ -15,7 +15,19 @@ const SignUpScreen = () => {
   const { errors } = useFormState({ control });
 
   const submit = (data: any) => {
-    console.log(data);
+    signIn(data.email, data.password)
+  };
+
+  const signIn = async (email: string, password: string) => {
+    try {
+      const fetchedPet = await authApi.signIn({
+        email: email,
+        password: password,
+      });
+      console.log(fetchedPet.data);
+    } catch (error: any) {
+      console.log(error.response.data);
+    }
   };
 
   return (
