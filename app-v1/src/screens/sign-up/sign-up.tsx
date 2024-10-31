@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import { View } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, useFormState } from 'react-hook-form';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Text } from '~/src/components/ui/text';
@@ -14,8 +14,11 @@ const SignUpScreen = () => {
   const {
     control,
     handleSubmit,
-    formState: { errors },
   } = useForm();
+
+  const { isValid, errors, touchedFields } = useFormState({
+    control
+  });
 
   const onSubmit = (data: any) => {
     console.log(data);
@@ -70,9 +73,17 @@ const SignUpScreen = () => {
                 className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl'
               />
             )}
+            rules={{
+              required: {
+                value: true,
+                message: 'Field is required!'
+              }
+            }}
           />
 
-          <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(onSubmit)}>
+          <Text>{JSON.stringify(!errors['password'])} {JSON.stringify(touchedFields['password'])}</Text>
+
+          <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(onSubmit)} >
             <Text className='native:text-3xl text-3xl'>
               Sign Up
             </Text>
