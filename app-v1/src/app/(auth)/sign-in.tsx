@@ -1,8 +1,12 @@
+import { Stack } from 'expo-router';
 import SignInScreen from '~/src/screens/sign-in/sign-in';
 
 const SignIn = () => {
   return (
-    <SignInScreen></SignInScreen>
+    <>
+      <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
+      <SignInScreen></SignInScreen>
+    </>
   );
 };
 
