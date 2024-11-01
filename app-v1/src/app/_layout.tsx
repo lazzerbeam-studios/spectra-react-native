@@ -34,8 +34,8 @@ const RootLayout = () => {
     (async () => {
       const colorTheme = (storage.getString('theme') || colorScheme) === 'dark' ? 'dark' : 'light';
       setColorScheme(colorTheme);
-      setAndroidNavigationBar(colorTheme);
       setIsColorSchemeLoaded(true);
+      setAndroidNavigationBar(colorTheme);
       if (Platform.OS === 'web') {
         document.documentElement.classList.add('bg-background');
       }
