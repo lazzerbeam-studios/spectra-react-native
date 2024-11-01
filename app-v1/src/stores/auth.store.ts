@@ -1,24 +1,22 @@
 import { create } from 'zustand';
 
-import { Profile } from '~/src/openapi/api';
-
 type State = {
-  profile: Profile | null;
+  token: string;
 };
 
 type Actions = {
-  setProfile: (profile: Profile) => void;
+  setProfile: (token: string) => void;
   clear: () => void;
 };
 
 const initialState: State = {
-  profile: null,
+  token: 'null',
 };
 
-export const profileStore = create<State & Actions>()((set, get) => ({
+export const authStore = create<State & Actions>()((set, get) => ({
   ...initialState,
-  setProfile: (profile: Profile) => {
-    set({ profile: profile });
+  setProfile: (token: string) => {
+    set({ token: token });
   },
   clear: () => {
     set(initialState);
