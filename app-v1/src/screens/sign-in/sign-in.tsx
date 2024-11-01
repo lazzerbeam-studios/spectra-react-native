@@ -46,7 +46,7 @@ const SignInScreen = () => {
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
           <Text className='native:text-5xl mb-8 text-4xl font-bold'>
-            Sign Up
+            Sign In
           </Text>
 
           <Controller
@@ -84,7 +84,7 @@ const SignInScreen = () => {
 
           <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(submit)}>
             <Text className='native:text-3xl text-3xl'>
-              Sign Up
+              Sign In
             </Text>
           </Button>
 
