@@ -32,7 +32,7 @@ const RootLayout = () => {
 
   useEffect(() => {
     (async () => {
-      const colorTheme = (storage.getString('theme') || colorScheme) === 'dark' ? 'dark' : 'light';
+      const colorTheme = (storage.getString('colorTheme') || colorScheme) === 'dark' ? 'dark' : 'light';
       setColorScheme(colorTheme);
       setIsColorSchemeLoaded(true);
       setAndroidNavigationBar(colorTheme);
