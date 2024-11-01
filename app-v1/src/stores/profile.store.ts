@@ -15,7 +15,7 @@ const initialState: State = {
   profile: null,
 };
 
-export const useStore = create<State & Actions>()((set, get) => ({
+export const profileStore = create<State & Actions>()((set, get) => ({
   ...initialState,
   setProfile: (profile: Profile) => {
     set({ profile: profile });
