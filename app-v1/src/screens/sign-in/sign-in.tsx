@@ -11,7 +11,6 @@ import { ChevronLeft } from '~/src/lib/icons/Chevron';
 import { authApi } from '~/src/api';
 
 const SignInScreen = () => {
-
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
@@ -97,4 +96,4 @@ const SignInScreen = () => {
   )
 }
 
-export default SignInScreen
+export default SignInScreen;
