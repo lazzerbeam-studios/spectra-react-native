@@ -34,13 +34,14 @@ const RootLayout = () => {
     (async () => {
 
       const theme = storage.getString('theme');
+      const colorTheme = (theme === 'dark') ? 'dark' : 'light';
+
       if (!theme) {
         storage.set('theme', colorScheme);
         setIsColorSchemeLoaded(true);
         return;
       }
 
-      const colorTheme = (theme === 'dark') ? 'dark' : 'light';
       if (colorTheme !== colorScheme) {
         setColorScheme(colorTheme);
         setAndroidNavigationBar(colorTheme);
