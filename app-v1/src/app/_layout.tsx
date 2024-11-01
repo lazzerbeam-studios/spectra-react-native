@@ -32,18 +32,13 @@ const RootLayout = () => {
 
   useEffect(() => {
     (async () => {
-
-      let theme = storage.getString('theme') || colorScheme;
-      const colorTheme = (theme === 'dark') ? 'dark' : 'light';
-
+      const colorTheme = (storage.getString('theme') || colorScheme) === 'dark' ? 'dark' : 'light';
       setColorScheme(colorTheme);
       setAndroidNavigationBar(colorTheme);
       setIsColorSchemeLoaded(true);
-
       if (Platform.OS === 'web') {
         document.documentElement.classList.add('bg-background');
       }
-
     })().finally(() => {
       SplashScreen.hideAsync();
     });
