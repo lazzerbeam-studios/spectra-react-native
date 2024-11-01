@@ -33,22 +33,10 @@ const RootLayout = () => {
   useEffect(() => {
     (async () => {
 
-      const theme = storage.getString('theme');
+      let theme = storage.getString('theme') || colorScheme;
       const colorTheme = (theme === 'dark') ? 'dark' : 'light';
 
-      if (!theme) {
-        storage.set('theme', colorScheme);
-        setIsColorSchemeLoaded(true);
-        return;
-      }
-
-      if (colorTheme !== colorScheme) {
-        setColorScheme(colorTheme);
-        setAndroidNavigationBar(colorTheme);
-        setIsColorSchemeLoaded(true);
-        return;
-      }
-
+      setColorScheme(colorTheme);
       setAndroidNavigationBar(colorTheme);
       setIsColorSchemeLoaded(true);
 
