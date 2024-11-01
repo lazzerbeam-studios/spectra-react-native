@@ -1,6 +1,6 @@
-import React from 'react';
 import { Platform } from 'react-native';
 import { MMKV } from 'react-native-mmkv';
+import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SplashScreen, Stack } from 'expo-router';
 import { PortalHost } from '@rn-primitives/portal';
@@ -28,9 +28,9 @@ export { ErrorBoundary } from 'expo-router';
 
 const RootLayout = () => {
   const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme();
-  const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
+  const [isColorSchemeLoaded, setIsColorSchemeLoaded] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     (async () => {
       const theme = storage.getString('theme');
       if (!theme) {
