@@ -1,30 +1,26 @@
 import { create } from 'zustand';
 
+import { Profile } from '~/src/openapi/api';
+
 type State = {
-  salmon: number;
-  tuna: number;
+  profile: Profile | null;
 };
 
 type Actions = {
-  addSalmon: (qty: number) => void;
-  addTuna: (qty: number) => void;
-  reset: () => void;
+  setProfile: (profile: Profile) => void;
+  clear: () => void;
 };
 
 const initialState: State = {
-  salmon: 0,
-  tuna: 0,
+  profile: null,
 };
 
 export const useStore = create<State & Actions>()((set, get) => ({
   ...initialState,
-  addSalmon: (qty: number) => {
-    set({ salmon: get().salmon + qty });
+  setProfile: (profile: Profile) => {
+    set({ profile: profile });
   },
-  addTuna: (qty: number) => {
-    set({ tuna: get().tuna + qty });
-  },
-  reset: () => {
+  clear: () => {
     set(initialState);
   },
 }));
