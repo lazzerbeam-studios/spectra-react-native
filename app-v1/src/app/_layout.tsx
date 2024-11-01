@@ -32,15 +32,14 @@ const RootLayout = () => {
 
   useEffect(() => {
     (async () => {
+
       const theme = storage.getString('theme');
       if (!theme) {
         storage.set('theme', colorScheme);
         setIsColorSchemeLoaded(true);
         return;
       }
-      if (Platform.OS === 'web') {
-        document.documentElement.classList.add('bg-background');
-      }
+
       const colorTheme = (theme === 'dark') ? 'dark' : 'light';
       if (colorTheme !== colorScheme) {
         setColorScheme(colorTheme);
@@ -48,8 +47,14 @@ const RootLayout = () => {
         setIsColorSchemeLoaded(true);
         return;
       }
+
       setAndroidNavigationBar(colorTheme);
       setIsColorSchemeLoaded(true);
+
+      if (Platform.OS === 'web') {
+        document.documentElement.classList.add('bg-background');
+      }
+
     })().finally(() => {
       SplashScreen.hideAsync();
     });
