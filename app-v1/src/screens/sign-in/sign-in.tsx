@@ -9,12 +9,15 @@ import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
+import { profileStore } from '~/src/stores/profile.store';
 
 export const storage = new MMKV();
 
 const SignInScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
+
+  const { init } = profileStore();
 
   const submit = (data: any) => {
     signIn(data.email, data.password)
@@ -28,6 +31,7 @@ const SignInScreen = () => {
       });
 
       storage.set('colorTheme', response.data.token);
+      init();
 
     } catch (error: any) {
       console.log(error.response.data);
