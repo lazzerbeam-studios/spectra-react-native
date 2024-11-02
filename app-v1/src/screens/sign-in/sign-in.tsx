@@ -1,4 +1,4 @@
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { View } from 'react-native';
 import { MMKV } from 'react-native-mmkv';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -31,7 +31,9 @@ const SignInScreen = () => {
       });
 
       storage.set('token', response.data.token);
-      init();
+      await init();
+
+      router.navigate('../logged-in/profile')
 
     } catch (error: any) {
       console.log(error.response.data);
@@ -58,8 +60,8 @@ const SignInScreen = () => {
           </Text>
 
           <Controller
-            name="email"
-            defaultValue={''}
+            name='email'
+            defaultValue={'yoda@yahoo.com'}
             control={control}
             render={({ field }) => (
               <Input
@@ -76,8 +78,8 @@ const SignInScreen = () => {
           ></Controller>
 
           <Controller
-            name="password"
-            defaultValue={''}
+            name='password'
+            defaultValue={'admin123'}
             control={control}
             render={({ field }) => (
               <Input
