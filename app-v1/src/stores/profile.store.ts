@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { MMKV } from 'react-native-mmkv';
 
+import { usersApi } from '~/src/api';
 import { Profile } from '~/src/openapi/api';
 
 export const storage = new MMKV();
@@ -12,7 +13,7 @@ type State = {
 type Actions = {
   profileSet: (profile: Profile) => void;
   profileClear: () => void;
-  init: () => void;
+  init: () => Promise<void>;
 };
 
 const initialState: State = {
@@ -27,11 +28,9 @@ export const profileStore = create<State & Actions>()((set, get) => ({
   profileClear: () => {
     set(initialState);
   },
-  init: () => {
-    console.log('init');
-
+  init: async () => {
     const token = storage.getString('token');
-    console.log(token);
-
-  },
+    const response = await usersApi.profileGet(token);
+    get().profileSet(response.data.object);
+  }
 }));
