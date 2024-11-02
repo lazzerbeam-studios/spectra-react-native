@@ -7,8 +7,8 @@ type State = {
 };
 
 type Actions = {
-  setProfile: (profile: Profile) => void;
-  clear: () => void;
+  profileSet: (profile: Profile) => void;
+  profileClear: () => void;
 };
 
 const initialState: State = {
@@ -17,10 +17,10 @@ const initialState: State = {
 
 export const profileStore = create<State & Actions>()((set, get) => ({
   ...initialState,
-  setProfile: (profile: Profile) => {
+  profileSet: (profile: Profile) => {
     set({ profile: profile });
   },
-  clear: () => {
+  profileClear: () => {
     set(initialState);
   },
 }));
