@@ -30,7 +30,7 @@ const SignInScreen = () => {
         password: password,
       });
 
-      storage.set('colorTheme', response.data.token);
+      storage.set('token', response.data.token);
       init();
 
     } catch (error: any) {
