@@ -23,4 +23,9 @@ export const profileStore = create<State & Actions>()((set, get) => ({
   profileClear: () => {
     set(initialState);
   },
+
+  init: () => {
+
+  },
+
 }));

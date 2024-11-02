@@ -1,20 +1,18 @@
 import { Link } from 'expo-router';
 import { View } from 'react-native';
+import { MMKV } from 'react-native-mmkv';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 
+import { authApi } from '~/src/api';
 import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
 
-import { authApi } from '~/src/api';
-
-import { authStore } from '~/src/stores/auth.store';
+export const storage = new MMKV();
 
 const SignInScreen = () => {
-  const { token, tokenSet: setToken } = authStore();
-
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
@@ -24,18 +22,12 @@ const SignInScreen = () => {
 
   const signIn = async (email: string, password: string) => {
     try {
-      const fetchedPet = await authApi.signIn({
+      const response = await authApi.signIn({
         email: email,
         password: password,
       });
 
-      console.log('*****');
-
-      console.log(fetchedPet.data.token);
-
-      setToken(fetchedPet.data.token);
-
-      console.log(token);
+      storage.set('colorTheme', response.data.token);
 
     } catch (error: any) {
       console.log(error.response.data);

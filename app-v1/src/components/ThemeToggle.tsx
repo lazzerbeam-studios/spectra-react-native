@@ -7,7 +7,7 @@ import { MoonStar } from '~/src/lib/icons/MoonStar';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 
-export const storage = new MMKV()
+export const storage = new MMKV();
 
 export function ThemeToggle() {
   const { isDarkColorScheme, setColorScheme } = useColorScheme();
