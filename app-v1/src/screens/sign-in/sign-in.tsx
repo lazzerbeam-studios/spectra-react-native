@@ -10,7 +10,11 @@ import { ChevronLeft } from '~/src/lib/icons/Chevron';
 
 import { authApi } from '~/src/api';
 
+import { authStore } from '~/src/stores/auth.store';
+
 const SignInScreen = () => {
+  const { token, tokenSet: setToken } = authStore();
+
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
@@ -24,7 +28,15 @@ const SignInScreen = () => {
         email: email,
         password: password,
       });
-      console.log(fetchedPet.data);
+
+      console.log('*****');
+
+      console.log(fetchedPet.data.token);
+
+      setToken(fetchedPet.data.token);
+
+      console.log(token);
+
     } catch (error: any) {
       console.log(error.response.data);
     }
@@ -51,6 +63,7 @@ const SignInScreen = () => {
 
           <Controller
             name="email"
+            defaultValue={''}
             control={control}
             render={({ field }) => (
               <Input
@@ -68,6 +81,7 @@ const SignInScreen = () => {
 
           <Controller
             name="password"
+            defaultValue={''}
             control={control}
             render={({ field }) => (
               <Input

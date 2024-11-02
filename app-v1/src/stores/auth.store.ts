@@ -5,8 +5,8 @@ type State = {
 };
 
 type Actions = {
-  setProfile: (token: string) => void;
-  clear: () => void;
+  tokenSet: (token: string) => void;
+  tokenClear: () => void;
 };
 
 const initialState: State = {
@@ -15,10 +15,10 @@ const initialState: State = {
 
 export const authStore = create<State & Actions>()((set, get) => ({
   ...initialState,
-  setProfile: (token: string) => {
+  tokenSet: (token: string) => {
     set({ token: token });
   },
-  clear: () => {
+  tokenClear: () => {
     set(initialState);
   },
 }));
