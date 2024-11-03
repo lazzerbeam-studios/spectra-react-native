@@ -6,8 +6,8 @@ type State = {
 };
 
 type Actions = {
-  tokenSet: (token: string) => void;
-  clear: () => void;
+  authSet: (token: string) => void;
+  authClear: () => void;
 };
 
 const initState: State = {
@@ -17,10 +17,10 @@ const initState: State = {
 
 export const authStore = create<State & Actions>()((set, get) => ({
   ...initState,
-  tokenSet: (authToken: string) => {
+  authSet: (authToken: string) => {
     set({ authToken: authToken });
   },
-  clear: () => {
+  authClear: () => {
     set(initState);
   },
 }));
