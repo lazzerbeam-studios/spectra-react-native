@@ -18,17 +18,17 @@ type Actions = {
   profileInit: () => Promise<void>;
 };
 
-const initialState: State = {
+const initState: State = {
   profile: null,
 };
 
 export const profileStore = create<State & Actions>()((set, get) => ({
-  ...initialState,
+  ...initState,
   profileSet: (profile: Profile) => {
     set({ profile: profile });
   },
   profileClear: () => {
-    set(initialState);
+    set(initState);
   },
   profileInit: async () => {
     const token = storage.getString('token');
