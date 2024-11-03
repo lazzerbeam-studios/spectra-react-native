@@ -18,7 +18,10 @@ const initState: State = {
 export const authStore = create<State & Actions>()((set, get) => ({
   ...initState,
   authSet: (authToken: string) => {
-    set({ authToken: authToken });
+    set({
+      authToken: authToken,
+      authBool: true,
+    });
   },
   authClear: () => {
     set(initState);
