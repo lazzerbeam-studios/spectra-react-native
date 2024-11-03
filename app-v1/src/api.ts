@@ -4,9 +4,9 @@ import { AuthApi, UsersApi, Configuration } from './openapi';
 
 const config = new Configuration();
 const axiosInstance = axios.create();
-const apiUrl = process.env.EXPO_PUBLIC_API_URL;
+const url = process.env.EXPO_PUBLIC_API_URL;
 
-const authApi = new AuthApi(config, apiUrl, axiosInstance);
-const usersApi = new UsersApi(config, apiUrl, axiosInstance);
+const authApi = new AuthApi(config, url, axiosInstance);
+const usersApi = new UsersApi(config, url, axiosInstance);
 
 export { authApi, usersApi };
