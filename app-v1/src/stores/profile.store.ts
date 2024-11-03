@@ -14,6 +14,7 @@ type State = {
 };
 
 type Actions = {
+  profileSet: (profile: Profile) => void;
   profileClear: () => void;
   profileInit: () => Promise<void>;
 };
@@ -24,6 +25,9 @@ const initialState: State = {
 
 export const profileStore = create<State & Actions>()((set, get) => ({
   ...initialState,
+  profileSet: (profile: Profile) => {
+    set({ profile: profile });
+  },
   profileClear: () => {
     set(initialState);
   },
@@ -34,6 +38,7 @@ export const profileStore = create<State & Actions>()((set, get) => ({
       authSet(token);
       const response = await usersApi.profileGet(token);
       set({ profile: response.data.object });
+      get().profileSet(response.data.object);
     } else {
       authClear();
       get().profileClear();
