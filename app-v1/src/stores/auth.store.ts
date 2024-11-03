@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 type State = {
-  token: string;
+  authToken: string;
   authBool: boolean;
 };
 
@@ -11,14 +11,14 @@ type Actions = {
 };
 
 const initState: State = {
-  token: '',
+  authToken: '',
   authBool: false,
 };
 
 export const authStore = create<State & Actions>()((set, get) => ({
   ...initState,
   tokenSet: (token: string) => {
-    set({ token: token });
+    set({ authToken: token });
   },
   clear: () => {
     set(initState);
