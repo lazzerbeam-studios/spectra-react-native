@@ -4,7 +4,10 @@ import { MMKV } from 'react-native-mmkv';
 import { usersApi } from '~/src/api';
 import { Profile } from '~/src/openapi/api';
 
-export const storage = new MMKV();
+import { authStore } from '~/src/stores/auth.store';
+
+const storage = new MMKV();
+const { authSet } = authStore();
 
 type State = {
   profile: Profile | null;
@@ -26,7 +29,14 @@ export const profileStore = create<State & Actions>()((set, get) => ({
   },
   profileInit: async () => {
     const token = storage.getString('token');
-    const response = await usersApi.profileGet(token);
-    set({ profile: response.data.object });
+
+    if (token) {
+      authSet(token);
+      const response = await usersApi.profileGet(token);
+      set({ profile: response.data.object });
+    } else {
+      set(initialState);
+    }
+
   }
 }));
