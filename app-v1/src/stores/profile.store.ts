@@ -36,7 +36,7 @@ export const profileStore = create<State & Actions>()((set, get) => ({
       set({ profile: response.data.object });
     } else {
       authClear();
-      set(initialState);
+      get().profileClear();
     }
 
   }
