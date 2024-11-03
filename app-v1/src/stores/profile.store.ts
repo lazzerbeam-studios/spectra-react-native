@@ -12,7 +12,7 @@ type State = {
 
 type Actions = {
   profileClear: () => void;
-  init: () => Promise<void>;
+  profileInit: () => Promise<void>;
 };
 
 const initialState: State = {
@@ -24,7 +24,7 @@ export const profileStore = create<State & Actions>()((set, get) => ({
   profileClear: () => {
     set(initialState);
   },
-  init: async () => {
+  profileInit: async () => {
     const token = storage.getString('token');
     const response = await usersApi.profileGet(token);
     set({ profile: response.data.object });

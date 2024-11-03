@@ -17,7 +17,7 @@ const SignInScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
-  const { init } = profileStore();
+  const { profileInit } = profileStore();
 
   const submit = (data: any) => {
     signIn(data.email, data.password)
@@ -31,7 +31,7 @@ const SignInScreen = () => {
       });
 
       storage.set('token', response.data.token);
-      await init();
+      await profileInit();
 
       router.navigate('../logged-in/profile')
 
