@@ -3,7 +3,6 @@ import { MMKV } from 'react-native-mmkv';
 
 import { usersApi } from '~/src/api';
 import { Profile } from '~/src/openapi/api';
-
 import { authStore } from '~/src/stores/auth.store';
 
 const storage = new MMKV();
