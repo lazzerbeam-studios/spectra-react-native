@@ -10,17 +10,17 @@ type Actions = {
   clear: () => void;
 };
 
-const initialState: State = {
-  token: 'null',
+const initState: State = {
+  token: '',
   auth: false,
 };
 
 export const authStore = create<State & Actions>()((set, get) => ({
-  ...initialState,
+  ...initState,
   tokenSet: (token: string) => {
     set({ token: token });
   },
   clear: () => {
-    set(initialState);
+    set(initState);
   },
 }));
