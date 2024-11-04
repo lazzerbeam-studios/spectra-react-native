@@ -41,7 +41,7 @@ const SignInScreen = () => {
     <SafeAreaView className='flex h-full'>
 
       <View className='ms-2 mt-2'>
-        <Link href='/' push asChild>
+        <Link href='/' asChild>
           <Button variant={'link'} size={'icon'}>
             <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
           </Button>
