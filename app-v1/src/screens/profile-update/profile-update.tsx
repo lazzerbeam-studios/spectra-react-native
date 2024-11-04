@@ -17,7 +17,9 @@ const ProfileUpdateScreen = () => {
   const { errors } = useFormState({ control });
 
   const submit = (data: any) => {
-    console.log(data);
+    if (profile) {
+      profile.name = data.name;
+    }
   };
 
   return (
