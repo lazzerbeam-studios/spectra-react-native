@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '~/src/components/ui/card';
 
 const ProfileUpdateScreen = () => {
   return (
@@ -21,7 +22,11 @@ const ProfileUpdateScreen = () => {
       <View className='mb-44 flex w-full flex-1 flex-row'>
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
-          <Text>ProfileUpdateScreen</Text>
+
+          <Card className='w-full max-w-sm rounded-2xl p-6'>
+            <CardTitle className='pb-2 text-center'>Yeah</CardTitle>
+          </Card>
+
         </View>
         <View className='native:hidden flex-[0.2]'></View>
       </View>
