@@ -7,6 +7,7 @@ import { PortalHost } from '@rn-primitives/portal';
 import { Theme, ThemeProvider } from '@react-navigation/native';
 
 import { NAV_THEME } from '~/src/lib/themeConstants';
+import { profileStore } from '~/src/stores/profile.store';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 
@@ -28,13 +29,15 @@ export { ErrorBoundary } from 'expo-router';
 
 const RootLayout = () => {
   const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme();
-  const [isColorSchemeLoaded, setIsColorSchemeLoaded] = useState(false);
+
+  const [colorSchemeLoaded, colorSchemeLoadedSet] = useState(false);
+  const [apiLoaded, apiLoadedSet] = useState(false);
 
   useEffect(() => {
     (async () => {
       const colorTheme = (storage.getString('colorTheme') || colorScheme) === 'dark' ? 'dark' : 'light';
+      colorSchemeLoadedSet(true);
       setColorScheme(colorTheme);
-      setIsColorSchemeLoaded(true);
       setAndroidNavigationBar(colorTheme);
       if (Platform.OS === 'web') {
         document.documentElement.classList.add('bg-background');
@@ -44,7 +47,14 @@ const RootLayout = () => {
     });
   }, []);
 
-  if (!isColorSchemeLoaded) {
+  useEffect(() => {
+    (async () => {
+      await profileStore.getState().profileInit();
+      apiLoadedSet(true);
+    })();
+  }, []);
+
+  if (!colorSchemeLoaded || !apiLoaded) {
     return null;
   }
 

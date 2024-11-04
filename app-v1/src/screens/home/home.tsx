@@ -1,12 +1,21 @@
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
+import { profileStore } from '~/src/stores/profile.store';
 
 const HomeScreen = () => {
+
+  const onLayout = () => {
+    const profile = profileStore.getState().profile;
+    if (profile && profile.id) {
+      router.navigate('../logged-in/profile');
+    }
+  };
+
   return (
-    <SafeAreaView className='mb-36 flex flex-1 flex-col items-center justify-center'>
+    <SafeAreaView className='mb-36 flex flex-1 flex-col items-center justify-center' onLayout={onLayout}>
 
       <Text className='mb-24 text-8xl font-bold'>
         Spectra
