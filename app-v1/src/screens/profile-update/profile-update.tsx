@@ -47,7 +47,6 @@ const ProfileUpdateScreen = () => {
               )}
               rules={{
                 required: true,
-                pattern: /^\S+@\S+$/i,
               }}
             ></Controller>
 
