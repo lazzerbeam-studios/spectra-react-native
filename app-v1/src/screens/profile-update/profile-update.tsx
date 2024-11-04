@@ -1,5 +1,5 @@
-import { Link } from 'expo-router';
 import { View } from 'react-native';
+import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Text } from '~/src/components/ui/text';
@@ -11,11 +11,9 @@ const ProfileUpdateScreen = () => {
     <SafeAreaView className='flex h-full bg-secondary/30'>
 
       <View className='ms-2 mt-2'>
-        <Link href='/' asChild>
-          <Button variant={'link'} size={'icon'}>
-            <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
-          </Button>
-        </Link>
+        <Button variant={'link'} size={'icon'} onPress={() => router.back()}>
+          <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
+        </Button>
       </View>
 
       <Text>ProfileUpdateScreen</Text>
