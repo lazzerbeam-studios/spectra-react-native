@@ -20,8 +20,7 @@ import { Link, Stack } from 'expo-router';
 import { ThemeToggle } from '~/src/components/ThemeToggle';
 import { profileStore } from '~/src/stores/profile.store';
 
-const GITHUB_AVATAR_URI =
-  'https://i.pinimg.com/originals/ef/a2/8d/efa28d18a04e7fa40ed49eeb0ab660db.jpg';
+const GITHUB_AVATAR_URI = 'https://i.pinimg.com/736x/31/f8/67/31f867c0e9786ce10c89eb94010f7a7d.jpg';
 
 const ProfileScreen = () => {
   const [progress, setProgress] = React.useState(78);
@@ -101,7 +100,7 @@ const ProfileScreen = () => {
         </Card>
       </View>
     </>
-  )
+  );
 }
 
 export default ProfileScreen
