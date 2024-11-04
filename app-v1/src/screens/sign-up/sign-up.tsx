@@ -1,32 +1,39 @@
-import { Link } from 'expo-router';
 import { View } from 'react-native';
+import { MMKV } from 'react-native-mmkv';
+import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 
+import { authApi } from '~/src/api';
 import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
+import { profileStore } from '~/src/stores/profile.store';
 
-import { authApi } from '~/src/api';
+export const storage = new MMKV();
 
 const SignUpScreen = () => {
+  const { profileInit } = profileStore();
+
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
   const submit = (data: any) => {
-    signIn(data.email, data.password)
+    signUp(data.email, data.password);
   };
 
-  const signIn = async (email: string, password: string) => {
+  const signUp = async (email: string, password: string) => {
     try {
-      const fetchedPet = await authApi.signIn({
+      const response = await authApi.signUp({
         email: email,
         password: password,
       });
-      console.log(fetchedPet.data);
+      storage.set('token', response.data.token);
+      await profileInit();
+      router.navigate('../logged-in/profile');
     } catch (error: any) {
-      console.log(error.response.data);
+      console.log(error);
     }
   };
 
@@ -34,7 +41,7 @@ const SignUpScreen = () => {
     <SafeAreaView className='flex h-full'>
 
       <View className='ms-2 mt-2'>
-        <Link href='/' push asChild>
+        <Link href='/' asChild>
           <Button variant={'link'} size={'icon'}>
             <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
           </Button>
@@ -50,7 +57,8 @@ const SignUpScreen = () => {
           </Text>
 
           <Controller
-            name="email"
+            name='email'
+            defaultValue={''}
             control={control}
             render={({ field }) => (
               <Input
@@ -67,7 +75,8 @@ const SignUpScreen = () => {
           ></Controller>
 
           <Controller
-            name="password"
+            name='password'
+            defaultValue={''}
             control={control}
             render={({ field }) => (
               <Input

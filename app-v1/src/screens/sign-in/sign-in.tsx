@@ -102,7 +102,7 @@ const SignInScreen = () => {
       </View>
 
     </SafeAreaView>
-  )
+  );
 }
 
 export default SignInScreen;
