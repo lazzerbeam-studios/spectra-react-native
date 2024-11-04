@@ -6,7 +6,6 @@ import { Profile } from '~/src/openapi/api';
 import { authStore } from '~/src/stores/auth.store';
 
 const storage = new MMKV();
-const { authSet, authClear } = authStore();
 
 type State = {
   profile: Profile | null;
@@ -33,11 +32,11 @@ export const profileStore = create<State & Actions>()((set, get) => ({
   profileInit: async () => {
     const token = storage.getString('token');
     if (token) {
-      authSet(token);
+      authStore.getState().authSet(token);
       const response = await usersApi.profileGet(token);
       get().profileSet(response.data.object);
     } else {
-      authClear();
+      authStore.getState().authClear();
       get().profileClear();
     }
   }

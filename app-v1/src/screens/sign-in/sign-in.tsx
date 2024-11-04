@@ -36,7 +36,7 @@ const SignInScreen = () => {
       router.navigate('../logged-in/profile')
 
     } catch (error: any) {
-      console.log(error.response.data);
+      console.log(error);
     }
   };
 
