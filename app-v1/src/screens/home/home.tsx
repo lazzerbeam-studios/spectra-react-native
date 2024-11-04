@@ -9,14 +9,8 @@ import { profileStore } from '~/src/stores/profile.store';
 const HomeScreen = () => {
 
   const onLayout = () => {
-
     const profile = profileStore.getState().profile;
-
-    console.log(profile);
-
     if (profile && profile.id) {
-      console.log('Here');
-
       router.navigate('../logged-in/profile');
     }
   };
