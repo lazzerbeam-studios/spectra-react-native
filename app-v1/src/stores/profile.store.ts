@@ -15,6 +15,7 @@ type Actions = {
   profileSet: (profile: Profile) => void;
   profileClear: () => void;
   profileInit: () => Promise<void>;
+  profileUpdate: (profile: Profile) => Promise<void>;
 };
 
 const initState: State = {
@@ -40,5 +41,10 @@ export const profileStore = create<State & Actions>()((set, get) => ({
       authStore.getState().authClear();
       get().profileClear();
     }
+  },
+  profileUpdate: async (profile: Profile) => {
+    const token = authStore.getState().authToken;
+    const response = await usersApi.profileUpdate({ object: profile }, token);
+    get().profileSet(response.data.object);
   }
 }));
