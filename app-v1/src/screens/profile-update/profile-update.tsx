@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import { router } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 
@@ -27,13 +27,13 @@ const ProfileUpdateScreen = () => {
   return (
     <SafeAreaView className='flex h-full bg-secondary/30'>
 
-      {router.canGoBack() && (
-        <View className='ms-2 mt-2'>
-          <Button variant={'link'} size={'icon'} onPress={() => router.back()}>
+      <View className='ms-2 mt-2'>
+        <Link href='/logged-in/profile' asChild>
+          <Button variant={'link'} size={'icon'}>
             <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
           </Button>
-        </View>
-      )}
+        </Link>
+      </View>
 
       <View className='mb-44 flex w-full flex-1 flex-row'>
         <View className='native:hidden flex-[0.2]'></View>
