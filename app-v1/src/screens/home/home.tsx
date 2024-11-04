@@ -8,7 +8,7 @@ import { profileStore } from '~/src/stores/profile.store';
 
 const HomeScreen = () => {
 
-  const submit = () => {
+  const onLayout = () => {
 
     const profile = profileStore.getState().profile;
 
@@ -22,7 +22,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <SafeAreaView className='mb-36 flex flex-1 flex-col items-center justify-center' onLayout={submit}>
+    <SafeAreaView className='mb-36 flex flex-1 flex-col items-center justify-center' onLayout={onLayout}>
 
       <Text className='mb-24 text-8xl font-bold'>
         Spectra
