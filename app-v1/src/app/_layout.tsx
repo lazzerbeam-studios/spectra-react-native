@@ -29,14 +29,14 @@ export { ErrorBoundary } from 'expo-router';
 
 const RootLayout = () => {
   const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme();
-  const [isColorSchemeLoaded, setIsColorSchemeLoaded] = useState(false);
+  const [colorSchemeLoaded, colorSchemeLoadedSet] = useState(false);
   const [apiLoaded, apiLoadedSet] = useState(false);
 
   useEffect(() => {
     (async () => {
       const colorTheme = (storage.getString('colorTheme') || colorScheme) === 'dark' ? 'dark' : 'light';
+      colorSchemeLoadedSet(true);
       setColorScheme(colorTheme);
-      setIsColorSchemeLoaded(true);
       setAndroidNavigationBar(colorTheme);
       if (Platform.OS === 'web') {
         document.documentElement.classList.add('bg-background');
@@ -53,7 +53,7 @@ const RootLayout = () => {
     })();
   }, []);
 
-  if (!isColorSchemeLoaded || !apiLoaded) {
+  if (!colorSchemeLoaded || !apiLoaded) {
     return null;
   }
 
