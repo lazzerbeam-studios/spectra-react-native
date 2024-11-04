@@ -10,11 +10,13 @@ const ProfileUpdateScreen = () => {
   return (
     <SafeAreaView className='flex h-full bg-secondary/30'>
 
-      <View className='ms-2 mt-2'>
-        <Button variant={'link'} size={'icon'} onPress={() => router.back()}>
-          <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
-        </Button>
-      </View>
+      {router.canGoBack() && (
+        <View className='ms-2 mt-2'>
+          <Button variant={'link'} size={'icon'} onPress={() => router.back()}>
+            <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
+          </Button>
+        </View>
+      )}
 
       <Text>ProfileUpdateScreen</Text>
 
