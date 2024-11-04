@@ -3,7 +3,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
-
 import { profileStore } from '~/src/stores/profile.store';
 
 const HomeScreen = () => {
