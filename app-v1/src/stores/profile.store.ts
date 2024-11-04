@@ -35,7 +35,6 @@ export const profileStore = create<State & Actions>()((set, get) => ({
     if (token) {
       authSet(token);
       const response = await usersApi.profileGet(token);
-      set({ profile: response.data.object });
       get().profileSet(response.data.object);
     } else {
       authClear();
