@@ -18,6 +18,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '~/src/components/ui/too
 import { Link, Stack } from 'expo-router';
 
 import { ThemeToggle } from '~/src/components/ThemeToggle';
+import { profileStore } from '~/src/stores/profile.store';
 
 const GITHUB_AVATAR_URI =
   'https://i.pinimg.com/originals/ef/a2/8d/efa28d18a04e7fa40ed49eeb0ab660db.jpg';
@@ -28,6 +29,8 @@ const ProfileScreen = () => {
   function updateProgressValue() {
     setProgress(Math.floor(Math.random() * 100));
   }
+
+  const { profile } = profileStore();
 
   return (
     <>
@@ -42,7 +45,7 @@ const ProfileScreen = () => {
               </AvatarFallback>
             </Avatar>
             <View className='p-3' />
-            <CardTitle className='pb-2 text-center'>Rick Sanchez</CardTitle>
+            <CardTitle className='pb-2 text-center'>{profile?.name}</CardTitle>
             <View className='flex-row'>
               <CardDescription className='text-base font-semibold'>Scientist</CardDescription>
               <Tooltip delayDuration={150}>

@@ -1,6 +1,6 @@
-import React from 'react';
 import { Platform } from 'react-native';
 import { MMKV } from 'react-native-mmkv';
+import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SplashScreen, Stack } from 'expo-router';
 import { PortalHost } from '@rn-primitives/portal';
@@ -28,28 +28,17 @@ export { ErrorBoundary } from 'expo-router';
 
 const RootLayout = () => {
   const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme();
-  const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
+  const [isColorSchemeLoaded, setIsColorSchemeLoaded] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     (async () => {
-      const theme = storage.getString('theme');
-      if (!theme) {
-        storage.set('theme', colorScheme);
-        setIsColorSchemeLoaded(true);
-        return;
-      }
+      const colorTheme = (storage.getString('colorTheme') || colorScheme) === 'dark' ? 'dark' : 'light';
+      setColorScheme(colorTheme);
+      setIsColorSchemeLoaded(true);
+      setAndroidNavigationBar(colorTheme);
       if (Platform.OS === 'web') {
         document.documentElement.classList.add('bg-background');
       }
-      const colorTheme = (theme === 'dark') ? 'dark' : 'light';
-      if (colorTheme !== colorScheme) {
-        setColorScheme(colorTheme);
-        setAndroidNavigationBar(colorTheme);
-        setIsColorSchemeLoaded(true);
-        return;
-      }
-      setAndroidNavigationBar(colorTheme);
-      setIsColorSchemeLoaded(true);
     })().finally(() => {
       SplashScreen.hideAsync();
     });

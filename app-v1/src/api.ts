@@ -1,17 +1,12 @@
 import axios from 'axios';
 
-import { AuthApi, Configuration } from './openapi';
-
-const apiUrl = process.env.EXPO_PUBLIC_API_URL;
+import { AuthApi, UsersApi, Configuration } from './openapi';
 
 const config = new Configuration();
+const axiosInstance = axios.create();
+const url = process.env.EXPO_PUBLIC_API_URL;
 
-const axiosInstance = axios.create({
-  headers: {
-    Authorization: 'YOUR_TOKEN',
-  },
-});
+const authApi = new AuthApi(config, url, axiosInstance);
+const usersApi = new UsersApi(config, url, axiosInstance);
 
-const authApi = new AuthApi(config, apiUrl, axiosInstance);
-
-export { authApi };
+export { authApi, usersApi };
