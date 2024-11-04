@@ -29,6 +29,7 @@ export { ErrorBoundary } from 'expo-router';
 
 const RootLayout = () => {
   const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme();
+
   const [colorSchemeLoaded, colorSchemeLoadedSet] = useState(false);
   const [apiLoaded, apiLoadedSet] = useState(false);
 
