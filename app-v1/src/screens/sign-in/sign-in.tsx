@@ -20,7 +20,7 @@ const SignInScreen = () => {
   const { errors } = useFormState({ control });
 
   const submit = (data: any) => {
-    signIn(data.email, data.password)
+    signIn(data.email, data.password);
   };
 
   const signIn = async (email: string, password: string) => {
