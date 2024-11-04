@@ -27,7 +27,7 @@ const ProfileUpdateScreen = () => {
   return (
     <SafeAreaView className='flex h-full bg-secondary/30'>
 
-      <View className='ms-2 mt-2'>
+      <View className='bg-background pb-2 ps-2 pt-2'>
         <Link href='/logged-in/profile' asChild>
           <Button variant={'link'} size={'icon'}>
             <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
