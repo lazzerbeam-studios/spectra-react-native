@@ -30,9 +30,10 @@ export const profileStore = create<State & Actions>()((set, get) => ({
     set(initState);
   },
   profileInit: async () => {
-    const token = storage.getString('token');
+    let token = storage.getString('token');
     if (token) {
       authStore.getState().authSet(token);
+      token = authStore.getState().authToken;
       const response = await usersApi.profileGet(token);
       get().profileSet(response.data.object);
     } else {
