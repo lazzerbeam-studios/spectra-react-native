@@ -11,14 +11,16 @@ import { profileStore } from '~/src/stores/profile.store';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '~/src/components/ui/card';
 
 const ProfileUpdateScreen = () => {
-  const { profile } = profileStore();
+  const { profile, profileUpdate } = profileStore();
 
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
-  const submit = (data: any) => {
+  const submit = async (data: any) => {
     if (profile) {
       profile.name = data.name;
+      await profileUpdate(profile);
+      router.back();
     }
   };
 
