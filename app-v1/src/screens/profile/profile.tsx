@@ -90,13 +90,13 @@ const ProfileScreen = () => {
             </View>
             <Progress value={progress} className='h-2' indicatorClassName='bg-sky-600' />
             <View />
-            <Button
-              variant='outline'
-              className='shadow shadow-foreground/5'
-              onPress={updateProgressValue}
-            >
-              <Text>Update</Text>
-            </Button>
+
+            <Link href='/logged-in/profile-update' asChild>
+              <Button variant='outline' className='shadow shadow-foreground/5'>
+                <Text>Update</Text>
+              </Button>
+            </Link>
+
           </CardFooter>
         </Card>
       </View>
