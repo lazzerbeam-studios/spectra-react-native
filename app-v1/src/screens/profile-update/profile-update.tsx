@@ -20,7 +20,7 @@ const ProfileUpdateScreen = () => {
     if (profile) {
       profile.name = data.name;
       await profileUpdate(profile);
-      router.back();
+      router.navigate('/logged-in/profile');
     }
   };
 
