@@ -50,7 +50,7 @@ const ProfileUpdateScreen = () => {
                 <Input
                   {...field}
                   placeholder='Name'
-                  className={'native:h-18 mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl'}
+                  className={`native:h-18 mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl ${(errors.name) ? 'border-red-500' : 'border-foreground'}`}
                 />
               )}
               rules={{
