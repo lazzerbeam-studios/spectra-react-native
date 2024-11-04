@@ -41,7 +41,6 @@ const ProfileUpdateScreen = () => {
 
           <Card className='w-full max-w-sm rounded-2xl p-6'>
             <Text className='native:text-5xl pb-6 text-center text-4xl'>Profile Update</Text>
-
             <Controller
               name='name'
               control={control}
@@ -57,13 +56,11 @@ const ProfileUpdateScreen = () => {
                 required: true,
               }}
             ></Controller>
-
             <Button className='native:h-20 mb-4 h-16 rounded-full' onPress={handleSubmit(submit)}>
               <Text className='native:text-3xl text-3xl'>
                 Update
               </Text>
             </Button>
-
           </Card>
 
         </View>
