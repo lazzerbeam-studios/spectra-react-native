@@ -16,6 +16,10 @@ const ProfileUpdateScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
+  const submit = (data: any) => {
+    console.log(data);
+  };
+
   return (
     <SafeAreaView className='flex h-full bg-secondary/30'>
 
@@ -49,6 +53,12 @@ const ProfileUpdateScreen = () => {
                 required: true,
               }}
             ></Controller>
+
+            <Button className='native:h-20 mb-6 h-16 rounded-full' onPress={handleSubmit(submit)}>
+              <Text className='native:text-3xl text-3xl'>
+                Update
+              </Text>
+            </Button>
 
           </Card>
 
