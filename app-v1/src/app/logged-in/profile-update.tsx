@@ -2,7 +2,9 @@ import ProfileUpdateScreen from '~/src/screens/profile-update/profile-update';
 
 const ProfileUpdate = () => {
   return (
-    <ProfileUpdateScreen></ProfileUpdateScreen>
+    <>
+      <ProfileUpdateScreen></ProfileUpdateScreen>
+    </>
   );
 };
 
