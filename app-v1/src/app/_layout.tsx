@@ -30,6 +30,7 @@ export { ErrorBoundary } from 'expo-router';
 const RootLayout = () => {
   const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme();
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = useState(false);
+  const [apiInitBool, setApiInitBool] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -48,11 +49,11 @@ const RootLayout = () => {
   useEffect(() => {
     (async () => {
       await profileStore.getState().profileInit();
-      console.log('Test2');
+      setApiInitBool(true);
     })();
   }, []);
 
-  if (!isColorSchemeLoaded) {
+  if (!isColorSchemeLoaded || !apiInitBool) {
     return null;
   }
 
