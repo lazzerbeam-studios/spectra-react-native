@@ -3,12 +3,12 @@ import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 
+import { Card } from '~/src/components/ui/card';
 import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
 import { profileStore } from '~/src/stores/profile.store';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '~/src/components/ui/card';
 
 const ProfileUpdateScreen = () => {
   const { profile, profileUpdate } = profileStore();
