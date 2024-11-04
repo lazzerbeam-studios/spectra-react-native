@@ -37,8 +37,8 @@ const ProfileUpdateScreen = () => {
 
             <Controller
               name='email'
-              defaultValue={''}
               control={control}
+              defaultValue={profile?.name}
               render={({ field }) => (
                 <Input
                   {...field}
