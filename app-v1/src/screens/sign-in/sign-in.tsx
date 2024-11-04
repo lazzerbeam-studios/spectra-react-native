@@ -1,6 +1,6 @@
-import { Link, router } from 'expo-router';
 import { View } from 'react-native';
 import { MMKV } from 'react-native-mmkv';
+import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 
@@ -14,10 +14,10 @@ import { profileStore } from '~/src/stores/profile.store';
 export const storage = new MMKV();
 
 const SignInScreen = () => {
+  const { profileInit } = profileStore();
+
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
-
-  const { profileInit } = profileStore();
 
   const submit = (data: any) => {
     signIn(data.email, data.password)
