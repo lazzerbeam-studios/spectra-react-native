@@ -11,6 +11,7 @@ import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 
 import '~/src/global.css';
+import { profileStore } from '~/src/stores/profile.store';
 
 const LIGHT_THEME: Theme = {
   dark: false,
@@ -42,6 +43,13 @@ const RootLayout = () => {
     })().finally(() => {
       SplashScreen.hideAsync();
     });
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      await profileStore.getState().profileInit();
+      console.log('Test2');
+    })();
   }, []);
 
   if (!isColorSchemeLoaded) {
