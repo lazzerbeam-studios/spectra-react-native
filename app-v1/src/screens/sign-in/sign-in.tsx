@@ -58,7 +58,7 @@ const SignInScreen = () => {
 
           <Controller
             name='email'
-            defaultValue={'yoda@yahoo.com'}
+            defaultValue={''}
             control={control}
             render={({ field }) => (
               <Input
@@ -76,7 +76,7 @@ const SignInScreen = () => {
 
           <Controller
             name='password'
-            defaultValue={'admin123'}
+            defaultValue={''}
             control={control}
             render={({ field }) => (
               <Input
