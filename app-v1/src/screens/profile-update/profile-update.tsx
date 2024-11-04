@@ -1,10 +1,12 @@
-import { Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { Text } from '~/src/components/ui/text';
 
 const ProfileUpdateScreen = () => {
   return (
-    <View>
+    <SafeAreaView className='flex h-full'>
       <Text>ProfileUpdateScreen</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
