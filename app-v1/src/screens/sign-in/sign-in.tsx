@@ -29,12 +29,9 @@ const SignInScreen = () => {
         email: email,
         password: password,
       });
-
       storage.set('token', response.data.token);
       await profileInit();
-
       router.navigate('../logged-in/profile')
-
     } catch (error: any) {
       console.log(error);
     }
