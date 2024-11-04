@@ -32,18 +32,16 @@ const ProfileUpdateScreen = () => {
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
           <Card className='w-full max-w-sm rounded-2xl p-6'>
-            <CardTitle className='pb-2 text-center'>Profile Update</CardTitle>
-            <CardTitle className='pb-2 text-center'>{profile?.email}</CardTitle>
+            <CardTitle className='pb-6 text-center'>Profile Update</CardTitle>
 
             <Controller
-              name='email'
+              name='name'
               control={control}
               defaultValue={profile?.name}
               render={({ field }) => (
                 <Input
                   {...field}
-                  placeholder='Email'
-                  keyboardType='email-address'
+                  placeholder='Name'
                   className={'native:h-18 mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl'}
                 />
               )}
