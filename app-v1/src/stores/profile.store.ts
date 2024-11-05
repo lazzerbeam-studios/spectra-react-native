@@ -12,7 +12,7 @@ type State = {
 
 type Actions = {
   profileSet: (profile: Profile) => void;
-  profileClear: () => void;
+  profileClear: () => Promise<void>;
   profileInit: () => Promise<void>;
   profileUpdate: (profile: Profile) => Promise<void>;
   profileLogout: () => void;
@@ -27,19 +27,24 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
   profileSet: (profile: Profile) => {
     set({ profile: profile });
   },
-  profileClear: () => {
+  profileClear: async () => {
     set(initState);
+    AuthStore.getState().authClear();
+    await AsyncStorage.removeItem('token');
   },
   profileInit: async () => {
     let token = await AsyncStorage.getItem('token');
     if (token) {
       AuthStore.getState().authSet(token);
       token = AuthStore.getState().authToken;
-      const response = await usersApi.profileGet(token);
-      get().profileSet(response.data.object);
+      try {
+        const response = await usersApi.profileGet(token);
+        get().profileSet(response.data.object);
+      } catch (error) {
+        await get().profileClear();
+      }
     } else {
-      get().profileClear();
-      AuthStore.getState().authClear();
+      await get().profileClear();
     }
   },
   profileUpdate: async (profile: Profile) => {
@@ -48,9 +53,7 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
     get().profileSet(response.data.object);
   },
   profileLogout: async () => {
-    get().profileClear();
-    AuthStore.getState().authClear();
-    await AsyncStorage.removeItem('token');
+    await get().profileClear();
     router.navigate('/');
   }
 }));
