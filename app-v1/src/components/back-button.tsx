@@ -1,17 +1,19 @@
-import { Link, router } from 'expo-router';
+import { router } from 'expo-router';
 
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
 
 export const BackButton = () => {
-
-  const submit = () => {
+  const goBack = () => {
     router.back();
   };
-
   return (
-    <Button variant={'link'} size={'icon'} onPress={submit}>
-      <ChevronLeft className='color-foreground' size={35} strokeWidth={2}></ChevronLeft>
-    </Button>
+    <>
+      {router.canGoBack() && (
+        <Button variant={'link'} size={'icon'} onPress={goBack}>
+          <ChevronLeft className='color-foreground' size={35} strokeWidth={2}></ChevronLeft>
+        </Button>
+      )}
+    </>
   );
 }
