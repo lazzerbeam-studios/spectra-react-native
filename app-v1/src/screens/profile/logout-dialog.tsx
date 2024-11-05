@@ -26,11 +26,9 @@ export const LogoutDialog = () => {
 
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-          <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your account and remove
-            your data from our servers.
-          </AlertDialogDescription>
+          <AlertDialogTitle>
+            Are you sure you want to sign out?
+          </AlertDialogTitle>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>
