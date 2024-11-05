@@ -10,7 +10,7 @@ export const BackButton = () => {
   return (
     <>
       {router.canGoBack() && (
-        <Button variant={'link'} size={'icon'} onPress={goBack}>
+        <Button className='web:ms-2' variant={'link'} size={'icon'} onPress={goBack}>
           <ChevronLeft className='color-foreground' size={35} strokeWidth={2}></ChevronLeft>
         </Button>
       )}
