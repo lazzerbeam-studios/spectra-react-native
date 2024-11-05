@@ -43,11 +43,9 @@ const ProfileScreen = () => {
             </CardHeader>
 
             <CardContent>
-
               <CardTitle className='pb-4 text-center'>
                 {profile?.name}
               </CardTitle>
-
               <CardTitle className='pb-8 text-center'>
                 {profile?.email}
               </CardTitle>
