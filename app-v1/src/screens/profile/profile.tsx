@@ -9,7 +9,7 @@ import { profileStore } from '~/src/stores/profile.store';
 import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
 
-const GITHUB_AVATAR_URI = 'https://i.pinimg.com/736x/31/f8/67/31f867c0e9786ce10c89eb94010f7a7d.jpg';
+const GITHUB_AVATAR_URI = 'https://t3.ftcdn.net/jpg/07/24/59/76/360_F_724597608_pmo5BsVumFcFyHJKlASG2Y2KpkkfiYUU.jpg';
 
 const ProfileScreen = () => {
   const { profile } = profileStore();
