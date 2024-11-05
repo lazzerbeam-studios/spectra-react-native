@@ -29,8 +29,8 @@ const ProfileScreen = () => {
 
       <View className='flex h-full w-full flex-1 flex-row bg-secondary/30'>
 
-        <View className='native:hidden flex-[0.2]'></View>
-        <View className='native:flex-1 flex-[0.6] items-center justify-center'>
+        <View className='hidden flex-[0.2] sm:flex'></View>
+        <View className='flex-1 items-center justify-center sm:flex-[0.6]'>
 
           <Card className='w-full max-w-sm rounded-2xl p-6'>
             <CardHeader className='items-center'>
@@ -57,7 +57,7 @@ const ProfileScreen = () => {
           </Card>
 
         </View>
-        <View className='native:hidden flex-[0.2]'></View>
+        <View className='hidden flex-[0.2] sm:flex'></View>
 
       </View>
 
