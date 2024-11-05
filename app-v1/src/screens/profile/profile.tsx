@@ -1,5 +1,5 @@
 import { Link } from 'expo-router';
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
@@ -13,7 +13,8 @@ const ProfileScreen = () => {
   const { profile } = profileStore();
 
   return (
-    <View className='flex-1 items-center justify-center gap-5 bg-secondary/30 p-6'>
+    <SafeAreaView className='flex h-full bg-secondary/30'>
+
       <Card className='w-full max-w-sm rounded-2xl p-6'>
         <CardHeader className='items-center'>
           <Avatar alt="Rick Sanchez's Avatar" className='h-24 w-24'>
@@ -26,7 +27,6 @@ const ProfileScreen = () => {
         <CardContent>
           <CardTitle className='pb-2 text-center'>{profile?.name}</CardTitle>
           <CardTitle className='pb-2 text-center'>{profile?.email}</CardTitle>
-          <View className='p-3' />
           <Link href='/logged-in/profile-update' asChild>
             <Button variant='outline' className='shadow shadow-foreground/5'>
               <Text>Update</Text>
@@ -34,7 +34,8 @@ const ProfileScreen = () => {
           </Link>
         </CardContent>
       </Card>
-    </View>
+
+    </SafeAreaView>
   );
 }
 
