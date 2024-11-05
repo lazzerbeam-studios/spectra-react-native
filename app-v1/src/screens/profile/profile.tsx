@@ -1,15 +1,12 @@
 import { View } from 'react-native';
 import { Link, Stack } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
-import { ChevronLeft } from '~/src/lib/icons/Chevron';
+import { BackButton } from '~/src/components/back-button';
 import { profileStore } from '~/src/stores/profile.store';
 import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
-
-import { BackButton } from '~/src/components/back-button';
 
 import { ThemeButton } from './theme-button';
 
@@ -20,8 +17,17 @@ const ProfileScreen = () => {
 
   return (
     <>
-      <Stack.Screen options={{ title: 'Update Profile', headerTitleAlign: 'center', headerLeft: () => <BackButton></BackButton>, headerRight: () => <ThemeButton></ThemeButton> }} />
-      <SafeAreaView className='flex h-full bg-secondary/30'>
+
+      <Stack.Screen
+        options={{
+          title: 'Update Profile',
+          headerTitleAlign: 'center',
+          headerLeft: () => <BackButton></BackButton>,
+          headerRight: () => <ThemeButton></ThemeButton>,
+        }} >
+      </Stack.Screen>
+
+      <View className='flex h-full bg-secondary/30'>
 
         <View className='mb-44 flex w-full flex-1 flex-row'>
           <View className='native:hidden flex-[0.2]'></View>
@@ -55,7 +61,8 @@ const ProfileScreen = () => {
           <View className='native:hidden flex-[0.2]'></View>
         </View>
 
-      </SafeAreaView>
+      </View>
+
     </>
   );
 }
