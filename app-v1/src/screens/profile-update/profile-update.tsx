@@ -8,10 +8,10 @@ import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
-import { profileStore } from '~/src/stores/profile.store';
+import { ProfileStore } from '~/src/stores/profile.store';
 
 const ProfileUpdateScreen = () => {
-  const { profile, profileUpdate } = profileStore();
+  const { profile, profileUpdate } = ProfileStore();
 
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });

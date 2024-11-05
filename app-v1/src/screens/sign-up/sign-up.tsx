@@ -9,10 +9,10 @@ import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
-import { profileStore } from '~/src/stores/profile.store';
+import { ProfileStore } from '~/src/stores/profile.store';
 
 const SignUpScreen = () => {
-  const { profileInit } = profileStore();
+  const { profileInit } = ProfileStore();
 
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });

@@ -4,7 +4,7 @@ import { Link, Stack } from 'expo-router';
 import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
 import { BackButton } from '~/src/components/back-button';
-import { profileStore } from '~/src/stores/profile.store';
+import { ProfileStore } from '~/src/stores/profile.store';
 import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
 
@@ -13,7 +13,7 @@ import { ThemeButton } from './theme-button';
 const avatarUri = 'https://t3.ftcdn.net/jpg/07/24/59/76/360_F_724597608_pmo5BsVumFcFyHJKlASG2Y2KpkkfiYUU.jpg';
 
 const ProfileScreen = () => {
-  const { profile } = profileStore();
+  const { profile } = ProfileStore();
 
   return (
     <>
