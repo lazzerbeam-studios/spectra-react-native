@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
 
-const AlertDialog = () => {
+const LogoutDialog = () => {
   return (
     <View>
       <Text>AlertDialog</Text>
@@ -8,4 +8,4 @@ const AlertDialog = () => {
   );
 }
 
-export default AlertDialog;
+export default LogoutDialog;
