@@ -62,6 +62,8 @@ const ProfileScreen = () => {
             </Text>
           </Button>
 
+          <LogoutDialog></LogoutDialog>
+
         </View>
         <View className='hidden flex-[0.2] sm:flex'></View>
       </View>
