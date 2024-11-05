@@ -1,107 +1,66 @@
-import * as React from 'react';
 import { View } from 'react-native';
-import Animated, { FadeInUp, FadeOutDown, LayoutAnimationConfig } from 'react-native-reanimated';
-import { Info } from '~/src/lib/icons/Info';
-import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
-import { Button } from '~/src/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '~/src/components/ui/card';
-import { Progress } from '~/src/components/ui/progress';
-import { Text } from '~/src/components/ui/text';
-import { Tooltip, TooltipContent, TooltipTrigger } from '~/src/components/ui/tooltip';
 import { Link, Stack } from 'expo-router';
 
-import { ThemeToggle } from '~/src/components/ThemeToggle';
-import { profileStore } from '~/src/stores/profile.store';
+import { Text } from '~/src/components/ui/text';
+import { Button } from '~/src/components/ui/button';
+import { BackButton } from '~/src/components/back-button';
+import { ProfileStore } from '~/src/stores/profile.store';
+import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
+import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
 
-const GITHUB_AVATAR_URI =
-  'https://i.pinimg.com/originals/ef/a2/8d/efa28d18a04e7fa40ed49eeb0ab660db.jpg';
+import { ThemeButton } from './theme-button';
+
+const avatarUri = 'https://t3.ftcdn.net/jpg/07/24/59/76/360_F_724597608_pmo5BsVumFcFyHJKlASG2Y2KpkkfiYUU.jpg';
 
 const ProfileScreen = () => {
-  const [progress, setProgress] = React.useState(78);
-
-  function updateProgressValue() {
-    setProgress(Math.floor(Math.random() * 100));
-  }
-
-  const { profile } = profileStore();
+  const { profile } = ProfileStore();
 
   return (
     <>
-      <Stack.Screen options={{ title: 'Starter Base', headerRight: () => <ThemeToggle></ThemeToggle> }} />
-      <View className='flex-1 items-center justify-center gap-5 bg-secondary/30 p-6'>
-        <Card className='w-full max-w-sm rounded-2xl p-6'>
-          <CardHeader className='items-center'>
-            <Avatar alt="Rick Sanchez's Avatar" className='h-24 w-24'>
-              <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
-              <AvatarFallback>
-                <Text>RS</Text>
-              </AvatarFallback>
-            </Avatar>
-            <View className='p-3' />
-            <CardTitle className='pb-2 text-center'>{profile?.name}</CardTitle>
-            <View className='flex-row'>
-              <CardDescription className='text-base font-semibold'>Scientist</CardDescription>
-              <Tooltip delayDuration={150}>
-                <TooltipTrigger className='px-2 pb-0.5 active:opacity-50'>
-                  <Info size={14} strokeWidth={2.5} className='h-4 w-4 text-foreground/70' />
-                </TooltipTrigger>
-                <TooltipContent className='px-4 py-2 shadow'>
-                  <Text className='native:text-lg'>Freelance</Text>
-                </TooltipContent>
-              </Tooltip>
-            </View>
-          </CardHeader>
-          <CardContent>
-            <View className='flex-row justify-around gap-3'>
-              <View className='items-center'>
-                <Text className='text-sm text-muted-foreground'>Dimension</Text>
-                <Text className='text-xl font-semibold'>C-137</Text>
-              </View>
-              <View className='items-center'>
-                <Text className='text-sm text-muted-foreground'>Age</Text>
-                <Text className='text-xl font-semibold'>70</Text>
-              </View>
-              <View className='items-center'>
-                <Text className='text-sm text-muted-foreground'>Species</Text>
-                <Text className='text-xl font-semibold'>Human</Text>
-              </View>
-            </View>
-          </CardContent>
-          <CardFooter className='flex-col gap-3 pb-0'>
-            <View className='flex-row items-center overflow-hidden'>
-              <Text className='text-sm text-muted-foreground'>Productivity:</Text>
-              <LayoutAnimationConfig skipEntering>
-                <Animated.View
-                  key={progress}
-                  entering={FadeInUp}
-                  exiting={FadeOutDown}
-                  className='w-11 items-center'
-                >
-                  <Text className='text-sm font-bold text-sky-600'>{progress}%</Text>
-                </Animated.View>
-              </LayoutAnimationConfig>
-            </View>
-            <Progress value={progress} className='h-2' indicatorClassName='bg-sky-600' />
-            <View />
 
-            <Link href='/logged-in/profile-update' asChild>
-              <Button variant='outline' className='shadow shadow-foreground/5'>
-                <Text>Update</Text>
-              </Button>
-            </Link>
+      <Stack.Screen
+        options={{
+          title: 'Profile',
+          headerTitleAlign: 'center',
+          headerLeft: () => <BackButton></BackButton>,
+          headerRight: () => <ThemeButton></ThemeButton>,
+        }}>
+      </Stack.Screen>
 
-          </CardFooter>
-        </Card>
+      <View className='flex h-full w-full flex-1 flex-row bg-secondary/30'>
+        <View className='hidden flex-[0.2] sm:flex'></View>
+        <View className='flex-1 items-center sm:flex-[0.6]'>
+
+          <Card className='mt-24 w-full max-w-sm rounded-2xl p-6'>
+            <CardHeader className='items-center'>
+              <Avatar className='h-24 w-24' alt="avatar">
+                <AvatarImage source={{ uri: avatarUri }}></AvatarImage>
+                <AvatarFallback>
+                  <Text>Avatar</Text>
+                </AvatarFallback>
+              </Avatar>
+            </CardHeader>
+            <CardContent>
+              <CardTitle className='pb-4 text-center'>
+                {profile?.name}
+              </CardTitle>
+              <CardTitle className='pb-8 text-center'>
+                {profile?.email}
+              </CardTitle>
+              <Link href='/logged-in/profile-update' asChild>
+                <Button variant='outline' className='shadow shadow-foreground/5'>
+                  <Text>Update</Text>
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+        </View>
+        <View className='hidden flex-[0.2] sm:flex'></View>
       </View>
+
     </>
-  )
+  );
 }
 
-export default ProfileScreen
+export default ProfileScreen;

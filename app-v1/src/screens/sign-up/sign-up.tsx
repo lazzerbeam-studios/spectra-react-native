@@ -1,20 +1,18 @@
 import { View } from 'react-native';
-import { MMKV } from 'react-native-mmkv';
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { authApi } from '~/src/api';
 import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
-import { profileStore } from '~/src/stores/profile.store';
-
-export const storage = new MMKV();
+import { ProfileStore } from '~/src/stores/profile.store';
 
 const SignUpScreen = () => {
-  const { profileInit } = profileStore();
+  const { profileInit } = ProfileStore();
 
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
@@ -29,7 +27,7 @@ const SignUpScreen = () => {
         email: email,
         password: password,
       });
-      storage.set('token', response.data.token);
+      await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
       router.navigate('../logged-in/profile');
     } catch (error: any) {
@@ -60,9 +58,11 @@ const SignUpScreen = () => {
             name='email'
             defaultValue={''}
             control={control}
-            render={({ field }) => (
+            render={({ field: { onChange, onBlur, value } }) => (
               <Input
-                {...field}
+                value={value}
+                onBlur={onBlur}
+                onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
                 className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${(errors.email) ? 'border-red-500' : 'border-foreground'}`}
@@ -78,9 +78,11 @@ const SignUpScreen = () => {
             name='password'
             defaultValue={''}
             control={control}
-            render={({ field }) => (
+            render={({ field: { onChange, onBlur, value } }) => (
               <Input
-                {...field}
+                value={value}
+                onBlur={onBlur}
+                onChangeText={onChange}
                 placeholder='Password'
                 secureTextEntry={true}
                 className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${errors.password ? 'border-red-500' : 'border-foreground'}`}

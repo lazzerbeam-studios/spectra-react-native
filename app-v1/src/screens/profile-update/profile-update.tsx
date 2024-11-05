@@ -8,10 +8,10 @@ import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
-import { profileStore } from '~/src/stores/profile.store';
+import { ProfileStore } from '~/src/stores/profile.store';
 
 const ProfileUpdateScreen = () => {
-  const { profile, profileUpdate } = profileStore();
+  const { profile, profileUpdate } = ProfileStore();
 
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
@@ -45,9 +45,11 @@ const ProfileUpdateScreen = () => {
               name='name'
               control={control}
               defaultValue={profile?.name}
-              render={({ field }) => (
+              render={({ field: { onChange, onBlur, value } }) => (
                 <Input
-                  {...field}
+                  value={value}
+                  onBlur={onBlur}
+                  onChangeText={onChange}
                   placeholder='Name'
                   className={`native:h-18 mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl ${(errors.name) ? 'border-red-500' : 'border-foreground'}`}
                 />

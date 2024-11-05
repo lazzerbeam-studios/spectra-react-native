@@ -1,11 +1,9 @@
 import { create } from 'zustand';
-import { MMKV } from 'react-native-mmkv';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { usersApi } from '~/src/api';
 import { Profile } from '~/src/openapi/api';
-import { authStore } from '~/src/stores/auth.store';
-
-const storage = new MMKV();
+import { AuthStore } from '~/src/stores/auth.store';
 
 type State = {
   profile: Profile | null;
@@ -22,7 +20,7 @@ const initState: State = {
   profile: null,
 };
 
-export const profileStore = create<State & Actions>()((set, get) => ({
+export const ProfileStore = create<State & Actions>()((set, get) => ({
   ...initState,
   profileSet: (profile: Profile) => {
     set({ profile: profile });
@@ -31,19 +29,19 @@ export const profileStore = create<State & Actions>()((set, get) => ({
     set(initState);
   },
   profileInit: async () => {
-    let token = storage.getString('token');
+    let token = await AsyncStorage.getItem('token');
     if (token) {
-      authStore.getState().authSet(token);
-      token = authStore.getState().authToken;
+      AuthStore.getState().authSet(token);
+      token = AuthStore.getState().authToken;
       const response = await usersApi.profileGet(token);
       get().profileSet(response.data.object);
     } else {
-      authStore.getState().authClear();
+      AuthStore.getState().authClear();
       get().profileClear();
     }
   },
   profileUpdate: async (profile: Profile) => {
-    const token = authStore.getState().authToken;
+    const token = AuthStore.getState().authToken;
     const response = await usersApi.profileUpdate({ object: profile }, token);
     get().profileSet(response.data.object);
   }

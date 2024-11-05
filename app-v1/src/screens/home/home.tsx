@@ -3,12 +3,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
-import { profileStore } from '~/src/stores/profile.store';
+import { ProfileStore } from '~/src/stores/profile.store';
 
 const HomeScreen = () => {
 
   const onLayout = () => {
-    const profile = profileStore.getState().profile;
+    const profile = ProfileStore.getState().profile;
     if (profile && profile.id) {
       router.navigate('../logged-in/profile');
     }
