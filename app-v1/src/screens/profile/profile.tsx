@@ -28,7 +28,6 @@ const ProfileScreen = () => {
       </Stack.Screen>
 
       <View className='flex h-full w-full flex-1 flex-row bg-secondary/30'>
-
         <View className='hidden flex-[0.2] sm:flex'></View>
         <View className='flex-1 items-center justify-center sm:flex-[0.6]'>
 
@@ -58,7 +57,6 @@ const ProfileScreen = () => {
 
         </View>
         <View className='hidden flex-[0.2] sm:flex'></View>
-
       </View>
 
     </>
