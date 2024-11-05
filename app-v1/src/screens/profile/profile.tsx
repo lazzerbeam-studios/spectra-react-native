@@ -32,10 +32,10 @@ const ProfileScreen = () => {
           <Card className='w-full max-w-sm rounded-2xl p-6'>
 
             <CardHeader className='items-center'>
-              <Avatar alt="Rick Sanchez's Avatar" className='h-24 w-24'>
-                <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
+              <Avatar className='h-24 w-24' alt="avatar">
+                <AvatarImage source={{ uri: GITHUB_AVATAR_URI }}></AvatarImage>
                 <AvatarFallback>
-                  <Text>RS</Text>
+                  <Text>Avatar</Text>
                 </AvatarFallback>
               </Avatar>
             </CardHeader>
