@@ -3,6 +3,9 @@ import { Button } from '~/src/components/ui/button';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '~/src/components/ui/alert-dialog';
 
 export const LogoutDialog = () => {
+  const logout = () => {
+    console.log('logout');
+  };
   return (
     <AlertDialog>
 
@@ -26,7 +29,7 @@ export const LogoutDialog = () => {
           <AlertDialogCancel>
             <Text>Cancel</Text>
           </AlertDialogCancel>
-          <AlertDialogAction className='bg-destructive text-foreground'>
+          <AlertDialogAction className='bg-destructive text-foreground' onPress={logout}>
             <Text>Sign Out</Text>
           </AlertDialogAction>
         </AlertDialogFooter>
