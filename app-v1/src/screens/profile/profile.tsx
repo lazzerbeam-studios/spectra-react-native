@@ -25,25 +25,33 @@ const ProfileScreen = () => {
         </Link>
       </View>
 
-      <Card className='w-full max-w-sm rounded-2xl p-6'>
-        <CardHeader className='items-center'>
-          <Avatar alt="Rick Sanchez's Avatar" className='h-24 w-24'>
-            <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
-            <AvatarFallback>
-              <Text>RS</Text>
-            </AvatarFallback>
-          </Avatar>
-        </CardHeader>
-        <CardContent>
-          <CardTitle className='pb-2 text-center'>{profile?.name}</CardTitle>
-          <CardTitle className='pb-2 text-center'>{profile?.email}</CardTitle>
-          <Link href='/logged-in/profile-update' asChild>
-            <Button variant='outline' className='shadow shadow-foreground/5'>
-              <Text>Update</Text>
-            </Button>
-          </Link>
-        </CardContent>
-      </Card>
+      <View className='mb-44 flex w-full flex-1 flex-row'>
+        <View className='native:hidden flex-[0.2]'></View>
+        <View className='native:flex-1 flex-[0.6] items-center justify-center'>
+
+          <Card className='w-full max-w-sm rounded-2xl p-6'>
+            <CardHeader className='items-center'>
+              <Avatar alt="Rick Sanchez's Avatar" className='h-24 w-24'>
+                <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
+                <AvatarFallback>
+                  <Text>RS</Text>
+                </AvatarFallback>
+              </Avatar>
+            </CardHeader>
+            <CardContent>
+              <CardTitle className='pb-2 text-center'>{profile?.name}</CardTitle>
+              <CardTitle className='pb-2 text-center'>{profile?.email}</CardTitle>
+              <Link href='/logged-in/profile-update' asChild>
+                <Button variant='outline' className='shadow shadow-foreground/5'>
+                  <Text>Update</Text>
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+        </View>
+        <View className='native:hidden flex-[0.2]'></View>
+      </View>
 
     </SafeAreaView>
   );
