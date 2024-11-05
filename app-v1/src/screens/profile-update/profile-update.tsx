@@ -45,28 +45,30 @@ const ProfileUpdateScreen = () => {
                 Profile Update
               </Text>
             </CardHeader>
-            <Controller
-              name='name'
-              control={control}
-              defaultValue={profile?.name}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Input
-                  value={value}
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  placeholder='Name'
-                  className={`native:h-18 mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl ${(errors.name) ? 'border-red-500' : 'border-foreground'}`}
-                />
-              )}
-              rules={{
-                required: true,
-              }}
-            ></Controller>
-            <Button className='native:h-20 mb-4 h-16 rounded-full' onPress={handleSubmit(submit)}>
-              <Text className='native:text-3xl text-3xl'>
-                Update
-              </Text>
-            </Button>
+            <CardContent>
+              <Controller
+                name='name'
+                control={control}
+                defaultValue={profile?.name}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    value={value}
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    placeholder='Name'
+                    className={`native:h-18 mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl ${(errors.name) ? 'border-red-500' : 'border-foreground'}`}
+                  />
+                )}
+                rules={{
+                  required: true,
+                }}
+              ></Controller>
+              <Button className='native:h-20 mb-4 h-16 rounded-full' onPress={handleSubmit(submit)}>
+                <Text className='native:text-3xl text-3xl'>
+                  Update
+                </Text>
+              </Button>
+            </CardContent>
           </Card>
 
         </View>
