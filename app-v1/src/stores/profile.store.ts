@@ -1,11 +1,9 @@
 import { create } from 'zustand';
-import { MMKV } from 'react-native-mmkv';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { usersApi } from '~/src/api';
 import { Profile } from '~/src/openapi/api';
 import { authStore } from '~/src/stores/auth.store';
-
-const storage = new MMKV();
 
 type State = {
   profile: Profile | null;
@@ -31,7 +29,7 @@ export const profileStore = create<State & Actions>()((set, get) => ({
     set(initState);
   },
   profileInit: async () => {
-    let token = storage.getString('token');
+    let token = await AsyncStorage.getItem('token');
     if (token) {
       authStore.getState().authSet(token);
       token = authStore.getState().authToken;

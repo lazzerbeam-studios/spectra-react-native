@@ -1,10 +1,10 @@
 import { Platform } from 'react-native';
-import { MMKV } from 'react-native-mmkv';
 import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SplashScreen, Stack } from 'expo-router';
 import { PortalHost } from '@rn-primitives/portal';
 import { Theme, ThemeProvider } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { NAV_THEME } from '~/src/lib/themeConstants';
 import { profileStore } from '~/src/stores/profile.store';
@@ -24,7 +24,6 @@ const DARK_THEME: Theme = {
 
 SplashScreen.preventAutoHideAsync();
 
-export const storage = new MMKV();
 export { ErrorBoundary } from 'expo-router';
 
 const RootLayout = () => {
@@ -35,7 +34,7 @@ const RootLayout = () => {
 
   useEffect(() => {
     (async () => {
-      const colorTheme = (storage.getString('colorTheme') || colorScheme) === 'dark' ? 'dark' : 'light';
+      const colorTheme = (await AsyncStorage.getItem('colorTheme') || colorScheme) === 'dark' ? 'dark' : 'light';
       colorSchemeLoadedSet(true);
       setColorScheme(colorTheme);
       setAndroidNavigationBar(colorTheme);

@@ -1,8 +1,8 @@
 import { View } from 'react-native';
-import { MMKV } from 'react-native-mmkv';
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { authApi } from '~/src/api';
 import { Text } from '~/src/components/ui/text';
@@ -10,8 +10,6 @@ import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
 import { profileStore } from '~/src/stores/profile.store';
-
-export const storage = new MMKV();
 
 const SignUpScreen = () => {
   const { profileInit } = profileStore();
@@ -29,7 +27,7 @@ const SignUpScreen = () => {
         email: email,
         password: password,
       });
-      storage.set('token', response.data.token);
+      await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
       router.navigate('../logged-in/profile');
     } catch (error: any) {
