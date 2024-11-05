@@ -39,7 +39,7 @@ const ProfileUpdateScreen = () => {
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center'>
 
-          <Card className='w-full max-w-sm rounded-2xl p-6'>
+          <Card className='mt-24 w-full max-w-sm rounded-2xl p-6'>
             <Text className='native:text-5xl pb-6 text-center text-4xl'>Profile Update</Text>
             <Controller
               name='name'
