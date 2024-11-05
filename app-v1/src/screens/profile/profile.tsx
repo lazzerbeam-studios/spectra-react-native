@@ -1,34 +1,16 @@
-import * as React from 'react';
 import { View } from 'react-native';
-import Animated, { FadeInUp, FadeOutDown, LayoutAnimationConfig } from 'react-native-reanimated';
-import { Info } from '~/src/lib/icons/Info';
-import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
-import { Button } from '~/src/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '~/src/components/ui/card';
-import { Progress } from '~/src/components/ui/progress';
-import { Text } from '~/src/components/ui/text';
-import { Tooltip, TooltipContent, TooltipTrigger } from '~/src/components/ui/tooltip';
 import { Link, Stack } from 'expo-router';
 
-import { ThemeToggle } from '~/src/components/ThemeToggle';
+import { Text } from '~/src/components/ui/text';
+import { Button } from '~/src/components/ui/button';
 import { profileStore } from '~/src/stores/profile.store';
+import { ThemeToggle } from '~/src/components/ThemeToggle';
+import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
+import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
 
 const GITHUB_AVATAR_URI = 'https://i.pinimg.com/736x/31/f8/67/31f867c0e9786ce10c89eb94010f7a7d.jpg';
 
 const ProfileScreen = () => {
-  const [progress, setProgress] = React.useState(78);
-
-  function updateProgressValue() {
-    setProgress(Math.floor(Math.random() * 100));
-  }
-
   const { profile } = profileStore();
 
   return (
@@ -69,4 +51,4 @@ const ProfileScreen = () => {
   );
 }
 
-export default ProfileScreen
+export default ProfileScreen;
