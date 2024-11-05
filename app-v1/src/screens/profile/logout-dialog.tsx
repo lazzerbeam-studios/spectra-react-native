@@ -7,7 +7,7 @@ export const LogoutDialog = () => {
   const { profileLogout } = ProfileStore();
 
   const logout = () => {
-    console.log('logout');
+    profileLogout();
   };
 
   return (
