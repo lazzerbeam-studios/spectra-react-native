@@ -18,13 +18,11 @@ export const ThemeButton = () => {
 
   return (
     <Button variant={'link'} size={'icon'} onPress={changeTheme}>
-
       {isDarkColorScheme ? (
         <MoonStar className='text-foreground' size={23} strokeWidth={1.25}></MoonStar>
       ) : (
         <Sun className='text-foreground' size={24} strokeWidth={1.25}></Sun>
       )}
-
     </Button>
   );
 }
