@@ -58,9 +58,11 @@ const SignUpScreen = () => {
             name='email'
             defaultValue={''}
             control={control}
-            render={({ field }) => (
+            render={({ field: { onChange, onBlur, value } }) => (
               <Input
-                {...field}
+                value={value}
+                onBlur={onBlur}
+                onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
                 className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${(errors.email) ? 'border-red-500' : 'border-foreground'}`}
@@ -76,9 +78,11 @@ const SignUpScreen = () => {
             name='password'
             defaultValue={''}
             control={control}
-            render={({ field }) => (
+            render={({ field: { onChange, onBlur, value } }) => (
               <Input
-                {...field}
+                value={value}
+                onBlur={onBlur}
+                onChangeText={onChange}
                 placeholder='Password'
                 secureTextEntry={true}
                 className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${errors.password ? 'border-red-500' : 'border-foreground'}`}
