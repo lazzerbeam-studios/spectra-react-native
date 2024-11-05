@@ -2,6 +2,8 @@ import { View } from 'react-native';
 import { Link, Stack } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { BackButton } from '~/src/components/back-button';
+
 import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
@@ -18,16 +20,8 @@ const ProfileScreen = () => {
 
   return (
     <>
-      <Stack.Screen options={{ title: 'Update Profile', headerTitleAlign: 'center', headerLeft: () => <ThemeToggle></ThemeToggle>, headerRight: () => <ThemeToggle></ThemeToggle> }} />
+      <Stack.Screen options={{ title: 'Update Profile', headerTitleAlign: 'center', headerLeft: () => <BackButton></BackButton>, headerRight: () => <ThemeToggle></ThemeToggle> }} />
       <SafeAreaView className='flex h-full bg-secondary/30'>
-
-        {/* <View className='ps-3 pt-2'>
-          <Link href='/logged-in/profile' asChild>
-            <Button variant={'link'} size={'icon'}>
-              <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
-            </Button>
-          </Link>
-        </View> */}
 
         <View className='mb-44 flex w-full flex-1 flex-row'>
           <View className='native:hidden flex-[0.2]'></View>
