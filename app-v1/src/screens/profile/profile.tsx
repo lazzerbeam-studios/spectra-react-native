@@ -1,5 +1,5 @@
+import { Link } from 'expo-router';
 import { View } from 'react-native';
-import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Text } from '~/src/components/ui/text';
@@ -30,6 +30,7 @@ const ProfileScreen = () => {
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
           <Card className='w-full max-w-sm rounded-2xl p-6'>
+
             <CardHeader className='items-center'>
               <Avatar alt="Rick Sanchez's Avatar" className='h-24 w-24'>
                 <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
@@ -38,6 +39,7 @@ const ProfileScreen = () => {
                 </AvatarFallback>
               </Avatar>
             </CardHeader>
+
             <CardContent>
               <CardTitle className='pb-2 text-center'>{profile?.name}</CardTitle>
               <CardTitle className='pb-2 text-center'>{profile?.email}</CardTitle>
@@ -47,6 +49,7 @@ const ProfileScreen = () => {
                 </Button>
               </Link>
             </CardContent>
+
           </Card>
 
         </View>
