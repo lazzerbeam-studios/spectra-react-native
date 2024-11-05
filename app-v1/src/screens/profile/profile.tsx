@@ -21,17 +21,17 @@ const ProfileScreen = () => {
       <Stack.Screen options={{ title: 'Update Profile', headerTitleAlign: 'center', headerLeft: () => <ThemeToggle></ThemeToggle>, headerRight: () => <ThemeToggle></ThemeToggle> }} />
       <SafeAreaView className='flex h-full bg-secondary/30'>
 
-        <View className='ps-3 pt-2'>
+        {/* <View className='ps-3 pt-2'>
           <Link href='/logged-in/profile' asChild>
             <Button variant={'link'} size={'icon'}>
               <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
             </Button>
           </Link>
-        </View>
+        </View> */}
 
         <View className='mb-44 flex w-full flex-1 flex-row'>
           <View className='native:hidden flex-[0.2]'></View>
-          <View className='native:flex-1 flex-[0.6] items-center justify-center'>
+          <View className='native:flex-1 flex-[0.6]'>
 
             <Card className='w-full max-w-sm rounded-2xl p-6'>
               <CardHeader className='items-center'>
