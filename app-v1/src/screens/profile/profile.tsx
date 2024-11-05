@@ -20,11 +20,11 @@ const ProfileScreen = () => {
 
       <Stack.Screen
         options={{
-          title: 'Update Profile',
+          title: 'Profile',
           headerTitleAlign: 'center',
           headerLeft: () => <BackButton></BackButton>,
           headerRight: () => <ThemeButton></ThemeButton>,
-        }} >
+        }}>
       </Stack.Screen>
 
       <View className='flex h-full w-full flex-1 flex-row bg-secondary/30'>
