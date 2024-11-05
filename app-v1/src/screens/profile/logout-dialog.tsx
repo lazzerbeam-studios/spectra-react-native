@@ -9,7 +9,7 @@ export const LogoutDialog = () => {
       <AlertDialogTrigger asChild>
         <Button variant='ghost' className='mt-12'>
           <Text className='native:text-xl text-xl text-destructive'>
-            Log Out
+            Sign Out
           </Text>
         </Button>
       </AlertDialogTrigger>
