@@ -1,4 +1,4 @@
-export const NAV_THEME = {
+export const navTheme = {
   light: {
     background: 'hsl(0 0% 100%)', // background
     border: 'hsl(0 0% 100%)', // border

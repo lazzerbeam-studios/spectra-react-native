@@ -6,7 +6,7 @@ import { PortalHost } from '@rn-primitives/portal';
 import { Theme, ThemeProvider } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { NAV_THEME } from '~/src/lib/themeConstants';
+import { navTheme } from '~/src/lib/themeConstants';
 import { profileStore } from '~/src/stores/profile.store';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
@@ -15,11 +15,11 @@ import '~/src/global.css';
 
 const LIGHT_THEME: Theme = {
   dark: false,
-  colors: NAV_THEME.light,
+  colors: navTheme.light,
 };
 const DARK_THEME: Theme = {
   dark: true,
-  colors: NAV_THEME.dark,
+  colors: navTheme.dark,
 };
 
 SplashScreen.preventAutoHideAsync();
