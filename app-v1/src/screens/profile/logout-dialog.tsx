@@ -17,8 +17,10 @@ export const LogoutDialog = () => {
     <AlertDialog>
 
       <AlertDialogTrigger asChild>
-        <Button variant='outline'>
-          <Text>Show Alert Dialog</Text>
+        <Button variant='link' className='mt-12'>
+          <Text className='native:text-xl text-xl text-destructive'>
+            Log Out
+          </Text>
         </Button>
       </AlertDialogTrigger>
 

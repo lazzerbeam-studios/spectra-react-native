@@ -56,12 +56,6 @@ const ProfileScreen = () => {
             </CardContent>
           </Card>
 
-          <Button variant='link' className='mt-12'>
-            <Text className='native:text-xl text-xl text-destructive'>
-              Log Out
-            </Text>
-          </Button>
-
           <LogoutDialog></LogoutDialog>
 
         </View>
