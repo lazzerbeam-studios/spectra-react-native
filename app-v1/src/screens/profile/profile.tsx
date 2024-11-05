@@ -30,7 +30,6 @@ const ProfileScreen = () => {
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
           <Card className='w-full max-w-sm rounded-2xl p-6'>
-
             <CardHeader className='items-center'>
               <Avatar className='h-24 w-24' alt="avatar">
                 <AvatarImage source={{ uri: GITHUB_AVATAR_URI }}></AvatarImage>
@@ -39,7 +38,6 @@ const ProfileScreen = () => {
                 </AvatarFallback>
               </Avatar>
             </CardHeader>
-
             <CardContent>
               <CardTitle className='pb-4 text-center'>
                 {profile?.name}
@@ -53,7 +51,6 @@ const ProfileScreen = () => {
                 </Button>
               </Link>
             </CardContent>
-
           </Card>
 
         </View>
