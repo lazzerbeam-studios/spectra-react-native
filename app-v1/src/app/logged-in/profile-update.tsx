@@ -1,4 +1,4 @@
-import { Stack, Redirect } from 'expo-router';
+import { Redirect } from 'expo-router';
 
 import { AuthStore } from '~/src/stores/auth.store';
 import ProfileUpdateScreen from '~/src/screens/profile-update/profile-update';
@@ -10,10 +10,7 @@ const ProfileUpdate = () => {
   }
 
   return (
-    <>
-      <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
-      <ProfileUpdateScreen></ProfileUpdateScreen>
-    </>
+    <ProfileUpdateScreen></ProfileUpdateScreen>
   );
 };
 

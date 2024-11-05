@@ -21,7 +21,7 @@ const ProfileScreen = () => {
 
       <Stack.Screen
         options={{
-          title: 'Profile',
+          title: '',
           headerTitleAlign: 'center',
           headerLeft: () => <BackButton></BackButton>,
           headerRight: () => <ThemeButton></ThemeButton>,
@@ -32,8 +32,11 @@ const ProfileScreen = () => {
         <View className='hidden flex-[0.2] sm:flex'></View>
         <View className='flex-1 items-center sm:flex-[0.6]'>
 
-          <Card className='mt-24 w-full max-w-sm rounded-2xl p-6'>
+          <Card className='mt-24 w-full max-w-sm rounded-2xl'>
             <CardHeader className='items-center'>
+              <CardTitle className='pb-4 text-center'>
+                Profile
+              </CardTitle>
               <Avatar className='h-24 w-24' alt="avatar">
                 <AvatarImage source={{ uri: avatarUri }}></AvatarImage>
                 <AvatarFallback>
