@@ -1,12 +1,13 @@
 import { View } from 'react-native';
 import { router } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Link, Stack } from 'expo-router';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 
 import { Card } from '~/src/components/ui/card';
 import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
+import { BackButton } from '~/src/components/back-button';
 import { ProfileStore } from '~/src/stores/profile.store';
 
 const ProfileUpdateScreen = () => {
@@ -25,6 +26,15 @@ const ProfileUpdateScreen = () => {
 
   return (
     <>
+
+      <Stack.Screen
+        options={{
+          title: 'Profile',
+          headerTitleAlign: 'center',
+          headerLeft: () => <BackButton></BackButton>,
+        }}>
+      </Stack.Screen>
+
       <View className='flex h-full w-full flex-1 flex-row bg-secondary/30'>
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center'>
@@ -58,6 +68,7 @@ const ProfileUpdateScreen = () => {
         </View>
         <View className='native:hidden flex-[0.2]'></View>
       </View>
+
     </>
   );
 }
