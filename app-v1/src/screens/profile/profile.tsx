@@ -1,8 +1,10 @@
-import { Link } from 'expo-router';
+import { View } from 'react-native';
+import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
+import { ChevronLeft } from '~/src/lib/icons/Chevron';
 import { profileStore } from '~/src/stores/profile.store';
 import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
@@ -14,6 +16,14 @@ const ProfileScreen = () => {
 
   return (
     <SafeAreaView className='flex h-full bg-secondary/30'>
+
+      <View className='bg-background pb-2 ps-2 pt-2'>
+        <Link href='/logged-in/profile' asChild>
+          <Button variant={'link'} size={'icon'}>
+            <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
+          </Button>
+        </Link>
+      </View>
 
       <Card className='w-full max-w-sm rounded-2xl p-6'>
         <CardHeader className='items-center'>
