@@ -19,9 +19,9 @@ export const ThemeButton = () => {
   return (
     <Button className='web:me-2' variant={'link'} size={'icon'} onPress={changeTheme}>
       {isDarkColorScheme ? (
-        <MoonStar className='text-foreground' size={23} strokeWidth={1.25}></MoonStar>
+        <MoonStar className='text-foreground' size={30} strokeWidth={1.25}></MoonStar>
       ) : (
-        <Sun className='text-foreground' size={24} strokeWidth={1.25}></Sun>
+        <Sun className='text-foreground' size={30} strokeWidth={1.25}></Sun>
       )}
     </Button>
   );
