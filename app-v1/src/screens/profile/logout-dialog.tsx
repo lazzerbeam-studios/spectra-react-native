@@ -25,7 +25,7 @@ export const LogoutDialog = () => {
             <Text>Cancel</Text>
           </AlertDialogCancel>
           <AlertDialogAction className='bg-destructive text-foreground'>
-            <Text>Continue</Text>
+            <Text>Sign Out</Text>
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
