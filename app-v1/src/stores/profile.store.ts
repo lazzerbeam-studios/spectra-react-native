@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { usersApi } from '~/src/api';
@@ -14,6 +15,7 @@ type Actions = {
   profileClear: () => void;
   profileInit: () => Promise<void>;
   profileUpdate: (profile: Profile) => Promise<void>;
+  profileLogout: () => void;
 };
 
 const initState: State = {
@@ -36,13 +38,19 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
       const response = await usersApi.profileGet(token);
       get().profileSet(response.data.object);
     } else {
-      AuthStore.getState().authClear();
       get().profileClear();
+      AuthStore.getState().authClear();
     }
   },
   profileUpdate: async (profile: Profile) => {
     const token = AuthStore.getState().authToken;
     const response = await usersApi.profileUpdate({ object: profile }, token);
     get().profileSet(response.data.object);
+  },
+  profileLogout: async () => {
+    get().profileClear();
+    AuthStore.getState().authClear();
+    await AsyncStorage.removeItem('token');
+    router.navigate('/');
   }
 }));
