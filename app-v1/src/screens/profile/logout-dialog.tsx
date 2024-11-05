@@ -4,7 +4,7 @@ import { ProfileStore } from '~/src/stores/profile.store';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '~/src/components/ui/alert-dialog';
 
 export const LogoutDialog = () => {
-  const { profile } = ProfileStore();
+  const { profileLogout } = ProfileStore();
 
   const logout = () => {
     console.log('logout');
