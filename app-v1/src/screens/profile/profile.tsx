@@ -27,39 +27,37 @@ const ProfileScreen = () => {
         }} >
       </Stack.Screen>
 
-      <View className='flex h-full bg-secondary/30'>
+      <View className='flex h-full w-full flex-1 flex-row bg-secondary/30'>
 
-        <View className='mb-44 flex w-full flex-1 flex-row'>
-          <View className='native:hidden flex-[0.2]'></View>
-          <View className='native:flex-1 flex-[0.6] items-center justify-center'>
+        <View className='native:hidden flex-[0.2]'></View>
+        <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
-            <Card className='w-full max-w-sm rounded-2xl p-6'>
-              <CardHeader className='items-center'>
-                <Avatar className='h-24 w-24' alt="avatar">
-                  <AvatarImage source={{ uri: avatarUri }}></AvatarImage>
-                  <AvatarFallback>
-                    <Text>Avatar</Text>
-                  </AvatarFallback>
-                </Avatar>
-              </CardHeader>
-              <CardContent>
-                <CardTitle className='pb-4 text-center'>
-                  {profile?.name}
-                </CardTitle>
-                <CardTitle className='pb-8 text-center'>
-                  {profile?.email}
-                </CardTitle>
-                <Link href='/logged-in/profile-update' asChild>
-                  <Button variant='outline' className='shadow shadow-foreground/5'>
-                    <Text>Update</Text>
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+          <Card className='w-full max-w-sm rounded-2xl p-6'>
+            <CardHeader className='items-center'>
+              <Avatar className='h-24 w-24' alt="avatar">
+                <AvatarImage source={{ uri: avatarUri }}></AvatarImage>
+                <AvatarFallback>
+                  <Text>Avatar</Text>
+                </AvatarFallback>
+              </Avatar>
+            </CardHeader>
+            <CardContent>
+              <CardTitle className='pb-4 text-center'>
+                {profile?.name}
+              </CardTitle>
+              <CardTitle className='pb-8 text-center'>
+                {profile?.email}
+              </CardTitle>
+              <Link href='/logged-in/profile-update' asChild>
+                <Button variant='outline' className='shadow shadow-foreground/5'>
+                  <Text>Update</Text>
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
 
-          </View>
-          <View className='native:hidden flex-[0.2]'></View>
         </View>
+        <View className='native:hidden flex-[0.2]'></View>
 
       </View>
 
