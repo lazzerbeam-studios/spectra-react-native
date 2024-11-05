@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { usersApi } from '~/src/api';
@@ -49,5 +50,6 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
   profileLogout: async () => {
     get().profileClear();
     AuthStore.getState().authClear();
+    router.navigate('/');
   }
 }));
