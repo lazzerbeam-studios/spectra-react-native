@@ -1,14 +1,14 @@
+import { Stack } from 'expo-router';
 import { View } from 'react-native';
 import { router } from 'expo-router';
-import { Link, Stack } from 'expo-router';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 
-import { Card } from '~/src/components/ui/card';
 import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { BackButton } from '~/src/components/back-button';
 import { ProfileStore } from '~/src/stores/profile.store';
+import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
 
 const ProfileUpdateScreen = () => {
   const { profile, profileUpdate } = ProfileStore();
@@ -40,7 +40,11 @@ const ProfileUpdateScreen = () => {
         <View className='native:flex-1 flex-[0.6] items-center'>
 
           <Card className='mt-24 w-full max-w-sm rounded-2xl p-6'>
-            <Text className='native:text-5xl pb-6 text-center text-4xl'>Profile Update</Text>
+            <CardHeader className='items-center'>
+              <Text className='native:text-5xl pb-6 text-center text-4xl'>
+                Profile Update
+              </Text>
+            </CardHeader>
             <Controller
               name='name'
               control={control}
