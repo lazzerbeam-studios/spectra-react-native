@@ -41,12 +41,12 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
       } catch (error) {
         get().profileClear();
         AuthStore.getState().authClear();
-        await AsyncStorage.clear();
+        await AsyncStorage.removeItem('token');
       }
     } else {
       get().profileClear();
       AuthStore.getState().authClear();
-      await AsyncStorage.clear();
+      await AsyncStorage.removeItem('token');
     }
   },
   profileUpdate: async (profile: Profile) => {
@@ -57,7 +57,7 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
   profileLogout: async () => {
     get().profileClear();
     AuthStore.getState().authClear();
-    await AsyncStorage.clear();
+    await AsyncStorage.removeItem('token');
     router.navigate('/');
   }
 }));
