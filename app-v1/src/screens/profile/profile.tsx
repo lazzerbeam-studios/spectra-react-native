@@ -31,7 +31,7 @@ const ProfileScreen = () => {
 
         <View className='mb-44 flex w-full flex-1 flex-row'>
           <View className='native:hidden flex-[0.2]'></View>
-          <View className='native:flex-1 flex-[0.6]'>
+          <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
             <Card className='w-full max-w-sm rounded-2xl p-6'>
               <CardHeader className='items-center'>
