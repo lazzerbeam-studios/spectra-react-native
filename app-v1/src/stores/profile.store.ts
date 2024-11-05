@@ -40,9 +40,7 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
         const response = await usersApi.profileGet(token);
         get().profileSet(response.data.object);
       } catch (error) {
-        get().profileClear();
-        AuthStore.getState().authClear();
-        await AsyncStorage.clear();
+        get().profileLogout();
       }
 
     } else {
