@@ -1,11 +1,12 @@
-import { Link } from 'expo-router';
 import { View } from 'react-native';
+import { Link, Stack } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
 import { profileStore } from '~/src/stores/profile.store';
+import { ThemeToggle } from '~/src/components/ThemeToggle';
 import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
 
@@ -15,49 +16,52 @@ const ProfileScreen = () => {
   const { profile } = profileStore();
 
   return (
-    <SafeAreaView className='flex h-full bg-secondary/30'>
+    <>
+      <Stack.Screen options={{ title: 'Update Profile', headerTitleAlign: 'center', headerLeft: () => <ThemeToggle></ThemeToggle>, headerRight: () => <ThemeToggle></ThemeToggle> }} />
+      <SafeAreaView className='flex h-full bg-secondary/30'>
 
-      <View className='bg-background pb-2 ps-2 pt-2'>
-        <Link href='/logged-in/profile' asChild>
-          <Button variant={'link'} size={'icon'}>
-            <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
-          </Button>
-        </Link>
-      </View>
-
-      <View className='mb-44 flex w-full flex-1 flex-row'>
-        <View className='native:hidden flex-[0.2]'></View>
-        <View className='native:flex-1 flex-[0.6] items-center justify-center'>
-
-          <Card className='w-full max-w-sm rounded-2xl p-6'>
-            <CardHeader className='items-center'>
-              <Avatar className='h-24 w-24' alt="avatar">
-                <AvatarImage source={{ uri: AVATAR_URI }}></AvatarImage>
-                <AvatarFallback>
-                  <Text>Avatar</Text>
-                </AvatarFallback>
-              </Avatar>
-            </CardHeader>
-            <CardContent>
-              <CardTitle className='pb-4 text-center'>
-                {profile?.name}
-              </CardTitle>
-              <CardTitle className='pb-8 text-center'>
-                {profile?.email}
-              </CardTitle>
-              <Link href='/logged-in/profile-update' asChild>
-                <Button variant='outline' className='shadow shadow-foreground/5'>
-                  <Text>Update</Text>
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
-
+        <View className='ps-3 pt-2'>
+          <Link href='/logged-in/profile' asChild>
+            <Button variant={'link'} size={'icon'}>
+              <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
+            </Button>
+          </Link>
         </View>
-        <View className='native:hidden flex-[0.2]'></View>
-      </View>
 
-    </SafeAreaView>
+        <View className='mb-44 flex w-full flex-1 flex-row'>
+          <View className='native:hidden flex-[0.2]'></View>
+          <View className='native:flex-1 flex-[0.6] items-center justify-center'>
+
+            <Card className='w-full max-w-sm rounded-2xl p-6'>
+              <CardHeader className='items-center'>
+                <Avatar className='h-24 w-24' alt="avatar">
+                  <AvatarImage source={{ uri: AVATAR_URI }}></AvatarImage>
+                  <AvatarFallback>
+                    <Text>Avatar</Text>
+                  </AvatarFallback>
+                </Avatar>
+              </CardHeader>
+              <CardContent>
+                <CardTitle className='pb-4 text-center'>
+                  {profile?.name}
+                </CardTitle>
+                <CardTitle className='pb-8 text-center'>
+                  {profile?.email}
+                </CardTitle>
+                <Link href='/logged-in/profile-update' asChild>
+                  <Button variant='outline' className='shadow shadow-foreground/5'>
+                    <Text>Update</Text>
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+          </View>
+          <View className='native:hidden flex-[0.2]'></View>
+        </View>
+
+      </SafeAreaView>
+    </>
   );
 }
 
