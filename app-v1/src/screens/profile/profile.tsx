@@ -41,8 +41,12 @@ const ProfileScreen = () => {
             </CardHeader>
 
             <CardContent>
-              <CardTitle className='pb-2 text-center'>{profile?.name}</CardTitle>
-              <CardTitle className='pb-2 text-center'>{profile?.email}</CardTitle>
+              <CardTitle className='pb-2 text-center'>
+                {profile?.name}
+              </CardTitle>
+              <CardTitle className='pb-2 text-center'>
+                {profile?.email}
+              </CardTitle>
               <Link href='/logged-in/profile-update' asChild>
                 <Button variant='outline' className='shadow shadow-foreground/5'>
                   <Text>Update</Text>
