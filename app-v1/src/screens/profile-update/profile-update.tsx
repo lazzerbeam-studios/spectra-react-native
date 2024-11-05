@@ -29,7 +29,7 @@ const ProfileUpdateScreen = () => {
 
       <Stack.Screen
         options={{
-          title: 'Profile Update',
+          title: '',
           headerTitleAlign: 'center',
           headerLeft: () => <BackButton></BackButton>,
         }}>
