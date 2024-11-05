@@ -17,7 +17,7 @@ export const LogoutDialog = () => {
     <AlertDialog>
 
       <AlertDialogTrigger asChild>
-        <Button variant='link' className='mt-12'>
+        <Button variant='ghost' className='mt-12'>
           <Text className='native:text-xl text-xl text-destructive'>
             Log Out
           </Text>
@@ -36,7 +36,7 @@ export const LogoutDialog = () => {
           <AlertDialogCancel>
             <Text>Cancel</Text>
           </AlertDialogCancel>
-          <AlertDialogAction>
+          <AlertDialogAction className='bg-destructive text-foreground'>
             <Text>Continue</Text>
           </AlertDialogAction>
         </AlertDialogFooter>
