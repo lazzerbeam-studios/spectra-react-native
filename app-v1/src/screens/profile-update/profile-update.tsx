@@ -29,7 +29,7 @@ const ProfileUpdateScreen = () => {
 
       <Stack.Screen
         options={{
-          title: 'Profile',
+          title: 'Profile Update',
           headerTitleAlign: 'center',
           headerLeft: () => <BackButton></BackButton>,
         }}>
@@ -41,7 +41,7 @@ const ProfileUpdateScreen = () => {
 
           <Card className='mt-24 w-full max-w-sm rounded-2xl p-6'>
             <CardHeader className='items-center'>
-              <Text className='native:text-5xl pb-6 text-center text-4xl'>
+              <Text className='native:text-4xl pb-6 text-center text-4xl'>
                 Profile Update
               </Text>
             </CardHeader>
