@@ -45,9 +45,11 @@ const ProfileUpdateScreen = () => {
               name='name'
               control={control}
               defaultValue={profile?.name}
-              render={({ field }) => (
+              render={({ field: { onChange, onBlur, value } }) => (
                 <Input
-                  {...field}
+                  value={value}
+                  onBlur={onBlur}
+                  onChangeText={onChange}
                   placeholder='Name'
                   className={`native:h-18 mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl ${(errors.name) ? 'border-red-500' : 'border-foreground'}`}
                 />
