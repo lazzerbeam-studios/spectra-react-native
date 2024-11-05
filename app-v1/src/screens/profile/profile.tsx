@@ -10,7 +10,7 @@ import { ThemeToggle } from '~/src/components/ThemeToggle';
 import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
 import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
 
-const AVATAR_URI = 'https://t3.ftcdn.net/jpg/07/24/59/76/360_F_724597608_pmo5BsVumFcFyHJKlASG2Y2KpkkfiYUU.jpg';
+const avatarUri = 'https://t3.ftcdn.net/jpg/07/24/59/76/360_F_724597608_pmo5BsVumFcFyHJKlASG2Y2KpkkfiYUU.jpg';
 
 const ProfileScreen = () => {
   const { profile } = profileStore();
@@ -35,7 +35,7 @@ const ProfileScreen = () => {
             <Card className='w-full max-w-sm rounded-2xl p-6'>
               <CardHeader className='items-center'>
                 <Avatar className='h-24 w-24' alt="avatar">
-                  <AvatarImage source={{ uri: AVATAR_URI }}></AvatarImage>
+                  <AvatarImage source={{ uri: avatarUri }}></AvatarImage>
                   <AvatarFallback>
                     <Text>Avatar</Text>
                   </AvatarFallback>
