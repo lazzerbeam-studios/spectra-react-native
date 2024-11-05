@@ -40,7 +40,6 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
     } else {
       get().profileClear();
       AuthStore.getState().authClear();
-      await AsyncStorage.removeItem('token');
     }
   },
   profileUpdate: async (profile: Profile) => {
