@@ -10,10 +10,10 @@ export const ThemeButton = () => {
   const { isDarkColorScheme, setColorScheme } = useColorScheme();
 
   const changeTheme = () => {
-    const theme = isDarkColorScheme ? 'light' : 'dark';
-    setColorScheme(theme);
-    setAndroidNavigationBar(theme);
-    AsyncStorage.setItem('colorTheme', theme);
+    const colorTheme = isDarkColorScheme ? 'light' : 'dark';
+    setColorScheme(colorTheme);
+    setAndroidNavigationBar(colorTheme);
+    AsyncStorage.setItem('colorTheme', colorTheme);
   };
 
   return (
