@@ -50,6 +50,7 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
   profileLogout: async () => {
     get().profileClear();
     AuthStore.getState().authClear();
+    await AsyncStorage.removeItem('token');
     router.navigate('/');
   }
 }));
