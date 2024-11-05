@@ -15,11 +15,13 @@ export const LogoutDialog = () => {
       </AlertDialogTrigger>
 
       <AlertDialogContent>
+
         <AlertDialogHeader>
           <AlertDialogTitle>
             Are you sure you want to sign out?
           </AlertDialogTitle>
         </AlertDialogHeader>
+
         <AlertDialogFooter>
           <AlertDialogCancel>
             <Text>Cancel</Text>
@@ -28,6 +30,7 @@ export const LogoutDialog = () => {
             <Text>Sign Out</Text>
           </AlertDialogAction>
         </AlertDialogFooter>
+
       </AlertDialogContent>
 
     </AlertDialog>
