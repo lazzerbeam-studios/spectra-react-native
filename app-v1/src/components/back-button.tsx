@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 
 import { Button } from '~/src/components/ui/button';
-import { ChevronLeft } from '~/src/lib/icons/Chevron';
+import { ChevronLeft } from '~/src/lib/icons/icons';
 
 export const BackButton = () => {
   const goBack = () => {

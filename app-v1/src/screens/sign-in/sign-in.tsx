@@ -8,7 +8,7 @@ import { authApi } from '~/src/api';
 import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
-import { ChevronLeft } from '~/src/lib/icons/Chevron';
+import { ChevronLeft } from '~/src/lib/icons/icons';
 import { ProfileStore } from '~/src/stores/profile.store';
 
 export const SignInScreen = () => {
