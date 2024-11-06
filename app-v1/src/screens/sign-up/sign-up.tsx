@@ -5,10 +5,10 @@ import { useForm, Controller, useFormState } from 'react-hook-form';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { authApi } from '~/src/api';
+import { ChevronLeft } from '~/src/icons/icons';
 import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
-import { ChevronLeft } from '~/src/icons/icons';
 import { ProfileStore } from '~/src/stores/profile.store';
 
 export const SignUpScreen = () => {
