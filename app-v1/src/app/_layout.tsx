@@ -61,7 +61,7 @@ const RootLayout = () => {
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? 'light' : 'dark'}></StatusBar>
       <Stack>
-        <Stack.Screen name='(app)' options={{ headerShown: false }} />
+        <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen>
       </Stack>
       <PortalHost></PortalHost>
     </ThemeProvider>
