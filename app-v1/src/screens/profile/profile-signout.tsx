@@ -3,7 +3,7 @@ import { Button } from '~/src/components/ui/button';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '~/src/components/ui/alert-dialog';
 
-export const LogoutDialog = () => {
+export const ProfileSignout = () => {
   const { profileLogout } = ProfileStore();
 
   const logout = () => {
