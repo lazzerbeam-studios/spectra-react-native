@@ -20,7 +20,7 @@ export const DashboadScreen = () => {
         <View className='hidden flex-[0.2] sm:flex'></View>
         <View className='flex-1 items-center sm:flex-[0.6]'>
 
-          <Text>Dashboad</Text>
+          <Text className='native:text-4xl mt-8 text-4xl'>Dashboad</Text>
 
         </View>
         <View className='hidden flex-[0.2] sm:flex'></View>
