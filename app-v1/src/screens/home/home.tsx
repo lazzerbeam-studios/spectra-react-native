@@ -10,7 +10,7 @@ export const HomeScreen = () => {
   const onLayout = () => {
     const profile = ProfileStore.getState().profile;
     if (profile && profile.id) {
-      router.replace('/logged-in/dashboad');
+      router.replace('/dashboad');
     }
   };
 
