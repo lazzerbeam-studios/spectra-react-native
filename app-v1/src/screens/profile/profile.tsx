@@ -13,7 +13,7 @@ import { LogoutDialog } from './logout-dialog';
 
 const avatarUri = 'https://t3.ftcdn.net/jpg/07/24/59/76/360_F_724597608_pmo5BsVumFcFyHJKlASG2Y2KpkkfiYUU.jpg';
 
-const ProfileScreen = () => {
+export const ProfileScreen = () => {
   const { profile } = ProfileStore();
 
   return (
@@ -68,5 +68,3 @@ const ProfileScreen = () => {
     </>
   );
 }
-
-export default ProfileScreen;
