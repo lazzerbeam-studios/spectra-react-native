@@ -8,6 +8,7 @@
     "start:android": "expo start -c --android"
   },
   "dependencies": {
+    "@expo-google-fonts/almendra-sc": "^0.2.3",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-navigation/native": "^6.0.2",
     "@rn-primitives/alert-dialog": "^1.1.0",
@@ -21,6 +22,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "expo": "^51.0.24",
+    "expo-font": "~12.0.10",
     "expo-linking": "^6.3.1",
     "expo-navigation-bar": "^3.0.7",
     "expo-router": "^3.5.20",
