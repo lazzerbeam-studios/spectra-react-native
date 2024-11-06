@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Button } from '~/src/components/ui/button';
-import { MoonStar, Sun } from '~/src/lib/icons/icons';
+import { MoonStar, Sun } from '~/src/icons/icons';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 
