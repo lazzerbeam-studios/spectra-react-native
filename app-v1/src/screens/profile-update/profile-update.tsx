@@ -31,6 +31,7 @@ export const ProfileUpdateScreen = () => {
         options={{
           title: '',
           headerTitleAlign: 'center',
+          headerShadowVisible: false,
           headerLeft: () => <BackButton></BackButton>,
         }}>
       </Stack.Screen>

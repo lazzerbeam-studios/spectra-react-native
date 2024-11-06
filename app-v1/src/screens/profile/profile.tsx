@@ -23,6 +23,7 @@ export const ProfileScreen = () => {
         options={{
           title: '',
           headerTitleAlign: 'center',
+          headerShadowVisible: false,
           headerLeft: () => <BackButton></BackButton>,
           headerRight: () => <ProfileThemeButton></ProfileThemeButton>,
         }}>
