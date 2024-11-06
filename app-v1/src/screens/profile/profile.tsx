@@ -52,7 +52,7 @@ export const ProfileScreen = () => {
               <CardTitle className='pb-8 text-center'>
                 {profile?.email}
               </CardTitle>
-              <Link href='/logged-in/profile-update' asChild>
+              <Link href='/profile-update' asChild>
                 <Button variant='outline' className='shadow shadow-foreground/5'>
                   <Text>Update</Text>
                 </Button>

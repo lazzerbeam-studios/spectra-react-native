@@ -29,7 +29,7 @@ export const SignInScreen = () => {
       });
       await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
-      router.replace('/logged-in/dashboad');
+      router.replace('/dashboad');
     } catch (error: any) {
       console.log(error);
     }
