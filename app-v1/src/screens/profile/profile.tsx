@@ -9,7 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar'
 import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
 
 import { ThemeButton } from './profile-theme-button';
-import { LogoutDialog } from './logout-dialog';
+import { LogoutDialog } from './profile-signout';
 
 const avatarUri = 'https://t3.ftcdn.net/jpg/07/24/59/76/360_F_724597608_pmo5BsVumFcFyHJKlASG2Y2KpkkfiYUU.jpg';
 
