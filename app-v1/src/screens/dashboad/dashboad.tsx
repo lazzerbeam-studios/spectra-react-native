@@ -3,6 +3,8 @@ import { Stack } from 'expo-router';
 
 import { Text } from '~/src/components/ui/text';
 
+import { DashboadProfile } from './dashboad-profile';
+
 export const DashboadScreen = () => {
   return (
     <>
@@ -13,6 +15,7 @@ export const DashboadScreen = () => {
           headerTitleAlign: 'center',
           headerShadowVisible: false,
           headerLeft: () => <></>,
+          headerRight: () => <DashboadProfile></DashboadProfile>,
         }}>
       </Stack.Screen>
 
