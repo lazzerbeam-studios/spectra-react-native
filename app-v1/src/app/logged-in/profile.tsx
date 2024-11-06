@@ -1,7 +1,7 @@
 import { Redirect } from 'expo-router';
 
 import { AuthStore } from '~/src/stores/auth.store';
-import ProfileScreen from '~/src/screens/profile/profile';
+import { ProfileScreen } from '~/src/screens/profile/profile';
 
 const Profile = () => {
   const { authBool } = AuthStore();

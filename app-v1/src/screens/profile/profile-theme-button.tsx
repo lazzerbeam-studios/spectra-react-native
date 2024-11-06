@@ -6,7 +6,7 @@ import { MoonStar } from '~/src/lib/icons/MoonStar';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 
-export const ThemeButton = () => {
+export const ProfileThemeButton = () => {
   const { isDarkColorScheme, setColorScheme } = useColorScheme();
 
   const changeTheme = () => {

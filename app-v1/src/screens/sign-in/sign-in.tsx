@@ -11,7 +11,7 @@ import { Button } from '~/src/components/ui/button';
 import { ChevronLeft } from '~/src/lib/icons/Chevron';
 import { ProfileStore } from '~/src/stores/profile.store';
 
-const SignInScreen = () => {
+export const SignInScreen = () => {
   const { profileInit } = ProfileStore();
 
   const { control, handleSubmit } = useForm();
@@ -106,5 +106,3 @@ const SignInScreen = () => {
     </SafeAreaView>
   );
 }
-
-export default SignInScreen;

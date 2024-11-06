@@ -5,7 +5,7 @@ import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
 import { ProfileStore } from '~/src/stores/profile.store';
 
-const HomeScreen = () => {
+export const HomeScreen = () => {
 
   const onLayout = () => {
     const profile = ProfileStore.getState().profile;
@@ -40,5 +40,3 @@ const HomeScreen = () => {
     </SafeAreaView>
   );
 };
-
-export default HomeScreen;

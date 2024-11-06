@@ -10,7 +10,7 @@ import { BackButton } from '~/src/components/back-button';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
 
-const ProfileUpdateScreen = () => {
+export const ProfileUpdateScreen = () => {
   const { profile, profileUpdate } = ProfileStore();
 
   const { control, handleSubmit } = useForm();
@@ -78,5 +78,3 @@ const ProfileUpdateScreen = () => {
     </>
   );
 }
-
-export default ProfileUpdateScreen;
