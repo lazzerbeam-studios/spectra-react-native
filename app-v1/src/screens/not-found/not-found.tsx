@@ -13,8 +13,8 @@ export const NotFoundScreen = () => {
       </Text>
 
       <Link href='/' asChild>
-        <Button className='mt-6 h-16 rounded-full px-12'>
-          <Text className='text-3xl'>
+        <Button className='native:h-20 mb-4 mt-8 h-16 rounded-full pe-8 ps-8'>
+          <Text className='native:text-2xl text-2xl'>
             Go Home
           </Text>
         </Button>
