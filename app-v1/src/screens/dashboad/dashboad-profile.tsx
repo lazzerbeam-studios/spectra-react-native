@@ -1,7 +1,7 @@
 import { Link } from 'expo-router';
 
 import { Button } from '~/src/components/ui/button';
-import { CircleUserRound } from '~/src/lib/icons/icons';
+import { CircleUserRound } from '~/src/icons/icons';
 
 export const DashboadProfile = () => {
   return (
