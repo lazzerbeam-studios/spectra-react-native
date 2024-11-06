@@ -1,10 +1,10 @@
 import { Text, View } from 'react-native';
 
+import { DashboadScreen } from '~/src/screens/dashboad/dashboad';
+
 const Dashboad = () => {
   return (
-    <View>
-      <Text>dashboad</Text>
-    </View>
+    <DashboadScreen></DashboadScreen>
   );
 }
 
