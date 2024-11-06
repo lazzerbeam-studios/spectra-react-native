@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { Text } from '~/src/components/ui/text';
 import { Button } from '~/src/components/ui/button';
 
-const NotFoundScreen = () => {
+export const NotFoundScreen = () => {
   return (
     <View className='flex-1 items-center justify-center'>
 
@@ -23,5 +23,3 @@ const NotFoundScreen = () => {
     </View>
   );
 }
-
-export default NotFoundScreen;

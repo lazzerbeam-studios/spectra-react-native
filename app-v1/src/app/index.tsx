@@ -1,5 +1,6 @@
 import { Stack } from 'expo-router';
-import HomeScreen from '~/src/screens/home/home';
+
+import { HomeScreen } from '~/src/screens/home/home';
 
 const Home = () => {
   return (

@@ -1,4 +1,4 @@
-import NotFoundScreen from '~/src/screens/not-found/not-found';
+import { NotFoundScreen } from '~/src/screens/not-found/not-found';
 
 const NotFound = () => {
   return (
