@@ -17,7 +17,7 @@ export const HomeScreen = () => {
   return (
     <SafeAreaView className='mb-36 flex flex-1 flex-col items-center justify-center' onLayout={onLayout}>
 
-      <Text className='mb-24 font-Poppins600 text-8xl'>
+      <Text className='native:pt-2 mb-24 font-Poppins600 text-8xl'>
         Spectra
       </Text>
 
