@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { router } from 'expo-router';
-import Toast from 'react-native-toast-message';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { usersApi } from '~/src/api';
@@ -56,13 +55,7 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
       get().profileSet(response.data.object);
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
-      Toast.show({
-        type: 'error',
-        position: 'top',
-        text1: 'Error',
-        text2: error,
-        visibilityTime: 5000,
-      });
+      throw error;
     }
   },
   profileLogout: async () => {

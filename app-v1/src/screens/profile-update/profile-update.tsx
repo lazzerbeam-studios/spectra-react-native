@@ -1,6 +1,7 @@
 import { Stack } from 'expo-router';
 import { View } from 'react-native';
 import { router } from 'expo-router';
+import Toast from 'react-native-toast-message';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 
 import { Text } from '~/src/components/ui/text';
@@ -19,9 +20,19 @@ export const ProfileUpdateScreen = () => {
   const submit = async (data: any) => {
     if (profile) {
       profile.name = data.name;
-      await profileUpdate(profile);
-      if (router.canGoBack()) {
-        router.back();
+      try {
+        await profileUpdate(profile);
+        if (router.canGoBack()) {
+          router.back();
+        }
+      } catch (error: any) {
+        Toast.show({
+          type: 'error',
+          position: 'top',
+          text1: 'Error',
+          text2: error,
+          visibilityTime: 5000,
+        });
       }
     }
   };
