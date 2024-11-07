@@ -66,7 +66,7 @@ export const SignInScreen = () => {
 
           <Controller
             name='email'
-            defaultValue={'yoda@yahoo.com'}
+            defaultValue={''}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <Input
@@ -86,7 +86,7 @@ export const SignInScreen = () => {
 
           <Controller
             name='password'
-            defaultValue={'admin'}
+            defaultValue={''}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <Input
