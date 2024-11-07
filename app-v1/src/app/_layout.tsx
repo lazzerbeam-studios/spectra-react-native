@@ -6,10 +6,12 @@ import { PortalHost } from '@rn-primitives/portal';
 import { Theme, ThemeProvider } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { useFonts } from 'expo-font';
 import { NavTheme } from '~/src/lib/themeConstants';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
+import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
 import '~/src/global.css';
 
@@ -32,6 +34,13 @@ const RootLayout = () => {
   const [colorSchemeLoaded, colorSchemeLoadedSet] = useState(false);
   const [apiLoaded, apiLoadedSet] = useState(false);
 
+  const [fontsLoaded] = useFonts({
+    Poppins400: Poppins_400Regular,
+    Poppins500: Poppins_500Medium,
+    Poppins600: Poppins_600SemiBold,
+    Poppins700: Poppins_700Bold,
+  });
+
   useEffect(() => {
     (async () => {
       const colorTheme = (await AsyncStorage.getItem('colorTheme') || colorScheme) === 'dark' ? 'dark' : 'light';
@@ -53,7 +62,7 @@ const RootLayout = () => {
     })();
   }, []);
 
-  if (!colorSchemeLoaded || !apiLoaded) {
+  if (!colorSchemeLoaded || !apiLoaded || !fontsLoaded) {
     return null;
   }
 
