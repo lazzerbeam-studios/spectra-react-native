@@ -1,7 +1,6 @@
 import { View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 import Toast, { ToastConfig } from 'react-native-toast-message';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Text } from '~/src/components/ui/text';
 import { CircleAlert } from '~/src/icons/icons';
