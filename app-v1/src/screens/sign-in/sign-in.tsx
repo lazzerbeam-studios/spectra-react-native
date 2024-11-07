@@ -44,7 +44,7 @@ export const SignInScreen = () => {
       console.log(error);
 
       Toast.show({
-        type: 'tomatoToast',
+        type: 'error',
         text1: 'Error',
         text2: error,
         visibilityTime: 4500,
