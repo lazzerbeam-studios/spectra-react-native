@@ -1,9 +1,11 @@
 import { create } from 'zustand';
 import { router } from 'expo-router';
+import Toast from 'react-native-toast-message';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { usersApi } from '~/src/api';
 import { Profile } from '~/src/openapi/api';
+import { errorGet } from '~/src/scripts/errors';
 import { AuthStore } from '~/src/stores/auth.store';
 
 type State = {
@@ -49,8 +51,19 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
   },
   profileUpdate: async (profile: Profile) => {
     const token = AuthStore.getState().authToken;
-    const response = await usersApi.profileUpdate({ object: profile }, token);
-    get().profileSet(response.data.object);
+    try {
+      const response = await usersApi.profileUpdate({ object: profile }, token);
+      get().profileSet(response.data.object);
+    } catch (errors: any) {
+      const error = errorGet(errors.response.data);
+      Toast.show({
+        type: 'error',
+        position: 'top',
+        text1: 'Error',
+        text2: error,
+        visibilityTime: 5000,
+      });
+    }
   },
   profileLogout: async () => {
     await get().profileClear();
