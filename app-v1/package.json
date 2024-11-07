@@ -8,7 +8,7 @@
     "start:android": "expo start -c --android"
   },
   "dependencies": {
-    "@expo-google-fonts/almendra-sc": "^0.2.3",
+    "@expo-google-fonts/poppins": "^0.2.3",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-navigation/native": "^6.0.2",
     "@rn-primitives/alert-dialog": "^1.1.0",
