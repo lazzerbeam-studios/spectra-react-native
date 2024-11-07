@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useFonts } from 'expo-font';
 import { NavTheme } from '~/src/lib/themeConstants';
+import { ToastProvider } from '~/src/components/toast';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
@@ -73,6 +74,7 @@ const RootLayout = () => {
         <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen>
       </Stack>
       <PortalHost></PortalHost>
+      <ToastProvider></ToastProvider>
     </ThemeProvider>
   );
 }

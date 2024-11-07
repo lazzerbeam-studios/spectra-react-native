@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { usersApi } from '~/src/api';
 import { Profile } from '~/src/openapi/api';
+import { errorGet } from '~/src/scripts/errors';
 import { AuthStore } from '~/src/stores/auth.store';
 
 type State = {
@@ -49,8 +50,13 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
   },
   profileUpdate: async (profile: Profile) => {
     const token = AuthStore.getState().authToken;
-    const response = await usersApi.profileUpdate({ object: profile }, token);
-    get().profileSet(response.data.object);
+    try {
+      const response = await usersApi.profileUpdate({ object: profile }, token);
+      get().profileSet(response.data.object);
+    } catch (errors: any) {
+      const error = errorGet(errors.response.data);
+      throw error;
+    }
   },
   profileLogout: async () => {
     await get().profileClear();
