@@ -1,11 +1,13 @@
 import { View } from 'react-native';
 import { Link, router } from 'expo-router';
+import Toast from 'react-native-toast-message';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { authApi } from '~/src/api';
 import { ChevronLeft } from '~/src/icons/icons';
+import { errorGet } from '~/src/scripts/errors';
 import { Text } from '~/src/components/ui/text';
 import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
@@ -30,8 +32,15 @@ export const SignUpScreen = () => {
       await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
       router.replace('/dashboad');
-    } catch (error: any) {
-      console.log(error);
+    } catch (errors: any) {
+      const error = errorGet(errors.response.data);
+      Toast.show({
+        type: 'error',
+        position: 'top',
+        text1: 'Error',
+        text2: error,
+        visibilityTime: 5000,
+      });
     }
   };
 
