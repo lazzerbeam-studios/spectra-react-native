@@ -14,7 +14,7 @@ import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
 import Toast from 'react-native-toast-message';
-import { toastConfig } from '~/src/components/toast';
+import { ToastConfig } from '~/src/components/toast';
 
 import '~/src/global.css';
 
@@ -76,7 +76,7 @@ const RootLayout = () => {
         <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen>
       </Stack>
       <PortalHost></PortalHost>
-      <Toast config={toastConfig}></Toast>
+      <Toast config={ToastConfig}></Toast>
     </ThemeProvider>
   );
 }
