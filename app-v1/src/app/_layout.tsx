@@ -7,11 +7,12 @@ import { Theme, ThemeProvider } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useFonts } from 'expo-font';
-import { Poppins_400Regular } from '@expo-google-fonts/poppins'
 import { NavTheme } from '~/src/lib/themeConstants';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
+
+import { Poppins_400Regular } from '@expo-google-fonts/poppins';
 
 import '~/src/global.css';
 
@@ -36,6 +37,7 @@ const RootLayout = () => {
 
   const [fontsLoaded] = useFonts({
     Poppins400: Poppins_400Regular,
+
   });
 
   useEffect(() => {
