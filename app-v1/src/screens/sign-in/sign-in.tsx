@@ -44,12 +44,14 @@ export const SignInScreen = () => {
       console.log(error);
 
       Toast.show({
-        type: 'error',
+        type: 'tomatoToast',
         text1: 'Error',
         text2: error,
         visibilityTime: 4500,
         topOffset: insets.top === 0 ? 24 : insets.top + 12,
         props: {
+          text1: 'Error',
+          text2: error,
         },
       });
 
@@ -77,7 +79,7 @@ export const SignInScreen = () => {
 
           <Controller
             name='email'
-            defaultValue={''}
+            defaultValue={'yoda@yahoo.com'}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <Input
@@ -97,7 +99,7 @@ export const SignInScreen = () => {
 
           <Controller
             name='password'
-            defaultValue={''}
+            defaultValue={'admin'}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <Input
