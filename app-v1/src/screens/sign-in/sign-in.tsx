@@ -36,14 +36,11 @@ export const SignInScreen = () => {
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
 
-      console.log('error');
-      console.log(error);
-
       Toast.show({
         type: 'error',
+        position: 'top',
         text1: 'Error',
         text2: error,
-        position: 'top',
         visibilityTime: 4500,
       });
 
