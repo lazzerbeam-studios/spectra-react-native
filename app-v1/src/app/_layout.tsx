@@ -8,12 +8,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useFonts } from 'expo-font';
 import { NavTheme } from '~/src/lib/themeConstants';
+import { ToastProvider } from '~/src/components/toast';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
-
-import { ToastProvider } from '~/src/components/toast';
 
 import '~/src/global.css';
 
