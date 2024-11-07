@@ -13,11 +13,16 @@ import { ProfileStore } from '~/src/stores/profile.store';
 
 import { errorGet } from '~/src/scripts/errors';
 
+import Toast from 'react-native-toast-message';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 export const SignInScreen = () => {
   const { profileInit } = ProfileStore();
 
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
+
+  const insets = useSafeAreaInsets();
 
   const submit = (data: any) => {
     signIn(data.email, data.password);
@@ -37,6 +42,16 @@ export const SignInScreen = () => {
 
       console.log('error');
       console.log(error);
+
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: error,
+        visibilityTime: 4500,
+        topOffset: insets.top === 0 ? 24 : insets.top + 12,
+        props: {
+        },
+      });
 
     }
   };
