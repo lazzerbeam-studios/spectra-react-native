@@ -32,9 +32,12 @@ export const SignInScreen = () => {
       await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
       router.replace('/dashboad');
-    } catch (error: any) {
+    } catch (errors: any) {
 
-      errorGet(error);
+      const error = errorGet(errors.response.data);
+
+      console.log('error');
+      console.log(error);
 
     }
   };
