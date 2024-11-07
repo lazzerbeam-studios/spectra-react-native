@@ -13,8 +13,12 @@ const ToastConfigExt: ToastConfig = {
           <CircleAlert className='text-red-500'></CircleAlert>
         </View>
         <View className='flex-1'>
-          <Text className='native:text-xl mb-1 text-xl font-bold'>{text1}</Text>
-          <Text className='native:text-base text-lg'>{text2}</Text>
+          <Text className='native:text-xl mb-1 text-xl font-bold'>
+            {text1}
+          </Text>
+          <Text className='native:text-base text-lg'>
+            {text2}
+          </Text>
         </View>
       </View>
     </View>
