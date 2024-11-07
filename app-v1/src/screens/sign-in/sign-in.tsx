@@ -11,6 +11,8 @@ import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 import { ProfileStore } from '~/src/stores/profile.store';
 
+import { errorGet } from '~/src/scripts/errors';
+
 export const SignInScreen = () => {
   const { profileInit } = ProfileStore();
 
@@ -31,7 +33,9 @@ export const SignInScreen = () => {
       await profileInit();
       router.replace('/dashboad');
     } catch (error: any) {
-      console.log(error);
+
+      errorGet(error);
+
     }
   };
 
