@@ -27,5 +27,5 @@ const ToastConfigExt: ToastConfig = {
 
 export const ToastProvider = () => {
   const insets = useSafeAreaInsets();
-  return <Toast config={ToastConfigExt} topOffset={insets.top + 16} bottomOffset={insets.bottom + 16} />;
+  return <Toast config={ToastConfigExt} topOffset={insets.top + 16} bottomOffset={insets.bottom + 16}></Toast>;
 };
