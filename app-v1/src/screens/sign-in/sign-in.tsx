@@ -1,5 +1,6 @@
 import { View } from 'react-native';
 import { Link, router } from 'expo-router';
+import Toast from 'react-native-toast-message';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -13,16 +14,11 @@ import { ProfileStore } from '~/src/stores/profile.store';
 
 import { errorGet } from '~/src/scripts/errors';
 
-import Toast from 'react-native-toast-message';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
 export const SignInScreen = () => {
   const { profileInit } = ProfileStore();
 
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
-
-  const insets = useSafeAreaInsets();
 
   const submit = (data: any) => {
     signIn(data.email, data.password);
