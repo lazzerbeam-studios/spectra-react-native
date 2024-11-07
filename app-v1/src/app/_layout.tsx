@@ -12,7 +12,7 @@ import { ProfileStore } from '~/src/stores/profile.store';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 
-import { Poppins_400Regular } from '@expo-google-fonts/poppins';
+import { Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
 import '~/src/global.css';
 
@@ -37,7 +37,7 @@ const RootLayout = () => {
 
   const [fontsLoaded] = useFonts({
     Poppins400: Poppins_400Regular,
-
+    Poppins700: Poppins_700Bold,
   });
 
   useEffect(() => {
