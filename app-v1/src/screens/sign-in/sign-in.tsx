@@ -33,7 +33,6 @@ export const SignInScreen = () => {
       await profileInit();
       router.replace('/dashboad');
     } catch (errors: any) {
-
       const error = errorGet(errors.response.data);
 
       console.log('error');
