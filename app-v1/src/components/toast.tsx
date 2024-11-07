@@ -1,9 +1,12 @@
 import { View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import Toast, { ToastConfig } from 'react-native-toast-message';
 
 import { Text } from '~/src/components/ui/text';
 import { CircleAlert } from '~/src/icons/icons';
 
-export const ToastConfig = {
+const ToastConfigExt: ToastConfig = {
   error: ({ text1, text2, props }: { text1?: string; text2?: string; props: any }) => (
     <View className='w-full max-w-sm rounded-md border-2 border-red-500 bg-background p-4'>
       <View className='flex-row'>
@@ -17,4 +20,9 @@ export const ToastConfig = {
       </View>
     </View>
   ),
+};
+
+export const ToastProvider = () => {
+  const insets = useSafeAreaInsets();
+  return <Toast config={ToastConfigExt} topOffset={insets.top} bottomOffset={insets.bottom} />;
 };
