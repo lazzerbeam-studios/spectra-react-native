@@ -35,15 +35,13 @@ export const SignInScreen = () => {
       router.replace('/dashboad');
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
-
       Toast.show({
         type: 'error',
         position: 'top',
         text1: 'Error',
         text2: error,
-        visibilityTime: 4500,
+        visibilityTime: 5000,
       });
-
     }
   };
 
