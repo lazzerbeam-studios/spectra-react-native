@@ -49,10 +49,6 @@ export const SignInScreen = () => {
         text2: error,
         visibilityTime: 45000,
         topOffset: insets.top === 0 ? 24 : insets.top + 12,
-        props: {
-          text1: 'Error',
-          text2: error,
-        },
       });
 
     }
