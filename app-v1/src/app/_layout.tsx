@@ -11,7 +11,6 @@ import { NavTheme } from '~/src/lib/themeConstants';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
-
 import { Poppins_400Regular, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
 import '~/src/global.css';
