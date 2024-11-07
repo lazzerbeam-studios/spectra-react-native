@@ -1,4 +1,6 @@
 export const errorGet = (error: string) => {
-  console.log('error');
-  console.log(error);
+
+  let errorString = 'There was a server error.';
+
+  return errorString;
 }
