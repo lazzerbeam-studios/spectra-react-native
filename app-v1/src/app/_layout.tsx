@@ -13,7 +13,6 @@ import { useColorScheme } from '~/src/lib/useColorScheme';
 import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
-import Toast from 'react-native-toast-message';
 import { ToastProvider } from '~/src/components/toast';
 
 import '~/src/global.css';

@@ -47,8 +47,8 @@ export const SignInScreen = () => {
         type: 'error',
         text1: 'Error',
         text2: error,
-        visibilityTime: 45000,
-        topOffset: insets.top === 0 ? 24 : insets.top + 12,
+        position: 'top',
+        visibilityTime: 4500,
       });
 
     }
