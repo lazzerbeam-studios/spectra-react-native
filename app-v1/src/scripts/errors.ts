@@ -1,7 +1,7 @@
 export const errorGet = (error: any) => {
   let errorString = 'There was a server error.';
   if (error.detail) {
-    errorString = error.detail
+    errorString = error.detail;
   }
   if (error.length >= 1) {
     errorString = '';
