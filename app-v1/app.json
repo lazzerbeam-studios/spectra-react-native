@@ -3,6 +3,7 @@
     "name": "spectra",
     "slug": "spectra",
     "version": "1.0.0",
+    "newArchEnabled": true,
     "orientation": "portrait",
     "icon": "./src/assets/images/icon.png",
     "scheme": "myapp",

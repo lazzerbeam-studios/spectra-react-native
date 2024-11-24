@@ -15,13 +15,16 @@
 
 **install**
 
-    asdf install nodejs 18.20.4
+    asdf install nodejs 18.20.5
 
 ## Npm
 
-**install**
+**commands**
 
     npm install
+
+    npm update
+    npm outdated
 
 ## Expo
 
