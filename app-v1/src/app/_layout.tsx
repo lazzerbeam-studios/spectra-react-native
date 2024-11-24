@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SplashScreen, Stack } from 'expo-router';
 import { PortalHost } from '@rn-primitives/portal';
-import { Theme, ThemeProvider } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Theme, ThemeProvider, DefaultTheme, DarkTheme } from '@react-navigation/native';
 
 import { useFonts } from 'expo-font';
 import { NavTheme } from '~/src/lib/themeConstants';
@@ -17,11 +17,11 @@ import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700
 import '~/src/global.css';
 
 const LIGHT_THEME: Theme = {
-  dark: false,
+  ...DefaultTheme,
   colors: NavTheme.light,
 };
 const DARK_THEME: Theme = {
-  dark: true,
+  ...DarkTheme,
   colors: NavTheme.dark,
 };
 
