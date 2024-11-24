@@ -19,7 +19,7 @@
 
 ## Npm
 
-**install**
+**commands**
 
     npm install
 
