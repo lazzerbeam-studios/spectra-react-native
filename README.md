@@ -23,6 +23,9 @@
 
     npm install
 
+    npm update
+    npm outdated
+
 ## Expo
 
 **commands**
