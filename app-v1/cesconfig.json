@@ -1,6 +1,6 @@
 {
   "cesVersion": "2.18.3",
-  "projectName": "app-v1",
+  "projectName": "spectra",
   "packages": [
     {
       "name": "expo-router",
