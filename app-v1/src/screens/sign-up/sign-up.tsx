@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
@@ -60,12 +60,12 @@ export const SignUpScreen = () => {
             Sign Up
           </Text>
 
-          {/* <Controller
+          <Controller
             name='email'
             defaultValue={''}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
-              <Input
+              <TextInput
                 value={value}
                 onBlur={onBlur}
                 onChangeText={onChange}
@@ -78,14 +78,14 @@ export const SignUpScreen = () => {
               required: true,
               pattern: /^\S+@\S+$/i,
             }}
-          /> */}
+          />
 
-          {/* <Controller
+          <Controller
             name='password'
             defaultValue={''}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
-              <Input
+              <TextInput
                 value={value}
                 onBlur={onBlur}
                 onChangeText={onChange}
@@ -97,7 +97,7 @@ export const SignUpScreen = () => {
             rules={{
               required: true,
             }}
-          /> */}
+          />
 
           <TouchableOpacity
             className='native:h-20 mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'
