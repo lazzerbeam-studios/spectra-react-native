@@ -36,7 +36,7 @@ const RootLayout = () => {
     })().finally(() => {
       SplashScreen.hideAsync();
     });
-  }, []);
+  }, [colorScheme, setColorScheme]);
 
   useEffect(() => {
     (async () => {
@@ -45,7 +45,7 @@ const RootLayout = () => {
     })();
   }, []);
 
-  if (!fontsLoaded || !apiLoaded) {
+  if (!fontsLoaded || !colorSchemeLoaded || !apiLoaded) {
     return null;
   }
 
