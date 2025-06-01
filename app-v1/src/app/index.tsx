@@ -1,19 +1,14 @@
-import { Stack, Link } from 'expo-router';
+import { Stack } from 'expo-router';
 
-import { Button } from '~/src/components/Button';
-import { Container } from '~/src/components/Container';
-import { ScreenContent } from '~/src/components/ScreenContent';
+import { HomeScreen } from '~/src/screens/home/home';
 
-export default function Home() {
+const Home = () => {
   return (
     <>
-      <Stack.Screen options={{ title: 'Home' }} />
-      <Container>
-        <ScreenContent path="app/index.tsx" title="Home"></ScreenContent>
-        <Link href={{ pathname: '/details', params: { name: 'Dan' } }} asChild>
-          <Button title="Show Details" />
-        </Link>
-      </Container>
+      <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
+      <HomeScreen></HomeScreen>
     </>
   );
 }
+
+export default Home;
