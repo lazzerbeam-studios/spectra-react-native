@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react';
 import { Stack } from 'expo-router';
+import { useState, useEffect } from 'react';
 
 import { ProfileStore } from '~/src/stores/profile.store';
 
 import '~/src/global.css';
 
 const RootLayout = () => {
-
   const [apiLoaded, apiLoadedSet] = useState(false);
 
   useEffect(() => {
