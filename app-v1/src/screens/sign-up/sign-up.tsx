@@ -1,10 +1,9 @@
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { Link, router } from 'expo-router';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { authApi } from '~/src/api';
 import { errorGet } from '~/src/scripts/errors';
