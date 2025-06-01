@@ -1,23 +1,20 @@
-import { View } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Link, router } from 'expo-router';
-// import Toast from 'react-native-toast-message';
 import { SafeAreaView } from 'react-native-safe-area-context';
-// import { useForm, Controller, useFormState } from 'react-hook-form';
+import { useForm, Controller, useFormState } from 'react-hook-form';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 import { authApi } from '~/src/api';
-// import { ChevronLeft } from '~/src/icons/icons';
 import { errorGet } from '~/src/scripts/errors';
-// import { Text } from '~/src/components/ui/text';
-// import { Input } from '~/src/components/ui/input';
-// import { Button } from '~/src/components/ui/button';
 import { ProfileStore } from '~/src/stores/profile.store';
 
 export const SignUpScreen = () => {
   const { profileInit } = ProfileStore();
 
-  // const { control, handleSubmit } = useForm();
-  // const { errors } = useFormState({ control });
+  const { control, handleSubmit } = useForm();
+  const { errors } = useFormState({ control });
 
   const submit = (data: any) => {
     signUp(data.email, data.password);
@@ -49,21 +46,21 @@ export const SignUpScreen = () => {
 
       <View className='ms-2 mt-2'>
         <Link href='/' asChild>
-          {/* <Button variant={'link'} size={'icon'}>
-            <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
-          </Button> */}
+          <TouchableOpacity className='p-2'>
+            <Ionicons name="chevron-back" size={50} color="black" />
+          </TouchableOpacity>
         </Link>
       </View>
 
       <View className='mb-44 flex w-full flex-1 flex-row'>
         <View className='native:hidden flex-[0.2]'></View>
-        {/* <View className='native:flex-1 flex-[0.6] items-center justify-center'>
+        <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
           <Text className='native:text-5xl mb-8 text-4xl font-bold'>
             Sign Up
           </Text>
 
-          <Controller
+          {/* <Controller
             name='email'
             defaultValue={''}
             control={control}
@@ -81,9 +78,9 @@ export const SignUpScreen = () => {
               required: true,
               pattern: /^\S+@\S+$/i,
             }}
-          ></Controller>
+          /> */}
 
-          <Controller
+          {/* <Controller
             name='password'
             defaultValue={''}
             control={control}
@@ -100,15 +97,18 @@ export const SignUpScreen = () => {
             rules={{
               required: true,
             }}
-          ></Controller>
+          /> */}
 
-          <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(submit)}>
-            <Text className='native:text-3xl text-3xl'>
+          <TouchableOpacity
+            className='native:h-20 mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'
+            onPress={handleSubmit(submit)}
+          >
+            <Text className='native:text-3xl text-3xl text-background'>
               Sign Up
             </Text>
-          </Button>
+          </TouchableOpacity>
 
-        </View> */}
+        </View>
         <View className='native:hidden flex-[0.2]'></View>
       </View>
 
