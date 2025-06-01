@@ -11,6 +11,13 @@ module.exports = {
   ],
   plugins: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Poppins400: ["Poppins400"],
+        Poppins500: ["Poppins500"],
+        Poppins600: ["Poppins600"],
+        Poppins700: ["Poppins700"],
+      },
+    },
   },
 };
