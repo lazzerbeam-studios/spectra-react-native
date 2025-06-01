@@ -23,7 +23,7 @@ const RootLayout = () => {
   return (
     <>
       <Stack>
-        {/* <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen> */}
+        <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen>
       </Stack>
     </>
   );
