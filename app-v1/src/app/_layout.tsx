@@ -1,5 +1,6 @@
 import { Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
+import { useColorScheme } from 'nativewind';
 import { useState, useEffect } from 'react';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
@@ -8,7 +9,10 @@ import { ProfileStore } from '~/src/stores/profile.store';
 import '~/src/global.css';
 
 const RootLayout = () => {
+  const { setColorScheme } = useColorScheme();
   const [apiLoaded, apiLoadedSet] = useState(false);
+
+  setColorScheme('light');
 
   const [fontsLoaded] = useFonts({
     Poppins400: Poppins_400Regular,
