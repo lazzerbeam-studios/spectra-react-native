@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Theme, ThemeProvider, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
-import { NavTheme } from '~/src/themeConstants';
+import { NavTheme } from '~/src/theme-constants';
 import { ProfileStore } from '~/src/stores/profile.store';
 
 import '~/src/global.css';
