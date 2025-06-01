@@ -1,8 +1,7 @@
 import { Link, router } from 'expo-router';
-import { Text, Button } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-
+import { Text, TouchableOpacity } from 'react-native';
 import { ProfileStore } from '~/src/stores/profile.store';
 
 export const HomeScreen = () => {
@@ -21,21 +20,21 @@ export const HomeScreen = () => {
         Spectra
       </Text>
 
-      {/* <Link href='/sign-up' push asChild>
-        <Button className='native:h-20 mb-6 h-20 w-96 rounded-full'>
+      <Link href='/sign-up' push asChild>
+        <TouchableOpacity className='native:h-20 mb-6 h-20 w-96 rounded-full'>
           <Text className='native:text-4xl text-4xl'>
             Sign Up
           </Text>
-        </Button>
+        </TouchableOpacity>
       </Link>
 
       <Link href='/sign-in' push asChild>
-        <Button className='native:h-20 h-20 w-96 rounded-full'>
+        <TouchableOpacity className='native:h-20 h-20 w-96 rounded-full'>
           <Text className='native:text-4xl text-4xl'>
             Sign In
           </Text>
-        </Button>
-      </Link> */}
+        </TouchableOpacity>
+      </Link>
 
     </SafeAreaView>
   );

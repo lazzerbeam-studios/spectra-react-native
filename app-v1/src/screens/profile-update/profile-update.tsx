@@ -1,41 +1,40 @@
-import { Stack } from 'expo-router';
+import { Stack , router } from 'expo-router';
 import { View } from 'react-native';
-import { router } from 'expo-router';
-import Toast from 'react-native-toast-message';
-import { useForm, Controller, useFormState } from 'react-hook-form';
+// import Toast from 'react-native-toast-message';
+// import { useForm, Controller, useFormState } from 'react-hook-form';
 
-import { Text } from '~/src/components/ui/text';
-import { Input } from '~/src/components/ui/input';
-import { Button } from '~/src/components/ui/button';
-import { BackButton } from '~/src/components/back-button';
+// import { Text } from '~/src/components/ui/text';
+// import { Input } from '~/src/components/ui/input';
+// import { Button } from '~/src/components/ui/button';
+// import { BackButton } from '~/src/components/back-button';
 import { ProfileStore } from '~/src/stores/profile.store';
-import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
+// import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
 
 export const ProfileUpdateScreen = () => {
   const { profile, profileUpdate } = ProfileStore();
 
-  const { control, handleSubmit } = useForm();
-  const { errors } = useFormState({ control });
+  // const { control, handleSubmit } = useForm();
+  // const { errors } = useFormState({ control });
 
-  const submit = async (data: any) => {
-    if (profile) {
-      profile.name = data.name;
-      try {
-        await profileUpdate(profile);
-        if (router.canGoBack()) {
-          router.back();
-        }
-      } catch (error: any) {
-        Toast.show({
-          type: 'error',
-          position: 'top',
-          text1: 'Error',
-          text2: error,
-          visibilityTime: 5000,
-        });
-      }
-    }
-  };
+  // const submit = async (data: any) => {
+  //   if (profile) {
+  //     profile.name = data.name;
+  //     try {
+  //       await profileUpdate(profile);
+  //       if (router.canGoBack()) {
+  //         router.back();
+  //       }
+  //     } catch (error: any) {
+  //       Toast.show({
+  //         type: 'error',
+  //         position: 'top',
+  //         text1: 'Error',
+  //         text2: error,
+  //         visibilityTime: 5000,
+  //       });
+  //     }
+  //   }
+  // };
 
   return (
     <>
@@ -45,15 +44,15 @@ export const ProfileUpdateScreen = () => {
           title: '',
           headerTitleAlign: 'center',
           headerShadowVisible: false,
-          headerLeft: () => <BackButton></BackButton>,
+          // headerLeft: () => <BackButton></BackButton>,
         }}>
       </Stack.Screen>
 
-      <View className='flex h-full w-full flex-1 flex-row bg-secondary/30'>
+      <View className='bg-secondary/30 flex h-full w-full flex-1 flex-row'>
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center'>
 
-          <Card className='mt-24 w-full max-w-sm rounded-2xl'>
+          {/* <Card className='mt-24 w-full max-w-sm rounded-2xl'>
             <CardHeader className='items-center'>
               <CardTitle className='text-center'>
                 Profile Update
@@ -83,7 +82,7 @@ export const ProfileUpdateScreen = () => {
                 </Text>
               </Button>
             </CardContent>
-          </Card>
+          </Card> */}
 
         </View>
         <View className='native:hidden flex-[0.2]'></View>

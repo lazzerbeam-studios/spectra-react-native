@@ -1,9 +1,8 @@
-// import { DashboadScreen } from '~/src/screens/dashboad/dashboad';
+import { DashboadScreen } from '~/src/screens/dashboad/dashboad';
 
 const Dashboad = () => {
   return (
-    // <DashboadScreen></DashboadScreen>
-    <></>
+    <DashboadScreen></DashboadScreen>
   );
 }
 
