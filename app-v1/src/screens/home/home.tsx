@@ -21,16 +21,16 @@ export const HomeScreen = () => {
       </Text>
 
       <Link href='/sign-up' push asChild>
-        <TouchableOpacity className='mb-6 h-20 w-96 rounded-full'>
-          <Text className='text-4xl'>
+        <TouchableOpacity className='mb-6 h-20 w-96 items-center justify-center rounded-full bg-foreground'>
+          <Text className='font-Poppins500 text-4xl text-background'>
             Sign Up
           </Text>
         </TouchableOpacity>
       </Link>
 
       <Link href='/sign-in' push asChild>
-        <TouchableOpacity className='h-20 w-96 rounded-full'>
-          <Text className='text-4xl'>
+        <TouchableOpacity className='h-20 w-96 items-center justify-center rounded-full bg-muted'>
+          <Text className='font-Poppins500 text-4xl text-muted-foreground'>
             Sign In
           </Text>
         </TouchableOpacity>
