@@ -1,7 +1,7 @@
 import { Link, router } from 'expo-router';
+import { Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Text, TouchableOpacity } from 'react-native';
 import { ProfileStore } from '~/src/stores/profile.store';
 
 export const HomeScreen = () => {
