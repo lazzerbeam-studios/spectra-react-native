@@ -14,9 +14,9 @@ export const HomeScreen = () => {
   };
 
   return (
-    <SafeAreaView className='mb-36 flex flex-1 flex-col items-center justify-center bg-background' onLayout={onLayout}>
+    <SafeAreaView className='mb-36 flex flex-1 flex-col items-center justify-center' onLayout={onLayout}>
 
-      <Text className='mb-24 font-Poppins500 text-8xl text-foreground'>
+      <Text className='mb-24 font-Poppins500 text-8xl'>
         Spectra
       </Text>
 
