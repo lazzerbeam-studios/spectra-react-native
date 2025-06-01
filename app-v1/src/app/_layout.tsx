@@ -1,5 +1,6 @@
 import { useFonts } from 'expo-font';
 import { Platform } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
 import { useState, useEffect } from 'react';
 import { SplashScreen, Stack } from 'expo-router';
@@ -62,6 +63,7 @@ const RootLayout = () => {
 
   return (
     <ThemeProvider value={(colorScheme === 'dark') ? DARK_THEME : LIGHT_THEME}>
+      <StatusBar style={(colorScheme === 'dark') ? 'light' : 'dark'}></StatusBar>
       <Stack>
         <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen>
       </Stack>
