@@ -41,7 +41,7 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
       try {
         const response = await usersApi.profileGetAPI(token);
         get().profileSet(response.data.object);
-      } catch (error) {
+      } catch (error: any) {
         await get().profileClear();
       }
     } else {
