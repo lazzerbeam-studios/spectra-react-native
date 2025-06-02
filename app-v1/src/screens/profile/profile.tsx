@@ -27,7 +27,7 @@ export const ProfileScreen = () => {
         <View className='hidden flex-[0.2] sm:flex'></View>
         <View className='flex-1 items-center sm:flex-[0.6]'>
 
-          <View className='bg-card mt-24 w-full max-w-sm rounded-2xl p-6 shadow'>
+          <View className='bg-card mt-24 w-full max-w-sm rounded-2xl border border-foreground p-6 shadow'>
             <View className='items-center'>
               <Text className='pb-4 text-center text-xl font-semibold text-foreground'>
                 Profile
@@ -44,7 +44,7 @@ export const ProfileScreen = () => {
                 {profile?.email}
               </Text>
               <Link href='/profile-update' asChild>
-                <View className='border-input rounded-md border bg-foreground px-4 py-2'>
+                <View className='rounded-md border border-foreground bg-foreground px-4 py-2'>
                   <Text className='text-center text-sm font-medium text-background'>
                     Update
                   </Text>
