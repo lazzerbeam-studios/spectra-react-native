@@ -1,12 +1,15 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 import { Link } from 'expo-router';
-import { TouchableOpacity } from 'react-native';
-// import { CircleUserRound } from '~/src/icons/icons';
+import { TouchableOpacity, View } from 'react-native';
 
 export const DashboadProfile = () => {
   return (
     <Link href='/profile' asChild>
       <TouchableOpacity className='web:me-2'>
-        {/* <CircleUserRound className='text-foreground' size={30} strokeWidth={1.25}></CircleUserRound> */}
+        <View className='h-12 w-12 items-center justify-center rounded-full bg-foreground'>
+          <Ionicons name="person" size={24} color="white" />
+        </View>
       </TouchableOpacity>
     </Link>
   );
