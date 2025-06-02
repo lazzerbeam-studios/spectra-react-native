@@ -1,9 +1,10 @@
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { authApi } from '~/src/api';
 import { errorGet } from '~/src/scripts/errors';
@@ -64,7 +65,7 @@ export const SignInScreen = () => {
                 placeholder='Email'
                 keyboardType='email-address'
                 className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${(errors.email) ? 'border-red-500' : 'border-foreground'}`}
-              />
+              ></TextInput>
             )}
             rules={{
               required: true,
@@ -84,7 +85,7 @@ export const SignInScreen = () => {
                 placeholder='Password'
                 secureTextEntry={true}
                 className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${errors.password ? 'border-red-500' : 'border-foreground'}`}
-              />
+              ></TextInput>
             )}
             rules={{
               required: true,
