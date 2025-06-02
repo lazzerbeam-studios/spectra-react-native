@@ -56,7 +56,7 @@ export const ProfileUpdateScreen = () => {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     placeholder='Name'
-                    className={`native:h-18 mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl ${(errors.name) ? 'border-red-500' : 'border-foreground'}`}
+                    className={`native:h-18 mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl text-foreground ${(errors.name) ? 'border-red-500' : 'border-foreground'}`}
                   />
                 )}
                 rules={{
@@ -64,10 +64,10 @@ export const ProfileUpdateScreen = () => {
                 }}
               ></Controller>
               <TouchableOpacity
-                className='native:h-20 mb-4 h-16 rounded-full bg-foreground'
+                className='native:h-20 mb-4 rounded-full bg-foreground'
                 onPress={handleSubmit(submit)}
               >
-                <Text className='native:text-3xl text-center text-3xl text-background'>
+                <Text className='native:text-3xl m-2 text-center text-3xl text-background'>
                   Update
                 </Text>
               </TouchableOpacity>
