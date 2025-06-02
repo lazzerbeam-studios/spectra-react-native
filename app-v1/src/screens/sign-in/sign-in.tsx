@@ -1,23 +1,19 @@
-import { View,Text } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { Link, router } from 'expo-router';
-// import Toast from 'react-native-toast-message';
 import { SafeAreaView } from 'react-native-safe-area-context';
-// import { useForm, Controller, useFormState } from 'react-hook-form';
+import { useForm, Controller, useFormState } from 'react-hook-form';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { authApi } from '~/src/api';
-// import { ChevronLeft } from '~/src/icons/icons';
 import { errorGet } from '~/src/scripts/errors';
-// import { Text } from '~/src/components/ui/text';
-// import { Input } from '~/src/components/ui/input';
-// import { Button } from '~/src/components/ui/button';
 import { ProfileStore } from '~/src/stores/profile.store';
 
 export const SignInScreen = () => {
   const { profileInit } = ProfileStore();
 
-  // const { control, handleSubmit } = useForm();
-  // const { errors } = useFormState({ control });
+  const { control, handleSubmit } = useForm();
+  const { errors } = useFormState({ control });
 
   const submit = (data: any) => {
     signIn(data.email, data.password);
@@ -34,13 +30,6 @@ export const SignInScreen = () => {
       router.replace('/dashboad');
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
-      // Toast.show({
-      //   type: 'error',
-      //   position: 'top',
-      //   text1: 'Error',
-      //   text2: error,
-      //   visibilityTime: 5000,
-      // });
     }
   };
 
@@ -49,9 +38,9 @@ export const SignInScreen = () => {
 
       <View className='ms-2 mt-2'>
         <Link href='/' asChild>
-          {/* <Button variant={'link'} size={'icon'}>
-            <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
-          </Button> */}
+          <TouchableOpacity className='p-2'>
+            <Ionicons name="chevron-back" size={50} color="black" />
+          </TouchableOpacity>
         </Link>
       </View>
 
@@ -63,12 +52,12 @@ export const SignInScreen = () => {
             Sign In
           </Text>
 
-          {/* <Controller
+          <Controller
             name='email'
             defaultValue={''}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
-              <Input
+              <TextInput
                 value={value}
                 onBlur={onBlur}
                 onChangeText={onChange}
@@ -88,7 +77,7 @@ export const SignInScreen = () => {
             defaultValue={''}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
-              <Input
+              <TextInput
                 value={value}
                 onBlur={onBlur}
                 onChangeText={onChange}
@@ -100,13 +89,13 @@ export const SignInScreen = () => {
             rules={{
               required: true,
             }}
-          ></Controller> */}
+          ></Controller>
 
-          {/* <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(submit)}>
-            <Text className='native:text-3xl text-3xl'>
+          <TouchableOpacity className='native:h-20 mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground' onPress={handleSubmit(submit)}>
+            <Text className='native:text-3xl text-3xl text-background'>
               Sign In
             </Text>
-          </Button> */}
+          </TouchableOpacity>
 
         </View>
         <View className='native:hidden flex-[0.2]'></View>
