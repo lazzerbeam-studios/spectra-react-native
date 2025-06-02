@@ -1,11 +1,12 @@
 import { Link } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const NotFoundScreen = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+
         <Text style={{ fontSize: 32 }}>
           404 Not Found
         </Text>
@@ -26,6 +27,7 @@ export const NotFoundScreen = () => {
             </Text>
           </TouchableOpacity>
         </Link>
+
       </View>
     </SafeAreaView>
   );
