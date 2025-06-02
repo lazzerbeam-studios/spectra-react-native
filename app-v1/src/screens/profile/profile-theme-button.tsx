@@ -10,7 +10,7 @@ export const ProfileThemeButton = () => {
   const changeTheme = () => {
     const colorTheme = (colorScheme === 'dark') ? 'light' : 'dark';
     setColorScheme(colorTheme);
-    AsyncStorage.setItem('colorTheme', colorTheme);
+    AsyncStorage.setItem('colorScheme', colorTheme);
   };
 
   return (
