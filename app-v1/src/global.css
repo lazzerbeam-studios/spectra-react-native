@@ -4,20 +4,20 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 10% 3.9%;
-    --primary: 0 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --muted: 0 14% 96%;
-    --muted-foreground: 0 9% 46%;
+    --background: #FFFFFF;
+    --foreground: #0A0A0A;
+    --primary: #FF0000;
+    --primary-foreground: #FFFFFF;
+    --muted: #F5F5F5;
+    --muted-foreground: #757575;
   }
 
   .dark:root {
-    --background: 0 10% 3.9%;
-    --foreground: 0 0% 100%;
-    --primary: 0 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --muted: 0 4% 16%;
-    --muted-foreground: 0 5% 65%;
+    --background: #0A0A0A;
+    --foreground: #FFFFFF;
+    --primary: #FF0000;
+    --primary-foreground: #FFFFFF;
+    --muted: #292929;
+    --muted-foreground: #A6A6A6;
   }
 }
