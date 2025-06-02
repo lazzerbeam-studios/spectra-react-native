@@ -44,8 +44,8 @@ export const ProfileScreen = () => {
                 {profile?.email}
               </Text>
               <Link href='/profile-update' asChild>
-                <View className='border-input rounded-md border bg-background px-4 py-2 shadow shadow-foreground/5'>
-                  <Text className='text-center text-sm font-medium text-foreground'>
+                <View className='border-input rounded-md border bg-foreground px-4 py-2'>
+                  <Text className='text-center text-sm font-medium text-background'>
                     Update
                   </Text>
                 </View>
