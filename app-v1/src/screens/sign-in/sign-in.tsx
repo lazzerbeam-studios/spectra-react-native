@@ -40,7 +40,7 @@ export const SignInScreen = () => {
       <View className='ms-2 mt-2'>
         <Link href='/' asChild>
           <TouchableOpacity className='p-2'>
-            <Ionicons name="chevron-back" size={50} color="black" />
+            <Ionicons className="color-foreground" name="chevron-back" size={50} />
           </TouchableOpacity>
         </Link>
       </View>
