@@ -12,7 +12,7 @@ export const BackButton = () => {
     <>
       {router.canGoBack() && (
         <TouchableOpacity className='p-2 web:ms-2' onPress={goBack}>
-          <Ionicons name="chevron-back" size={35} color="black" />
+          <Ionicons className="color-foreground" name="chevron-back" size={35} />
         </TouchableOpacity>
       )}
     </>
