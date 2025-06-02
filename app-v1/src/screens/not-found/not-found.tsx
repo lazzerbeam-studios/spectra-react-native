@@ -4,25 +4,16 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export const NotFoundScreen = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <SafeAreaView className='flex-1'>
+      <View className='flex-1 items-center justify-center'>
 
-        <Text style={{ fontSize: 32 }}>
+        <Text className='text-3xl'>
           404 Not Found
         </Text>
 
         <Link href='/' asChild>
-          <TouchableOpacity
-            style={{
-              marginTop: 32,
-              marginBottom: 16,
-              paddingHorizontal: 32,
-              paddingVertical: 16,
-              backgroundColor: '#000',
-              borderRadius: 9999
-            }}
-          >
-            <Text style={{ fontSize: 24, color: '#fff' }}>
+          <TouchableOpacity className='mb-4 mt-8 rounded-full bg-black px-8 py-4'>
+            <Text className='text-2xl text-white'>
               Go Home
             </Text>
           </TouchableOpacity>
