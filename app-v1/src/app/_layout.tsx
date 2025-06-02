@@ -1,18 +1,15 @@
+import { useFonts } from 'expo-font';
 import { Platform } from 'react-native';
-import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
+import { useColorScheme } from 'nativewind';
+import { useState, useEffect } from 'react';
 import { SplashScreen, Stack } from 'expo-router';
-import { PortalHost } from '@rn-primitives/portal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Theme, ThemeProvider, DefaultTheme, DarkTheme } from '@react-navigation/native';
-
-import { useFonts } from 'expo-font';
-import { NavTheme } from '~/src/lib/themeConstants';
-import { ToastProvider } from '~/src/components/toast';
-import { ProfileStore } from '~/src/stores/profile.store';
-import { useColorScheme } from '~/src/lib/useColorScheme';
-import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
+
+import { NavTheme } from '~/src/theme-constants';
+import { ProfileStore } from '~/src/stores/profile.store';
 
 import '~/src/global.css';
 
@@ -27,13 +24,11 @@ const DARK_THEME: Theme = {
 
 SplashScreen.preventAutoHideAsync();
 
-export { ErrorBoundary } from 'expo-router';
-
 const RootLayout = () => {
-  const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme();
+  const { colorScheme, setColorScheme } = useColorScheme();
 
-  const [colorSchemeLoaded, colorSchemeLoadedSet] = useState(false);
   const [apiLoaded, apiLoadedSet] = useState(false);
+  const [colorSchemeLoaded, colorSchemeLoadedSet] = useState(false);
 
   const [fontsLoaded] = useFonts({
     Poppins400: Poppins_400Regular,
@@ -44,17 +39,16 @@ const RootLayout = () => {
 
   useEffect(() => {
     (async () => {
-      const colorTheme = (await AsyncStorage.getItem('colorTheme') || colorScheme) === 'dark' ? 'dark' : 'light';
-      colorSchemeLoadedSet(true);
+      const colorTheme = (await AsyncStorage.getItem('colorScheme') || colorScheme) === 'dark' ? 'dark' : 'light';
       setColorScheme(colorTheme);
-      setAndroidNavigationBar(colorTheme);
+      colorSchemeLoadedSet(true);
       if (Platform.OS === 'web') {
         document.documentElement.classList.add('bg-background');
       }
     })().finally(() => {
       SplashScreen.hideAsync();
     });
-  }, []);
+  }, [colorScheme, setColorScheme]);
 
   useEffect(() => {
     (async () => {
@@ -63,18 +57,16 @@ const RootLayout = () => {
     })();
   }, []);
 
-  if (!colorSchemeLoaded || !apiLoaded || !fontsLoaded) {
+  if (!fontsLoaded || !colorSchemeLoaded || !apiLoaded) {
     return null;
   }
 
   return (
-    <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-      <StatusBar style={isDarkColorScheme ? 'light' : 'dark'}></StatusBar>
+    <ThemeProvider value={(colorScheme === 'dark') ? DARK_THEME : LIGHT_THEME}>
+      <StatusBar style={(colorScheme === 'dark') ? 'light' : 'dark'}></StatusBar>
       <Stack>
         <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen>
       </Stack>
-      <PortalHost></PortalHost>
-      <ToastProvider></ToastProvider>
     </ThemeProvider>
   );
 }

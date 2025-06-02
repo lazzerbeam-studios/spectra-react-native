@@ -71,7 +71,7 @@ export interface ErrorModel {
      * @type {Array<ErrorDetail>}
      * @memberof ErrorModel
      */
-    'errors'?: Array<ErrorDetail>;
+    'errors'?: Array<ErrorDetail> | null;
     /**
      * A URI reference that identifies the specific occurrence of the problem.
      * @type {string}
@@ -381,9 +381,9 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        signIn: async (signInInputBody: SignInInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        signInAPI: async (signInInputBody: SignInInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'signInInputBody' is not null or undefined
-            assertParamExists('signIn', 'signInInputBody', signInInputBody)
+            assertParamExists('signInAPI', 'signInInputBody', signInInputBody)
             const localVarPath = `/auth/signin`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -416,9 +416,9 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        signUp: async (signUpInputBody: SignUpInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        signUpAPI: async (signUpInputBody: SignUpInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'signUpInputBody' is not null or undefined
-            assertParamExists('signUp', 'signUpInputBody', signUpInputBody)
+            assertParamExists('signUpAPI', 'signUpInputBody', signUpInputBody)
             const localVarPath = `/auth/signup`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -461,10 +461,10 @@ export const AuthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async signIn(signInInputBody: SignInInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SignInOutputBody>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.signIn(signInInputBody, options);
+        async signInAPI(signInInputBody: SignInInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SignInOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.signInAPI(signInInputBody, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AuthApi.signIn']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.signInAPI']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -473,10 +473,10 @@ export const AuthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async signUp(signUpInputBody: SignUpInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SignUpOutputBody>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.signUp(signUpInputBody, options);
+        async signUpAPI(signUpInputBody: SignUpInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SignUpOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.signUpAPI(signUpInputBody, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AuthApi.signUp']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.signUpAPI']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -495,8 +495,8 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        signIn(signInInputBody: SignInInputBody, options?: RawAxiosRequestConfig): AxiosPromise<SignInOutputBody> {
-            return localVarFp.signIn(signInInputBody, options).then((request) => request(axios, basePath));
+        signInAPI(signInInputBody: SignInInputBody, options?: RawAxiosRequestConfig): AxiosPromise<SignInOutputBody> {
+            return localVarFp.signInAPI(signInInputBody, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -504,8 +504,8 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        signUp(signUpInputBody: SignUpInputBody, options?: RawAxiosRequestConfig): AxiosPromise<SignUpOutputBody> {
-            return localVarFp.signUp(signUpInputBody, options).then((request) => request(axios, basePath));
+        signUpAPI(signUpInputBody: SignUpInputBody, options?: RawAxiosRequestConfig): AxiosPromise<SignUpOutputBody> {
+            return localVarFp.signUpAPI(signUpInputBody, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -524,8 +524,8 @@ export class AuthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AuthApi
      */
-    public signIn(signInInputBody: SignInInputBody, options?: RawAxiosRequestConfig) {
-        return AuthApiFp(this.configuration).signIn(signInInputBody, options).then((request) => request(this.axios, this.basePath));
+    public signInAPI(signInInputBody: SignInInputBody, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).signInAPI(signInInputBody, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -535,8 +535,8 @@ export class AuthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AuthApi
      */
-    public signUp(signUpInputBody: SignUpInputBody, options?: RawAxiosRequestConfig) {
-        return AuthApiFp(this.configuration).signUp(signUpInputBody, options).then((request) => request(this.axios, this.basePath));
+    public signUpAPI(signUpInputBody: SignUpInputBody, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).signUpAPI(signUpInputBody, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -553,7 +553,7 @@ export const HomeApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        homeGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        homeGetAPI: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -592,10 +592,10 @@ export const HomeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async homeGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HomeGetOutputBody>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.homeGet(options);
+        async homeGetAPI(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HomeGetOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.homeGetAPI(options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['HomeApi.homeGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['HomeApi.homeGetAPI']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -613,8 +613,8 @@ export const HomeApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        homeGet(options?: RawAxiosRequestConfig): AxiosPromise<HomeGetOutputBody> {
-            return localVarFp.homeGet(options).then((request) => request(axios, basePath));
+        homeGetAPI(options?: RawAxiosRequestConfig): AxiosPromise<HomeGetOutputBody> {
+            return localVarFp.homeGetAPI(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -632,8 +632,8 @@ export class HomeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof HomeApi
      */
-    public homeGet(options?: RawAxiosRequestConfig) {
-        return HomeApiFp(this.configuration).homeGet(options).then((request) => request(this.axios, this.basePath));
+    public homeGetAPI(options?: RawAxiosRequestConfig) {
+        return HomeApiFp(this.configuration).homeGetAPI(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -651,7 +651,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        profileGet: async (authorization?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        profileGetAPI: async (authorization?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/users/profile`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -664,12 +664,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+
+    
             if (authorization != null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
             }
-
-
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -686,9 +685,9 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        profileUpdate: async (profileUpdateInputBody: ProfileUpdateInputBody, authorization?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        profileUpdateAPI: async (profileUpdateInputBody: ProfileUpdateInputBody, authorization?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'profileUpdateInputBody' is not null or undefined
-            assertParamExists('profileUpdate', 'profileUpdateInputBody', profileUpdateInputBody)
+            assertParamExists('profileUpdateAPI', 'profileUpdateInputBody', profileUpdateInputBody)
             const localVarPath = `/users/profile`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -701,14 +700,13 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (authorization != null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -726,9 +724,9 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        profileUpdateEmail: async (profileUpdateEmailInputBody: ProfileUpdateEmailInputBody, authorization?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        profileUpdateEmailAPI: async (profileUpdateEmailInputBody: ProfileUpdateEmailInputBody, authorization?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'profileUpdateEmailInputBody' is not null or undefined
-            assertParamExists('profileUpdateEmail', 'profileUpdateEmailInputBody', profileUpdateEmailInputBody)
+            assertParamExists('profileUpdateEmailAPI', 'profileUpdateEmailInputBody', profileUpdateEmailInputBody)
             const localVarPath = `/users/profile/email`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -741,14 +739,13 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            if (authorization != null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (authorization != null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -775,10 +772,10 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async profileGet(authorization?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProfileGetOutputBody>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.profileGet(authorization, options);
+        async profileGetAPI(authorization?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProfileGetOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.profileGetAPI(authorization, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['UsersApi.profileGet']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['UsersApi.profileGetAPI']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -788,10 +785,10 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async profileUpdate(profileUpdateInputBody: ProfileUpdateInputBody, authorization?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProfileUpdateOutputBody>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.profileUpdate(profileUpdateInputBody, authorization, options);
+        async profileUpdateAPI(profileUpdateInputBody: ProfileUpdateInputBody, authorization?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProfileUpdateOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.profileUpdateAPI(profileUpdateInputBody, authorization, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['UsersApi.profileUpdate']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['UsersApi.profileUpdateAPI']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -801,10 +798,10 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async profileUpdateEmail(profileUpdateEmailInputBody: ProfileUpdateEmailInputBody, authorization?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProfileUpdateEmailOutputBody>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.profileUpdateEmail(profileUpdateEmailInputBody, authorization, options);
+        async profileUpdateEmailAPI(profileUpdateEmailInputBody: ProfileUpdateEmailInputBody, authorization?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProfileUpdateEmailOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.profileUpdateEmailAPI(profileUpdateEmailInputBody, authorization, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['UsersApi.profileUpdateEmail']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['UsersApi.profileUpdateEmailAPI']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -823,8 +820,8 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        profileGet(authorization?: string, options?: RawAxiosRequestConfig): AxiosPromise<ProfileGetOutputBody> {
-            return localVarFp.profileGet(authorization, options).then((request) => request(axios, basePath));
+        profileGetAPI(authorization?: string, options?: RawAxiosRequestConfig): AxiosPromise<ProfileGetOutputBody> {
+            return localVarFp.profileGetAPI(authorization, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -833,8 +830,8 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        profileUpdate(profileUpdateInputBody: ProfileUpdateInputBody, authorization?: string, options?: RawAxiosRequestConfig): AxiosPromise<ProfileUpdateOutputBody> {
-            return localVarFp.profileUpdate(profileUpdateInputBody, authorization, options).then((request) => request(axios, basePath));
+        profileUpdateAPI(profileUpdateInputBody: ProfileUpdateInputBody, authorization?: string, options?: RawAxiosRequestConfig): AxiosPromise<ProfileUpdateOutputBody> {
+            return localVarFp.profileUpdateAPI(profileUpdateInputBody, authorization, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -843,8 +840,8 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        profileUpdateEmail(profileUpdateEmailInputBody: ProfileUpdateEmailInputBody, authorization?: string, options?: RawAxiosRequestConfig): AxiosPromise<ProfileUpdateEmailOutputBody> {
-            return localVarFp.profileUpdateEmail(profileUpdateEmailInputBody, authorization, options).then((request) => request(axios, basePath));
+        profileUpdateEmailAPI(profileUpdateEmailInputBody: ProfileUpdateEmailInputBody, authorization?: string, options?: RawAxiosRequestConfig): AxiosPromise<ProfileUpdateEmailOutputBody> {
+            return localVarFp.profileUpdateEmailAPI(profileUpdateEmailInputBody, authorization, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -863,8 +860,8 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public profileGet(authorization?: string, options?: RawAxiosRequestConfig) {
-        return UsersApiFp(this.configuration).profileGet(authorization, options).then((request) => request(this.axios, this.basePath));
+    public profileGetAPI(authorization?: string, options?: RawAxiosRequestConfig) {
+        return UsersApiFp(this.configuration).profileGetAPI(authorization, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -875,8 +872,8 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public profileUpdate(profileUpdateInputBody: ProfileUpdateInputBody, authorization?: string, options?: RawAxiosRequestConfig) {
-        return UsersApiFp(this.configuration).profileUpdate(profileUpdateInputBody, authorization, options).then((request) => request(this.axios, this.basePath));
+    public profileUpdateAPI(profileUpdateInputBody: ProfileUpdateInputBody, authorization?: string, options?: RawAxiosRequestConfig) {
+        return UsersApiFp(this.configuration).profileUpdateAPI(profileUpdateInputBody, authorization, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -887,8 +884,8 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public profileUpdateEmail(profileUpdateEmailInputBody: ProfileUpdateEmailInputBody, authorization?: string, options?: RawAxiosRequestConfig) {
-        return UsersApiFp(this.configuration).profileUpdateEmail(profileUpdateEmailInputBody, authorization, options).then((request) => request(this.axios, this.basePath));
+    public profileUpdateEmailAPI(profileUpdateEmailInputBody: ProfileUpdateEmailInputBody, authorization?: string, options?: RawAxiosRequestConfig) {
+        return UsersApiFp(this.configuration).profileUpdateEmailAPI(profileUpdateEmailInputBody, authorization, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

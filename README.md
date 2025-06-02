@@ -2,7 +2,7 @@
 
 ## Brew
 
-**install**
+**commands**
 
     brew update
     brew upgrade
@@ -15,7 +15,14 @@
 
 **install**
 
-    asdf install nodejs 18.20.5
+    asdf plugin add nodejs
+
+    asdf install nodejs 22.16.0
+    asdf reshim nodejs
+
+**commands**
+
+    asdf list
 
 ## Npm
 

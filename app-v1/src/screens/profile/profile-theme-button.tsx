@@ -1,27 +1,26 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { MoonStar, Sun } from '~/src/icons/icons';
-import { Button } from '~/src/components/ui/button';
-import { useColorScheme } from '~/src/lib/useColorScheme';
-import { setAndroidNavigationBar } from '~/src/lib/setAndroidNavigationBar';
+import { useColorScheme } from 'nativewind';
+import { Ionicons } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native';
 
 export const ProfileThemeButton = () => {
-  const { isDarkColorScheme, setColorScheme } = useColorScheme();
+  const { colorScheme, setColorScheme } = useColorScheme();
 
   const changeTheme = () => {
-    const colorTheme = isDarkColorScheme ? 'light' : 'dark';
+    const colorTheme = (colorScheme === 'dark') ? 'light' : 'dark';
     setColorScheme(colorTheme);
-    setAndroidNavigationBar(colorTheme);
-    AsyncStorage.setItem('colorTheme', colorTheme);
+    AsyncStorage.setItem('colorScheme', colorTheme);
   };
 
   return (
-    <Button className='web:me-2' variant={'link'} size={'icon'} onPress={changeTheme}>
-      {isDarkColorScheme ? (
-        <MoonStar className='text-foreground' size={30} strokeWidth={1.25}></MoonStar>
+    <TouchableOpacity className='p-2 web:me-2' onPress={changeTheme}>
+      {(colorScheme === 'dark') ? (
+        <Ionicons className="color-foreground" name="moon" size={30} />
       ) : (
-        <Sun className='text-foreground' size={30} strokeWidth={1.25}></Sun>
+        <Ionicons className="color-foreground" name="sunny" size={30} />
       )}
-    </Button>
+    </TouchableOpacity>
   );
+
 }
