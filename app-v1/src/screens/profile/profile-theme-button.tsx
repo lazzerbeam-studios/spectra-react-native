@@ -16,9 +16,9 @@ export const ProfileThemeButton = () => {
   return (
     <TouchableOpacity className='p-2 web:me-2' onPress={changeTheme}>
       {(colorScheme === 'dark') ? (
-        <Ionicons name="moon" size={30} color="black" />
+        <Ionicons className="color-foreground" name="moon" size={30} />
       ) : (
-        <Ionicons name="sunny" size={30} color="black" />
+        <Ionicons className="color-foreground" name="sunny" size={30} />
       )}
     </TouchableOpacity>
   );
