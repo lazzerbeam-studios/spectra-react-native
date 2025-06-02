@@ -49,7 +49,7 @@ export const SignInScreen = () => {
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
-          <Text className='native:text-5xl mb-8 text-4xl font-bold'>
+          <Text className='native:text-5xl mb-8 text-4xl font-bold text-foreground'>
             Sign In
           </Text>
 
@@ -64,7 +64,7 @@ export const SignInScreen = () => {
                 onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
-                className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${(errors.email) ? 'border-red-500' : 'border-foreground'}`}
+                className={`text-foreground native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${(errors.email) ? 'border-red-500' : 'border-foreground'}`}
               ></TextInput>
             )}
             rules={{
@@ -84,7 +84,7 @@ export const SignInScreen = () => {
                 onChangeText={onChange}
                 placeholder='Password'
                 secureTextEntry={true}
-                className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${errors.password ? 'border-red-500' : 'border-foreground'}`}
+                className={`text-foreground native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${errors.password ? 'border-red-500' : 'border-foreground'}`}
               ></TextInput>
             )}
             rules={{
