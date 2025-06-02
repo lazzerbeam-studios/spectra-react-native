@@ -1,6 +1,6 @@
 import { Stack, router } from 'expo-router';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { useForm, Controller, useFormState } from 'react-hook-form';
+import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 
 import { BackButton } from '~/src/components/back-button';
 import { ProfileStore } from '~/src/stores/profile.store';
