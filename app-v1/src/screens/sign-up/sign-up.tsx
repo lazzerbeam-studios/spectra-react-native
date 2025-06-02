@@ -65,13 +65,13 @@ export const SignUpScreen = () => {
                 placeholder='Email'
                 keyboardType='email-address'
                 className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${(errors.email) ? 'border-red-500' : 'border-foreground'}`}
-              />
+              ></TextInput>
             )}
             rules={{
               required: true,
               pattern: /^\S+@\S+$/i,
             }}
-          />
+          ></Controller>
 
           <Controller
             name='password'
@@ -85,12 +85,12 @@ export const SignUpScreen = () => {
                 placeholder='Password'
                 secureTextEntry={true}
                 className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${errors.password ? 'border-red-500' : 'border-foreground'}`}
-              />
+              ></TextInput>
             )}
             rules={{
               required: true,
             }}
-          />
+          ></Controller>
 
           <TouchableOpacity
             className='native:h-20 mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'
