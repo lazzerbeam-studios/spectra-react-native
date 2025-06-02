@@ -1,24 +1,18 @@
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { Link, Stack } from 'expo-router';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
-// import { Text } from '~/src/components/ui/text';
-// import { Button } from '~/src/components/ui/button';
 import { BackButton } from '~/src/components/back-button';
 import { ProfileStore } from '~/src/stores/profile.store';
-// import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
-// import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
 
 import { ProfileSignout } from './profile-signout';
 import { ProfileThemeButton } from './profile-theme-button';
-
-const avatarUri = 'https://t3.ftcdn.net/jpg/07/24/59/76/360_F_724597608_pmo5BsVumFcFyHJKlASG2Y2KpkkfiYUU.jpg';
 
 export const ProfileScreen = () => {
   const { profile } = ProfileStore();
 
   return (
     <>
-
       <Stack.Screen
         options={{
           title: '',
@@ -33,39 +27,37 @@ export const ProfileScreen = () => {
         <View className='hidden flex-[0.2] sm:flex'></View>
         <View className='flex-1 items-center sm:flex-[0.6]'>
 
-          {/* <Card className='mt-24 w-full max-w-sm rounded-2xl'>
-            <CardHeader className='items-center'>
-              <CardTitle className='pb-4 text-center'>
+          <View className='bg-card mt-24 w-full max-w-sm rounded-2xl p-6 shadow'>
+            <View className='items-center'>
+              <Text className='pb-4 text-center text-xl font-semibold text-foreground'>
                 Profile
-              </CardTitle>
-              <Avatar className='h-24 w-24' alt="avatar">
-                <AvatarImage source={{ uri: avatarUri }}></AvatarImage>
-                <AvatarFallback>
-                  <Text>Avatar</Text>
-                </AvatarFallback>
-              </Avatar>
-            </CardHeader>
-            <CardContent>
-              <CardTitle className='pb-4 text-center'>
+              </Text>
+              <View className='h-24 w-24 items-center justify-center rounded-full bg-foreground'>
+                <Ionicons className="color-background" name="person" size={48} />
+              </View>
+            </View>
+            <View className='mt-4'>
+              <Text className='pb-4 text-center text-lg font-semibold text-foreground'>
                 {profile?.name}
-              </CardTitle>
-              <CardTitle className='pb-8 text-center'>
+              </Text>
+              <Text className='pb-8 text-center text-lg font-semibold text-foreground'>
                 {profile?.email}
-              </CardTitle>
+              </Text>
               <Link href='/profile-update' asChild>
-                <Button variant='outline' className='shadow shadow-foreground/5'>
-                  <Text>Update</Text>
-                </Button>
+                <View className='border-input rounded-md border bg-background px-4 py-2 shadow shadow-foreground/5'>
+                  <Text className='text-center text-sm font-medium text-foreground'>
+                    Update
+                  </Text>
+                </View>
               </Link>
-            </CardContent>
-          </Card> */}
+            </View>
+          </View>
 
           <ProfileSignout></ProfileSignout>
 
         </View>
         <View className='hidden flex-[0.2] sm:flex'></View>
       </View>
-
     </>
   );
 }
