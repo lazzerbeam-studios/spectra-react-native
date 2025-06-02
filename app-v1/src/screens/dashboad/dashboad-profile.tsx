@@ -8,7 +8,7 @@ export const DashboadProfile = () => {
     <Link href='/profile' asChild>
       <TouchableOpacity className='web:me-2'>
         <View className='h-12 w-12 items-center justify-center rounded-full bg-foreground'>
-          <Ionicons name="person" size={24} color="white" />
+          <Ionicons className="color-background" name="person" size={24} />
         </View>
       </TouchableOpacity>
     </Link>
