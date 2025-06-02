@@ -1,8 +1,9 @@
-import { Link, router } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { authApi } from '~/src/api';
@@ -30,13 +31,6 @@ export const SignUpScreen = () => {
       router.replace('/dashboad');
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
-      // Toast.show({
-      //   type: 'error',
-      //   position: 'top',
-      //   text1: 'Error',
-      //   text2: error,
-      //   visibilityTime: 5000,
-      // });
     }
   };
 
