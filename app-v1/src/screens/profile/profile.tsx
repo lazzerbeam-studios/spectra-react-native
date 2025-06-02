@@ -3,7 +3,7 @@ import { Link, Stack } from 'expo-router';
 
 // import { Text } from '~/src/components/ui/text';
 // import { Button } from '~/src/components/ui/button';
-// import { BackButton } from '~/src/components/back-button';
+import { BackButton } from '~/src/components/back-button';
 import { ProfileStore } from '~/src/stores/profile.store';
 // import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
 // import { Card, CardContent, CardHeader, CardTitle } from '~/src/components/ui/card';
@@ -24,7 +24,7 @@ export const ProfileScreen = () => {
           title: '',
           headerTitleAlign: 'center',
           headerShadowVisible: false,
-          // headerLeft: () => <BackButton></BackButton>,
+          headerLeft: () => <BackButton></BackButton>,
           headerRight: () => <ProfileThemeButton></ProfileThemeButton>,
         }}>
       </Stack.Screen>
@@ -53,7 +53,7 @@ export const ProfileScreen = () => {
                 {profile?.email}
               </CardTitle>
               <Link href='/profile-update' asChild>
-                <Button variant='outline' className='shadow-foreground/5 shadow'>
+                <Button variant='outline' className='shadow shadow-foreground/5'>
                   <Text>Update</Text>
                 </Button>
               </Link>
