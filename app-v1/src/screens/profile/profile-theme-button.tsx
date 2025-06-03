@@ -4,12 +4,15 @@ import { useColorScheme } from 'nativewind';
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
 
+import { setAndroidNavigationBar } from '~/src/scripts/android-navigation-bar';
+
 export const ProfileThemeButton = () => {
   const { colorScheme, setColorScheme } = useColorScheme();
 
   const changeTheme = () => {
     const colorTheme = (colorScheme === 'dark') ? 'light' : 'dark';
     setColorScheme(colorTheme);
+    setAndroidNavigationBar(colorTheme);
     AsyncStorage.setItem('colorScheme', colorTheme);
   };
 
