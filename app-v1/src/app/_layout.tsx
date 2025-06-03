@@ -1,5 +1,4 @@
 import { useFonts } from 'expo-font';
-import { Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
 import { useState, useEffect } from 'react';
@@ -10,6 +9,7 @@ import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700
 
 import { NavTheme } from '~/src/theme-constants';
 import { ProfileStore } from '~/src/stores/profile.store';
+import { setAndroidNavigationBar } from '~/src/scripts/android-navigation-bar';
 
 import '~/src/global.css';
 
@@ -40,11 +40,9 @@ const RootLayout = () => {
   useEffect(() => {
     (async () => {
       const colorTheme = (await AsyncStorage.getItem('colorScheme') || colorScheme) === 'dark' ? 'dark' : 'light';
-      setColorScheme(colorTheme);
       colorSchemeLoadedSet(true);
-      if (Platform.OS === 'web') {
-        document.documentElement.classList.add('bg-background');
-      }
+      setColorScheme(colorTheme);
+      setAndroidNavigationBar(colorTheme);
     })().finally(() => {
       SplashScreen.hideAsync();
     });
