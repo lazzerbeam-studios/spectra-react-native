@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native';
 import { Link, Stack } from 'expo-router';
+import { View, Text } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { BackButton } from '~/src/components/back-button';
@@ -13,6 +13,7 @@ export const ProfileScreen = () => {
 
   return (
     <>
+
       <Stack.Screen
         options={{
           title: '',
@@ -58,6 +59,7 @@ export const ProfileScreen = () => {
         </View>
         <View className='hidden flex-[0.2] sm:flex'></View>
       </View>
+
     </>
   );
 }
