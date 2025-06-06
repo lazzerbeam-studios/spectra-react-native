@@ -25,5 +25,4 @@ export const ProfileThemeButton = () => {
       )}
     </TouchableOpacity>
   );
-
 }
