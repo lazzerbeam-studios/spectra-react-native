@@ -3,7 +3,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
 
 export const BackButton = () => {
-
   const goBack = () => {
     router.back();
   };
@@ -17,5 +16,4 @@ export const BackButton = () => {
       )}
     </>
   );
-
 }
