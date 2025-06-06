@@ -26,6 +26,7 @@ export const ProfileUpdateScreen = () => {
 
   return (
     <>
+
       <Stack.Screen
         options={{
           title: '',
@@ -77,6 +78,7 @@ export const ProfileUpdateScreen = () => {
         </View>
         <View className='native:hidden flex-[0.2]'></View>
       </View>
+
     </>
   );
 }
