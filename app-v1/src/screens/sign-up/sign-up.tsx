@@ -83,8 +83,8 @@ export const SignUpScreen = () => {
                 value={value}
                 onBlur={onBlur}
                 onChangeText={onChange}
-                placeholder='Password'
                 secureTextEntry={true}
+                placeholder='Password'
                 className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
               ></TextInput>
             )}
