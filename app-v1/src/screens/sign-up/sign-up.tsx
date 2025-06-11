@@ -65,7 +65,7 @@ export const SignUpScreen = () => {
                 onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
-                className={`text-foreground native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${(errors.email) ? 'border-red-500' : 'border-foreground'}`}
+                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
               ></TextInput>
             )}
             rules={{
@@ -85,7 +85,7 @@ export const SignUpScreen = () => {
                 onChangeText={onChange}
                 placeholder='Password'
                 secureTextEntry={true}
-                className={`text-foreground native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${errors.password ? 'border-red-500' : 'border-foreground'}`}
+                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
               ></TextInput>
             )}
             rules={{
