@@ -31,6 +31,7 @@ export const SignUpScreen = () => {
       router.replace('/dashboad');
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
+      console.log(error);
     }
   };
 
