@@ -41,7 +41,7 @@ export const SignUpScreen = () => {
       <View className='ms-2 mt-2'>
         <Link href='/' asChild>
           <TouchableOpacity className='p-2'>
-            <Ionicons className="color-foreground" name="chevron-back" size={50} />
+            <Ionicons className="color-foreground" name="chevron-back" size={35} />
           </TouchableOpacity>
         </Link>
       </View>
