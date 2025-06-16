@@ -31,6 +31,7 @@ export const SignInScreen = () => {
       router.replace('/dashboad');
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
+      console.log(error);
     }
   };
 
@@ -64,7 +65,7 @@ export const SignInScreen = () => {
                 onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
-                className={`text-foreground native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${(errors.email) ? 'border-red-500' : 'border-foreground'}`}
+                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
               ></TextInput>
             )}
             rules={{
@@ -72,6 +73,14 @@ export const SignInScreen = () => {
               pattern: /^\S+@\S+$/i,
             }}
           ></Controller>
+
+          {errors.email && (
+            <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
+              Please enter a valid email address
+              {errors.email.type === 'required' && ' (Email is required)'}
+              {errors.email.type === 'pattern' && ' (Please enter a valid email format)'}
+            </Text>
+          )}
 
           <Controller
             name='password'
@@ -84,7 +93,7 @@ export const SignInScreen = () => {
                 onChangeText={onChange}
                 placeholder='Password'
                 secureTextEntry={true}
-                className={`text-foreground native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${errors.password ? 'border-red-500' : 'border-foreground'}`}
+                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
               ></TextInput>
             )}
             rules={{
@@ -92,9 +101,17 @@ export const SignInScreen = () => {
             }}
           ></Controller>
 
+          {errors.password && (
+            <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
+              Please enter a valid password
+              {errors.password.type === 'required' && ' (Password is required)'}
+              {errors.password.type === 'minLength' && ' (Password must be at least 8 characters)'}
+            </Text>
+          )}
+
           <TouchableOpacity className='native:h-20 mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground' onPress={handleSubmit(submit)}>
             <Text className='native:text-3xl text-3xl text-background'>
-              Sign In
+              Submit
             </Text>
           </TouchableOpacity>
 
