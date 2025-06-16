@@ -99,6 +99,12 @@ export const SignUpScreen = () => {
             }}
           ></Controller>
 
+          {errors.password && (
+            <Text className="mb-2 w-80 text-sm text-red-500">
+              Please enter a valid password
+            </Text>
+          )}
+
           <TouchableOpacity onPress={handleSubmit(submit)} className='native:h-20 mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'>
             <Text className='native:text-3xl text-3xl text-background'>
               Sign Up
