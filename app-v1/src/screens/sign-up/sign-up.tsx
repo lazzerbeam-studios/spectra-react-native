@@ -65,7 +65,7 @@ export const SignUpScreen = () => {
                 onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
-                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
+                className='native:h-18 mb-2 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
               ></TextInput>
             )}
             rules={{
@@ -73,6 +73,12 @@ export const SignUpScreen = () => {
               pattern: /^\S+@\S+$/i,
             }}
           ></Controller>
+
+          {errors.email && (
+            <Text className="mb-2 w-80 text-sm text-red-500">
+              Please enter a valid email address
+            </Text>
+          )}
 
           <Controller
             name='password'
