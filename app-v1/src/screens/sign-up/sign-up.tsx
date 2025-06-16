@@ -73,6 +73,8 @@ export const SignUpScreen = () => {
           {errors.email && (
             <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
               Please enter a valid email address
+              {errors.email.type === 'required' && ' (Email is required)'}
+              {errors.email.type === 'pattern' && ' (Please enter a valid email format)'}
             </Text>
           )}
 
