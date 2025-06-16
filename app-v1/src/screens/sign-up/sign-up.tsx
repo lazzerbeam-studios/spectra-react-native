@@ -16,15 +16,11 @@ export const SignUpScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
-  const submit = (data: any) => {
-    signUp(data.email, data.password);
-  };
-
-  const signUp = async (email: string, password: string) => {
+  const submit = async (data: any) => {
     try {
       const response = await authApi.signUpAPI({
-        email: email,
-        password: password,
+        email: data.email,
+        password: data.password,
       });
       await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
