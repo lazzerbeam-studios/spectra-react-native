@@ -7,7 +7,7 @@ export const NotFoundScreen = () => {
     <SafeAreaView className='flex-1'>
       <View className='flex-1 items-center justify-center'>
 
-        <Text className='text-3xl color-foreground'>
+        <Text className='text-4xl color-foreground'>
           404 Not Found
         </Text>
 
