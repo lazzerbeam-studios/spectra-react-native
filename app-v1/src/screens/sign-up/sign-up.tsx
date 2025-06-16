@@ -16,21 +16,18 @@ export const SignUpScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
-  const submit = (data: any) => {
-    signUp(data.email, data.password);
-  };
-
-  const signUp = async (email: string, password: string) => {
+  const submit = async (data: any) => {
     try {
       const response = await authApi.signUpAPI({
-        email: email,
-        password: password,
+        email: data.email,
+        password: data.password,
       });
       await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
       router.replace('/dashboad');
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
+      console.log(error);
     }
   };
 
@@ -40,7 +37,7 @@ export const SignUpScreen = () => {
       <View className='ms-2 mt-2'>
         <Link href='/' asChild>
           <TouchableOpacity className='p-2'>
-            <Ionicons className="color-foreground" name="chevron-back" size={50} />
+            <Ionicons className="color-foreground" name="chevron-back" size={35} />
           </TouchableOpacity>
         </Link>
       </View>
@@ -64,7 +61,7 @@ export const SignUpScreen = () => {
                 onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
-                className={`text-foreground native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${(errors.email) ? 'border-red-500' : 'border-foreground'}`}
+                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
               ></TextInput>
             )}
             rules={{
@@ -72,6 +69,14 @@ export const SignUpScreen = () => {
               pattern: /^\S+@\S+$/i,
             }}
           ></Controller>
+
+          {errors.email && (
+            <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
+              Please enter a valid email address
+              {errors.email.type === 'required' && ' (Email is required)'}
+              {errors.email.type === 'pattern' && ' (Please enter a valid email format)'}
+            </Text>
+          )}
 
           <Controller
             name='password'
@@ -82,22 +87,28 @@ export const SignUpScreen = () => {
                 value={value}
                 onBlur={onBlur}
                 onChangeText={onChange}
-                placeholder='Password'
                 secureTextEntry={true}
-                className={`text-foreground native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${errors.password ? 'border-red-500' : 'border-foreground'}`}
+                placeholder='Password'
+                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
               ></TextInput>
             )}
             rules={{
+              minLength: 8,
               required: true,
             }}
           ></Controller>
 
-          <TouchableOpacity
-            className='native:h-20 mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'
-            onPress={handleSubmit(submit)}
-          >
+          {errors.password && (
+            <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
+              Please enter a valid password
+              {errors.password.type === 'required' && ' (Password is required)'}
+              {errors.password.type === 'minLength' && ' (Password must be at least 8 characters)'}
+            </Text>
+          )}
+
+          <TouchableOpacity onPress={handleSubmit(submit)} className='native:h-20 mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'>
             <Text className='native:text-3xl text-3xl text-background'>
-              Sign Up
+              Submit
             </Text>
           </TouchableOpacity>
 
@@ -107,4 +118,4 @@ export const SignUpScreen = () => {
 
     </SafeAreaView>
   );
-}
+};
