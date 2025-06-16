@@ -101,7 +101,6 @@ export const SignInScreen = () => {
             <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
               Please enter a valid password
               {errors.password.type === 'required' && ' (Password is required)'}
-              {errors.password.type === 'minLength' && ' (Password must be at least 8 characters)'}
             </Text>
           )}
 
