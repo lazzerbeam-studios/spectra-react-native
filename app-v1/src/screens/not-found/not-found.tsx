@@ -7,13 +7,13 @@ export const NotFoundScreen = () => {
     <SafeAreaView className='flex-1'>
       <View className='flex-1 items-center justify-center'>
 
-        <Text className='text-3xl'>
+        <Text className='text-3xl color-foreground'>
           404 Not Found
         </Text>
 
         <Link href='/' asChild>
-          <TouchableOpacity className='mb-4 mt-8 rounded-full bg-black px-8 py-4'>
-            <Text className='text-2xl text-white'>
+          <TouchableOpacity className='mb-4 mt-8 rounded-full bg-foreground px-8 py-4'>
+            <Text className='text-2xl color-background'>
               Go Home
             </Text>
           </TouchableOpacity>
@@ -22,4 +22,4 @@ export const NotFoundScreen = () => {
       </View>
     </SafeAreaView>
   );
-}
+};
