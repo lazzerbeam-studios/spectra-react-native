@@ -1,6 +1,7 @@
 import { Link, Stack } from 'expo-router';
 import { View, Text } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useEffect } from 'react';
 
 import { BackButton } from '~/src/components/back-button';
 import { ProfileStore } from '~/src/stores/profile.store';
@@ -9,7 +10,11 @@ import { ProfileSignout } from './profile-signout';
 import { ProfileThemeButton } from './profile-theme-button';
 
 export const ProfileScreen = () => {
-  const { profile } = ProfileStore();
+  const { profile, profileInit } = ProfileStore();
+
+  useEffect(() => {
+    profileInit();
+  }, [profileInit]);
 
   return (
     <>
