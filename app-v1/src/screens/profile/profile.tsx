@@ -44,13 +44,13 @@ export const ProfileScreen = () => {
               <Text className='pb-8 text-center text-lg font-semibold text-foreground'>
                 {profile?.email}
               </Text>
-              <Link href='/profile-update' asChild>
-                <View className='rounded-md border border-foreground bg-foreground px-4 py-2'>
+              <View className='rounded-md border border-foreground bg-foreground px-4 py-2'>
+                <Link href='/profile-update' asChild>
                   <Text className='text-center text-sm font-medium text-background'>
                     Update
                   </Text>
-                </View>
-              </Link>
+                </Link>
+              </View>
             </View>
           </View>
 
