@@ -1,15 +1,9 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { Link } from 'expo-router';
-import { cssInterop } from 'nativewind';
 import { TouchableOpacity, View } from 'react-native';
 
 export const DashboadProfile = () => {
-  cssInterop(Ionicons, {
-    className: {
-      target: "style",
-    },
-  });
   return (
     <Link href='/profile' asChild>
       <TouchableOpacity className='web:me-2'>
