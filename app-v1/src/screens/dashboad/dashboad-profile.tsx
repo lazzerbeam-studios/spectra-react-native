@@ -13,4 +13,4 @@ export const DashboadProfile = () => {
       </TouchableOpacity>
     </Link>
   );
-}
+};
