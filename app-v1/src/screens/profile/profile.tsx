@@ -44,10 +44,10 @@ export const ProfileScreen = () => {
               </View>
             </View>
             <View className='mt-4'>
-              <Text className='pb-4 text-center text-lg font-semibold text-foreground'>
+              <Text className='pb-4 text-center text-xl font-semibold text-foreground'>
                 {profile?.name}
               </Text>
-              <Text className='pb-8 text-center text-lg font-semibold text-foreground'>
+              <Text className='pb-8 text-center text-xl font-semibold text-foreground'>
                 {profile?.email}
               </Text>
               <View className='rounded-md border border-foreground bg-foreground px-4 py-2'>
