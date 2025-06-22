@@ -36,7 +36,7 @@ export const ProfileScreen = () => {
 
           <View className='bg-card mt-24 w-full max-w-sm rounded-2xl border border-foreground p-6 shadow'>
             <View className='items-center'>
-              <Text className='pb-4 text-center text-xl font-semibold text-foreground'>
+              <Text className='pb-4 text-center text-3xl font-semibold text-foreground'>
                 Profile
               </Text>
               <View className='h-24 w-24 items-center justify-center rounded-full bg-foreground'>
