@@ -4,6 +4,6 @@ const Dashboad = () => {
   return (
     <DashboadScreen></DashboadScreen>
   );
-}
+};
 
 export default Dashboad;

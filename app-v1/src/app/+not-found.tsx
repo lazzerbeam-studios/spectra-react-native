@@ -9,6 +9,6 @@ const NotFound = () => {
       <NotFoundScreen></NotFoundScreen>
     </>
   );
-}
+};
 
 export default NotFound;

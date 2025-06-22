@@ -17,6 +17,6 @@ const Home = () => {
       <HomeScreen></HomeScreen>
     </>
   );
-}
+};
 
 export default Home;
