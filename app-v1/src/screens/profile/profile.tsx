@@ -35,6 +35,7 @@ export const ProfileScreen = () => {
         <View className='flex-1 items-center sm:flex-[0.6]'>
 
           <View className='bg-card mt-24 w-full max-w-sm rounded-2xl border border-foreground p-6 shadow'>
+
             <View className='items-center'>
               <Text className='pb-4 text-center text-3xl font-semibold text-foreground'>
                 Profile
@@ -43,6 +44,7 @@ export const ProfileScreen = () => {
                 <Ionicons className="color-background" name="person" size={48} />
               </View>
             </View>
+
             <View className='mt-4'>
               <Text className='pb-4 text-center text-xl font-semibold text-foreground'>
                 {profile?.name}
@@ -58,6 +60,7 @@ export const ProfileScreen = () => {
                 </Link>
               </View>
             </View>
+
           </View>
 
           <ProfileSignout></ProfileSignout>
