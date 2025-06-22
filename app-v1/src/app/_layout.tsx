@@ -67,6 +67,6 @@ const RootLayout = () => {
       </Stack>
     </ThemeProvider>
   );
-}
+};
 
 export default RootLayout;
