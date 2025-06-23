@@ -1,25 +1,25 @@
 import { Link } from 'expo-router';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
-import { Text } from '~/src/components/ui/text';
-import { Button } from '~/src/components/ui/button';
 
 export const NotFoundScreen = () => {
   return (
-    <SafeAreaView className='flex-1 items-center justify-center'>
+    <SafeAreaView className='flex-1'>
+      <View className='flex-1 items-center justify-center'>
 
-      <Text className='text-5xl'>
-        404 Not Found
-      </Text>
+        <Text className='text-4xl color-foreground'>
+          404 Not Found
+        </Text>
 
-      <Link href='/' asChild>
-        <Button className='native:h-20 mb-4 mt-8 h-16 rounded-full pe-8 ps-8'>
-          <Text className='native:text-2xl text-2xl'>
-            Go Home
-          </Text>
-        </Button>
-      </Link>
+        <Link href='/' asChild>
+          <TouchableOpacity className='mb-4 mt-8 rounded-full bg-foreground px-8 py-4'>
+            <Text className='text-2xl color-background'>
+              Go Home
+            </Text>
+          </TouchableOpacity>
+        </Link>
 
+      </View>
     </SafeAreaView>
   );
-}
+};

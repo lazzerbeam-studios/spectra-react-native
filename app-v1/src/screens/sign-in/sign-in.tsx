@@ -1,16 +1,13 @@
-import { View } from 'react-native';
-import { Link, router } from 'expo-router';
-import Toast from 'react-native-toast-message';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useForm, Controller, useFormState } from 'react-hook-form';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { Link, router } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useForm, Controller, useFormState } from 'react-hook-form';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+
 import { authApi } from '~/src/api';
-import { ChevronLeft } from '~/src/icons/icons';
 import { errorGet } from '~/src/scripts/errors';
-import { Text } from '~/src/components/ui/text';
-import { Input } from '~/src/components/ui/input';
-import { Button } from '~/src/components/ui/button';
 import { ProfileStore } from '~/src/stores/profile.store';
 
 export const SignInScreen = () => {
@@ -19,28 +16,18 @@ export const SignInScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
-  const submit = (data: any) => {
-    signIn(data.email, data.password);
-  };
-
-  const signIn = async (email: string, password: string) => {
+  const submit = async (data: any) => {
     try {
-      const response = await authApi.signIn({
-        email: email,
-        password: password,
+      const response = await authApi.signInAPI({
+        email: data.email,
+        password: data.password,
       });
       await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
       router.replace('/dashboad');
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
-      Toast.show({
-        type: 'error',
-        position: 'top',
-        text1: 'Error',
-        text2: error,
-        visibilityTime: 5000,
-      });
+      console.log(error);
     }
   };
 
@@ -49,9 +36,9 @@ export const SignInScreen = () => {
 
       <View className='ms-2 mt-2'>
         <Link href='/' asChild>
-          <Button variant={'link'} size={'icon'}>
-            <ChevronLeft className='color-foreground' size={50} strokeWidth={2}></ChevronLeft>
-          </Button>
+          <TouchableOpacity className='p-2'>
+            <Ionicons className="color-foreground" name="chevron-back" size={50} />
+          </TouchableOpacity>
         </Link>
       </View>
 
@@ -59,7 +46,7 @@ export const SignInScreen = () => {
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
-          <Text className='native:text-5xl mb-8 text-4xl font-bold'>
+          <Text className='mb-8 text-4xl font-bold text-foreground'>
             Sign In
           </Text>
 
@@ -68,14 +55,14 @@ export const SignInScreen = () => {
             defaultValue={''}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
-              <Input
+              <TextInput
                 value={value}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
-                className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${(errors.email) ? 'border-red-500' : 'border-foreground'}`}
-              />
+                className='mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
+              ></TextInput>
             )}
             rules={{
               required: true,
@@ -83,30 +70,45 @@ export const SignInScreen = () => {
             }}
           ></Controller>
 
+          {errors.email && (
+            <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
+              Please enter a valid email address
+              {errors.email.type === 'required' && ' (Email is required)'}
+              {errors.email.type === 'pattern' && ' (Please enter a valid email format)'}
+            </Text>
+          )}
+
           <Controller
             name='password'
             defaultValue={''}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
-              <Input
+              <TextInput
                 value={value}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 placeholder='Password'
                 secureTextEntry={true}
-                className={`native:h-18 mb-6 h-16 w-96 rounded-full border-2 px-6 py-4 text-2xl ${errors.password ? 'border-red-500' : 'border-foreground'}`}
-              />
+                className='mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
+              ></TextInput>
             )}
             rules={{
               required: true,
             }}
           ></Controller>
 
-          <Button className='native:h-20 mb-6 h-16 w-96 rounded-full' onPress={handleSubmit(submit)}>
-            <Text className='native:text-3xl text-3xl'>
-              Sign In
+          {errors.password && (
+            <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
+              Please enter a valid password
+              {errors.password.type === 'required' && ' (Password is required)'}
             </Text>
-          </Button>
+          )}
+
+          <TouchableOpacity className='mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground' onPress={handleSubmit(submit)}>
+            <Text className='text-3xl text-background'>
+              Submit
+            </Text>
+          </TouchableOpacity>
 
         </View>
         <View className='native:hidden flex-[0.2]'></View>
@@ -114,4 +116,4 @@ export const SignInScreen = () => {
 
     </SafeAreaView>
   );
-}
+};

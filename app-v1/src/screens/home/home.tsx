@@ -1,8 +1,7 @@
 import { Link, router } from 'expo-router';
+import { Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Text } from '~/src/components/ui/text';
-import { Button } from '~/src/components/ui/button';
 import { ProfileStore } from '~/src/stores/profile.store';
 
 export const HomeScreen = () => {
@@ -17,24 +16,24 @@ export const HomeScreen = () => {
   return (
     <SafeAreaView className='mb-36 flex flex-1 flex-col items-center justify-center' onLayout={onLayout}>
 
-      <Text className='native:pt-2 mb-24 font-Poppins500 text-8xl'>
+      <Text className='mb-24 pt-2 font-Poppins500 text-8xl text-foreground'>
         Spectra
       </Text>
 
       <Link href='/sign-up' push asChild>
-        <Button className='native:h-20 mb-6 h-20 w-96 rounded-full'>
-          <Text className='native:text-4xl text-4xl'>
+        <TouchableOpacity className='mb-6 h-20 w-96 items-center justify-center rounded-full bg-foreground pt-1'>
+          <Text className='font-Poppins500 text-4xl text-background'>
             Sign Up
           </Text>
-        </Button>
+        </TouchableOpacity>
       </Link>
 
       <Link href='/sign-in' push asChild>
-        <Button className='native:h-20 h-20 w-96 rounded-full'>
-          <Text className='native:text-4xl text-4xl'>
+        <TouchableOpacity className='h-20 w-96 items-center justify-center rounded-full bg-foreground pt-1'>
+          <Text className='font-Poppins500 text-4xl text-background'>
             Sign In
           </Text>
-        </Button>
+        </TouchableOpacity>
       </Link>
 
     </SafeAreaView>
