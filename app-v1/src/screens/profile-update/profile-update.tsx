@@ -76,7 +76,7 @@ export const ProfileUpdateScreen = () => {
                 </Text>
               )}
 
-              <TouchableOpacity onPress={handleSubmit(submit)} className='mb-4 rounded-full bg-foreground'>
+              <TouchableOpacity onPress={handleSubmit(submit)} className='mb-2 mt-2 rounded-full bg-foreground'>
                 <Text className='m-2 text-center text-3xl text-background'>
                   Update
                 </Text>
