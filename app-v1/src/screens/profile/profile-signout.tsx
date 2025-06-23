@@ -11,9 +11,9 @@ export const ProfileSignout = () => {
 
   return (
     <TouchableOpacity onPress={logout} className='mt-12'>
-      <Text className='native:text-xl text-xl text-red-500'>
+      <Text className='text-xl font-semibold text-red-500'>
         Sign Out
       </Text>
     </TouchableOpacity>
   );
-}
+};

@@ -35,29 +35,32 @@ export const ProfileScreen = () => {
         <View className='flex-1 items-center sm:flex-[0.6]'>
 
           <View className='bg-card mt-24 w-full max-w-sm rounded-2xl border border-foreground p-6 shadow'>
+
             <View className='items-center'>
-              <Text className='pb-4 text-center text-xl font-semibold text-foreground'>
+              <Text className='pb-4 text-center text-2xl font-semibold text-foreground'>
                 Profile
               </Text>
               <View className='h-24 w-24 items-center justify-center rounded-full bg-foreground'>
                 <Ionicons className="color-background" name="person" size={48} />
               </View>
             </View>
+
             <View className='mt-4'>
-              <Text className='pb-4 text-center text-lg font-semibold text-foreground'>
+              <Text className='text-center text-xl font-semibold text-foreground'>
                 {profile?.name}
               </Text>
-              <Text className='pb-8 text-center text-lg font-semibold text-foreground'>
+              <Text className='pb-6 text-center text-xl font-semibold text-foreground'>
                 {profile?.email}
               </Text>
-              <View className='rounded-md border border-foreground bg-foreground px-4 py-2'>
+              <View className='rounded-full border border-foreground bg-foreground px-4 py-1'>
                 <Link href='/profile-update' asChild>
-                  <Text className='text-center text-sm font-medium text-background'>
+                  <Text className='m-2 text-center text-xl text-background'>
                     Update
                   </Text>
                 </Link>
               </View>
             </View>
+
           </View>
 
           <ProfileSignout></ProfileSignout>
@@ -68,4 +71,4 @@ export const ProfileScreen = () => {
 
     </>
   );
-}
+};

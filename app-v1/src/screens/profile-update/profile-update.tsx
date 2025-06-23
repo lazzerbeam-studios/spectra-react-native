@@ -20,6 +20,7 @@ export const ProfileUpdateScreen = () => {
           router.back();
         }
       } catch (error: any) {
+        console.log(error);
       }
     }
   };
@@ -41,12 +42,15 @@ export const ProfileUpdateScreen = () => {
         <View className='native:flex-1 flex-[0.6] items-center'>
 
           <View className='bg-card mt-24 w-full max-w-sm rounded-2xl border border-foreground p-6 shadow'>
+
             <View className='items-center'>
               <Text className='text-center text-xl font-semibold text-foreground'>
                 Profile Update
               </Text>
             </View>
+
             <View className='mt-4'>
+
               <Controller
                 name='name'
                 control={control}
@@ -57,22 +61,29 @@ export const ProfileUpdateScreen = () => {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     placeholder='Name'
-                    className={`native:h-18 mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl text-foreground ${(errors.name) ? 'border-red-500' : 'border-foreground'}`}
+                    className={'mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl text-foreground'}
                   />
                 )}
                 rules={{
                   required: true,
                 }}
               ></Controller>
-              <TouchableOpacity
-                className='native:h-20 mb-4 rounded-full bg-foreground'
-                onPress={handleSubmit(submit)}
-              >
-                <Text className='native:text-3xl native:my-auto m-2 text-center text-3xl text-background'>
+
+              {errors.name && (
+                <Text className="-mt-4 mb-2 ms-4 text-sm text-red-500">
+                  Please enter a valid name
+                  {errors.name.type === 'required' && ' (Name is required)'}
+                </Text>
+              )}
+
+              <TouchableOpacity onPress={handleSubmit(submit)} className='mb-2 mt-2 rounded-full bg-foreground'>
+                <Text className='m-2 text-center text-3xl text-background'>
                   Update
                 </Text>
               </TouchableOpacity>
+
             </View>
+
           </View>
 
         </View>
@@ -81,4 +92,4 @@ export const ProfileUpdateScreen = () => {
 
     </>
   );
-}
+};
