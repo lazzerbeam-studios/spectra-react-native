@@ -50,6 +50,7 @@ export const ProfileUpdateScreen = () => {
             </View>
 
             <View className='mt-4'>
+
               <Controller
                 name='name'
                 control={control}
@@ -67,11 +68,20 @@ export const ProfileUpdateScreen = () => {
                   required: true,
                 }}
               ></Controller>
+
+              {errors.name && (
+                <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
+                  Please enter a valid name
+                  {errors.name.type === 'required' && ' (Name is required)'}
+                </Text>
+              )}
+
               <TouchableOpacity onPress={handleSubmit(submit)} className='native:h-20 mb-4 rounded-full bg-foreground'>
                 <Text className='native:text-3xl native:my-auto m-2 text-center text-3xl text-background'>
                   Update
                 </Text>
               </TouchableOpacity>
+
             </View>
 
           </View>
