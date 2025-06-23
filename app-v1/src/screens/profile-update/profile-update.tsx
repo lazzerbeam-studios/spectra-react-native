@@ -70,7 +70,7 @@ export const ProfileUpdateScreen = () => {
               ></Controller>
 
               {errors.name && (
-                <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
+                <Text className="-mt-4 mb-2 ms-4 text-sm text-red-500">
                   Please enter a valid name
                   {errors.name.type === 'required' && ' (Name is required)'}
                 </Text>
