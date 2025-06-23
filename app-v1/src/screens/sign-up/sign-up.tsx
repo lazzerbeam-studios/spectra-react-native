@@ -46,7 +46,7 @@ export const SignUpScreen = () => {
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
-          <Text className='native:text-5xl mb-8 text-4xl font-bold text-foreground'>
+          <Text className='mb-8 text-4xl font-bold text-foreground'>
             Sign Up
           </Text>
 
@@ -61,7 +61,7 @@ export const SignUpScreen = () => {
                 onChangeText={onChange}
                 placeholder='Email'
                 keyboardType='email-address'
-                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
+                className='mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
               ></TextInput>
             )}
             rules={{
@@ -89,7 +89,7 @@ export const SignUpScreen = () => {
                 onChangeText={onChange}
                 secureTextEntry={true}
                 placeholder='Password'
-                className='native:h-18 mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
+                className='mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
               ></TextInput>
             )}
             rules={{
@@ -106,8 +106,8 @@ export const SignUpScreen = () => {
             </Text>
           )}
 
-          <TouchableOpacity onPress={handleSubmit(submit)} className='native:h-20 mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'>
-            <Text className='native:text-3xl text-3xl text-background'>
+          <TouchableOpacity onPress={handleSubmit(submit)} className='mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'>
+            <Text className='text-3xl text-background'>
               Submit
             </Text>
           </TouchableOpacity>
