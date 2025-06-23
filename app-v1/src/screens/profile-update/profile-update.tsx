@@ -20,6 +20,7 @@ export const ProfileUpdateScreen = () => {
           router.back();
         }
       } catch (error: any) {
+        console.log(error);
       }
     }
   };
@@ -81,4 +82,4 @@ export const ProfileUpdateScreen = () => {
 
     </>
   );
-}
+};
