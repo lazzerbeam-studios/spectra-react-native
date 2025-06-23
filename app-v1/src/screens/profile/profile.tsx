@@ -46,7 +46,7 @@ export const ProfileScreen = () => {
             </View>
 
             <View className='mt-4'>
-              <Text className='pb-2 text-center text-xl font-semibold text-foreground'>
+              <Text className='text-center text-xl font-semibold text-foreground'>
                 {profile?.name}
               </Text>
               <Text className='pb-6 text-center text-xl font-semibold text-foreground'>
@@ -54,7 +54,7 @@ export const ProfileScreen = () => {
               </Text>
               <View className='rounded-full border border-foreground bg-foreground px-4 py-1'>
                 <Link href='/profile-update' asChild>
-                  <Text className='native:my-auto m-2 text-center text-xl text-background'>
+                  <Text className='m-2 text-center text-xl text-background'>
                     Update
                   </Text>
                 </Link>
