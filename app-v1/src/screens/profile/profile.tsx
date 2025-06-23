@@ -54,7 +54,7 @@ export const ProfileScreen = () => {
               </Text>
               <View className='rounded-full border border-foreground bg-foreground px-4 py-1'>
                 <Link href='/profile-update' asChild>
-                  <Text className='native:text-3xl native:my-auto m-2 text-center text-xl text-background'>
+                  <Text className='native:my-auto m-2 text-center text-xl text-background'>
                     Update
                   </Text>
                 </Link>
