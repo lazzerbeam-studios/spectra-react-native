@@ -52,9 +52,9 @@ export const ProfileScreen = () => {
               <Text className='pb-8 text-center text-xl font-semibold text-foreground'>
                 {profile?.email}
               </Text>
-              <View className='rounded-full border border-foreground bg-foreground px-4 py-2'>
+              <View className='rounded-full border border-foreground bg-foreground px-4 py-1'>
                 <Link href='/profile-update' asChild>
-                  <Text className='native:text-3xl native:my-auto m-2 text-center text-3xl text-background'>
+                  <Text className='native:text-3xl native:my-auto m-2 text-center text-xl text-background'>
                     Update
                   </Text>
                 </Link>
