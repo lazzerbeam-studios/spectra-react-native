@@ -61,7 +61,7 @@ export const ProfileUpdateScreen = () => {
                     onBlur={onBlur}
                     onChangeText={onChange}
                     placeholder='Name'
-                    className={'mb-6 h-16 rounded-full border-2 px-6 py-4 text-2xl text-foreground'}
+                    className={'mb-6 h-16 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'}
                   />
                 )}
                 rules={{
