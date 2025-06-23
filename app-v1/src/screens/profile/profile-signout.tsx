@@ -16,4 +16,4 @@ export const ProfileSignout = () => {
       </Text>
     </TouchableOpacity>
   );
-}
+};
