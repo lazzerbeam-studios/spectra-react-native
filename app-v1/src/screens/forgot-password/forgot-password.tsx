@@ -3,7 +3,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
-import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { authApi } from '~/src/api';
 import { errorGet } from '~/src/scripts/errors';
@@ -17,8 +17,7 @@ export const ForgotPasswordScreen = () => {
       const response = await authApi.forgotPasswordPostAPI({
         email: data.email,
       });
-      console.log(response);
-      // router.replace('/');
+      router.replace('/reset-password');
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
       console.log(error);
