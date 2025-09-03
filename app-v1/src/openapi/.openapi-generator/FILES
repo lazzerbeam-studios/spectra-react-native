@@ -7,6 +7,8 @@ configuration.ts
 docs/AuthApi.md
 docs/ErrorDetail.md
 docs/ErrorModel.md
+docs/ForgotPasswordPostInputBody.md
+docs/ForgotPasswordPostOutputBody.md
 docs/HomeApi.md
 docs/HomeGetOutputBody.md
 docs/Profile.md

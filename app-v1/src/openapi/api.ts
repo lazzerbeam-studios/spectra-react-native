@@ -100,6 +100,44 @@ export interface ErrorModel {
 /**
  * 
  * @export
+ * @interface ForgotPasswordPostInputBody
+ */
+export interface ForgotPasswordPostInputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     * @type {string}
+     * @memberof ForgotPasswordPostInputBody
+     */
+    '$schema'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ForgotPasswordPostInputBody
+     */
+    'email': string;
+}
+/**
+ * 
+ * @export
+ * @interface ForgotPasswordPostOutputBody
+ */
+export interface ForgotPasswordPostOutputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     * @type {string}
+     * @memberof ForgotPasswordPostOutputBody
+     */
+    '$schema'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ForgotPasswordPostOutputBody
+     */
+    'message': string;
+}
+/**
+ * 
+ * @export
  * @interface HomeGetOutputBody
  */
 export interface HomeGetOutputBody {
@@ -377,6 +415,41 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
     return {
         /**
          * 
+         * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        forgotPasswordPostAPI: async (forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'forgotPasswordPostInputBody' is not null or undefined
+            assertParamExists('forgotPasswordPostAPI', 'forgotPasswordPostInputBody', forgotPasswordPostInputBody)
+            const localVarPath = `/auth/forgotpassword`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(forgotPasswordPostInputBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {SignInInputBody} signInInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -457,6 +530,18 @@ export const AuthApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
+         * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async forgotPasswordPostAPI(forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ForgotPasswordPostOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.forgotPasswordPostAPI(forgotPasswordPostInputBody, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.forgotPasswordPostAPI']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @param {SignInInputBody} signInInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -491,6 +576,15 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
     return {
         /**
          * 
+         * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        forgotPasswordPostAPI(forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options?: RawAxiosRequestConfig): AxiosPromise<ForgotPasswordPostOutputBody> {
+            return localVarFp.forgotPasswordPostAPI(forgotPasswordPostInputBody, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {SignInInputBody} signInInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -517,6 +611,17 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
  * @extends {BaseAPI}
  */
 export class AuthApi extends BaseAPI {
+    /**
+     * 
+     * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public forgotPasswordPostAPI(forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).forgotPasswordPostAPI(forgotPasswordPostInputBody, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @param {SignInInputBody} signInInputBody 
