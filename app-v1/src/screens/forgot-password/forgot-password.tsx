@@ -13,10 +13,6 @@ export const ForgotPasswordScreen = () => {
 
   const submit = async (data: any) => {
     try {
-      // TODO: Implement forgot password API call
-      // const response = await authApi.forgotPasswordAPI({
-      //   email: data.email,
-      // });
 
       Alert.alert(
         'Reset Link Sent',
@@ -50,12 +46,8 @@ export const ForgotPasswordScreen = () => {
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
-          <Text className='mb-8 text-4xl font-bold text-foreground'>
+          <Text className='mb-4 text-4xl font-bold text-foreground'>
             Forgot Password
-          </Text>
-
-          <Text className='mb-8 text-center text-lg text-foreground/80'>
-            Enter your email address and we'll send you a link to reset your password.
           </Text>
 
           <Controller
@@ -88,17 +80,9 @@ export const ForgotPasswordScreen = () => {
 
           <TouchableOpacity className='mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground' onPress={handleSubmit(submit)}>
             <Text className='text-3xl text-background'>
-              Send Reset Link
+              Send
             </Text>
           </TouchableOpacity>
-
-          <Link href='/sign-in' asChild>
-            <TouchableOpacity>
-              <Text className='text-lg text-foreground/70 underline'>
-                Back to Sign In
-              </Text>
-            </TouchableOpacity>
-          </Link>
 
         </View>
         <View className='native:hidden flex-[0.2]'></View>
