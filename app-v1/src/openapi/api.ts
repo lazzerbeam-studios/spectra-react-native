@@ -157,6 +157,50 @@ export interface HomeGetOutputBody {
 /**
  * 
  * @export
+ * @interface PasswordCodePostInputBody
+ */
+export interface PasswordCodePostInputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     * @type {string}
+     * @memberof PasswordCodePostInputBody
+     */
+    '$schema'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof PasswordCodePostInputBody
+     */
+    'code': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof PasswordCodePostInputBody
+     */
+    'password': string;
+}
+/**
+ * 
+ * @export
+ * @interface PasswordCodePostOutputBody
+ */
+export interface PasswordCodePostOutputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     * @type {string}
+     * @memberof PasswordCodePostOutputBody
+     */
+    '$schema'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof PasswordCodePostOutputBody
+     */
+    'message': string;
+}
+/**
+ * 
+ * @export
  * @interface Profile
  */
 export interface Profile {
@@ -450,6 +494,41 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * 
+         * @param {PasswordCodePostInputBody} passwordCodePostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        passwordCodePostAPI: async (passwordCodePostInputBody: PasswordCodePostInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordCodePostInputBody' is not null or undefined
+            assertParamExists('passwordCodePostAPI', 'passwordCodePostInputBody', passwordCodePostInputBody)
+            const localVarPath = `/auth/passwordcode`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordCodePostInputBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {SignInInputBody} signInInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -542,6 +621,18 @@ export const AuthApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {PasswordCodePostInputBody} passwordCodePostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async passwordCodePostAPI(passwordCodePostInputBody: PasswordCodePostInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordCodePostOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.passwordCodePostAPI(passwordCodePostInputBody, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.passwordCodePostAPI']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @param {SignInInputBody} signInInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -585,6 +676,15 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
         },
         /**
          * 
+         * @param {PasswordCodePostInputBody} passwordCodePostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        passwordCodePostAPI(passwordCodePostInputBody: PasswordCodePostInputBody, options?: RawAxiosRequestConfig): AxiosPromise<PasswordCodePostOutputBody> {
+            return localVarFp.passwordCodePostAPI(passwordCodePostInputBody, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {SignInInputBody} signInInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -620,6 +720,17 @@ export class AuthApi extends BaseAPI {
      */
     public forgotPasswordPostAPI(forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options?: RawAxiosRequestConfig) {
         return AuthApiFp(this.configuration).forgotPasswordPostAPI(forgotPasswordPostInputBody, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {PasswordCodePostInputBody} passwordCodePostInputBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public passwordCodePostAPI(passwordCodePostInputBody: PasswordCodePostInputBody, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).passwordCodePostAPI(passwordCodePostInputBody, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
