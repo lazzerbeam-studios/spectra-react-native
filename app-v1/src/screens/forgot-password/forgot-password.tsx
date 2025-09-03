@@ -1,33 +1,37 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 
-import { authApi } from '~/src/api';
 import { errorGet } from '~/src/scripts/errors';
-import { ProfileStore } from '~/src/stores/profile.store';
 
-export const SignInScreen = () => {
-  const { profileInit } = ProfileStore();
-
+export const ForgotPasswordScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
   const submit = async (data: any) => {
     try {
-      const response = await authApi.signInAPI({
-        email: data.email,
-        password: data.password,
-      });
-      await AsyncStorage.setItem('token', response.data.token);
-      await profileInit();
-      router.replace('/dashboad');
+      // TODO: Implement forgot password API call
+      // const response = await authApi.forgotPasswordAPI({
+      //   email: data.email,
+      // });
+
+      Alert.alert(
+        'Reset Link Sent',
+        'If an account with that email exists, we have sent a password reset link.',
+        [
+          {
+            text: 'OK',
+            onPress: () => router.replace('/sign-in'),
+          },
+        ]
+      );
     } catch (errors: any) {
-      const error = errorGet(errors.response.data);
+      const error = errorGet(errors.response?.data);
       console.log(error);
+      Alert.alert('Error', 'Failed to send reset link. Please try again.');
     }
   };
 
@@ -35,19 +39,23 @@ export const SignInScreen = () => {
     <SafeAreaView className='flex h-full'>
 
       <View className='ms-2 mt-2'>
-        <Link href='/' asChild>
+        <Link href='/sign-in' asChild>
           <TouchableOpacity className='p-2'>
             <Ionicons className="color-foreground" name="chevron-back" size={50} />
           </TouchableOpacity>
         </Link>
       </View>
 
-      <View className='mb-20 flex w-full flex-1 flex-row'>
+      <View className='mb-44 flex w-full flex-1 flex-row'>
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
           <Text className='mb-8 text-4xl font-bold text-foreground'>
-            Sign In
+            Forgot Password
+          </Text>
+
+          <Text className='mb-8 text-center text-lg text-foreground/80'>
+            Enter your email address and we'll send you a link to reset your password.
           </Text>
 
           <Controller
@@ -78,42 +86,16 @@ export const SignInScreen = () => {
             </Text>
           )}
 
-          <Controller
-            name='password'
-            defaultValue={''}
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                value={value}
-                onBlur={onBlur}
-                onChangeText={onChange}
-                placeholder='Password'
-                secureTextEntry={true}
-                className='mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
-              ></TextInput>
-            )}
-            rules={{
-              required: true,
-            }}
-          ></Controller>
-
-          {errors.password && (
-            <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
-              Please enter a valid password
-              {errors.password.type === 'required' && ' (Password is required)'}
-            </Text>
-          )}
-
           <TouchableOpacity className='mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground' onPress={handleSubmit(submit)}>
             <Text className='text-3xl text-background'>
-              Submit
+              Send Reset Link
             </Text>
           </TouchableOpacity>
 
-          <Link href='/forgot-password' asChild>
-            <TouchableOpacity className='mb-4 p-2'>
-              <Text className='text-lg font-medium text-foreground underline'>
-                Forgot Password?
+          <Link href='/sign-in' asChild>
+            <TouchableOpacity>
+              <Text className='text-lg text-foreground/70 underline'>
+                Back to Sign In
               </Text>
             </TouchableOpacity>
           </Link>
