@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 
+import { authApi } from '~/src/api';
 import { errorGet } from '~/src/scripts/errors';
 
 export const ForgotPasswordScreen = () => {
@@ -13,21 +14,14 @@ export const ForgotPasswordScreen = () => {
 
   const submit = async (data: any) => {
     try {
-
-      Alert.alert(
-        'Reset Link Sent',
-        'If an account with that email exists, we have sent a password reset link.',
-        [
-          {
-            text: 'OK',
-            onPress: () => router.replace('/sign-in'),
-          },
-        ]
-      );
+      const response = await authApi.forgotPasswordPostAPI({
+        email: data.email,
+      });
+      console.log(response);
+      // router.replace('/');
     } catch (errors: any) {
-      const error = errorGet(errors.response?.data);
+      const error = errorGet(errors.response.data);
       console.log(error);
-      Alert.alert('Error', 'Failed to send reset link. Please try again.');
     }
   };
 
