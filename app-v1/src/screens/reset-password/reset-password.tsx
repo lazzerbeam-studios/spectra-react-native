@@ -13,7 +13,19 @@ export const ResetPasswordScreen = () => {
   const { errors } = useFormState({ control });
 
   const submit = async (data: any) => {
+    try {
+      const response = await authApi.passwordCodePostAPI({
+        code: data.code,
+        password: data.password,
+      });
 
+      console.log(response);
+
+      router.replace('/');
+    } catch (errors: any) {
+      const error = errorGet(errors.response.data);
+      console.log(error);
+    }
   };
 
   return (
@@ -51,7 +63,6 @@ export const ResetPasswordScreen = () => {
             )}
             rules={{
               required: true,
-              minLength: 6,
             }}
           ></Controller>
 
@@ -64,7 +75,7 @@ export const ResetPasswordScreen = () => {
           )}
 
           <Controller
-            name='newPassword'
+            name='password'
             defaultValue={''}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
