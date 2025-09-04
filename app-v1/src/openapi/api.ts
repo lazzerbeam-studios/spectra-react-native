@@ -23,358 +23,238 @@ import type { RequestArgs } from './base';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
-/**
- * 
- * @export
- * @interface ErrorDetail
- */
 export interface ErrorDetail {
     /**
      * Where the error occurred, e.g. \'body.items[3].tags\' or \'path.thing-id\'
-     * @type {string}
-     * @memberof ErrorDetail
      */
     'location'?: string;
     /**
      * Error message text
-     * @type {string}
-     * @memberof ErrorDetail
      */
     'message'?: string;
-    /**
-     * 
-     * @type {any}
-     * @memberof ErrorDetail
-     */
     'value'?: any;
 }
-/**
- * 
- * @export
- * @interface ErrorModel
- */
 export interface ErrorModel {
     /**
      * A URL to the JSON Schema for this object.
-     * @type {string}
-     * @memberof ErrorModel
      */
     '$schema'?: string;
     /**
      * A human-readable explanation specific to this occurrence of the problem.
-     * @type {string}
-     * @memberof ErrorModel
      */
     'detail'?: string;
     /**
      * Optional list of individual error details
-     * @type {Array<ErrorDetail>}
-     * @memberof ErrorModel
      */
     'errors'?: Array<ErrorDetail> | null;
     /**
      * A URI reference that identifies the specific occurrence of the problem.
-     * @type {string}
-     * @memberof ErrorModel
      */
     'instance'?: string;
     /**
      * HTTP status code
-     * @type {number}
-     * @memberof ErrorModel
      */
     'status'?: number;
     /**
      * A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
-     * @type {string}
-     * @memberof ErrorModel
      */
     'title'?: string;
     /**
      * A URI reference to human-readable documentation for the error.
-     * @type {string}
-     * @memberof ErrorModel
      */
     'type'?: string;
 }
-/**
- * 
- * @export
- * @interface HomeGetOutputBody
- */
+export interface ForgotPasswordPostInputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    '$schema'?: string;
+    'email': string;
+}
+export interface ForgotPasswordPostOutputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    '$schema'?: string;
+    'message': string;
+}
 export interface HomeGetOutputBody {
     /**
      * A URL to the JSON Schema for this object.
-     * @type {string}
-     * @memberof HomeGetOutputBody
      */
     '$schema'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof HomeGetOutputBody
-     */
     'message': string;
 }
-/**
- * 
- * @export
- * @interface Profile
- */
 export interface Profile {
-    /**
-     * 
-     * @type {string}
-     * @memberof Profile
-     */
     'created': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Profile
-     */
     'email': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof Profile
-     */
     'id': number;
-    /**
-     * 
-     * @type {string}
-     * @memberof Profile
-     */
     'name': string;
 }
-/**
- * 
- * @export
- * @interface ProfileGetOutputBody
- */
 export interface ProfileGetOutputBody {
     /**
      * A URL to the JSON Schema for this object.
-     * @type {string}
-     * @memberof ProfileGetOutputBody
      */
     '$schema'?: string;
-    /**
-     * 
-     * @type {Profile}
-     * @memberof ProfileGetOutputBody
-     */
     'object': Profile;
 }
-/**
- * 
- * @export
- * @interface ProfileUpdate
- */
 export interface ProfileUpdate {
-    /**
-     * 
-     * @type {number}
-     * @memberof ProfileUpdate
-     */
     'id'?: number;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProfileUpdate
-     */
     'name'?: string;
 }
-/**
- * 
- * @export
- * @interface ProfileUpdateEmail
- */
 export interface ProfileUpdateEmail {
-    /**
-     * 
-     * @type {string}
-     * @memberof ProfileUpdateEmail
-     */
     'email'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof ProfileUpdateEmail
-     */
     'id'?: number;
 }
-/**
- * 
- * @export
- * @interface ProfileUpdateEmailInputBody
- */
 export interface ProfileUpdateEmailInputBody {
     /**
      * A URL to the JSON Schema for this object.
-     * @type {string}
-     * @memberof ProfileUpdateEmailInputBody
      */
     '$schema'?: string;
-    /**
-     * 
-     * @type {ProfileUpdateEmail}
-     * @memberof ProfileUpdateEmailInputBody
-     */
     'object': ProfileUpdateEmail;
 }
-/**
- * 
- * @export
- * @interface ProfileUpdateEmailOutputBody
- */
 export interface ProfileUpdateEmailOutputBody {
     /**
      * A URL to the JSON Schema for this object.
-     * @type {string}
-     * @memberof ProfileUpdateEmailOutputBody
      */
     '$schema'?: string;
-    /**
-     * 
-     * @type {Profile}
-     * @memberof ProfileUpdateEmailOutputBody
-     */
     'object': Profile;
 }
-/**
- * 
- * @export
- * @interface ProfileUpdateInputBody
- */
 export interface ProfileUpdateInputBody {
     /**
      * A URL to the JSON Schema for this object.
-     * @type {string}
-     * @memberof ProfileUpdateInputBody
      */
     '$schema'?: string;
-    /**
-     * 
-     * @type {ProfileUpdate}
-     * @memberof ProfileUpdateInputBody
-     */
     'object': ProfileUpdate;
 }
-/**
- * 
- * @export
- * @interface ProfileUpdateOutputBody
- */
 export interface ProfileUpdateOutputBody {
     /**
      * A URL to the JSON Schema for this object.
-     * @type {string}
-     * @memberof ProfileUpdateOutputBody
      */
     '$schema'?: string;
-    /**
-     * 
-     * @type {Profile}
-     * @memberof ProfileUpdateOutputBody
-     */
     'object': Profile;
 }
-/**
- * 
- * @export
- * @interface SignInInputBody
- */
+export interface ResetPasswordPostInputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    '$schema'?: string;
+    'code': string;
+    'password': string;
+}
+export interface ResetPasswordPostOutputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    '$schema'?: string;
+    'message': string;
+}
 export interface SignInInputBody {
     /**
      * A URL to the JSON Schema for this object.
-     * @type {string}
-     * @memberof SignInInputBody
      */
     '$schema'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SignInInputBody
-     */
     'email': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SignInInputBody
-     */
     'password': string;
 }
-/**
- * 
- * @export
- * @interface SignInOutputBody
- */
 export interface SignInOutputBody {
     /**
      * A URL to the JSON Schema for this object.
-     * @type {string}
-     * @memberof SignInOutputBody
      */
     '$schema'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SignInOutputBody
-     */
     'token': string;
 }
-/**
- * 
- * @export
- * @interface SignUpInputBody
- */
 export interface SignUpInputBody {
     /**
      * A URL to the JSON Schema for this object.
-     * @type {string}
-     * @memberof SignUpInputBody
      */
     '$schema'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SignUpInputBody
-     */
     'email': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SignUpInputBody
-     */
     'password': string;
 }
-/**
- * 
- * @export
- * @interface SignUpOutputBody
- */
 export interface SignUpOutputBody {
     /**
      * A URL to the JSON Schema for this object.
-     * @type {string}
-     * @memberof SignUpOutputBody
      */
     '$schema'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SignUpOutputBody
-     */
     'token': string;
 }
 
 /**
  * AuthApi - axios parameter creator
- * @export
  */
 export const AuthApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
+        /**
+         * 
+         * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        forgotPasswordPostAPI: async (forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'forgotPasswordPostInputBody' is not null or undefined
+            assertParamExists('forgotPasswordPostAPI', 'forgotPasswordPostInputBody', forgotPasswordPostInputBody)
+            const localVarPath = `/auth/forgotpassword`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(forgotPasswordPostInputBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {ResetPasswordPostInputBody} resetPasswordPostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        resetPasswordPostAPI: async (resetPasswordPostInputBody: ResetPasswordPostInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'resetPasswordPostInputBody' is not null or undefined
+            assertParamExists('resetPasswordPostAPI', 'resetPasswordPostInputBody', resetPasswordPostInputBody)
+            const localVarPath = `/auth/resetpassword`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resetPasswordPostInputBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
         /**
          * 
          * @param {SignInInputBody} signInInputBody 
@@ -450,11 +330,34 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
 
 /**
  * AuthApi - functional programming interface
- * @export
  */
 export const AuthApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AuthApiAxiosParamCreator(configuration)
     return {
+        /**
+         * 
+         * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async forgotPasswordPostAPI(forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ForgotPasswordPostOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.forgotPasswordPostAPI(forgotPasswordPostInputBody, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.forgotPasswordPostAPI']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {ResetPasswordPostInputBody} resetPasswordPostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async resetPasswordPostAPI(resetPasswordPostInputBody: ResetPasswordPostInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResetPasswordPostOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.resetPasswordPostAPI(resetPasswordPostInputBody, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.resetPasswordPostAPI']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
         /**
          * 
          * @param {SignInInputBody} signInInputBody 
@@ -484,11 +387,28 @@ export const AuthApiFp = function(configuration?: Configuration) {
 
 /**
  * AuthApi - factory interface
- * @export
  */
 export const AuthApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = AuthApiFp(configuration)
     return {
+        /**
+         * 
+         * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        forgotPasswordPostAPI(forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options?: RawAxiosRequestConfig): AxiosPromise<ForgotPasswordPostOutputBody> {
+            return localVarFp.forgotPasswordPostAPI(forgotPasswordPostInputBody, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {ResetPasswordPostInputBody} resetPasswordPostInputBody 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        resetPasswordPostAPI(resetPasswordPostInputBody: ResetPasswordPostInputBody, options?: RawAxiosRequestConfig): AxiosPromise<ResetPasswordPostOutputBody> {
+            return localVarFp.resetPasswordPostAPI(resetPasswordPostInputBody, options).then((request) => request(axios, basePath));
+        },
         /**
          * 
          * @param {SignInInputBody} signInInputBody 
@@ -512,17 +432,33 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
 
 /**
  * AuthApi - object-oriented interface
- * @export
- * @class AuthApi
- * @extends {BaseAPI}
  */
 export class AuthApi extends BaseAPI {
+    /**
+     * 
+     * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public forgotPasswordPostAPI(forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).forgotPasswordPostAPI(forgotPasswordPostInputBody, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {ResetPasswordPostInputBody} resetPasswordPostInputBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public resetPasswordPostAPI(resetPasswordPostInputBody: ResetPasswordPostInputBody, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).resetPasswordPostAPI(resetPasswordPostInputBody, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @param {SignInInputBody} signInInputBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AuthApi
      */
     public signInAPI(signInInputBody: SignInInputBody, options?: RawAxiosRequestConfig) {
         return AuthApiFp(this.configuration).signInAPI(signInInputBody, options).then((request) => request(this.axios, this.basePath));
@@ -533,7 +469,6 @@ export class AuthApi extends BaseAPI {
      * @param {SignUpInputBody} signUpInputBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof AuthApi
      */
     public signUpAPI(signUpInputBody: SignUpInputBody, options?: RawAxiosRequestConfig) {
         return AuthApiFp(this.configuration).signUpAPI(signUpInputBody, options).then((request) => request(this.axios, this.basePath));
@@ -544,7 +479,6 @@ export class AuthApi extends BaseAPI {
 
 /**
  * HomeApi - axios parameter creator
- * @export
  */
 export const HomeApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -582,7 +516,6 @@ export const HomeApiAxiosParamCreator = function (configuration?: Configuration)
 
 /**
  * HomeApi - functional programming interface
- * @export
  */
 export const HomeApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = HomeApiAxiosParamCreator(configuration)
@@ -603,7 +536,6 @@ export const HomeApiFp = function(configuration?: Configuration) {
 
 /**
  * HomeApi - factory interface
- * @export
  */
 export const HomeApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = HomeApiFp(configuration)
@@ -621,16 +553,12 @@ export const HomeApiFactory = function (configuration?: Configuration, basePath?
 
 /**
  * HomeApi - object-oriented interface
- * @export
- * @class HomeApi
- * @extends {BaseAPI}
  */
 export class HomeApi extends BaseAPI {
     /**
      * 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof HomeApi
      */
     public homeGetAPI(options?: RawAxiosRequestConfig) {
         return HomeApiFp(this.configuration).homeGetAPI(options).then((request) => request(this.axios, this.basePath));
@@ -641,7 +569,6 @@ export class HomeApi extends BaseAPI {
 
 /**
  * UsersApi - axios parameter creator
- * @export
  */
 export const UsersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -761,7 +688,6 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * UsersApi - functional programming interface
- * @export
  */
 export const UsersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UsersApiAxiosParamCreator(configuration)
@@ -809,7 +735,6 @@ export const UsersApiFp = function(configuration?: Configuration) {
 
 /**
  * UsersApi - factory interface
- * @export
  */
 export const UsersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = UsersApiFp(configuration)
@@ -848,9 +773,6 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * UsersApi - object-oriented interface
- * @export
- * @class UsersApi
- * @extends {BaseAPI}
  */
 export class UsersApi extends BaseAPI {
     /**
@@ -858,7 +780,6 @@ export class UsersApi extends BaseAPI {
      * @param {string} [authorization] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public profileGetAPI(authorization?: string, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).profileGetAPI(authorization, options).then((request) => request(this.axios, this.basePath));
@@ -870,7 +791,6 @@ export class UsersApi extends BaseAPI {
      * @param {string} [authorization] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public profileUpdateAPI(profileUpdateInputBody: ProfileUpdateInputBody, authorization?: string, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).profileUpdateAPI(profileUpdateInputBody, authorization, options).then((request) => request(this.axios, this.basePath));
@@ -882,7 +802,6 @@ export class UsersApi extends BaseAPI {
      * @param {string} [authorization] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof UsersApi
      */
     public profileUpdateEmailAPI(profileUpdateEmailInputBody: ProfileUpdateEmailInputBody, authorization?: string, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).profileUpdateEmailAPI(profileUpdateEmailInputBody, authorization, options).then((request) => request(this.axios, this.basePath));
