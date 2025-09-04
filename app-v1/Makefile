@@ -1,6 +1,6 @@
 # openapi
 openapi:
-	sh openapi-generator.sh
+	sh openapi-generator/openapi-generator.sh
 
 # expo
 expo-start-dev:
