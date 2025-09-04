@@ -14,7 +14,7 @@ export const ForgotPasswordScreen = () => {
 
   const submit = async (data: any) => {
     try {
-      const response = await authApi.forgotPasswordPostAPI({
+      await authApi.forgotPasswordPostAPI({
         email: data.email,
       });
       router.replace('/reset-password');
@@ -39,7 +39,7 @@ export const ForgotPasswordScreen = () => {
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
-          <Text className='mb-4 text-4xl font-bold text-foreground'>
+          <Text className='mb-6 text-4xl font-bold text-foreground'>
             Forgot Password
           </Text>
 
