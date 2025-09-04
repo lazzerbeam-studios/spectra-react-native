@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
 |[**forgotPasswordPostAPI**](#forgotpasswordpostapi) | **POST** /auth/forgotpassword | |
-|[**passwordCodePostAPI**](#passwordcodepostapi) | **POST** /auth/passwordcode | |
+|[**resetPasswordPostAPI**](#resetpasswordpostapi) | **POST** /auth/resetpassword | |
 |[**signInAPI**](#signinapi) | **POST** /auth/signin | |
 |[**signUpAPI**](#signupapi) | **POST** /auth/signup | |
 
@@ -61,8 +61,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **passwordCodePostAPI**
-> PasswordCodePostOutputBody passwordCodePostAPI(passwordCodePostInputBody)
+# **resetPasswordPostAPI**
+> ResetPasswordPostOutputBody resetPasswordPostAPI(resetPasswordPostInputBody)
 
 
 ### Example
@@ -71,16 +71,16 @@ No authorization required
 import {
     AuthApi,
     Configuration,
-    PasswordCodePostInputBody
+    ResetPasswordPostInputBody
 } from './api';
 
 const configuration = new Configuration();
 const apiInstance = new AuthApi(configuration);
 
-let passwordCodePostInputBody: PasswordCodePostInputBody; //
+let resetPasswordPostInputBody: ResetPasswordPostInputBody; //
 
-const { status, data } = await apiInstance.passwordCodePostAPI(
-    passwordCodePostInputBody
+const { status, data } = await apiInstance.resetPasswordPostAPI(
+    resetPasswordPostInputBody
 );
 ```
 
@@ -88,12 +88,12 @@ const { status, data } = await apiInstance.passwordCodePostAPI(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **passwordCodePostInputBody** | **PasswordCodePostInputBody**|  | |
+| **resetPasswordPostInputBody** | **ResetPasswordPostInputBody**|  | |
 
 
 ### Return type
 
-**PasswordCodePostOutputBody**
+**ResetPasswordPostOutputBody**
 
 ### Authorization
 

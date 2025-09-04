@@ -11,8 +11,6 @@ docs/ForgotPasswordPostInputBody.md
 docs/ForgotPasswordPostOutputBody.md
 docs/HomeApi.md
 docs/HomeGetOutputBody.md
-docs/PasswordCodePostInputBody.md
-docs/PasswordCodePostOutputBody.md
 docs/Profile.md
 docs/ProfileGetOutputBody.md
 docs/ProfileUpdate.md
@@ -21,6 +19,8 @@ docs/ProfileUpdateEmailInputBody.md
 docs/ProfileUpdateEmailOutputBody.md
 docs/ProfileUpdateInputBody.md
 docs/ProfileUpdateOutputBody.md
+docs/ResetPasswordPostInputBody.md
+docs/ResetPasswordPostOutputBody.md
 docs/SignInInputBody.md
 docs/SignInOutputBody.md
 docs/SignUpInputBody.md
