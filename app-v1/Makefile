@@ -9,5 +9,5 @@ expo-start-dev:
 expo-start-stag:
 	NODE_ENV=stag npx expo start -c
 
-expo-build-web:
-	npx expo export --platform web
+expo-build-stag:
+	NODE_ENV=stag npx expo export --platform web
