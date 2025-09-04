@@ -14,7 +14,7 @@ export const ResetPasswordScreen = () => {
 
   const submit = async (data: any) => {
     try {
-      const response = await authApi.resetPasswordPostAPI({
+      await authApi.resetPasswordPostAPI({
         code: data.code,
         password: data.password,
       });
