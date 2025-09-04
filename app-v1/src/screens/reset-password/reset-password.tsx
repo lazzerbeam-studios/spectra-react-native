@@ -18,10 +18,7 @@ export const ResetPasswordScreen = () => {
         code: data.code,
         password: data.password,
       });
-
-      console.log(response);
-
-      router.replace('/');
+      router.replace('/sign-in');
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
       console.log(error);
@@ -43,7 +40,7 @@ export const ResetPasswordScreen = () => {
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
-          <Text className='mb-4 text-4xl font-bold text-foreground'>
+          <Text className='mb-6 text-4xl font-bold text-foreground'>
             Reset Password
           </Text>
 
