@@ -2,12 +2,13 @@
 openapi:
 	sh openapi-generator/openapi-generator.sh
 
-# expo
+# expo start
 expo-start-dev:
 	npx expo start -c
 
 expo-start-stag:
 	NODE_ENV=stag npx expo start -c
 
-expo-build-stag:
+# expo export
+expo-export-stag:
 	NODE_ENV=stag npx expo export --platform web
