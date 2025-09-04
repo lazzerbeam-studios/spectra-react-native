@@ -1,5 +1,4 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,23 +7,18 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { authApi } from '~/src/api';
 import { errorGet } from '~/src/scripts/errors';
-import { ProfileStore } from '~/src/stores/profile.store';
 
-export const SignInScreen = () => {
-  const { profileInit } = ProfileStore();
-
+export const ResetPasswordScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
   const submit = async (data: any) => {
     try {
-      const response = await authApi.signInAPI({
-        email: data.email,
+      await authApi.resetPasswordPostAPI({
+        code: data.code,
         password: data.password,
       });
-      await AsyncStorage.setItem('token', response.data.token);
-      await profileInit();
-      router.replace('/dashboad');
+      router.replace('/sign-in');
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
       console.log(error);
@@ -35,7 +29,7 @@ export const SignInScreen = () => {
     <SafeAreaView className='flex h-full'>
 
       <View className='ms-2 mt-2'>
-        <Link href='/' asChild>
+        <Link href='/forgot-password' asChild>
           <TouchableOpacity className='p-2'>
             <Ionicons className="color-foreground" name="chevron-back" size={50} />
           </TouchableOpacity>
@@ -46,12 +40,12 @@ export const SignInScreen = () => {
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
-          <Text className='mb-8 text-4xl font-bold text-foreground'>
-            Sign In
+          <Text className='mb-6 text-4xl font-bold text-foreground'>
+            Reset Password
           </Text>
 
           <Controller
-            name='email'
+            name='code'
             defaultValue={''}
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
@@ -59,22 +53,21 @@ export const SignInScreen = () => {
                 value={value}
                 onBlur={onBlur}
                 onChangeText={onChange}
-                placeholder='Email'
-                keyboardType='email-address'
+                placeholder='Code'
+                keyboardType='number-pad'
                 className='mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
               ></TextInput>
             )}
             rules={{
               required: true,
-              pattern: /^\S+@\S+$/i,
             }}
           ></Controller>
 
-          {errors.email && (
+          {errors.code && (
             <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
-              Please enter a valid email address
-              {errors.email.type === 'required' && ' (Email is required)'}
-              {errors.email.type === 'pattern' && ' (Please enter a valid email format)'}
+              Please enter the verification code
+              {errors.code.type === 'required' && ' (Code is required)'}
+              {errors.code.type === 'minLength' && ' (Code must be at least 6 characters)'}
             </Text>
           )}
 
@@ -94,13 +87,15 @@ export const SignInScreen = () => {
             )}
             rules={{
               required: true,
+              minLength: 8,
             }}
           ></Controller>
 
-          {errors.password && (
+          {errors.newPassword && (
             <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
               Please enter a valid password
-              {errors.password.type === 'required' && ' (Password is required)'}
+              {errors.newPassword.type === 'required' && ' (Password is required)'}
+              {errors.newPassword.type === 'minLength' && ' (Password must be at least 8 characters)'}
             </Text>
           )}
 
@@ -109,14 +104,6 @@ export const SignInScreen = () => {
               Submit
             </Text>
           </TouchableOpacity>
-
-          <Link href='/forgot-password' asChild>
-            <TouchableOpacity className='mb-4 p-2'>
-              <Text className='text-lg font-medium text-foreground underline'>
-                Forgot Password?
-              </Text>
-            </TouchableOpacity>
-          </Link>
 
         </View>
         <View className='native:hidden flex-[0.2]'></View>

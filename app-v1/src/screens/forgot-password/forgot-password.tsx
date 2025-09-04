@@ -1,5 +1,4 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,23 +7,17 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { authApi } from '~/src/api';
 import { errorGet } from '~/src/scripts/errors';
-import { ProfileStore } from '~/src/stores/profile.store';
 
-export const SignInScreen = () => {
-  const { profileInit } = ProfileStore();
-
+export const ForgotPasswordScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
   const submit = async (data: any) => {
     try {
-      const response = await authApi.signInAPI({
+      await authApi.forgotPasswordPostAPI({
         email: data.email,
-        password: data.password,
       });
-      await AsyncStorage.setItem('token', response.data.token);
-      await profileInit();
-      router.replace('/dashboad');
+      router.replace('/reset-password');
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
       console.log(error);
@@ -35,7 +28,7 @@ export const SignInScreen = () => {
     <SafeAreaView className='flex h-full'>
 
       <View className='ms-2 mt-2'>
-        <Link href='/' asChild>
+        <Link href='/sign-in' asChild>
           <TouchableOpacity className='p-2'>
             <Ionicons className="color-foreground" name="chevron-back" size={50} />
           </TouchableOpacity>
@@ -46,8 +39,8 @@ export const SignInScreen = () => {
         <View className='native:hidden flex-[0.2]'></View>
         <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
-          <Text className='mb-8 text-4xl font-bold text-foreground'>
-            Sign In
+          <Text className='mb-6 text-4xl font-bold text-foreground'>
+            Forgot Password
           </Text>
 
           <Controller
@@ -78,45 +71,11 @@ export const SignInScreen = () => {
             </Text>
           )}
 
-          <Controller
-            name='password'
-            defaultValue={''}
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                value={value}
-                onBlur={onBlur}
-                onChangeText={onChange}
-                placeholder='Password'
-                secureTextEntry={true}
-                className='mb-6 h-16 w-96 rounded-full border-2 border-foreground px-6 py-4 text-2xl text-foreground'
-              ></TextInput>
-            )}
-            rules={{
-              required: true,
-            }}
-          ></Controller>
-
-          {errors.password && (
-            <Text className="-mt-4 mb-2 w-80 text-sm text-red-500">
-              Please enter a valid password
-              {errors.password.type === 'required' && ' (Password is required)'}
-            </Text>
-          )}
-
           <TouchableOpacity className='mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground' onPress={handleSubmit(submit)}>
             <Text className='text-3xl text-background'>
-              Submit
+              Send
             </Text>
           </TouchableOpacity>
-
-          <Link href='/forgot-password' asChild>
-            <TouchableOpacity className='mb-4 p-2'>
-              <Text className='text-lg font-medium text-foreground underline'>
-                Forgot Password?
-              </Text>
-            </TouchableOpacity>
-          </Link>
 
         </View>
         <View className='native:hidden flex-[0.2]'></View>
