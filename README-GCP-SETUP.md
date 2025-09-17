@@ -4,7 +4,7 @@
 
 **1. Create Service Account:**
 
-    gcloud iam service-accounts create [project-initials]-app --display-name="[project-initials]-app" --project [project]-gcp
+    gcloud iam service-accounts create [project]-app --display-name="[project]-app" --project [project]-gcp
     gcloud projects add-iam-policy-binding [project]-gcp --member="serviceAccount:[service_account_email]" --role="roles/storage.admin"
     gcloud iam service-accounts keys create --iam-account=[service_account_email] gcp.json
 
