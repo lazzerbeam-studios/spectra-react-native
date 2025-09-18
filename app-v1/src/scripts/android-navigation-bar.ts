@@ -1,5 +1,5 @@
+import { NavTheme } from '~/src/theme';
 import { Platform } from 'react-native';
-import { NavTheme } from '~/src/theme-constants';
 import * as NavigationBar from 'expo-navigation-bar';
 
 export async function setAndroidNavigationBar(theme: 'light' | 'dark') {
