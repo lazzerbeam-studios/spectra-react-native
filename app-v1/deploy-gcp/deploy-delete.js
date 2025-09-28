@@ -1,4 +1,4 @@
-const { bucket } = require('./deploy-env');
+import { bucket } from './deploy-env.js';
 
 const deleteBucketFiles = async () => {
   try {

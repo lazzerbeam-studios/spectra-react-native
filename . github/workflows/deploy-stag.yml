@@ -1,0 +1,27 @@
+name: Deploy Stag
+
+on:
+  push:
+    branches: ["develop"]
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: NodeJS Install
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: NPM Install
+        run: |
+          cd app-v1
+          npm install
+
+      # - name: Deploy Stag
+      #   run: |
+      #     cd app-v1
+      #     make deploy-stag

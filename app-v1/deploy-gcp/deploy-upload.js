@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const zlib = require('zlib');
+import fs from 'fs';
+import path from 'path';
+import zlib from 'zlib';
 
-const { bucket, folderPath } = require('./deploy-env');
+import { bucket, folderPath } from './deploy-env.js';
 
 const fileStorageUpload = async (fileStream, filePathStorage) => {
   try {
@@ -10,7 +10,7 @@ const fileStorageUpload = async (fileStream, filePathStorage) => {
 
     let metadata = {
       contentEncoding: 'gzip',
-      cacheControl: 'max-age=3600, public',
+      cacheControl: 'max-age=300, public',
     };
     if (filePathStorage === 'index.html') {
       metadata = {
