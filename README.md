@@ -18,6 +18,7 @@
     asdf plugin add nodejs
 
     asdf install nodejs 22.18.0
+    asdf set nodejs 22.18.0
     asdf reshim nodejs
 
 **commands**
