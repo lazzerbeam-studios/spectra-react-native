@@ -8,7 +8,7 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { authApi } from '~/src/api';
 import { ErrorGet } from '~/src/scripts/error';
 
-export const ForgotPasswordScreen = () => {
+export const PasswordForgotScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
