@@ -17,7 +17,7 @@ export const ForgotPasswordScreen = () => {
       await authApi.passwordForgotPostAPI({
         email: data.email,
       });
-      router.replace('/reset-password');
+      router.replace('/password-reset');
     } catch (errors: any) {
       const error = ErrorGet(errors.response.data);
       console.log(error);
