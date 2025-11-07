@@ -64,6 +64,7 @@ const RootLayout = () => {
       <StatusBar style={(colorScheme === 'dark') ? 'light' : 'dark'}></StatusBar>
       <Stack>
         <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen name='(auth)' options={{ headerShown: false }}></Stack.Screen>
       </Stack>
     </ThemeProvider>
   );
