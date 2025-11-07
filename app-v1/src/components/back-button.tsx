@@ -10,8 +10,8 @@ export const BackButton = () => {
   return (
     <>
       {router.canGoBack() && (
-        <Pressable className='p-2 web:ms-2' onPress={goBack}>
-          <Ionicons className="color-foreground" name="chevron-back" size={35} />
+        <Pressable onPress={goBack} className='p-2 web:ms-2'>
+          <Ionicons name="chevron-back" size={35} className="color-foreground" />
         </Pressable>
       )}
     </>
