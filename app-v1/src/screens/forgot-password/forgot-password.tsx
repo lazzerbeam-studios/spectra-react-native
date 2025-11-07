@@ -6,7 +6,7 @@ import { useForm, Controller, useFormState } from 'react-hook-form';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { authApi } from '~/src/api';
-import { errorGet } from '~/src/scripts/errors';
+import { ErrorGet } from '~/src/scripts/error';
 
 export const ForgotPasswordScreen = () => {
   const { control, handleSubmit } = useForm();
@@ -14,12 +14,12 @@ export const ForgotPasswordScreen = () => {
 
   const submit = async (data: any) => {
     try {
-      await authApi.forgotPasswordPostAPI({
+      await authApi.passwordForgotPostAPI({
         email: data.email,
       });
       router.replace('/reset-password');
     } catch (errors: any) {
-      const error = errorGet(errors.response.data);
+      const error = ErrorGet(errors.response.data);
       console.log(error);
     }
   };
