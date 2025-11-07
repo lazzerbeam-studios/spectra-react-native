@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Pressable } from 'react-native';
 
 import { authApi } from '~/src/api';
 import { ErrorGet } from '~/src/scripts/error';
@@ -32,19 +32,18 @@ export const SignUpScreen = () => {
   };
 
   return (
-    <SafeAreaView className='flex h-full'>
+    <SafeAreaView className='h-full'>
 
       <View className='ms-2 mt-2'>
         <Link href='/' asChild>
-          <TouchableOpacity className='p-2'>
+          <Pressable className='p-2'>
             <Ionicons className="color-foreground" name="chevron-back" size={35} />
-          </TouchableOpacity>
+          </Pressable>
         </Link>
       </View>
 
-      <View className='mb-44 flex w-full flex-1 flex-row'>
-        <View className='native:hidden flex-[0.2]'></View>
-        <View className='native:flex-1 flex-[0.6] items-center justify-center'>
+      <View className='flex-1 items-center justify-center'>
+        <View className='w-full items-center sm:w-1/3'>
 
           <Text className='mb-8 text-4xl font-bold text-foreground'>
             Sign Up
@@ -106,14 +105,13 @@ export const SignUpScreen = () => {
             </Text>
           )}
 
-          <TouchableOpacity onPress={handleSubmit(submit)} className='mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'>
+          <Pressable onPress={handleSubmit(submit)} className='mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'>
             <Text className='text-3xl text-background'>
               Submit
             </Text>
-          </TouchableOpacity>
+          </Pressable>
 
         </View>
-        <View className='native:hidden flex-[0.2]'></View>
       </View>
 
     </SafeAreaView>
