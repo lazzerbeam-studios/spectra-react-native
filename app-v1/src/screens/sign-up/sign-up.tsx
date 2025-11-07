@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -13,10 +14,16 @@ import { ProfileStore } from '~/src/stores/profile.store';
 export const SignUpScreen = () => {
   const { profileInit } = ProfileStore();
 
-  const { control, handleSubmit } = useForm();
+  const [loading, setLoading] = useState(false);
+
+  const { control, handleSubmit, watch } = useForm();
   const { errors } = useFormState({ control });
 
+  const emailValue = watch('email');
+  const passwordValue = watch('password');
+
   const submit = async (data: any) => {
+    setLoading(true);
     try {
       const response = await authApi.signUpAPI({
         email: data.email,
@@ -28,6 +35,8 @@ export const SignUpScreen = () => {
     } catch (errors: any) {
       const error = ErrorGet(errors.response.data);
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -105,7 +114,7 @@ export const SignUpScreen = () => {
             </Text>
           )}
 
-          <Pressable onPress={handleSubmit(submit)} className='mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'>
+          <Pressable onPress={handleSubmit(submit)} disabled={loading || !emailValue || !passwordValue} className='mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'>
             <Text className='text-3xl text-background'>
               Submit
             </Text>
