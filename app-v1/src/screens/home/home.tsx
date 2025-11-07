@@ -15,10 +15,10 @@ export const HomeScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView className='h-full'>
 
-      <View className='items-center'>
-        <View className='w-full sm:w-1/3'>
+      <View className='flex-1 items-center justify-center'>
+        <View className='w-full items-center sm:w-1/3'>
 
           <Text className='mb-24 pt-2 font-Poppins500 text-8xl text-foreground'>
             Spectra
