@@ -1,8 +1,13 @@
+import { Stack } from 'expo-router';
+
 import { ProfileUpdateScreen } from '~/src/screens/profile-update/profile-update';
 
 const ProfileUpdate = () => {
   return (
-    <ProfileUpdateScreen></ProfileUpdateScreen>
+    <>
+      <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
+      <ProfileUpdateScreen></ProfileUpdateScreen>
+    </>
   );
 };
 
