@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  darkMode: "class",
+  darkMode: 'class',
   content: [
     './src/app/**/*.{js,ts,tsx}',
     './src/components/**/*.{js,ts,tsx}',
@@ -26,10 +26,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        Poppins400: ["Poppins400"],
-        Poppins500: ["Poppins500"],
-        Poppins600: ["Poppins600"],
-        Poppins700: ["Poppins700"],
+        Poppins400: ['Poppins400'],
+        Poppins500: ['Poppins500'],
+        Poppins600: ['Poppins600'],
+        Poppins700: ['Poppins700'],
       },
     },
   },
