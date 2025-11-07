@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
 
-import { ForgotPasswordScreen } from '~/src/screens/forgot-password/forgot-password';
+import { ForgotPasswordScreen } from '~/src/screens/password-forgot/password-forgot';
 
 const PasswordForgot = () => {
   return (
