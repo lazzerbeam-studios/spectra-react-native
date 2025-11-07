@@ -7,7 +7,7 @@ import { useForm, Controller, useFormState } from 'react-hook-form';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { authApi } from '~/src/api';
-import { errorGet } from '~/src/scripts/errors';
+import { ErrorGet } from '~/src/scripts/error';
 import { ProfileStore } from '~/src/stores/profile.store';
 
 export const SignUpScreen = () => {
@@ -26,7 +26,7 @@ export const SignUpScreen = () => {
       await profileInit();
       router.replace('/dashboad');
     } catch (errors: any) {
-      const error = errorGet(errors.response.data);
+      const error = ErrorGet(errors.response.data);
       console.log(error);
     }
   };

@@ -1,4 +1,4 @@
-export const errorGet = (error: any) => {
+export const ErrorGet = (error: any) => {
   let errorString = 'There was a server error.';
   if (error.detail) {
     errorString = error.detail;
