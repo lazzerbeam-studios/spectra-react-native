@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**forgotPasswordPostAPI**](#forgotpasswordpostapi) | **POST** /auth/forgotpassword | |
-|[**resetPasswordPostAPI**](#resetpasswordpostapi) | **POST** /auth/resetpassword | |
+|[**passwordForgotPostAPI**](#passwordforgotpostapi) | **POST** /auth/passwordforgot | |
+|[**passwordResetPostAPI**](#passwordresetpostapi) | **POST** /auth/passwordreset | |
 |[**signInAPI**](#signinapi) | **POST** /auth/signin | |
 |[**signUpAPI**](#signupapi) | **POST** /auth/signup | |
 
-# **forgotPasswordPostAPI**
-> ForgotPasswordPostOutputBody forgotPasswordPostAPI(forgotPasswordPostInputBody)
+# **passwordForgotPostAPI**
+> PasswordForgotPostOutputBody passwordForgotPostAPI(passwordForgotPostInputBody)
 
 
 ### Example
@@ -19,16 +19,16 @@ All URIs are relative to *http://localhost*
 import {
     AuthApi,
     Configuration,
-    ForgotPasswordPostInputBody
+    PasswordForgotPostInputBody
 } from './api';
 
 const configuration = new Configuration();
 const apiInstance = new AuthApi(configuration);
 
-let forgotPasswordPostInputBody: ForgotPasswordPostInputBody; //
+let passwordForgotPostInputBody: PasswordForgotPostInputBody; //
 
-const { status, data } = await apiInstance.forgotPasswordPostAPI(
-    forgotPasswordPostInputBody
+const { status, data } = await apiInstance.passwordForgotPostAPI(
+    passwordForgotPostInputBody
 );
 ```
 
@@ -36,12 +36,12 @@ const { status, data } = await apiInstance.forgotPasswordPostAPI(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **forgotPasswordPostInputBody** | **ForgotPasswordPostInputBody**|  | |
+| **passwordForgotPostInputBody** | **PasswordForgotPostInputBody**|  | |
 
 
 ### Return type
 
-**ForgotPasswordPostOutputBody**
+**PasswordForgotPostOutputBody**
 
 ### Authorization
 
@@ -61,8 +61,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **resetPasswordPostAPI**
-> ResetPasswordPostOutputBody resetPasswordPostAPI(resetPasswordPostInputBody)
+# **passwordResetPostAPI**
+> PasswordResetPostOutputBody passwordResetPostAPI(passwordResetPostInputBody)
 
 
 ### Example
@@ -71,16 +71,16 @@ No authorization required
 import {
     AuthApi,
     Configuration,
-    ResetPasswordPostInputBody
+    PasswordResetPostInputBody
 } from './api';
 
 const configuration = new Configuration();
 const apiInstance = new AuthApi(configuration);
 
-let resetPasswordPostInputBody: ResetPasswordPostInputBody; //
+let passwordResetPostInputBody: PasswordResetPostInputBody; //
 
-const { status, data } = await apiInstance.resetPasswordPostAPI(
-    resetPasswordPostInputBody
+const { status, data } = await apiInstance.passwordResetPostAPI(
+    passwordResetPostInputBody
 );
 ```
 
@@ -88,12 +88,12 @@ const { status, data } = await apiInstance.resetPasswordPostAPI(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **resetPasswordPostInputBody** | **ResetPasswordPostInputBody**|  | |
+| **passwordResetPostInputBody** | **PasswordResetPostInputBody**|  | |
 
 
 ### Return type
 
-**ResetPasswordPostOutputBody**
+**PasswordResetPostOutputBody**
 
 ### Authorization
 

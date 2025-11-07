@@ -1,4 +1,4 @@
-# ProfileUpdateInputBody
+# PasswordResetPostOutputBody
 
 
 ## Properties
@@ -6,18 +6,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **$schema** | **string** | A URL to the JSON Schema for this object. | [optional] [readonly] [default to undefined]
-**id** | **number** |  | [default to undefined]
-**name** | **string** |  | [default to undefined]
+**message** | **string** |  | [default to undefined]
 
 ## Example
 
 ```typescript
-import { ProfileUpdateInputBody } from './api';
+import { PasswordResetPostOutputBody } from './api';
 
-const instance: ProfileUpdateInputBody = {
+const instance: PasswordResetPostOutputBody = {
     $schema,
-    id,
-    name,
+    message,
 };
 ```
 

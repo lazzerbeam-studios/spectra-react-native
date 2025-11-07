@@ -64,21 +64,36 @@ export interface ErrorModel {
      */
     'type'?: string;
 }
-export interface ForgotPasswordPostInputBody {
-    /**
-     * A URL to the JSON Schema for this object.
-     */
-    '$schema'?: string;
-    'email': string;
-}
-export interface ForgotPasswordPostOutputBody {
+export interface HomeGetOutputBody {
     /**
      * A URL to the JSON Schema for this object.
      */
     '$schema'?: string;
     'message': string;
 }
-export interface HomeGetOutputBody {
+export interface PasswordForgotPostInputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    '$schema'?: string;
+    'email': string;
+}
+export interface PasswordForgotPostOutputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    '$schema'?: string;
+    'message': string;
+}
+export interface PasswordResetPostInputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    '$schema'?: string;
+    'code': string;
+    'password': string;
+}
+export interface PasswordResetPostOutputBody {
     /**
      * A URL to the JSON Schema for this object.
      */
@@ -89,6 +104,7 @@ export interface Profile {
     'created': string;
     'email': string;
     'id': number;
+    'image': string;
     'name': string;
 }
 export interface ProfileGetOutputBody {
@@ -98,20 +114,20 @@ export interface ProfileGetOutputBody {
     '$schema'?: string;
     'object': Profile;
 }
-export interface ProfileUpdate {
-    'id'?: number;
-    'name'?: string;
-}
-export interface ProfileUpdateEmail {
-    'email'?: string;
-    'id'?: number;
+export interface ProfileImageUpdateOutputBody {
+    /**
+     * A URL to the JSON Schema for this object.
+     */
+    '$schema'?: string;
+    'object': Profile;
 }
 export interface ProfileUpdateEmailInputBody {
     /**
      * A URL to the JSON Schema for this object.
      */
     '$schema'?: string;
-    'object': ProfileUpdateEmail;
+    'email': string;
+    'id': number;
 }
 export interface ProfileUpdateEmailOutputBody {
     /**
@@ -125,7 +141,8 @@ export interface ProfileUpdateInputBody {
      * A URL to the JSON Schema for this object.
      */
     '$schema'?: string;
-    'object': ProfileUpdate;
+    'id': number;
+    'name': string;
 }
 export interface ProfileUpdateOutputBody {
     /**
@@ -133,21 +150,6 @@ export interface ProfileUpdateOutputBody {
      */
     '$schema'?: string;
     'object': Profile;
-}
-export interface ResetPasswordPostInputBody {
-    /**
-     * A URL to the JSON Schema for this object.
-     */
-    '$schema'?: string;
-    'code': string;
-    'password': string;
-}
-export interface ResetPasswordPostOutputBody {
-    /**
-     * A URL to the JSON Schema for this object.
-     */
-    '$schema'?: string;
-    'message': string;
 }
 export interface SignInInputBody {
     /**
@@ -187,14 +189,14 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
     return {
         /**
          * 
-         * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+         * @param {PasswordForgotPostInputBody} passwordForgotPostInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        forgotPasswordPostAPI: async (forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'forgotPasswordPostInputBody' is not null or undefined
-            assertParamExists('forgotPasswordPostAPI', 'forgotPasswordPostInputBody', forgotPasswordPostInputBody)
-            const localVarPath = `/auth/forgotpassword`;
+        passwordForgotPostAPI: async (passwordForgotPostInputBody: PasswordForgotPostInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordForgotPostInputBody' is not null or undefined
+            assertParamExists('passwordForgotPostAPI', 'passwordForgotPostInputBody', passwordForgotPostInputBody)
+            const localVarPath = `/auth/passwordforgot`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -213,7 +215,7 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(forgotPasswordPostInputBody, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordForgotPostInputBody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -222,14 +224,14 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * 
-         * @param {ResetPasswordPostInputBody} resetPasswordPostInputBody 
+         * @param {PasswordResetPostInputBody} passwordResetPostInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        resetPasswordPostAPI: async (resetPasswordPostInputBody: ResetPasswordPostInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'resetPasswordPostInputBody' is not null or undefined
-            assertParamExists('resetPasswordPostAPI', 'resetPasswordPostInputBody', resetPasswordPostInputBody)
-            const localVarPath = `/auth/resetpassword`;
+        passwordResetPostAPI: async (passwordResetPostInputBody: PasswordResetPostInputBody, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordResetPostInputBody' is not null or undefined
+            assertParamExists('passwordResetPostAPI', 'passwordResetPostInputBody', passwordResetPostInputBody)
+            const localVarPath = `/auth/passwordreset`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -248,7 +250,7 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(resetPasswordPostInputBody, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordResetPostInputBody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -336,26 +338,26 @@ export const AuthApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
-         * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+         * @param {PasswordForgotPostInputBody} passwordForgotPostInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async forgotPasswordPostAPI(forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ForgotPasswordPostOutputBody>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.forgotPasswordPostAPI(forgotPasswordPostInputBody, options);
+        async passwordForgotPostAPI(passwordForgotPostInputBody: PasswordForgotPostInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordForgotPostOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.passwordForgotPostAPI(passwordForgotPostInputBody, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AuthApi.forgotPasswordPostAPI']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.passwordForgotPostAPI']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * 
-         * @param {ResetPasswordPostInputBody} resetPasswordPostInputBody 
+         * @param {PasswordResetPostInputBody} passwordResetPostInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async resetPasswordPostAPI(resetPasswordPostInputBody: ResetPasswordPostInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResetPasswordPostOutputBody>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.resetPasswordPostAPI(resetPasswordPostInputBody, options);
+        async passwordResetPostAPI(passwordResetPostInputBody: PasswordResetPostInputBody, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordResetPostOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.passwordResetPostAPI(passwordResetPostInputBody, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AuthApi.resetPasswordPostAPI']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['AuthApi.passwordResetPostAPI']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -393,21 +395,21 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
     return {
         /**
          * 
-         * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+         * @param {PasswordForgotPostInputBody} passwordForgotPostInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        forgotPasswordPostAPI(forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options?: RawAxiosRequestConfig): AxiosPromise<ForgotPasswordPostOutputBody> {
-            return localVarFp.forgotPasswordPostAPI(forgotPasswordPostInputBody, options).then((request) => request(axios, basePath));
+        passwordForgotPostAPI(passwordForgotPostInputBody: PasswordForgotPostInputBody, options?: RawAxiosRequestConfig): AxiosPromise<PasswordForgotPostOutputBody> {
+            return localVarFp.passwordForgotPostAPI(passwordForgotPostInputBody, options).then((request) => request(axios, basePath));
         },
         /**
          * 
-         * @param {ResetPasswordPostInputBody} resetPasswordPostInputBody 
+         * @param {PasswordResetPostInputBody} passwordResetPostInputBody 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        resetPasswordPostAPI(resetPasswordPostInputBody: ResetPasswordPostInputBody, options?: RawAxiosRequestConfig): AxiosPromise<ResetPasswordPostOutputBody> {
-            return localVarFp.resetPasswordPostAPI(resetPasswordPostInputBody, options).then((request) => request(axios, basePath));
+        passwordResetPostAPI(passwordResetPostInputBody: PasswordResetPostInputBody, options?: RawAxiosRequestConfig): AxiosPromise<PasswordResetPostOutputBody> {
+            return localVarFp.passwordResetPostAPI(passwordResetPostInputBody, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -436,22 +438,22 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
 export class AuthApi extends BaseAPI {
     /**
      * 
-     * @param {ForgotPasswordPostInputBody} forgotPasswordPostInputBody 
+     * @param {PasswordForgotPostInputBody} passwordForgotPostInputBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public forgotPasswordPostAPI(forgotPasswordPostInputBody: ForgotPasswordPostInputBody, options?: RawAxiosRequestConfig) {
-        return AuthApiFp(this.configuration).forgotPasswordPostAPI(forgotPasswordPostInputBody, options).then((request) => request(this.axios, this.basePath));
+    public passwordForgotPostAPI(passwordForgotPostInputBody: PasswordForgotPostInputBody, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).passwordForgotPostAPI(passwordForgotPostInputBody, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
-     * @param {ResetPasswordPostInputBody} resetPasswordPostInputBody 
+     * @param {PasswordResetPostInputBody} passwordResetPostInputBody 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public resetPasswordPostAPI(resetPasswordPostInputBody: ResetPasswordPostInputBody, options?: RawAxiosRequestConfig) {
-        return AuthApiFp(this.configuration).resetPasswordPostAPI(resetPasswordPostInputBody, options).then((request) => request(this.axios, this.basePath));
+    public passwordResetPostAPI(passwordResetPostInputBody: PasswordResetPostInputBody, options?: RawAxiosRequestConfig) {
+        return AuthApiFp(this.configuration).passwordResetPostAPI(passwordResetPostInputBody, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -607,6 +609,50 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         },
         /**
          * 
+         * @param {File} file 
+         * @param {string} [authorization] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        profileImageUpdateAPI: async (file: File, authorization?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'file' is not null or undefined
+            assertParamExists('profileImageUpdateAPI', 'file', file)
+            const localVarPath = `/users/profile/image`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            if (authorization != null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @param {ProfileUpdateInputBody} profileUpdateInputBody 
          * @param {string} [authorization] 
          * @param {*} [options] Override http request option.
@@ -706,6 +752,19 @@ export const UsersApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {File} file 
+         * @param {string} [authorization] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async profileImageUpdateAPI(file: File, authorization?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProfileImageUpdateOutputBody>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.profileImageUpdateAPI(file, authorization, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['UsersApi.profileImageUpdateAPI']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
          * @param {ProfileUpdateInputBody} profileUpdateInputBody 
          * @param {string} [authorization] 
          * @param {*} [options] Override http request option.
@@ -750,6 +809,16 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         },
         /**
          * 
+         * @param {File} file 
+         * @param {string} [authorization] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        profileImageUpdateAPI(file: File, authorization?: string, options?: RawAxiosRequestConfig): AxiosPromise<ProfileImageUpdateOutputBody> {
+            return localVarFp.profileImageUpdateAPI(file, authorization, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {ProfileUpdateInputBody} profileUpdateInputBody 
          * @param {string} [authorization] 
          * @param {*} [options] Override http request option.
@@ -783,6 +852,17 @@ export class UsersApi extends BaseAPI {
      */
     public profileGetAPI(authorization?: string, options?: RawAxiosRequestConfig) {
         return UsersApiFp(this.configuration).profileGetAPI(authorization, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {File} file 
+     * @param {string} [authorization] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public profileImageUpdateAPI(file: File, authorization?: string, options?: RawAxiosRequestConfig) {
+        return UsersApiFp(this.configuration).profileImageUpdateAPI(file, authorization, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -1,4 +1,4 @@
-# ProfileUpdateInputBody
+# ProfileImageUpdateOutputBody
 
 
 ## Properties
@@ -6,18 +6,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **$schema** | **string** | A URL to the JSON Schema for this object. | [optional] [readonly] [default to undefined]
-**id** | **number** |  | [default to undefined]
-**name** | **string** |  | [default to undefined]
+**object** | [**Profile**](Profile.md) |  | [default to undefined]
 
 ## Example
 
 ```typescript
-import { ProfileUpdateInputBody } from './api';
+import { ProfileImageUpdateOutputBody } from './api';
 
-const instance: ProfileUpdateInputBody = {
+const instance: ProfileImageUpdateOutputBody = {
     $schema,
-    id,
-    name,
+    object,
 };
 ```
 
