@@ -110,7 +110,7 @@ export const SignInScreen = () => {
             </Text>
           </TouchableOpacity>
 
-          <Link href='/forgot-password' asChild>
+          <Link href='/password-forgot' asChild>
             <TouchableOpacity className='mb-4 p-2'>
               <Text className='text-lg font-medium text-foreground underline'>
                 Forgot Password?

@@ -12,6 +12,7 @@
     "@expo/metro-runtime": "^6.1.2",
     "@expo/vector-icons": "^15.0.2",
     "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-blossom-ui/components": "^0.16.0",
     "@react-navigation/native": "^7.1.8",
     "axios": "^1.9.0",
     "expo": "^54.0.8",

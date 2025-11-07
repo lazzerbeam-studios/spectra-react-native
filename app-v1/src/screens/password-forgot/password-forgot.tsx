@@ -8,7 +8,7 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { authApi } from '~/src/api';
 import { ErrorGet } from '~/src/scripts/error';
 
-export const ForgotPasswordScreen = () => {
+export const PasswordForgotScreen = () => {
   const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
@@ -17,7 +17,7 @@ export const ForgotPasswordScreen = () => {
       await authApi.passwordForgotPostAPI({
         email: data.email,
       });
-      router.replace('/reset-password');
+      router.replace('/password-reset');
     } catch (errors: any) {
       const error = ErrorGet(errors.response.data);
       console.log(error);
