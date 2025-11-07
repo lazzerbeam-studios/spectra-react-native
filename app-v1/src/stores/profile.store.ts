@@ -51,7 +51,7 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
   profileUpdate: async (profile: Profile) => {
     const token = AuthStore.getState().authToken;
     try {
-      const response = await usersApi.profileUpdateAPI({ object: profile }, token);
+      const response = await usersApi.profileUpdateAPI(profile, token);
       get().profileSet(response.data.object);
     } catch (errors: any) {
       const error = errorGet(errors.response.data);
