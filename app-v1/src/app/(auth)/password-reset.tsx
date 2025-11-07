@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
 
-import { ResetPasswordScreen } from '~/src/screens/reset-password/reset-password';
+import { ResetPasswordScreen } from '~/src/screens/password-reset/reset-password';
 
 const PasswordReset = () => {
   return (

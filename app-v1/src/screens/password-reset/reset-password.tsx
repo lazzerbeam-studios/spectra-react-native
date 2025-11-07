@@ -29,7 +29,7 @@ export const ResetPasswordScreen = () => {
     <SafeAreaView className='flex h-full'>
 
       <View className='ms-2 mt-2'>
-        <Link href='/forgot-password' asChild>
+        <Link href='/password-forgot' asChild>
           <TouchableOpacity className='p-2'>
             <Ionicons className="color-foreground" name="chevron-back" size={50} />
           </TouchableOpacity>
