@@ -2,7 +2,7 @@ import { Stack } from 'expo-router';
 
 import { ForgotPasswordScreen } from '~/src/screens/forgot-password/forgot-password';
 
-const ForgotPassword = () => {
+const PasswordForgot = () => {
   return (
     <>
       <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
@@ -11,4 +11,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default PasswordForgot;

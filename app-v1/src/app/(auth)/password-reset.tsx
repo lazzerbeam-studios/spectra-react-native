@@ -2,7 +2,7 @@ import { Stack } from 'expo-router';
 
 import { ResetPasswordScreen } from '~/src/screens/reset-password/reset-password';
 
-const ResetPassword = () => {
+const PasswordReset = () => {
   return (
     <>
       <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
@@ -11,4 +11,4 @@ const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+export default PasswordReset;
