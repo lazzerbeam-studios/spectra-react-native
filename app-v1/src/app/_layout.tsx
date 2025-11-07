@@ -9,7 +9,7 @@ import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700
 
 import { NavTheme } from '~/src/theme';
 import { ProfileStore } from '~/src/stores/profile.store';
-import { setAndroidNavigationBar } from '~/src/scripts/android-navigation-bar';
+import { AndroidNavigationBarSet } from '~/src/scripts/android-navigation-bar';
 
 import '~/src/global.css';
 
@@ -42,7 +42,7 @@ const RootLayout = () => {
       const colorTheme = (await AsyncStorage.getItem('colorScheme') || colorScheme) === 'dark' ? 'dark' : 'light';
       colorSchemeLoadedSet(true);
       setColorScheme(colorTheme);
-      setAndroidNavigationBar(colorTheme);
+      AndroidNavigationBarSet(colorTheme);
     })().finally(() => {
       SplashScreen.hideAsync();
     });
