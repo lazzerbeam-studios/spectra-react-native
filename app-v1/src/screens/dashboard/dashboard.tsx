@@ -1,34 +1,26 @@
-import { Stack } from 'expo-router';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { DashboardProfile } from './dashboard-profile';
+import { Text } from '~/src/components/ui/text';
+
+import { DashboardHeader } from './dashboard-header';
 
 export const DashboardScreen = () => {
   return (
-    <>
+    <SafeAreaView>
 
-      <Stack.Screen
-        options={{
-          title: '',
-          headerTitleAlign: 'center',
-          headerShadowVisible: false,
-          headerLeft: () => <></>,
-          headerRight: () => <DashboardProfile></DashboardProfile>,
-        }}>
-      </Stack.Screen>
+      <DashboardHeader />
 
-      <View className='flex h-full w-full flex-1 flex-row bg-secondary/30'>
-        <View className='hidden flex-[0.2] sm:flex'></View>
-        <View className='flex-1 items-center sm:flex-[0.6]'>
+      <View className='items-center'>
+        <View className='w-full sm:w-1/3'>
 
-          <Text className='mt-8 text-4xl text-foreground'>
+          <Text variant='h1' className='text-center'>
             Dashboard
           </Text>
 
         </View>
-        <View className='hidden flex-[0.2] sm:flex'></View>
       </View>
 
-    </>
+    </SafeAreaView>
   );
 };
