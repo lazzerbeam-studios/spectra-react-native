@@ -1,8 +1,13 @@
+import { Stack } from 'expo-router';
+
 import { ProfileScreen } from '~/src/screens/profile/profile';
 
 const Profile = () => {
   return (
-    <ProfileScreen></ProfileScreen>
+    <>
+      <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
+      <ProfileScreen></ProfileScreen>
+    </>
   );
 };
 

@@ -1,41 +1,51 @@
+import { useEffect } from 'react';
+import { View } from 'react-native';
 import { Link, router } from 'expo-router';
-import { Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ProfileStore } from '~/src/stores/profile.store';
+import { Text } from '~/src/components/ui/text';
+import { AuthStore } from '~/src/stores/auth.store';
+import { Button } from '~/src/components/ui/button';
 
 export const HomeScreen = () => {
-
-  const onLayout = () => {
-    const profile = ProfileStore.getState().profile;
-    if (profile && profile.id) {
+  useEffect(() => {
+    const authBool = AuthStore.getState().authBool;
+    if (authBool) {
       router.replace('/dashboad');
     }
-  };
+  }, []);
 
   return (
-    <SafeAreaView className='mb-36 flex flex-1 flex-col items-center justify-center' onLayout={onLayout}>
+    <SafeAreaView>
+      <View className='items-center'>
+        <View className='w-full items-center pt-16 sm:w-1/3'>
 
-      <Text className='mb-24 pt-2 font-Poppins500 text-8xl text-foreground'>
-        Spectra
-      </Text>
-
-      <Link href='/sign-up' push asChild>
-        <TouchableOpacity className='mb-6 h-20 w-96 items-center justify-center rounded-full bg-foreground pt-1'>
-          <Text className='font-Poppins500 text-4xl text-background'>
-            Sign Up
+          <Text className='mb-24 mt-24 font-Poppins500 text-8xl text-foreground'>
+            Spectra
           </Text>
-        </TouchableOpacity>
-      </Link>
 
-      <Link href='/sign-in' push asChild>
-        <TouchableOpacity className='h-20 w-96 items-center justify-center rounded-full bg-foreground pt-1'>
-          <Text className='font-Poppins500 text-4xl text-background'>
-            Sign In
-          </Text>
-        </TouchableOpacity>
-      </Link>
+          <View className='gap-6'>
 
+            <Link href='/sign-up' push asChild>
+              <Button className='h-20 w-96 rounded-full bg-foreground hover:bg-foreground/90 active:bg-foreground'>
+                <Text className='font-Poppins500 text-4xl text-background'>
+                  Sign Up
+                </Text>
+              </Button>
+            </Link>
+
+            <Link href='/sign-in' push asChild>
+              <Button className='h-20 w-96 rounded-full bg-foreground hover:bg-foreground/90 active:bg-foreground'>
+                <Text className='font-Poppins500 text-4xl text-background'>
+                  Sign In
+                </Text>
+              </Button>
+            </Link>
+
+          </View>
+
+        </View>
+      </View>
     </SafeAreaView>
   );
 };

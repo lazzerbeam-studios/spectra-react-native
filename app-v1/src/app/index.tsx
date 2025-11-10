@@ -7,7 +7,7 @@ import { HomeScreen } from '~/src/screens/home/home';
 const Home = () => {
   cssInterop(Ionicons, {
     className: {
-      target: "style",
+      target: 'style',
     },
   });
   return (
