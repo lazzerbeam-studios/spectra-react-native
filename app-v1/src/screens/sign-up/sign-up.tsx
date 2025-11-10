@@ -1,11 +1,10 @@
-import { useState } from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Link, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useForm, Controller, useFormState } from 'react-hook-form';
-import { View, Text, TextInput, Pressable } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 import { authApi } from '~/src/api';
 import { ErrorGet } from '~/src/scripts/error';
@@ -14,16 +13,10 @@ import { ProfileStore } from '~/src/stores/profile.store';
 export const SignUpScreen = () => {
   const { profileInit } = ProfileStore();
 
-  const [loading, setLoading] = useState(false);
-
-  const { control, handleSubmit, watch } = useForm();
+  const { control, handleSubmit } = useForm();
   const { errors } = useFormState({ control });
 
-  const emailValue = watch('email');
-  const passwordValue = watch('password');
-
   const submit = async (data: any) => {
-    setLoading(true);
     try {
       const response = await authApi.signUpAPI({
         email: data.email,
@@ -35,24 +28,23 @@ export const SignUpScreen = () => {
     } catch (errors: any) {
       const error = ErrorGet(errors.response.data);
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   };
 
   return (
-    <SafeAreaView className='h-full'>
+    <SafeAreaView className='flex h-full'>
 
       <View className='ms-2 mt-2'>
         <Link href='/' asChild>
-          <Pressable className='p-2'>
+          <TouchableOpacity className='p-2'>
             <Ionicons className="color-foreground" name="chevron-back" size={35} />
-          </Pressable>
+          </TouchableOpacity>
         </Link>
       </View>
 
-      <View className='flex-1 items-center justify-center'>
-        <View className='w-full items-center sm:w-1/3'>
+      <View className='mb-44 flex w-full flex-1 flex-row'>
+        <View className='native:hidden flex-[0.2]'></View>
+        <View className='native:flex-1 flex-[0.6] items-center justify-center'>
 
           <Text className='mb-8 text-4xl font-bold text-foreground'>
             Sign Up
@@ -114,13 +106,14 @@ export const SignUpScreen = () => {
             </Text>
           )}
 
-          <Pressable onPress={handleSubmit(submit)} disabled={loading || !emailValue || !passwordValue} className='mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'>
+          <TouchableOpacity onPress={handleSubmit(submit)} className='mb-6 h-16 w-96 items-center justify-center rounded-full bg-foreground'>
             <Text className='text-3xl text-background'>
               Submit
             </Text>
-          </Pressable>
+          </TouchableOpacity>
 
         </View>
+        <View className='native:hidden flex-[0.2]'></View>
       </View>
 
     </SafeAreaView>
