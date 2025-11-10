@@ -19,7 +19,7 @@ export const BackButton = () => {
         </Button>
       ) : (
         <Link href='/'>
-          <Text className='font-Poppins500 text-4xl text-primary'>
+          <Text className='font-Poppins500 text-4xl'>
             Spectra
           </Text>
         </Link>
