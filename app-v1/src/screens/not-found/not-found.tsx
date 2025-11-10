@@ -11,11 +11,11 @@ export const NotFoundScreen = () => {
       <View className='items-center'>
         <View className='w-full items-center px-6 pt-20 sm:w-1/3'>
 
-          <Text className="mb-8 text-8xl font-black tracking-tighter">
+          <Text className='mb-8 text-8xl font-black tracking-tighter'>
             404
           </Text>
 
-          <View className="mb-8">
+          <View className='mb-8'>
             <Text variant='h1' className='mb-2 text-center text-3xl'>
               Page Not Found
             </Text>
