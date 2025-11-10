@@ -8,9 +8,9 @@ export const DashboardHeader = () => {
   return (
     <View className='h-16 flex-row items-center'>
       <View className='flex-1'></View>
-      <View className='me-4 p-2'>
+      <View className='me-2'>
         <Link href='/profile'>
-          <Icon as={CircleUserRound} size={40} />
+          <Icon as={CircleUserRound} size={48} />
         </Link>
       </View>
     </View>
