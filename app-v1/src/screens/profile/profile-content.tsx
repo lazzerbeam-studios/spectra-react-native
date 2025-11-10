@@ -68,10 +68,10 @@ export const ProfileContent = () => {
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>
-                <Text className="text-white group-hover:text-white group-active:text-white">Cancel</Text>
+                <Text>Cancel</Text>
               </AlertDialogCancel>
-              <AlertDialogAction className="bg-destructive hover:bg-destructive active:bg-destructive" onPress={profileLogout}>
-                <Text className="text-white">Sign Out</Text>
+              <AlertDialogAction onPress={profileLogout}>
+                <Text>Sign Out</Text>
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
