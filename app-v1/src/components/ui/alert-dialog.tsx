@@ -1,17 +1,16 @@
-import { buttonTextVariants, buttonVariants } from '~/src/components/ui/button';
-import { NativeOnlyAnimatedView } from '~/src/components/ui/native-only-animated-view';
-import { TextClassContext } from '~/src/components/ui/text';
-import { cn } from '~/src/lib/utils';
-import * as AlertDialogPrimitive from '@rn-primitives/alert-dialog';
 import * as React from 'react';
-import { Platform, View, type ViewProps } from 'react-native';
 import { FadeIn, FadeOut } from 'react-native-reanimated';
+import { Platform, View, type ViewProps } from 'react-native';
+import * as AlertDialogPrimitive from '@rn-primitives/alert-dialog';
 import { FullWindowOverlay as RNFullWindowOverlay } from 'react-native-screens';
 
+import { cn } from '~/src/lib/utils';
+import { TextClassContext } from '~/src/components/ui/text';
+import { buttonTextVariants, buttonVariants } from '~/src/components/ui/button';
+import { NativeOnlyAnimatedView } from '~/src/components/ui/native-only-animated-view';
+
 const AlertDialog = AlertDialogPrimitive.Root;
-
 const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
-
 const AlertDialogPortal = AlertDialogPrimitive.Portal;
 
 const FullWindowOverlay = Platform.OS === 'ios' ? RNFullWindowOverlay : React.Fragment;
@@ -22,7 +21,7 @@ function AlertDialogOverlay({
   ...props
 }: Omit<AlertDialogPrimitive.OverlayProps, 'asChild'> &
   React.RefAttributes<AlertDialogPrimitive.OverlayRef> & {
-    children?: React.ReactNode;
+    children?: React.ReactNode,
   }) {
   return (
     <FullWindowOverlay>
@@ -32,12 +31,10 @@ function AlertDialogOverlay({
           Platform.select({
             web: 'animate-in fade-in-0 fixed',
           }),
-          className
+          className,
         )}
         {...props}>
-        <NativeOnlyAnimatedView
-          entering={FadeIn.duration(200).delay(50)}
-          exiting={FadeOut.duration(150)}>
+        <NativeOnlyAnimatedView entering={FadeIn.duration(200).delay(50)} exiting={FadeOut.duration(150)}>
           <>{children}</>
         </NativeOnlyAnimatedView>
       </AlertDialogPrimitive.Overlay>
@@ -51,7 +48,7 @@ function AlertDialogContent({
   ...props
 }: AlertDialogPrimitive.ContentProps &
   React.RefAttributes<AlertDialogPrimitive.ContentRef> & {
-    portalHost?: string;
+    portalHost?: string,
   }) {
   return (
     <AlertDialogPortal hostName={portalHost}>
@@ -62,7 +59,7 @@ function AlertDialogContent({
             Platform.select({
               web: 'animate-in fade-in-0 zoom-in-95 duration-200',
             }),
-            className
+            className,
           )}
           {...props}
         />

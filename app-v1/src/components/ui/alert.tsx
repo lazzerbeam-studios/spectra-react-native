@@ -1,41 +1,42 @@
-import { Icon } from '~/src/components/ui/icon';
-import { Text, TextClassContext } from '~/src/components/ui/text';
-import { cn } from '~/src/lib/utils';
-import type { LucideIcon } from 'lucide-react-native';
 import * as React from 'react';
 import { View, type ViewProps } from 'react-native';
+import type { LucideIcon } from 'lucide-react-native';
+
+import { cn } from '~/src/lib/utils';
+import { Icon } from '~/src/components/ui/icon';
+import { Text, TextClassContext } from '~/src/components/ui/text';
 
 function Alert({
-  className,
+  icon,
   variant,
   children,
-  icon,
+  className,
   iconClassName,
   ...props
 }: ViewProps &
   React.RefAttributes<View> & {
-    icon: LucideIcon;
-    variant?: 'default' | 'destructive';
-    iconClassName?: string;
+    icon: LucideIcon,
+    iconClassName?: string,
+    variant?: 'default' | 'destructive',
   }) {
   return (
     <TextClassContext.Provider
       value={cn(
         'text-sm text-foreground',
         variant === 'destructive' && 'text-destructive',
-        className
+        className,
       )}>
       <View
         role="alert"
         className={cn(
           'bg-card border-border relative w-full rounded-lg border px-4 pb-2 pt-3.5',
-          className
+          className,
         )}
         {...props}>
-        <View className="absolute left-3.5 top-3">
+        <View className="absolute left-3.5 top-3 z-50">
           <Icon
             as={icon}
-            className={cn('size-4', variant === 'destructive' && 'text-destructive', iconClassName)}
+            className={cn('size-4 z-50', variant === 'destructive' && 'text-destructive', iconClassName)}
           />
         </View>
         {children}
@@ -66,7 +67,7 @@ function AlertDescription({
       className={cn(
         'text-muted-foreground ml-0.5 pb-1.5 pl-6 text-sm leading-relaxed',
         textClass?.includes('text-destructive') && 'text-destructive/90',
-        className
+        className,
       )}
       {...props}
     />
