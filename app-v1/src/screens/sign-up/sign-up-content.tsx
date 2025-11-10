@@ -37,7 +37,7 @@ export const SignUpContent = () => {
       });
       await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
-      showToast('Welcome to 1Tag', {
+      showToast('Welcome to Spectra', {
         variant: 'success',
         duration: 4500,
       });

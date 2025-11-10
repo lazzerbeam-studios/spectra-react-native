@@ -87,7 +87,7 @@ export const ProfileUpdateAvatar = () => {
             {profile?.image && <AvatarImage source={{ uri: profile.image }} />}
             <AvatarFallback>
               <Text className='font-Quicksand700 text-4xl text-primary'>
-                1Tag
+                Spectra
               </Text>
             </AvatarFallback>
           </Avatar>
