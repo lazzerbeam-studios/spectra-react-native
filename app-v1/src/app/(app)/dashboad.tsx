@@ -1,6 +1,6 @@
 import { Stack } from 'expo-router';
 
-import { DashboadScreen } from '~/src/screens/dashboard/dashboad';
+import { DashboadScreen } from '~/src/screens/dashboard/dashboard';
 
 const Dashboard = () => {
   return (

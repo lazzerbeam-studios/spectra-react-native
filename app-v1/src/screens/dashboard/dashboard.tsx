@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router';
 import { View, Text } from 'react-native';
 
-import { DashboadProfile } from './dashboad-profile';
+import { DashboadProfile } from './dashboard-profile';
 
 export const DashboadScreen = () => {
   return (
@@ -17,7 +17,7 @@ export const DashboadScreen = () => {
         }}>
       </Stack.Screen>
 
-      <View className='bg-secondary/30 flex h-full w-full flex-1 flex-row'>
+      <View className='flex h-full w-full flex-1 flex-row bg-secondary/30'>
         <View className='hidden flex-[0.2] sm:flex'></View>
         <View className='flex-1 items-center sm:flex-[0.6]'>
 
