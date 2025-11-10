@@ -2,11 +2,10 @@ import { Link, router } from 'expo-router';
 import { ChevronLeft } from 'lucide-react-native';
 
 import { Icon } from '~/src/components/ui/icon';
-import { Button } from '~/src/components/ui/button';
 import { Text } from '~/src/components/ui/text';
+import { Button } from '~/src/components/ui/button';
 
 export const BackButton = () => {
-
   const goBack = () => {
     router.back();
   };
