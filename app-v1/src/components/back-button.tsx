@@ -18,7 +18,7 @@ export const BackButton = () => {
         </Pressable>
       ) : (
         <Link href='/'>
-          <Text className='ms-4 font-Poppins500 text-4xl'>
+          <Text className='font-Poppins500 text-4xl'>
             Spectra
           </Text>
         </Link>
