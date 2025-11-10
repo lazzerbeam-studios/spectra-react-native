@@ -5,7 +5,7 @@ import { DashboardHeader } from './dashboard-header';
 
 export const DashboardScreen = () => {
   return (
-    <SafeAreaView className='flex h-full w-full flex-1 flex-row bg-secondary/30'>
+    <SafeAreaView>
 
       <DashboardHeader />
 
