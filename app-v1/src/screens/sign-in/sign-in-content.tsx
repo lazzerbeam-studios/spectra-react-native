@@ -113,7 +113,7 @@ export const SignInContent = () => {
           ></Controller>
         </View>
 
-        <Button onPress={handleSubmit(signIn)} disabled={loading || !emailValue || !passwordValue} variant='secondary' size="xxl" className='mt-2'>
+        <Button onPress={handleSubmit(signIn)} disabled={loading || !emailValue || !passwordValue} variant='default' size="xxl" className='mt-2'>
           {loading && <ActivityIndicator size={16} color='white' />}
           <Text>
             Sign In
@@ -122,7 +122,7 @@ export const SignInContent = () => {
 
         <Link href='/password-forgot' asChild>
           <Button variant='link' className='mt-4'>
-            <Text className='text-base text-secondary'>
+            <Text className='text-base text-primary'>
               Forgot Password?
             </Text>
           </Button>
