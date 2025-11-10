@@ -1,6 +1,9 @@
-import { router } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native';
+import { Pressable } from 'react-native';
+import { Link, router } from 'expo-router';
+import { ChevronLeft } from 'lucide-react-native';
+
+import { Icon } from '~/src/components/ui/icon';
+import { Text } from '~/src/components/ui/text';
 
 export const BackButton = () => {
   const goBack = () => {
@@ -9,10 +12,16 @@ export const BackButton = () => {
 
   return (
     <>
-      {router.canGoBack() && (
-        <TouchableOpacity className='p-2 web:ms-2' onPress={goBack}>
-          <Ionicons className="color-foreground" name="chevron-back" size={35} />
-        </TouchableOpacity>
+      {router.canGoBack() ? (
+        <Pressable onPress={goBack}>
+          <Icon as={ChevronLeft} size={48} />
+        </Pressable>
+      ) : (
+        <Link href='/'>
+          <Text className='font-Poppins500 text-4xl'>
+            Spectra
+          </Text>
+        </Link>
       )}
     </>
   );

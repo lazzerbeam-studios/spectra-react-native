@@ -1,10 +1,11 @@
 import { create } from 'zustand';
 import { router } from 'expo-router';
+import { Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { usersApi } from '~/src/api';
 import { Profile } from '~/src/openapi/api';
-import { errorGet } from '~/src/scripts/errors';
+import { ErrorGet } from '~/src/scripts/error';
 import { AuthStore } from '~/src/stores/auth.store';
 
 type State = {
@@ -16,6 +17,7 @@ type Actions = {
   profileClear: () => Promise<void>;
   profileInit: () => Promise<void>;
   profileUpdate: (profile: Profile) => Promise<void>;
+  profileUpdateImage: (uri: string) => Promise<void>;
   profileLogout: () => void;
 };
 
@@ -40,8 +42,10 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
       token = AuthStore.getState().authToken;
       try {
         const response = await usersApi.profileGetAPI(token);
-        get().profileSet(response.data.object);
-      } catch (error: any) {
+        const profileResponse: Profile = response.data.object;
+        get().profileSet(profileResponse);
+      } catch (errors: any) {
+        console.log(errors);
         await get().profileClear();
       }
     } else {
@@ -51,10 +55,35 @@ export const ProfileStore = create<State & Actions>()((set, get) => ({
   profileUpdate: async (profile: Profile) => {
     const token = AuthStore.getState().authToken;
     try {
-      const response = await usersApi.profileUpdateAPI({ object: profile }, token);
-      get().profileSet(response.data.object);
+      const response = await usersApi.profileUpdateAPI(profile, token);
+      const profileResponse: Profile = response.data.object;
+      get().profileSet(profileResponse);
     } catch (errors: any) {
-      const error = errorGet(errors.response.data);
+      const error = ErrorGet(errors.response.data);
+      throw error;
+    }
+  },
+  profileUpdateImage: async (uri: string) => {
+    const token = AuthStore.getState().authToken;
+    try {
+      let file: any;
+      if (Platform.OS === 'web') {
+        const response = await fetch(uri);
+        file = await response.blob();
+      } else {
+        const type = 'image/png';
+        const filename = 'avatar.png';
+        file = {
+          uri: uri,
+          type: type,
+          name: filename,
+        };
+      }
+      const response = await usersApi.profileImageUpdateAPI(file, token);
+      const profileResponse: Profile = response.data.object;
+      get().profileSet(profileResponse);
+    } catch (errors: any) {
+      const error = ErrorGet(errors.response.data);
       throw error;
     }
   },

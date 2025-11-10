@@ -3,13 +3,15 @@ import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
 import { useState, useEffect } from 'react';
 import { SplashScreen, Stack } from 'expo-router';
+import { PortalHost } from '@rn-primitives/portal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Theme, ThemeProvider, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
 import { NavTheme } from '~/src/theme';
+import { ToastHost } from '~/src/components/toast';
 import { ProfileStore } from '~/src/stores/profile.store';
-import { setAndroidNavigationBar } from '~/src/scripts/android-navigation-bar';
+import { AndroidNavigationBarSet } from '~/src/scripts/android-navigation-bar';
 
 import '~/src/global.css';
 
@@ -42,7 +44,7 @@ const RootLayout = () => {
       const colorTheme = (await AsyncStorage.getItem('colorScheme') || colorScheme) === 'dark' ? 'dark' : 'light';
       colorSchemeLoadedSet(true);
       setColorScheme(colorTheme);
-      setAndroidNavigationBar(colorTheme);
+      AndroidNavigationBarSet(colorTheme);
     })().finally(() => {
       SplashScreen.hideAsync();
     });
@@ -64,7 +66,10 @@ const RootLayout = () => {
       <StatusBar style={(colorScheme === 'dark') ? 'light' : 'dark'}></StatusBar>
       <Stack>
         <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen>
+        <Stack.Screen name='(auth)' options={{ headerShown: false }}></Stack.Screen>
       </Stack>
+      <ToastHost />
+      <PortalHost />
     </ThemeProvider>
   );
 };

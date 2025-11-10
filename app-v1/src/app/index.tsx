@@ -1,14 +1,13 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-
 import { Stack } from 'expo-router';
 import { cssInterop } from 'nativewind';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 import { HomeScreen } from '~/src/screens/home/home';
 
 const Home = () => {
   cssInterop(Ionicons, {
     className: {
-      target: "style",
+      target: 'style',
     },
   });
   return (

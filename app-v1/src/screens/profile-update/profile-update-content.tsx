@@ -1,0 +1,92 @@
+import { useState } from 'react';
+import { View } from 'react-native';
+import { router } from 'expo-router';
+import { useForm, Controller } from 'react-hook-form';
+import { ActivityIndicator } from '@react-native-blossom-ui/components';
+
+import { Toast } from '~/src/components/toast';
+import { Text } from '~/src/components/ui/text';
+import { Input } from '~/src/components/ui/input';
+import { Button } from '~/src/components/ui/button';
+import { ProfileStore } from '~/src/stores/profile.store';
+
+import { ProfileUpdateAvatar } from './profile-update-avatar';
+
+export const ProfileUpdateContent = () => {
+  const { profile, profileUpdate } = ProfileStore();
+  const { showToast } = Toast();
+
+  const [loading, setLoading] = useState(false);
+
+  const { control, handleSubmit, watch } = useForm();
+  const nameValue = watch('name');
+
+  const update = async (data: any) => {
+    if (profile) {
+      setLoading(true);
+      profile.name = data.name;
+      try {
+        await profileUpdate(profile);
+        showToast('Profile Updated', {
+          variant: 'success',
+          duration: 4500,
+        });
+        if (router.canGoBack()) {
+          router.back();
+        }
+      } catch (error: any) {
+        showToast('Error', {
+          variant: 'destructive',
+          description: error,
+          duration: 6000,
+        });
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
+  return (
+    <View className='items-center'>
+
+      <Text variant='h2' className='mb-4'>
+        Update Profile
+      </Text>
+
+      <ProfileUpdateAvatar />
+
+      <View className='w-full max-w-md gap-4 px-6'>
+
+        <View>
+          <Controller
+            name='name'
+            control={control}
+            defaultValue={profile?.name}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <Input
+                value={value}
+                onBlur={onBlur}
+                onChangeText={onChange}
+                placeholder='Name'
+                autoCapitalize='words'
+                className='h-14'
+              ></Input>
+            )}
+            rules={{
+              required: true,
+            }}
+          ></Controller>
+        </View>
+
+        <Button onPress={handleSubmit(update)} disabled={loading || !nameValue} variant='default' size='xxl' className='mt-2'>
+          {loading && <ActivityIndicator size={16} color='white' />}
+          <Text>
+            Update
+          </Text>
+        </Button>
+
+      </View>
+
+    </View>
+  );
+};

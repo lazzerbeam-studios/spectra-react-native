@@ -11,6 +11,10 @@ expo-start-stag:
 	cp .env.stag .env
 	npx expo start -c
 
+expo-start-network:
+	cp .env.network .env
+	npx expo start -c
+
 # expo export
 expo-export-stag:
 	cp .env.stag .env

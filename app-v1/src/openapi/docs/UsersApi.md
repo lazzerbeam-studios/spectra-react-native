@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
 |[**profileGetAPI**](#profilegetapi) | **GET** /users/profile | |
+|[**profileImageUpdateAPI**](#profileimageupdateapi) | **POST** /users/profile/image | |
 |[**profileUpdateAPI**](#profileupdateapi) | **PUT** /users/profile | |
 |[**profileUpdateEmailAPI**](#profileupdateemailapi) | **PUT** /users/profile/email | |
 
@@ -48,6 +49,60 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, application/problem+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**0** | Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **profileImageUpdateAPI**
+> ProfileImageUpdateOutputBody profileImageUpdateAPI()
+
+
+### Example
+
+```typescript
+import {
+    UsersApi,
+    Configuration
+} from './api';
+
+const configuration = new Configuration();
+const apiInstance = new UsersApi(configuration);
+
+let file: File; // (default to undefined)
+let authorization: string; // (optional) (default to undefined)
+
+const { status, data } = await apiInstance.profileImageUpdateAPI(
+    file,
+    authorization
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **file** | [**File**] |  | defaults to undefined|
+| **authorization** | [**string**] |  | (optional) defaults to undefined|
+
+
+### Return type
+
+**ProfileImageUpdateOutputBody**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, application/problem+json
 
 

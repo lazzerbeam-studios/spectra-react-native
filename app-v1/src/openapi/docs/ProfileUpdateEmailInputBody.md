@@ -6,7 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **$schema** | **string** | A URL to the JSON Schema for this object. | [optional] [readonly] [default to undefined]
-**object** | [**ProfileUpdateEmail**](ProfileUpdateEmail.md) |  | [default to undefined]
+**email** | **string** |  | [default to undefined]
+**id** | **number** |  | [default to undefined]
 
 ## Example
 
@@ -15,7 +16,8 @@ import { ProfileUpdateEmailInputBody } from './api';
 
 const instance: ProfileUpdateEmailInputBody = {
     $schema,
-    object,
+    email,
+    id,
 };
 ```
 

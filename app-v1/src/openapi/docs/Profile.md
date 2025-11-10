@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **created** | **string** |  | [default to undefined]
 **email** | **string** |  | [default to undefined]
 **id** | **number** |  | [default to undefined]
+**image** | **string** |  | [default to undefined]
 **name** | **string** |  | [default to undefined]
 
 ## Example
@@ -19,6 +20,7 @@ const instance: Profile = {
     created,
     email,
     id,
+    image,
     name,
 };
 ```
