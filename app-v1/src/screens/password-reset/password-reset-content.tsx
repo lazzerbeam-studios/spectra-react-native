@@ -106,7 +106,7 @@ export const PasswordResetContent = () => {
           )}
         </View>
 
-        <Button onPress={handleSubmit(passwordReset)} disabled={loading || !codeValue || !passwordValue} variant='secondary' size="xxl" className='mt-2'>
+        <Button onPress={handleSubmit(passwordReset)} disabled={loading || !codeValue || !passwordValue} variant='default' size="xxl" className='mt-2'>
           {loading && <ActivityIndicator size={16} color='white' />}
           <Text>
             Submit
