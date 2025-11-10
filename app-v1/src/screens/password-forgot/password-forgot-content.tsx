@@ -77,7 +77,7 @@ export const PasswordForgotContent = () => {
           )}
         </View>
 
-        <Button onPress={handleSubmit(passwordForgot)} disabled={loading || !emailValue} variant='secondary' size="xxl" className='mt-2'>
+        <Button onPress={handleSubmit(passwordForgot)} disabled={loading || !emailValue} variant='default' size="xxl" className='mt-2'>
           {loading && <ActivityIndicator size={16} color='white' />}
           <Text>
             Send
