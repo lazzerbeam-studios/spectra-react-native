@@ -23,8 +23,8 @@ export const ProfileContent = () => {
         <Avatar alt={'profile-image'} className='size-40'>
           {profile?.image && <AvatarImage source={{ uri: profile.image }} />}
           <AvatarFallback>
-            <Text className='font-Quicksand700 text-4xl text-primary'>
-              1Tag
+            <Text className='font-Poppins500 text-4xl text-primary'>
+              Spectra
             </Text>
           </AvatarFallback>
         </Avatar>
