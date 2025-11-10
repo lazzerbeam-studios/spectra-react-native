@@ -1,10 +1,9 @@
+import { Pressable } from 'react-native';
 import { Link, router } from 'expo-router';
 import { ChevronLeft } from 'lucide-react-native';
-import { Pressable } from 'react-native';
 
 import { Icon } from '~/src/components/ui/icon';
 import { Text } from '~/src/components/ui/text';
-import { Button } from '~/src/components/ui/button';
 
 export const BackButton = () => {
   const goBack = () => {
