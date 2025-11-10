@@ -41,7 +41,7 @@ export const SignUpContent = () => {
         variant: 'success',
         duration: 4500,
       });
-      router.replace('/dashboad');
+      router.replace('/dashboard');
     } catch (errors: any) {
       const error = ErrorGet(errors.response.data);
       showToast('Error', {

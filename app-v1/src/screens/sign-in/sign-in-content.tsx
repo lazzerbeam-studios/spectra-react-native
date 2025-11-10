@@ -37,7 +37,7 @@ export const SignInContent = () => {
       });
       await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
-      router.replace('/dashboad');
+      router.replace('/dashboard');
     } catch (errors: any) {
       const error = ErrorGet(errors.response.data);
       showToast('Error', {

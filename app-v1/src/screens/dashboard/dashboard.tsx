@@ -22,7 +22,7 @@ export const DashboardScreen = () => {
         <View className='flex-1 items-center sm:flex-[0.6]'>
 
           <Text className='mt-8 text-4xl text-foreground'>
-            Dashboad
+            Dashboard
           </Text>
 
         </View>
