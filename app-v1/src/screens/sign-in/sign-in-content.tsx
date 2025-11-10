@@ -103,7 +103,7 @@ export const SignInContent = () => {
                   className='h-14 pr-12'
                 ></Input>
                 <Pressable onPress={() => setPasswordBool(!passwordBool)} className='absolute right-3 top-1/2 -translate-y-1/2'>
-                  <Icon size={24} as={passwordBool ? EyeOff : Eye} className='text-muted-foreground' />
+                  <Icon as={passwordBool ? EyeOff : Eye} size={24} className='text-muted-foreground' />
                 </Pressable>
               </View>
             )}
