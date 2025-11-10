@@ -8,7 +8,9 @@ module.exports = {
     './src/components/**/*.{js,ts,tsx}',
     './src/screens/**/*.{js,ts,tsx}',
   ],
-  presets: [require('nativewind/preset')],
+  presets: [
+    require('nativewind/preset'),
+  ],
   theme: {
     extend: {
       colors: {
