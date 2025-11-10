@@ -11,7 +11,7 @@ export const HomeScreen = () => {
   useEffect(() => {
     const authBool = AuthStore.getState().authBool;
     if (authBool) {
-      router.replace('/dashboad');
+      router.replace('/dashboard');
     }
   }, []);
 

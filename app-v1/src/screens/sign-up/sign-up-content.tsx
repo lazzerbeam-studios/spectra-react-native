@@ -41,7 +41,7 @@ export const SignUpContent = () => {
         variant: 'success',
         duration: 4500,
       });
-      router.replace('/dashboad');
+      router.replace('/dashboard');
     } catch (errors: any) {
       const error = ErrorGet(errors.response.data);
       showToast('Error', {
@@ -123,7 +123,7 @@ export const SignUpContent = () => {
           )}
         </View>
 
-        <Button onPress={handleSubmit(signUp)} disabled={loading || !emailValue || !passwordValue} variant='default' size="xxl" className='mt-2'>
+        <Button onPress={handleSubmit(signUp)} disabled={loading || !emailValue || !passwordValue} variant='default' size='xxl' className='mt-2'>
           {loading && <ActivityIndicator size={16} color='white' />}
           <Text>
             Sign Up

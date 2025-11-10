@@ -37,7 +37,7 @@ export const SignInContent = () => {
       });
       await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
-      router.replace('/dashboad');
+      router.replace('/dashboard');
     } catch (errors: any) {
       const error = ErrorGet(errors.response.data);
       showToast('Error', {
@@ -113,7 +113,7 @@ export const SignInContent = () => {
           ></Controller>
         </View>
 
-        <Button onPress={handleSubmit(signIn)} disabled={loading || !emailValue || !passwordValue} variant='default' size="xxl" className='mt-2'>
+        <Button onPress={handleSubmit(signIn)} disabled={loading || !emailValue || !passwordValue} variant='default' size='xxl' className='mt-2'>
           {loading && <ActivityIndicator size={16} color='white' />}
           <Text>
             Sign In

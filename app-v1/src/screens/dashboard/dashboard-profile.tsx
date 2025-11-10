@@ -3,7 +3,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { Link } from 'expo-router';
 import { TouchableOpacity, View } from 'react-native';
 
-export const DashboadProfile = () => {
+export const DashboardProfile = () => {
   return (
     <Link href='/profile' asChild>
       <TouchableOpacity className='web:me-2'>
