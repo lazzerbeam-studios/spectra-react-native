@@ -5,23 +5,14 @@ import { useState, useEffect } from 'react';
 import { SplashScreen, Stack } from 'expo-router';
 import { PortalHost } from '@rn-primitives/portal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Theme, ThemeProvider, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { ThemeProvider } from '@react-navigation/native';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
-import { NavTheme } from '~/src/theme';
+import { NAV_THEME } from '~/src/theme';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { AndroidNavigationBarSet } from '~/src/scripts/android-navigation-bar';
 
 import '~/src/global.css';
-
-const LIGHT_THEME: Theme = {
-  ...DefaultTheme,
-  colors: NavTheme.light,
-};
-const DARK_THEME: Theme = {
-  ...DarkTheme,
-  colors: NavTheme.dark,
-};
 
 SplashScreen.preventAutoHideAsync();
 
@@ -61,7 +52,7 @@ const RootLayout = () => {
   }
 
   return (
-    <ThemeProvider value={(colorScheme === 'dark') ? DARK_THEME : LIGHT_THEME}>
+    <ThemeProvider value={NAV_THEME[colorScheme === 'dark' ? 'dark' : 'light']}>
       <StatusBar style={(colorScheme === 'dark') ? 'light' : 'dark'}></StatusBar>
       <Stack>
         <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen>
