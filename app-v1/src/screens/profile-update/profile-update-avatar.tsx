@@ -82,7 +82,7 @@ export const ProfileUpdateAvatar = () => {
     <View>
 
       <Pressable onPress={imageChoose} className='mb-4'>
-        <View className='rounded-full bg-secondary/25 p-2'>
+        <View className='rounded-full bg-primary/25 p-2'>
           <Avatar alt={'profile-image'} className='size-40'>
             {profile?.image && <AvatarImage source={{ uri: profile.image }} />}
             <AvatarFallback>

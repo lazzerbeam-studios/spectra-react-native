@@ -78,7 +78,7 @@ export const ProfileUpdateContent = () => {
           ></Controller>
         </View>
 
-        <Button onPress={handleSubmit(update)} disabled={loading || !nameValue} variant='secondary' size="xxl" className='mt-2'>
+        <Button onPress={handleSubmit(update)} disabled={loading || !nameValue} variant='default' size="xxl" className='mt-2'>
           {loading && <ActivityIndicator size={16} color='white' />}
           <Text>
             Update
