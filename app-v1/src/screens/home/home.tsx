@@ -27,7 +27,7 @@ export const HomeScreen = () => {
           <View className='gap-6'>
 
             <Link href='/sign-up' push asChild>
-              <Button className='h-20 w-96 rounded-full bg-foreground hover:bg-foreground/90 active:bg-foreground'>
+              <Button className='h-20 w-96 rounded-full bg-primary hover:bg-primary/90 active:bg-primary'>
                 <Text className='font-Poppins500 text-4xl text-background'>
                   Sign Up
                 </Text>
@@ -35,7 +35,7 @@ export const HomeScreen = () => {
             </Link>
 
             <Link href='/sign-in' push asChild>
-              <Button className='h-20 w-96 rounded-full bg-foreground hover:bg-foreground/90 active:bg-foreground'>
+              <Button className='h-20 w-96 rounded-full bg-primary hover:bg-primary/90 active:bg-primary'>
                 <Text className='font-Poppins500 text-4xl text-background'>
                   Sign In
                 </Text>
