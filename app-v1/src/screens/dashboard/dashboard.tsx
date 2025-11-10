@@ -1,9 +1,9 @@
 import { Stack } from 'expo-router';
 import { View, Text } from 'react-native';
 
-import { DashboadProfile } from './dashboard-profile';
+import { DashboardProfile } from './dashboard-profile';
 
-export const DashboadScreen = () => {
+export const DashboardScreen = () => {
   return (
     <>
 
@@ -13,7 +13,7 @@ export const DashboadScreen = () => {
           headerTitleAlign: 'center',
           headerShadowVisible: false,
           headerLeft: () => <></>,
-          headerRight: () => <DashboadProfile></DashboadProfile>,
+          headerRight: () => <DashboardProfile></DashboardProfile>,
         }}>
       </Stack.Screen>
 

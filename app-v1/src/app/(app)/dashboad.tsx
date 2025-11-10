@@ -1,12 +1,12 @@
 import { Stack } from 'expo-router';
 
-import { DashboadScreen } from '~/src/screens/dashboard/dashboard';
+import { DashboardScreen } from '~/src/screens/dashboard/dashboard';
 
 const Dashboard = () => {
   return (
     <>
       <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
-      <DashboadScreen></DashboadScreen>
+      <DashboardScreen></DashboardScreen>
     </>
   );
 };
