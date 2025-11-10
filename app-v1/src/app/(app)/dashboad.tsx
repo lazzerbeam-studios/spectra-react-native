@@ -1,8 +1,13 @@
+import { Stack } from 'expo-router';
+
 import { DashboadScreen } from '~/src/screens/dashboad/dashboad';
 
 const Dashboad = () => {
   return (
-    <DashboadScreen></DashboadScreen>
+    <>
+      <Stack.Screen options={{ headerShown: false }}></Stack.Screen>
+      <DashboadScreen></DashboadScreen>
+    </>
   );
 };
 
