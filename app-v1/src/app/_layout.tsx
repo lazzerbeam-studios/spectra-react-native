@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useColorScheme } from 'nativewind';
 import { useState, useEffect } from 'react';
 import { SplashScreen, Stack } from 'expo-router';
+import { PortalHost } from '@rn-primitives/portal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Theme, ThemeProvider, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
@@ -66,6 +67,7 @@ const RootLayout = () => {
         <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen>
         <Stack.Screen name='(auth)' options={{ headerShown: false }}></Stack.Screen>
       </Stack>
+      <PortalHost />
     </ThemeProvider>
   );
 };
