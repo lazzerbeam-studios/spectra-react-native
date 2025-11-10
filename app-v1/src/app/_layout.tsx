@@ -9,6 +9,7 @@ import { Theme, ThemeProvider, DefaultTheme, DarkTheme } from '@react-navigation
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins';
 
 import { NavTheme } from '~/src/theme';
+import { ToastHost } from '~/src/components/toast';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { AndroidNavigationBarSet } from '~/src/scripts/android-navigation-bar';
 
@@ -67,6 +68,7 @@ const RootLayout = () => {
         <Stack.Screen name='(app)' options={{ headerShown: false }}></Stack.Screen>
         <Stack.Screen name='(auth)' options={{ headerShown: false }}></Stack.Screen>
       </Stack>
+      <ToastHost />
       <PortalHost />
     </ThemeProvider>
   );
