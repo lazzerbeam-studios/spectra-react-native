@@ -20,7 +20,7 @@ export const HomeScreen = () => {
       <View className='items-center'>
         <View className='w-full items-center pt-16 sm:w-1/3'>
 
-          <Text className='mb-24 pt-2 font-Poppins500 text-8xl text-foreground'>
+          <Text className='mb-24 mt-24 font-Poppins500 text-8xl text-foreground'>
             Spectra
           </Text>
 
