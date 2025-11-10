@@ -9,7 +9,7 @@ export const DashboardHeader = () => {
     <View className='h-16 flex-row items-center'>
       <View className='flex-1'></View>
       <Link href='/profile' className='me-4 p-2'>
-        <Icon as={CircleUserRound} size={32} />
+        <Icon as={CircleUserRound} size={40} />
       </Link>
     </View>
   );
