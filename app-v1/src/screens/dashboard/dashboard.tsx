@@ -13,7 +13,7 @@ export const DashboardScreen = () => {
       <View className='items-center'>
         <View className='w-full sm:w-1/3'>
 
-          <Text variant='h1'>
+          <Text variant='h1' className='text-center'>
             Dashboard
           </Text>
 
