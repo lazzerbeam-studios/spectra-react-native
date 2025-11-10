@@ -42,7 +42,7 @@ export const ProfileContent = () => {
       <View className='mt-12 w-full max-w-md gap-4 px-6'>
 
         <Link href='/profile-update' asChild>
-          <Button variant='secondary' size='xl'>
+          <Button variant='default' size='xl'>
             <Icon as={Edit2} size={20} className='text-secondary-foreground' />
             <Text>
               Edit Profile
@@ -52,7 +52,7 @@ export const ProfileContent = () => {
 
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button variant='outline' size='xl'>
+            <Button variant='link' size='xl'>
               <Icon as={LogOut} size={20} className='text-destructive' />
               <Text className='text-destructive group-hover:text-destructive group-active:text-destructive'>
                 Sign Out
