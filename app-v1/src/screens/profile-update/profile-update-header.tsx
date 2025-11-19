@@ -1,5 +1,5 @@
-import { View, Pressable } from 'react-native';
 import { useColorScheme } from 'nativewind';
+import { View, Pressable } from 'react-native';
 import { Moon, Sun } from 'lucide-react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
