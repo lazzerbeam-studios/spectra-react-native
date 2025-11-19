@@ -70,7 +70,7 @@ function AlertDialogContent({
 
 function AlertDialogHeader({ className, ...props }: ViewProps) {
   return (
-    <TextClassContext.Provider value="text-center sm:text-left">
+    <TextClassContext.Provider value='text-center sm:text-left'>
       <View className={cn('flex flex-col gap-2', className)} {...props} />
     </TextClassContext.Provider>
   );

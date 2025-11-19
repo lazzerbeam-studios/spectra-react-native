@@ -27,13 +27,13 @@ function Alert({
         className,
       )}>
       <View
-        role="alert"
+        role='alert'
         className={cn(
           'bg-card border-border relative w-full rounded-lg border px-4 pb-2 pt-3.5',
           className,
         )}
         {...props}>
-        <View className="absolute left-3.5 top-3 z-50">
+        <View className='absolute left-3.5 top-3 z-50'>
           <Icon
             as={icon}
             className={cn('size-4 z-50', variant === 'destructive' && 'text-destructive', iconClassName)}

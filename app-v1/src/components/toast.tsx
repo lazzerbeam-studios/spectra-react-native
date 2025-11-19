@@ -2,6 +2,8 @@ import { Ionicons } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 
 type ToastVariant = 'default' | 'success' | 'destructive';
 
@@ -43,7 +45,87 @@ function Toast() {
   return { showToast };
 }
 
-const ToastHost: React.FC = () => {
+type ToastItemProps = {
+  toast: ToastRecord;
+  iconVariant: string;
+  stylesVariant: {
+    container: string;
+    text: string;
+    icon: string;
+  };
+  onRemove: () => void;
+};
+
+function ToastItem({ toast, iconVariant, stylesVariant, onRemove }: ToastItemProps) {
+  const translateY = useSharedValue(-100);
+  const opacity = useSharedValue(0);
+
+  useEffect(() => {
+    translateY.value = withTiming(0, { duration: 300 });
+    opacity.value = withTiming(1, { duration: 300 });
+  }, [opacity, translateY]);
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateY: translateY.value }],
+      opacity: opacity.value,
+    };
+  });
+
+  const handleRemove = () => {
+    translateY.value = withTiming(-200, { duration: 300 });
+    opacity.value = withTiming(0, { duration: 300 });
+    setTimeout(() => {
+      onRemove();
+    }, 300);
+  };
+
+  const pan = Gesture.Pan()
+    .runOnJS(true)
+    .activeOffsetY([-5, 5])
+    .onUpdate((event) => {
+      if (event.translationY < 0) {
+        translateY.value = event.translationY;
+        opacity.value = Math.max(0, 1 + event.translationY / 200);
+      } else {
+        translateY.value = 0;
+        opacity.value = 1;
+      }
+    })
+    .onEnd((event) => {
+      if (event.translationY < -50) {
+        handleRemove();
+      } else {
+        translateY.value = withTiming(0, { duration: 200 });
+        opacity.value = withTiming(1, { duration: 200 });
+      }
+    });
+
+  return (
+    <GestureDetector gesture={pan}>
+      <Animated.View style={animatedStyle}>
+        <Pressable onPress={handleRemove} className='pb-4'>
+          <View className={`rounded-lg p-4 flex-row items-start gap-3 border-1 ${stylesVariant.container}`}>
+            <Ionicons name={iconVariant as any} size={20} className={stylesVariant.icon} />
+            <View className='flex-1'>
+              <Text className={`font-semibold text-lg ${stylesVariant.text}`} style={styles.title}>
+                {toast.title}
+              </Text>
+              {toast.description && (
+                <Text className={`mt-1 ${stylesVariant.text}`}>
+                  {toast.description}
+                </Text>
+              )}
+            </View>
+            <Ionicons name='close' size={20} className={stylesVariant.icon} />
+          </View>
+        </Pressable>
+      </Animated.View>
+    </GestureDetector>
+  );
+};
+
+function ToastHost() {
   const [current, setCurrent] = useState<ToastRecord[]>(toasts);
   const insets = useSafeAreaInsets();
 
@@ -91,22 +173,13 @@ const ToastHost: React.FC = () => {
           const iconVariant = getToastIcon(toast.variant);
           const stylesVariant = getToastStyles(toast.variant);
           return (
-            <Pressable key={toast.id} onPress={() => removeToast(toast.id)} className='pb-4'>
-              <View className={`rounded-lg p-4 flex-row items-start gap-3 border-1 ${stylesVariant.container}`}>
-                <Ionicons name={iconVariant as any} size={20} className={stylesVariant.icon} />
-                <View className='flex-1'>
-                  <Text className={`font-semibold text-lg ${stylesVariant.text}`} style={styles.title}>
-                    {toast.title}
-                  </Text>
-                  {toast.description && (
-                    <Text className={`mt-1 ${stylesVariant.text}`}>
-                      {toast.description}
-                    </Text>
-                  )}
-                </View>
-                <Ionicons name='close' size={20} className={stylesVariant.icon} />
-              </View>
-            </Pressable>
+            <ToastItem
+              key={toast.id}
+              toast={toast}
+              iconVariant={iconVariant}
+              stylesVariant={stylesVariant}
+              onRemove={() => removeToast(toast.id)}
+            />
           );
         })}
       </View>

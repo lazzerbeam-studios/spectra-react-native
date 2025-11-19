@@ -107,7 +107,7 @@ function Button({ className, variant, size, ...props }: ButtonProps) {
           buttonVariants({ variant, size }),
           className,
         )}
-        role="button"
+        role='button'
         {...props}
       />
     </TextClassContext.Provider>
