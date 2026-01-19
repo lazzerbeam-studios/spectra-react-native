@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Pencil } from 'lucide-react-native';
+import { cssInterop } from 'nativewind';
 import * as ImagePicker from 'expo-image-picker';
 import { View, Pressable, Platform, StyleSheet } from 'react-native';
 
@@ -8,6 +9,15 @@ import { Text } from '~/src/components/ui/text';
 import { Cropper } from '~/src/components/cropper';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
+
+cssInterop(Pencil, {
+  className: {
+    target: 'style',
+    nativeStyleToProp: {
+      color: 'color',
+    },
+  },
+});
 
 export const ProfileUpdateAvatar = () => {
   const { profile, profileUpdateImage } = ProfileStore();
@@ -93,7 +103,7 @@ export const ProfileUpdateAvatar = () => {
             </AvatarFallback>
           </Avatar>
           <View style={styles.pencil} className='absolute z-10'>
-            <Pencil size={28} color='#FFFFFF' strokeWidth={2.5} />
+            <Pencil size={28} strokeWidth={2.5} className='text-primary' />
           </View>
         </View>
       </Pressable>
