@@ -1,7 +1,8 @@
 import { Link } from 'expo-router';
 import { View } from 'react-native';
+import { UserRound } from 'lucide-react-native';
 
-import { Text } from '~/src/components/ui/text';
+import { Icon } from '~/src/components/ui/icon';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
 
@@ -17,9 +18,7 @@ export const DashboardHeader = () => {
             <Avatar alt={'profile-image'} className='size-12'>
               {profile?.image && <AvatarImage source={{ uri: profile.image }} />}
               <AvatarFallback>
-                <Text className='font-Poppins500 text-2xl text-primary'>
-                  S
-                </Text>
+                <Icon as={UserRound} size={48} />
               </AvatarFallback>
             </Avatar>
           </View>
