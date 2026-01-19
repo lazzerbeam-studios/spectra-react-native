@@ -18,7 +18,7 @@ export const DashboardHeader = () => {
             <Avatar alt={'profile-image'} className='size-12'>
               {profile?.image && <AvatarImage source={{ uri: profile.image }} />}
               <AvatarFallback>
-                <Icon as={UserRound} size={48} strokeWidth={1.75} />
+                <Icon as={UserRound} size={48} strokeWidth={2.5} />
               </AvatarFallback>
             </Avatar>
           </View>
