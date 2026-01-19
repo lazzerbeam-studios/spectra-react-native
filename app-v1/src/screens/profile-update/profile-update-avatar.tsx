@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { Pencil } from 'lucide-react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { View, Pressable, Platform } from 'react-native';
+import { View, Pressable, Platform, StyleSheet } from 'react-native';
 
 import { Toast } from '~/src/components/toast';
 import { Text } from '~/src/components/ui/text';
@@ -82,15 +83,18 @@ export const ProfileUpdateAvatar = () => {
     <View>
 
       <Pressable onPress={imageChoose} className='mb-4'>
-        <View className='rounded-full bg-primary/25 p-2'>
+        <View className='relative rounded-full bg-primary/25 p-2'>
           <Avatar alt={'profile-image'} className='size-40'>
             {profile?.image && <AvatarImage source={{ uri: profile.image }} />}
             <AvatarFallback>
-              <Text className='font-Poppins500 text-4xl text-primary'>
-                Spectra
+              <Text className='font-Poppins500 text-3xl text-primary'>
+                Hyvecity
               </Text>
             </AvatarFallback>
           </Avatar>
+          <View style={styles.pencil} className='absolute z-10'>
+            <Pencil size={28} color='#FFFFFF' strokeWidth={2.5} />
+          </View>
         </View>
       </Pressable>
 
@@ -106,3 +110,12 @@ export const ProfileUpdateAvatar = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  pencil: {
+    top: 12,
+    right: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
