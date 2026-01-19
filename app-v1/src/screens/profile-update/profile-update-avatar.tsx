@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { cssInterop } from 'nativewind';
-import { Pencil } from 'lucide-react-native';
 import * as ImagePicker from 'expo-image-picker';
+import { Pencil, UserRound } from 'lucide-react-native';
 import { View, Pressable, Platform, StyleSheet } from 'react-native';
 
 import { Toast } from '~/src/components/toast';
-import { Text } from '~/src/components/ui/text';
+import { Icon } from '~/src/components/ui/icon';
 import { Cropper } from '~/src/components/cropper';
 import { ProfileStore } from '~/src/stores/profile.store';
 import { Avatar, AvatarFallback, AvatarImage } from '~/src/components/ui/avatar';
@@ -97,9 +97,7 @@ export const ProfileUpdateAvatar = () => {
           <Avatar alt={'profile-image'} className='size-40'>
             {profile?.image && <AvatarImage source={{ uri: profile.image }} />}
             <AvatarFallback>
-              <Text className='font-Poppins500 text-3xl text-primary'>
-                Spectra
-              </Text>
+              <Icon as={UserRound} size={160} strokeWidth={1.5} />
             </AvatarFallback>
           </Avatar>
           <View style={styles.pencil} className='absolute z-10'>
