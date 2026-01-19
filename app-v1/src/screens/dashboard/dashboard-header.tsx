@@ -18,7 +18,7 @@ export const DashboardHeader = () => {
               {profile?.image && <AvatarImage source={{ uri: profile.image }} />}
               <AvatarFallback>
                 <Text className='font-Poppins500 text-2xl text-primary'>
-                  H
+                  S
                 </Text>
               </AvatarFallback>
             </Avatar>
