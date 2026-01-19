@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import { View } from 'react-native';
-import { Edit2, LogOut } from 'lucide-react-native';
+import { Edit2, LogOut, UserRound } from 'lucide-react-native';
 
 import { Icon } from '~/src/components/ui/icon';
 import { Text } from '~/src/components/ui/text';
@@ -23,9 +23,7 @@ export const ProfileContent = () => {
         <Avatar alt={'profile-image'} className='size-40'>
           {profile?.image && <AvatarImage source={{ uri: profile.image }} />}
           <AvatarFallback>
-            <Text className='font-Poppins500 text-3xl text-primary'>
-              Spectra
-            </Text>
+            <Icon as={UserRound} size={160} strokeWidth={1.5} />
           </AvatarFallback>
         </Avatar>
       </View>
