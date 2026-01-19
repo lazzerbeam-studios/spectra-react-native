@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Pencil } from 'lucide-react-native';
 import { cssInterop } from 'nativewind';
+import { Pencil } from 'lucide-react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { View, Pressable, Platform, StyleSheet } from 'react-native';
 
