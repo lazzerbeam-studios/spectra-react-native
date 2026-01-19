@@ -15,7 +15,7 @@ export const DashboardHeader = () => {
         <Link href='/profile'>
           <View className='rounded-full bg-primary/25 p-1'>
             <Avatar alt={'profile-image'} className='size-12'>
-              <AvatarImage source={profile?.image ? { uri: profile.image } : require('~/src/assets/images/avatar.png')} />
+              {profile?.image && <AvatarImage source={{ uri: profile.image }} />}
               <AvatarFallback>
                 <Text className='font-Poppins500 text-2xl text-primary'>
                   S
