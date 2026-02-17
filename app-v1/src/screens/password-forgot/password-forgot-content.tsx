@@ -13,8 +13,6 @@ import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 
 export const PasswordForgotContent = () => {
-  const { showToast } = Toast();
-
   const [loading, setLoading] = useState(false);
 
   const { control, handleSubmit, watch } = useForm();
@@ -30,7 +28,7 @@ export const PasswordForgotContent = () => {
       router.replace('/password-reset');
     } catch (errors: any) {
       const error = ErrorGet(errors.response.data);
-      showToast('Error', {
+      Toast('Error', {
         variant: 'destructive',
         description: error,
         duration: 6000,

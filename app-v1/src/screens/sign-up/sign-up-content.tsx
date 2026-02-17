@@ -18,7 +18,6 @@ import { Button } from '~/src/components/ui/button';
 
 export const SignUpContent = () => {
   const { profileInit } = ProfileStore();
-  const { showToast } = Toast();
 
   const [loading, setLoading] = useState(false);
   const [passwordBool, setPasswordBool] = useState(false);
@@ -37,14 +36,14 @@ export const SignUpContent = () => {
       });
       await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
-      showToast('Welcome to Spectra', {
+      Toast('Welcome to Spectra', {
         variant: 'success',
         duration: 4500,
       });
       router.replace('/dashboard');
     } catch (errors: any) {
       const error = ErrorGet(errors.response.data);
-      showToast('Error', {
+      Toast('Error', {
         variant: 'destructive',
         description: error,
         duration: 6000,

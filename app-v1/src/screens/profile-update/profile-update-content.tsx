@@ -14,7 +14,6 @@ import { ProfileUpdateAvatar } from './profile-update-avatar';
 
 export const ProfileUpdateContent = () => {
   const { profile, profileUpdate } = ProfileStore();
-  const { showToast } = Toast();
 
   const [loading, setLoading] = useState(false);
 
@@ -27,7 +26,7 @@ export const ProfileUpdateContent = () => {
       profile.name = data.name;
       try {
         await profileUpdate(profile);
-        showToast('Profile Updated', {
+        Toast('Profile Updated', {
           variant: 'success',
           duration: 4500,
         });
@@ -35,7 +34,7 @@ export const ProfileUpdateContent = () => {
           router.back();
         }
       } catch (error: any) {
-        showToast('Error', {
+        Toast('Error', {
           variant: 'destructive',
           description: error,
           duration: 6000,
