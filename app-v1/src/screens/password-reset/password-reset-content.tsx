@@ -15,7 +15,6 @@ import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 
 export const PasswordResetContent = () => {
-  const { showToast } = Toast();
 
   const [loading, setLoading] = useState(false);
   const [passwordBool, setPasswordBool] = useState(false);
@@ -35,7 +34,7 @@ export const PasswordResetContent = () => {
       router.replace('/sign-in');
     } catch (errors: any) {
       const error = ErrorGet(errors.response.data);
-      showToast('Error', {
+      Toast('Error', {
         variant: 'destructive',
         description: error,
         duration: 6000,

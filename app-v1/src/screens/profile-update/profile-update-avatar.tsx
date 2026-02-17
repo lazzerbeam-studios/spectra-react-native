@@ -21,7 +21,6 @@ cssInterop(Pencil, {
 
 export const ProfileUpdateAvatar = () => {
   const { profile, profileUpdateImage } = ProfileStore();
-  const { showToast } = Toast();
 
   const [showCropper, setShowCropper] = useState(false);
   const [imageUri, setImageUri] = useState<string>('');
@@ -29,7 +28,7 @@ export const ProfileUpdateAvatar = () => {
   const imageChoose = async () => {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (status !== 'granted') {
-      showToast('Permission Required', {
+      Toast('Permission Required', {
         variant: 'destructive',
         description: 'Sorry, we need camera roll permissions to update your profile picture.'
       });
@@ -51,13 +50,13 @@ export const ProfileUpdateAvatar = () => {
       } else {
         try {
           await profileUpdateImage(imageUri);
-          showToast('Success', {
+          Toast('Success', {
             variant: 'success',
             description: 'Profile picture updated successfully.',
           });
         } catch (error: any) {
           console.log(error);
-          showToast('Error', {
+          Toast('Error', {
             variant: 'destructive',
             description: 'Failed to update profile picture.',
           });
@@ -71,13 +70,13 @@ export const ProfileUpdateAvatar = () => {
     setImageUri('');
     try {
       await profileUpdateImage(uri);
-      showToast('Success', {
+      Toast('Success', {
         variant: 'success',
         description: 'Profile picture updated successfully.',
       });
     } catch (error: any) {
       console.log(error);
-      showToast('Error', {
+      Toast('Error', {
         variant: 'destructive',
         description: 'Failed to update profile picture.',
       });
