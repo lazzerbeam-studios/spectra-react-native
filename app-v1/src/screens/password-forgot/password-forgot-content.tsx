@@ -13,7 +13,6 @@ import { Input } from '~/src/components/ui/input';
 import { Button } from '~/src/components/ui/button';
 
 export const PasswordForgotContent = () => {
-
   const [loading, setLoading] = useState(false);
 
   const { control, handleSubmit, watch } = useForm();
