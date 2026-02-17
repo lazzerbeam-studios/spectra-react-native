@@ -38,13 +38,6 @@ function removeToast(id: number) {
   }
 }
 
-function Toast() {
-  const showToast = (title: string, options?: { variant?: ToastVariant; duration?: number; description?: string }) => {
-    addToast(title, options?.variant ?? 'default', options?.duration ?? 6000, options?.description);
-  };
-  return { showToast };
-}
-
 type ToastItemProps = {
   toast: ToastRecord;
   iconVariant: string;
@@ -186,6 +179,10 @@ function ToastHost() {
     </View>
   );
 };
+
+function Toast(title: string, options?: { variant?: ToastVariant; duration?: number; description?: string }) {
+  addToast(title, options?.variant ?? 'default', options?.duration ?? 6000, options?.description);
+}
 
 export { Toast, ToastHost };
 export type { ToastVariant, ToastRecord };
