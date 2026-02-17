@@ -116,7 +116,7 @@ function ToastItem({ toast, iconVariant, stylesVariant, onRemove }: ToastItemPro
       </Animated.View>
     </GestureDetector>
   );
-}
+};
 
 function ToastHost() {
   const [current, setCurrent] = useState<ToastRecord[]>(toasts);
@@ -178,7 +178,7 @@ function ToastHost() {
       </View>
     </View>
   );
-}
+};
 
 function Toast(title: string, options?: { variant?: ToastVariant; duration?: number; description?: string }) {
   addToast(title, options?.variant ?? 'default', options?.duration ?? 6000, options?.description);
