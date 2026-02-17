@@ -18,7 +18,7 @@ description: Tailwind and NativeWind styling for React Native/Expo. Use when sty
 * Prefer semantic tokens over raw colors: **text-foreground**, **text-muted-foreground**, **text-primary**, **bg-background**, **bg-card**, **bg-primary**, **border-border**, **bg-secondary/25**, **bg-primary/10**.
 * Radius: **rounded-md**, **rounded-lg**, **rounded-2xl**; config has **radius** (lg, md, sm).
 * Shadows: **shadow-sm shadow-black/5** for subtle elevation.
-* Custom fonts: **font-Quicksand300** … **font-Quicksand700** (defined in theme **fontFamily**).
+* Custom fonts: **font-Poppins400** … **font-Poppins700** (defined in theme **fontFamily**).
 
 ## Components
 
