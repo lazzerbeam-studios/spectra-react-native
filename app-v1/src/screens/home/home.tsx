@@ -21,7 +21,7 @@ export const HomeScreen = () => {
         <View className='w-full items-center pt-16 sm:w-1/3'>
 
           <Text className='mb-24 mt-24 pt-2 font-Poppins500 text-8xl text-foreground'>
-            Spectra
+            Photon
           </Text>
 
           <View className='gap-6'>

@@ -1,6 +1,6 @@
 {
   "cesVersion": "2.18.3",
-  "projectName": "spectra",
+  "projectName": "photon",
   "packages": [
     {
       "name": "expo-router",
