@@ -36,7 +36,7 @@ export const SignUpContent = () => {
       });
       await AsyncStorage.setItem('token', response.data.token);
       await profileInit();
-      Toast('Welcome to Spectra', {
+      Toast('Welcome to Photon', {
         variant: 'success',
         duration: 4500,
       });

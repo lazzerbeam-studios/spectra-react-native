@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "spectra",
-    "slug": "spectra",
+    "name": "photon",
+    "slug": "photon",
     "version": "1.0.0",
-    "scheme": "spectra",
+    "scheme": "photon",
     "web": {
       "bundler": "metro",
       "output": "static",
